@@ -1,0 +1,11 @@
+
+
+node_modules/*
+.vscode
+.DS_Store
+site/assets/files/*
+site/assets/cache/*
+site/templates/mode_modules/*
+site/templates/node_modules/
+site/assets/sessions/
+site/assets/logs/
