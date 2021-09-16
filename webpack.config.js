@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const chalk = require('chalk');
@@ -89,7 +88,8 @@ return  {
                         loader: 'sass-loader',
                         options: {
                             sourceMap: true,
-                            sourceMapContents: false
+                            // Prefer `dart-sass`
+                            implementation: require("sass"),
                         }
                     }
                 ],
@@ -125,8 +125,8 @@ return  {
     optimization: {
         
         minimize: isProd(),
-        namedModules: true,
-        namedChunks: true,
+        moduleIds: 'named',
+        chunkIds: 'named',
         // chunkIds: 'named',
         // runtimeChunk: 'single',
         // splitChunks: {
@@ -141,20 +141,6 @@ return  {
         //     // }
         // },
 
-        // minimizer: [
-        //     new UglifyJsPlugin({
-        //         // minimize: true,
-        //         cache: true,
-        //         // parallel: true,
-        //         // compress: true,
-        //     	sourceMap: true
-        //     }),
-        //     new OptimizeCSSAssetsPlugin({
-        //         // cssProcessorOptions: { discardComments: { removeAll: true } },
-        //         // canPrint: true
-        //     })
-        //     // new OptimizeCSSAssetsPlugin({})
-        // ]
 
     },
     plugins: loadPlugins()
