@@ -1,27 +1,24 @@
-
 // HELPERS
 
-
-.uppercase{
-    text-transform: uppercase;
+.uppercase {
+	text-transform: uppercase;
 }
 
-.block{
-    display: block;
+.block {
+	display: block;
 }
 
-
-.relative{
-    position: relative;
+.relative {
+	position: relative;
 }
 
+.overflow-hidden {
+	overflow: hidden;
+}
 
-
-@include breakpoint(large){
-    .large-14{
-        width: ( 1/12 * 14 * 100%);
-    }
-    .large-200p{
-        width: 200%;
-    }
+@include media-breakpoint-up(lg) {
+	.columns-lg-2 {
+		column-count: 2;
+		column-gap: var(--gutter);
+	}
 }

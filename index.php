@@ -1,349 +1,314 @@
 <?php
 
 
-
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html class="no-js">
 
 <head>
-    <title>Automotive</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="./dist/css/app.css">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <title>Sparmed.dk</title>
+    <?php include('./parts/head-scripts.php'); ?>
 </head>
 
 <body>
-
+    <div style="display:none">
+        <?php include('./dist/spritemap.svg'); ?>
+    </div>
 
 
     <div class="main-wrapper">
         <div class="relative">
-            <div class="top-menu ">
-                <div class="grid-x default-wrapper">
+            <div class="main-header">
+                <div class="d-flex default-wrapper">
 
-                    <div class="cell auto">
-                        <a class="top-menu__logo" href="#top"><img src="./img/logo.png" alt=""></a>
-                    </div>
-                    <div class="cell shrink lang">
-                        Język - PL
-                    </div>
-                    <div class="cell shrink buttons">
-                        <button data-scroll-to="#form" class="large button ">ZWIĘKSZ SPRZEDAŻ</button>
+                    <!-- <div class="col-2"> -->
+                    <a class="main-header__logo" href="#top"><img src="./img/logo.svg" alt=""></a>
+                    <!-- </div> -->
+                    <nav class="main-menu">
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Distributors</a></li>
+                            <li><a href="">Products</a></li>
+                            <li><a href="">News</a></li>
+                            <li><a href="">Contacts</a></li>
+                        </ul>
+                        <!-- <div class="flex-grow-1 lang"> -->
+
+
+                        <!-- </div> -->
+                    </nav>
+                    <div class="main-header__buttons">
+                        <a href="">
+                            <svg class="icon">
+                                <use xlink:href="#sprite-magnify" />
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg class="icon">
+                                <use xlink:href="#sprite-account" />
+                            </svg>
+                        </a>
+                        <a href="">
+                            <svg class="icon">
+                                <use xlink:href="#sprite-cart" />
+                            </svg>
+                        </a>
+                        <button id="hamburger" class="hamburger-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">
+                            <div class="toggle">
+                                <!-- <input type="checkbox"> -->
+                                <div>
+                                    <div>
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                    <svg>
+                                        <use xlink:href="#path">
+                                    </svg>
+                                    <svg>
+                                        <use xlink:href="#path">
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" id="path">
+                                    <path d="M22,22 L2,22 C2,11 11,2 22,2 C33,2 42,11 42,22"></path>
+                                </symbol>
+                            </svg>
+                        </button>
+
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <div class="spacer" data-spacer="#top"></div>
 
-        <section id="top" class="section-top" style="background-image:url(./img/bg-top.jpg);">
 
-            <div class="default-wrapper grid-x">
-
-                <div class="apla black medium-7 large-6">
-                    <h1 class="h2 uppercase">Prosta formuła wzrostu dla branży automotive</h1>
-                    <div class="text">
-                        <p>Skaluj swój biznes motoryzacjny. Wykorzystaj Growth Hacking i analityczne podejście do zbudowania wiodącej marki!</p>
+        <section>
+            <!-- Slider main container -->
+            <div class="default-wrapper">
+                <div id="topSwiper" class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-top swiper-wrapper">
+                        <!-- Slides -->
+                        <div class="swiper-slide">
+                            <div class="swiper-top__wrapper">
+                                <div class="row m-0">
+                                    <div class="col col-12 col-lg-8 col-text ">
+                                        <h1>
+                                            Oosafe Filters <br>New MDR regulations
+                                        </h1>
+                                        <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor.</p>
+                                        <a href="" class="btn primary more">More</a>
+                                    </div>
+                                    <div class="col col-12 col-lg-4 col-image">
+                                        <img class="top-slide-product" data-parallax data-speed=".2" src="./img/slide1-product.png" alt="">
+                                        <img class="top-slide-sticker" data-parallax data-speed=".4" src="./img/sticker.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        ...
                     </div>
-                    <button data-scroll-to="#form" class="large button ">ZWIĘKSZ SPRZEDAŻ</button>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
+
+                    <!-- If we need navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+
+                    <!-- If we need scrollbar -->
+                    <!-- <div class="swiper-scrollbar"></div> -->
                 </div>
-
             </div>
-
         </section>
 
-        <div class="sections-set">
+        <section class="default-wrapper news-container paddings-v">
 
-            <section class="section-why wrapper-paddings bg-lightgray">
-                <div class="default-wrapper">
+            <div id="newsSwiper" class="swiper-news swiper">
+                <!-- Additional required wrapper -->
+                <div class="swiper-top swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
 
-                    <div class="head-wrapper">
-                        <div class="above-head text-center">DLACZEGO DYFUZJA?</div>
-                        <div class="h1 text-center">Formuła wzrostu oparta na <br>badaniach i statystyce</div>
+                        <a href="" class="news">
+                            <div class=" news__img">
+                                <img src="./img/news1.png" alt="">
+                            </div>
+                            <div class="news__content">
+                                <h2 class="title">Fertilisation IVF & ICSI</h2>
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismodaliquam </p>
+                                    <span class="more">Read More</span>
+                                </div>
+                            </div>
+                        </a>
                     </div>
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
 
-
-                    <div class="why-list grid-x large-up-3">
-                        <div class="why-list__item cell">
-                            <img data-aos="fade-right" data-aos-delay="100" data-aos-easing="ease-in-out"  class="why-list__item-icon" src="./img/ico-family.png" />
-                            <div class="why-list__item-title">Zebranie i analiza danych</div>
-                            <div class="why-list__item-text">
-                                <p>Wszystko czego Twoja firma potrzebuje do wzrostu to <b>dane</b>. Nie musisz szukać daleko. Twój biznes jest niewyczerpanym źródłem parametrów i statystyk. Pora wyciągnąc je na światło dzienne. </p>
-                                <p>To może być niełatwe, dlatego pomożemy Ci w zebraniu, analizie i zbudowaniu długotrwałej <b>przewagi konkurencyjnej</b>.</p>
+                        <a href="" class="news">
+                            <div class="news__img">
+                                <img src="./img/news2.jpg" alt="">
                             </div>
-                        </div>
-                        <div class="why-list__item cell">
-                            <img data-aos="fade-right" data-aos-delay="200" data-aos-easing="ease-in-out"  class="why-list__item-icon" src="./img/ico-plan.png" />
-                            <div class="why-list__item-title">Planowanie i wdrożenie</div>
-                            <div class="why-list__item-text">
-                                <p>Po <b>analizie danych</b> jesteśmy w stanie określić najbardziej optymalne działania. Bierzemy pod uwagę Twoje cele, grono odbiorców, dotychczasowe kanały komunikacji. Jeśli trzeba, sugerujemy nowe.</p>
-                                <p>Planujemy, prowadzimy i optymalizujemy Twoje płatne kampanie online. <b>Bez zgadywania</b>. Marketing to kreacja oparta na nauce.</p>
+                            <div class="news__content">
+                                <h2 class="title">Fertilisation IVF & ICSI</h2>
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismodaliquam </p>
+                                    <span class="more">Read More</span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="why-list__item cell">
-                            <img data-aos="fade-right" data-aos-delay="300" data-aos-easing="ease-in-out"  class="why-list__item-icon" src="./img/ico-meeting.png" />
-                            <div class="why-list__item-title">Testowanie i iteracje</div>
-                            <div class="why-list__item-text">
-                                <p>Chcąc zbudować silną markę, jedno jest pewne - żadne rozwiązanie nie daje <b>gwarancji sukcesu</b>. Dlatego ciągłe testowanie to podstawa.</p>
-                                <p>Prawidłowo przeprowadzone <b>testy A/B</b> pozwalają obniżyć koszt i zwiększyć przychód. Dlatego na bieżąco optymalizujemy konwersję wszystkich kanałów.</p>
-                            </div>
-                        </div>
+                        </a>
                     </div>
+                    <div class="swiper-slide" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+
+                        <a href="" class="news">
+                            <div class="news__img">
+                                <img src="./img/news3.jpg" alt="">
+                            </div>
+                            <div class="news__content">
+                                <h2 class="title">Fertilisation IVF & ICSI</h2>
+                                <div class="text">
+                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismodaliquam </p>
+                                    <span class="more">Read More</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    ...
                 </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
 
+                <!-- If we need navigation buttons -->
+                <!-- <div class="swiper-button-prev"></div> -->
+                <!-- <div class="swiper-button-next"></div> -->
 
-            </section>
-
-
-            <section class="section-pricing wrapper-paddings bg-gray">
-                <div class="default-wrapper">
-
-                    <div class="head-wrapper">
-                        <div class="above-head text-center">Jaka będzie kwota inwestycji w Twoją markę?</div>
-                        <div class="h1 text-center">Miesięczne pakiety wzrostu <br>Twojej marki</div>
-                    </div>
-
-
-                    <div class="pricing-list grid-x ">
-                        <div class="pricing-list-item pricing-1 cell">
-                            <div class="inside" data-aos="flip-left" data-aos-delay="0">
-
-                                <div class="pricing-list-item__header " data-mh>
-
-                                    <div class="pricing-list-item__title">PERFORMANCE</div>
-                                    <div class="pricing-list-item__desc">Wszystko czego potrzebujesz,
-                                        by zoptymalizować kampanie PPC
-                                        i wygenerować więcej leadów.
-                                    </div>
-                                </div>
-                                <div class="pricing-list-item__content " data-mh>
-
-                                    <div class="pricing-list-item__price">
-                                        <span class="price">8100</span> <span class="currency">PLN/<br />mies.</span>
-                                    </div>
-                                    <ul class="pricing-list-item__features">
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div> Audyt danych
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div> Plan wzrostu
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div> Zarządzanie kampaniami online
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div> Ciągła optymalizacja konwersji
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div> 4 h konsultacji strategicznej / mc
-                                        </li>
-                                        <li class="blue">
-                                            <div class="star"><img src="img/ico-star.svg" alt=""></div><a href="#" data-scroll-to="#form">Wirtualny Salon</a>
-                                        </li>
-                                    </ul>
-                                    <button data-scroll-to="#form" class="button">ZWIĘKSZ SPRZEDAŻ!</button>
-                                    <div class="pricing-list-item__desc">
-                                        <p>Narzędzia: <br />Facebook Ads, Linkedin Ads, Quora Ads, Google Ads, Google Optimize, HotJar, Google Analytics</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pricing-list-item pricing-2 cell">
-                            <div class="inside" data-aos="flip-left" data-aos-delay="100">
-
-                                <div class="pricing-list-item__header " data-mh>
-
-                                    <div class="pricing-list-item__title">CONTENT ENGINE</div>
-                                    <div class="pricing-list-item__desc">Podstawa przy Twoich przyszłych działaniach SEO i wzroście organicznym.</div>
-                                </div>
-                                <div class="pricing-list-item__content " data-mh>
-                                    <div class="pricing-list-item__price">
-                                        <span class="price">7300</span> <span class="currency">PLN/<br />mies.</span>
-                                    </div>
-                                    <ul class="pricing-list-item__features">
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>Audyt contentu
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>4 publikacje tekstowe / mc
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>Content foto na potrzeby social media
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>Brand Watch
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>4 h konsultacji strategicznej / mc
-                                        </li>
-                                        <li class="blue">
-                                            <div class="star"><img src="img/ico-star.svg" alt=""></div><a href="#" data-scroll-to="#form">Wirtualny Salon</a>
-                                        </li>
-                                    </ul>
-                                    <button data-scroll-to="#form" class="button">ZWIĘKSZ ZASIĘG MARKI!</button>
-                                    <div class="pricing-list-item__desc">
-                                        <p>Narzędzia:<br />Ahrefs, Clearscope, BuzzSumo, Brand24, BrandWatch, Adobe CC </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pricing-list-item pricing-3 cell">
-                            <div class="inside" data-aos="flip-left" data-aos-delay="200">
-
-                                <div class="pricing-list-item__header match-height " data-mh>
-
-                                    <div class="pricing-list-item__title">HYPER GROWTH</div>
-                                    <div class="pricing-list-item__desc">Kompletny plan łączący działania performance oraz tworzenie contentu tekstowego, foto oraz video.</div>
-                                </div>
-
-                                <div class="pricing-list-item__content match-height " data-mh>
-                                    <div class="pricing-list-item__price">
-                                        <span class="price">19900</span> <span class="currency">PLN/<br />mies.</span>
-                                    </div>
-                                    <ul class="pricing-list-item__features">
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>Audyt wszystkich działań komunikacyjnych
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>Content video - recenzje, social itp.
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>Pakiet PERFORMANCE
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>Pakiet CONTENT ENGINE
-                                        </li>
-                                        <li>
-                                            <div class="mark"><img src="img/check-mark.svg" alt=""></div>4 h konsultacji strategicznej / mies.
-                                        </li>
-                                        <li class="blue">
-                                            <div class="star"><img src="img/ico-star.svg" alt=""></div><a href="#" data-scroll-to="#form">Wirtualny Salon</a>
-                                        </li>
-                                    </ul>
-                                    <button data-scroll-to="#form" class="button">ZOSTAŃ LIDEREM RYNKU!</button>
-                                    <div class="pricing-list-item__desc">
-                                        <p>Narzędzia:<br />Wszystkie wymienione w pakietach Performance i Content Engine</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </section>
-
-
-
-            <section class="section-salon bg-dark" style="background-image: url(./img/bg-salon.png);">
-                <div class="default-wrapper  wrapper-paddings-2x">
-
-                    <div class="grid-x  grid-padding-x">
-                        <div class="cell small-12 large-6">
-
-                            <div class="head-wrapper">
-                                <div class="above-head text-white">WIRTUALNY SALON</div>
-                                <div class="h1 ">Twój salon <br>w domu klienta!</div>
-                            </div>
-                            <div class="text ">
-                                <p>Stwórz nowy kanał pozyskiwania lead’ów. Przenieś Twój showroom do <b>wirtualnej rzeczywistości</b>! W ten sposób
-                                    klient trafi do Ciebie nie wychodząc z domu. Umówi jazdę testową lub wyśle zapytanie bezpośrednio z aplikacji. </p>
-                                <p>Jako nasz Klient otrzymujesz pierwszą sesję zdjęciową (max 15 zdjęć)<b> w prezencie</b>!</p>
-                            </div>
-
-                        </div>
-
-                        <div class="cell small-12 large-6 relative">
-                            <img data-parallax class="car" src="img/mercedes.jpg" alt="">
-
-                            <img class="vr-set" src="img/vr-set.png" alt="">
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
-
-        </div>
-
-
-
-        <div class="spacer" id="form" data-spacer="#footer"></div>
-        <section id="footer" class="section-contact bg-lightgray">
-            <div class="default-wrapper  wrapper-paddings-2x">
-
-                <div id="formContent">
-
-
-                    <div class="head-wrapper text-center">
-                        <div class="above-head text-center">Skalowanie biznesu automotive jeszcze nigdy nie było tak proste.</div>
-                        <div class="h1 text-center">Wypełnij poniższy formularz i dowiedz się, jak zoptymalizować wydatki na marketing!</div>
-                    </div>
-
-
-                    <form action="./" method="POST" id="contactForm" class="form">
-                        <div class="grid-x grid-padding-x">
-                            <div class="cell small-12 large-auto input-wrapper">
-                                <input placeholder="Firmowy adres email" type="email" name="email" id="email" class="input large">
-                            </div>
-                            <div class="cell small-12 large-auto input-wrapper">
-                                <input placeholder="Telefon kontaktowy" type="tel" name="phone" id="phone" class="input large">
-                            </div>
-                            <div class="cell small-12 large-auto input-wrapper">
-                                <button type="submit" class="button block full large">WYŚLIJ</button>
-                            </div>
-                        </div>
-                        <div class="grid-x grid-padding-x">
-                            <label class="cell checkbox input-wrapper">
-                                <input type="checkbox" name="agree1" id="agree1">
-                                <div class="box">
-                                    <img class="mark" src="img/checkbox-check.svg" alt="">
-                                </div>
-                                Wyrażam zgodę na przetwarzanie podanego powyżej adresu e-mail oraz numeru telefonu przez Dyfuzja z siedzibą w Poznaniu w celu kontaktu bezpośredniego.
-                            </label>
-                        </div>
-                    </form>
-
-                
-                </div>
-
-                <div id="thxContent" style="display: none;">
-
-
-                    <div class="head-wrapper text-center">
-                        <div class="above-head text-center">Dziękujemy</div>
-                        <div class="h1 text-center">Wiadomość została wysłana</div>
-                    </div>
-
-
-                
-                </div>
-
-
+                <!-- If we need scrollbar -->
+                <!-- <div class="swiper-scrollbar"></div> -->
             </div>
-
-            <footer class="footer">
-                <ul class="nav-footer">
-                    <li><a href="./" target="_blank" rel="">Polityka prywatności</a></li>
-                </ul>
-            </footer>
         </section>
+
+        <section class="default-wrapper paddings-v3 post-container">
+            <div class="post">
+                <div class="post__img">
+                    <!-- <img data-parallax data-speed="1" data-start="bottom center" data-end="top center" src="./img/about.jpg" alt=""> -->
+                    <img src="./img/about.jpg" alt="">
+                </div>
+                <div class="post__content">
+                    <h3 class="title1">About Us</h2>
+                        <h2 class="title2">Meet our Team</h2>
+
+                        <div class="text">
+                            <p>Meet our team<br>
+                                SparMED is a registered medical device, and more, manufacturer from Denmark with a range of CE marked products. We supply safe products for laboratories and hospitals for various lab procedures, disinfection, research, diagnostics and environment control devices.
+
+                            </p>
+                            <span class="more">Read More</span>
+                        </div>
+                </div>
+            </div>
+        </section>
+        <section class="light-bg overflow-hidden">
+            <div class="default-wrapper paddings-v3">
+                <h2 class="h2">
+                    Distributors <br>
+                    <span class="marked">All over the World</span>
+                </h2>
+                <p>Would you like to become one of our distributors and join our world-wide distributor network?
+                </p>
+                <div class="mt-4">
+                    <img src="./img/map.svg" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="white-bg">
+            <div class="default-wrapper paddings-v3">
+            </div>
+        </section>
+        <section class="light-bg contact-container">
+
+            <div class="default-wrapper paddings-v3">
+                <div class="d-flex flex-row flex-wrap">
+                    <div class="col col-12 col-md-6 contact-form">
+                        <h2 class="h2">Contact</h2>
+                        <form>
+                            <div class="form-floating mb-4">
+                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                <label for="floatingInput">Email</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" id="floatingCountry" placeholder="Password">
+                                <label for="floatingCountry">Country</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <input type="text" class="form-control" id="floatingSubject" placeholder="Password">
+                                <label for="floatingSubject">Message Subject</label>
+                            </div>
+                            <div class="form-floating mb-4">
+                                <textarea type="text" style="height: 10em;" class="form-control" id="floatingMessage" placeholder="Message"></textarea>
+                                <label for="floatingMessage">Message</label>
+                            </div>
+                            <div class="clearfix">
+                                <button type="submit" class="btn col-12 col-md-4 primary float-end">Send</button>
+                            </div>
+                        </form>
+                        <p class="disclaimer mt-3">
+                            SparMED needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at anytime. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, check out our <a href="#">Privacy Policy</a>.
+                        </p>
+                    </div>
+                    <div class="col col-12 col-md-6 contact-text">
+                        <p>
+                            <b> SparMED ApS</b><br>
+                            <b>CVR</b>: DK-30 89 85 75<br>
+                            <b>Address</b>: Ryttermarken 2, 3520 Farum, DENMARK<br>
+                        </p>
+                        <p>
+
+                            <b>Opening Hours:</b><br>
+                            Monday - Thursday 7:30 - 16:00<br>
+                            Friday 7:30 - 13:00<br>
+                        </p>
+                        <p>
+                            <b>Phone:</b> (+45) 39 40 25 03<br>
+                        </p>
+                        <p>
+                            <b>General Support:</b> info@sparmed.dk<br>
+                            <b>Sales:</b> sales@sparmed.dk<br>
+                            <b>Finance:</b> finance@sparmed.dk<br>
+                            <b>Marketing:</b> marketing@sparmed.dk<br>
+                            <b>Regulatory Affairs:</b> ra@sparmed.dk<br>
+                            <b>Legal:</b> legal@sparmed.dk<br>
+                            <b>Quality Control:</b> qc@sparmed.dk<br>
+                            <b>IT:</b> it@sparmed.dk<br>
+                        </p>
+                        <p>
+                            <b>Bank information:</b><br>
+                            Danske Bank A/S<br>
+                            Holmens Kanal 2-12, 1092 Copenhagen, Denmark<br>
+                        </p>
+                        <p>
+                            BIC/SWIFT code: DABADKKK<br>
+                            EUR Account IBAN: DK86 3000 4779 7776 18<br>
+                            USD Account IBAN: DK98 3000 4779 7775 96<br>
+                            DKK Account: Regnr.: 3543, Kontonr.: 0011400884<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
 
 
 
     </div>
 
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.5.3/js/foundation.min.js"></script>
-    <script src="./dist/js/app.js"></script>
-
+    <?php include('./parts/footer.php') ?>
 
 </body>
 

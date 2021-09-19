@@ -12,6 +12,9 @@ import './Validation';
 import { scrollAnimations } from './effects/AnimationOnScroll';
 // import MatchHeight from 'matchheight';
 
+import './swipers'
+import './offcanvas'
+import './effects/ScrollTrigger'
 
 $('html').removeClass('no-js');
 
@@ -41,90 +44,6 @@ this},r._applyDataApi=function(){var e={};t("[data-match-height], [data-mh]").ea
 $('.match-height,[data-mh]').matchHeight(); 
 
 
-$('[data-reveal]').wrap("<div class='reveal-overlay'></div>"); 
-
-$('[data-open]').on('click',e =>{
-    var id =  $(e.currentTarget).data('open');
-    var $modal = $(`#${id}`);
-
-    // debugger;
-    $modal.css({
-        display: 'block'
-    });
-    $modal.parent('.reveal-overlay').css({
-        display: 'block'
-    });
-    // $modal.addClass('modal-animation');
-    setTimeout(() => {
-        $modal.find('.ar-widget-animation').addClass('init-animations');
-    },100);
-
-});
-$('.reveal .close-button').on('click', function(e){
-    var $reveal = $(this).closest('.reveal');
-    // debugger;
-    $reveal.add($reveal.parent()).css({ display:'none' });
-    
-});
-
-
-// spacers [data-spacer]
-var $spacers = $('[data-spacer]');
-function onResize(){
-
-    var st = window.scrollY;
-    var ih = window.innerHeight;
-
-    $spacers.each((i, el) =>{
-        var id = $(el).data('spacer');
-        var $spacer = $(el);
-        var $source = $(id);
-        var h = $source.outerHeight();
-        if(h){
-            $spacer.height( h ); 
-        }
-        
-        var offset = $spacer.offset();
-
-        console.log({
-            el,
-            h, st, offsetTop: offset.top, 
-        })
-
-        if( st + ih >= offset.top && st < offset.top + h ){
-            // show
-            $source.css({
-                visibility :''
-            });
-            console.log('show');
-        }else{
-            // hide
-            $source.css({
-                visibility :'hidden'
-            });
-            console.log('hide');
-        }
-        
-        $spacer.attr('data-spaced',true);
-        $source.attr('data-spaced',true);
-    });
-}
-
-$(window).on('resize', onResize);
-$(window).on('scroll', onResize);
-
-
-
-
-console.log('automotive');
-
-$('.module-movie__cover').on('click', function(e){
-    console.log(e);
-
-    $(this).hide();
-    $(this).parent().find('iframe').show();
-});
-
 
 
 // runAnimation({
@@ -134,15 +53,7 @@ $('.module-movie__cover').on('click', function(e){
 
 
 windownLoad(() =>{
-//    onResize();
-   setTimeout(()=>{
-       onResize();
-   },100);
-   setTimeout(()=>{
-       onResize();
-   },200);
-   setTimeout(()=>{
-       onResize();
-   },300);
+
+    
 });
 

@@ -2,8 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-
+const SVGSpritemapPlugin = require('svg-spritemap-webpack-plugin');
 const chalk = require('chalk');
+// https://www.npmjs.com/package/webpack-build-notifier
+const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+
 
 
 
@@ -18,13 +21,30 @@ function loadPlugins(){
     // default
     var plugins = [
         new MiniCssExtractPlugin({
-            filename: './css/app.css'
-        })
+            filename: 'app.css'
+        }),
+        // https://github.com/cascornelissen/svg-spritemap-webpack-plugin
+        new SVGSpritemapPlugin('svg-icons/**/*.svg')
     ];
 
     // add production only
     if( isProd() ){
         plugins.push(new OptimizeCSSAssetsPlugin({}));
+    }
+    if( !isProd() ){
+        plugins.push(
+            // https://www.npmjs.com/package/webpack-build-notifier
+            new WebpackBuildNotifierPlugin({
+                title: "Sparmed.dk",
+                // logo: path.resolve("./img/favicon.png"),
+                sound: false,
+                compilationSound: false,
+                successSound: false,
+                failureSound: true,
+                showDuration: true,
+                suppressSuccess: false, // don't spam success notifications
+            })
+        );
     }
 
     return plugins;
@@ -41,13 +61,13 @@ return  {
     // mode: 'production',
     cache: true,
     // devtool: 'cheap-module-source-map',
-    devtool: 'source-map',
+    devtool: isProd() ? 'source-map' : 'eval-cheap-module-source-map',
     entry: {
         app: ["@babel/polyfill", path.join(__dirname, 'js/app.js')],
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: './dist/',
+        // publicPath: './',
         filename: '[name].js'
     },
     module: {
@@ -68,7 +88,7 @@ return  {
                     {
                         loader: 'css-loader',
                         options: {
-                           
+                            url: false,
                             sourceMap: true,
                         }
                     },
@@ -82,6 +102,7 @@ return  {
                         loader: 'resolve-url-loader',
                         options: {
                             sourceMap: true,
+                            // root:''
                         }
                     },
                     {
@@ -98,7 +119,14 @@ return  {
             {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: [
-                    'file-loader'
+                    {
+                        loader:'file-loader',
+                        options:{
+                            name: '[name].[ext]',
+                            // publicPath:'./'
+                        }
+                    }
+
                 ]
             }
         ]
@@ -123,10 +151,13 @@ return  {
         }
     },
     optimization: {
-        
+        runtimeChunk: true,
         minimize: isProd(),
         moduleIds: 'named',
         chunkIds: 'named',
+        removeAvailableModules: isProd(),
+        removeEmptyChunks: isProd(),
+        splitChunks: isProd(),
         // chunkIds: 'named',
         // runtimeChunk: 'single',
         // splitChunks: {

@@ -1,62 +1,28 @@
- 
- // @import '~foundation-sites/scss/util/util';
- @import 'settings';
- @import '~foundation-sites/scss/foundation';
- 
- // Either import everything
- @include foundation-everything;
- 
- // COLORS
- $colorPrimary: #3CCF8E;
- $colorText: #2C2E30;
+// @import '~foundation-sites/scss/util/util';
+//  @import 'settings';
+//  @import '~foundation-sites/scss/foundation';
 
- $bgColorPrimary: $colorPrimary;
- 
-.bg-lightgray{
-    background: #F2F2F2;
+//  Bootstrap 5
+@import "custom";
+// @import "~bootstrap/scss/bootstrap";
+
+// Either import everything
+//  @include foundation-everything;
+
+.relative {
+	position: relative;
 }
 
- 
- // Typography
- 
- .text{
-     font-size: 12px;
- }
+@import "hovers";
+@import "animations";
+@import "buttons";
 
- .relative{
-     position: relative;
- }
- 
- .text-desktop{
-     
- 
-     font-size: 12px;
-     @include breakpoint(large){
-         font-size: 14px;
-     }
- 
-     ul{
-         list-style: none;
-         padding: 0;
-         margin: 0;
-         li{
-             position: relative;
-             display: flex;
-             flex-direction: row;
-             margin: 0.5em;
- 
-             &::before{
-                 content: '-';
-                 padding-right: 0.5em;
-                 
-             }
-         }
-     }
- 
- }
- 
- 
- @import 'animations';
- @import 'buttons';
-
- @import 'main';
+@import "typography";
+@import "news";
+@import "post";
+@import "main";
+@import "contact-container";
+@import "swiper-top";
+@import "main-header";
+@import "article-wrapper";
+@import "helpers";

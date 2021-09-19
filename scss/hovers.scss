@@ -1,0 +1,5 @@
+@mixin zoomin-hover($animation: 333ms ease-out) {
+	transition: $animation;
+
+	transform: scale(1.1);
+}

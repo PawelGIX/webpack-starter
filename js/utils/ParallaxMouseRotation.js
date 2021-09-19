@@ -52,5 +52,5 @@ $(document).mousemove( function(e) {
       // $('h1, p').parallax(100 , e);
       // $('img').parallax(150 , e);
     
-      $('[data-parallax]').parallax(70 , e);
+      $('[data-mouse-parallax]').parallax(70 , e);
 });

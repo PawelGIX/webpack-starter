@@ -1,0 +1,66 @@
+.swiper.swiper-news {
+	overflow: visible;
+
+	.swiper-slide:hover {
+		z-index: 5;
+	}
+}
+
+.news {
+	text-decoration: none;
+	color: $light-text-color;
+	display: block;
+	transition: 222ms ease-in-out;
+
+	&:hover {
+		color: #fff;
+	}
+
+	--padding: 30px;
+	@include media-breakpoint-up(md) {
+		--padding: 60px;
+	}
+
+	&:hover &__img {
+		// transition: 222ms ease-in-out;
+		img {
+			filter: brightness(1.1);
+			@include zoomin-hover(2s);
+		}
+	}
+	&:hover {
+		transform: scale(1.03);
+		box-shadow: #000 5px 5px 60px -23px;
+	}
+
+	&__img {
+		background: #555;
+		padding-bottom: 60%;
+		position: relative;
+		overflow: hidden;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			display: block;
+			object-fit: cover;
+		}
+	}
+
+	&__content {
+		padding: var(--padding);
+		color: inherit;
+		background: $gradient1;
+		.title {
+			font-size: 1.2em;
+			margin-bottom: 1em;
+		}
+		.more {
+			font-weight: bold;
+			display: block;
+			margin-top: -0.9em;
+		}
+	}
+}

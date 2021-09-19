@@ -1,0 +1,8 @@
+.contact-container {
+	.contact-text {
+		padding-top: 2.55rem;
+		@include media-breakpoint-up(md) {
+			padding-left: var(--gutter);
+		}
+	}
+}
