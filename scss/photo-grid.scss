@@ -1,0 +1,135 @@
+.photo-grid {
+	display: grid;
+	gap: var(--gutter);
+	grid-template-columns: 1fr 1fr;
+	// flex-wrap: wrap;
+}
+
+.grid-product {
+	position: relative;
+	background: $light-bg;
+	display: block;
+	text-decoration: none;
+	overflow: hidden;
+	
+	width: 100%;
+	
+	// background-size: cover;
+	// background-position: top right;
+	// margin: var(--gutter);
+	// margin-right: var(--gutter);
+	
+	grid-column-start: span 2;
+
+	--space-for-name: 3.5rem;
+	
+	@include media-breakpoint-up(md) {
+		--space-for-name: 1.5rem;
+		grid-template-columns: repeat(auto-fit, 50%);
+		grid-column-start: span 1;
+		// width: calc(50% - var(--gutter) / 2);
+		
+	}
+	
+	
+	.bg{
+		display: none;
+		background-size: cover;
+		@include media-breakpoint-up(md) {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-position: top right;
+			background-repeat: no-repeat;
+			z-index: 1;
+	
+		}
+	}
+
+	&.wide {
+		width: 100%;
+		grid-column-start: span 2;
+
+		img {
+			position: absolute;
+			// z-index: 1;
+			// height: calc(100% - 1.5em);
+			width: 100%;
+			object-fit: contain;
+			transition: 333ms;
+			@include media-breakpoint-up(md) {
+				// padding-bottom: 50%;
+				width: auto;
+				right: auto;
+				max-width: 73%;
+			}
+			// @include media-breakpoint-up(md) {
+			// 	width: auto;
+			// }
+		}
+	}
+	&.wide &__inner {
+		padding-bottom: 100%;
+		position: relative;
+		z-index: 2;
+		@include media-breakpoint-up(md) {
+			padding-bottom: 50%;
+		}
+	}
+
+	&.wide &__name {
+		text-align: left;
+		padding-left: 1.5em;
+	}
+
+	img {
+		position: absolute;
+		z-index: 2;
+		// height: 100%;
+		height: calc(100% - var(--space-for-name));
+		width: 100%;
+		object-fit: contain;
+		transition: 333ms;
+	
+	}
+
+	&__inner {
+		padding-bottom: 100%;
+		position: relative;
+		z-index: 3;
+		bottom: 0;
+		left: 0;
+		right: 0;
+	}
+	&__name {
+		font-size: 13px;
+		font-weight: 300;
+		text-align: center;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 1em;
+
+		@include media-breakpoint-up(sm) {
+			font-size: 14px;
+		}
+		@include media-breakpoint-up(md) {
+			font-size: 20px;
+		}
+
+		// @include media-breakpoint-up(lg) {
+		// 	font-size: 25px;
+		// }
+	}
+
+	&:hover {
+		color: $accent-color;
+		img {
+			transform: scale(1.1);
+		}
+	}
+}

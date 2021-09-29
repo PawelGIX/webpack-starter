@@ -12,6 +12,9 @@
 import 'aos/dist/aos.css'; // You can also use <link> for styles
 import AOS from 'aos';
 // ..
-AOS.init();
+export function startAOS(){
+
+    AOS.init();
+}
 
 

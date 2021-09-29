@@ -1,0 +1,50 @@
+.breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	background: $light-bg;
+	margin-left: 0;
+	margin-bottom: var(--gutter);
+	padding: 0.5em;
+	li {
+		padding: 0 1em;
+		display: flex;
+		position: relative;
+		&.active {
+			a,
+			a:visited {
+				color: $accent-color;
+				&:hover,
+				&:active {
+					color: $accent-color;
+				}
+			}
+		}
+		a,
+		a:visited {
+			display: block;
+			padding: 0.2rem 0;
+			text-decoration: none;
+			color: $primary;
+			&:hover,
+			&:active {
+				color: $accent-color;
+			}
+		}
+	}
+	&.breadcrumb--classic {
+		li {
+			&:not(:last-of-type) {
+				&::before {
+					content: "/";
+					display: block;
+					position: absolute;
+					font-size: 1.1em;
+					top: 50%;
+					right: 0;
+					transform: translate(50%, -50%);
+					color: inherit;
+				}
+			}
+		}
+	}
+}

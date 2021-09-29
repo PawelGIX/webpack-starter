@@ -1,0 +1,56 @@
+.svg-map {
+	width: 100%;
+	path {
+		fill: #9fd5d5;
+		transition: 333ms;
+		outline: none;
+	}
+	path:active {
+		outline: none;
+	}
+	path[data-marked] {
+		fill: #59bdcc;
+		// transition: 333ms;
+	}
+	path[data-marked]:hover {
+		fill: $accent-color;
+	}
+}
+.svg-map__container{
+    position: relative;
+    padding-bottom: 60%;
+    svg{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+}
+.tooltip{
+    filter: drop-shadow(3px 4px 6px #000000aa);
+}
+.svg-pan-zoom_viewport{
+    transition: 222ms ease-in-out;
+}
+
+.map-radios{
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    @include media-breakpoint-up(lg){
+        justify-content: space-between;
+        
+    }
+    .form-check{
+        white-space: nowrap;
+        padding-right: 2em;
+    }
+
+    .form-check-input,
+    .form-check-label,
+    .form-check{
+        cursor: pointer;
+    }
+}

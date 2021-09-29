@@ -1,6 +1,9 @@
+
+ 
  <meta charset="utf-8">
+ <meta name="theme-color" content="#01404f" />
  <meta name="viewport" content="width=device-width, initial-scale=1,  shrink-to-fit=no, user-scalable=no">
- <link rel="stylesheet" href="./dist/app.css">
+ <link rel="stylesheet" href="./dist/app.css?A">
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet"> -->

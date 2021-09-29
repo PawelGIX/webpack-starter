@@ -1,18 +1,28 @@
 :root {
 	--gutter: 20px;
 	--gutter2: 40px;
+
+	@include media-breakpoint-up(md) {
+		--gutter: 30px;
+	}
 }
 
 html,
 body {
-	font-size: 16px;
+	font-size: 14px;
 	// color: $colorText;
 
 	@include media-breakpoint-up(lg) {
-		font-size: 18px;
+		font-size: 16px;
 	}
 	@include media-breakpoint-up(xl) {
-		font-size: 20px;
+		font-size: 18px;
+	}
+}
+body {
+	overflow-x: hidden;
+	&.default-bg {
+		background: url(../img/main-bg.jpg) top center no-repeat;
 	}
 }
 
@@ -20,35 +30,41 @@ img {
 	max-width: 100%;
 }
 
-body {
-	overflow-x: hidden;
-	background: url(../img/main-bg.jpg) top center no-repeat;
+svg.icon {
+	height: 1.5em;
+	width: 1.5em;
+	display: inline-block;
+}
+
+p > svg.icon {
+	height: 1.7em;
+	width: 1.7em;
+	display: inline-block;
+	vertical-align: baseline;
+	position: relative;
+	top: 0.1em;
 }
 
 .light-bg {
 	background: $light-bg;
 }
 
-.nav-footer {
-	display: flex;
-	flex-direction: row;
-	font-size: 18px;
-	margin: 0;
-	padding: 1em;
-	list-style: none;
-	justify-content: center;
-	a {
-		text-decoration: none;
-		font-weight: 300;
-	}
-}
-
 .default-wrapper {
 	max-width: 1560px;
 	padding-left: var(--gutter);
 	padding-right: var(--gutter);
-	@include media-breakpoint-up(md) {
-		--gutter: 30px;
+
+	@include media-breakpoint-only(xs) {
+		&.default-wrapper--no-gutter-xs {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	@include media-breakpoint-only(sm) {
+		&.default-wrapper--no-gutter-sm {
+			padding-left: 0;
+			padding-right: 0;
+		}
 	}
 	@include media-breakpoint-up(1560px) {
 		margin-left: auto;
@@ -64,6 +80,75 @@ body {
 	padding-bottom: var(--gutter);
 }
 .paddings-v3 {
-	padding-top: calc(var(--gutter) * 3);
-	padding-bottom: calc(var(--gutter) * 3);
+	padding-top: calc(var(--gutter) * 2);
+	padding-bottom: calc(var(--gutter) * 2);
+}
+@include media-breakpoint-up(md) {
+	.paddings-v3 {
+		padding-top: calc(var(--gutter) * 2.7);
+		padding-bottom: calc(var(--gutter) * 2.7);
+	}
+}
+
+.lightblue-separator {
+	background: $light-bg;
+	padding-bottom: 10%;
+	padding-bottom: clamp(50px, 10%, 250px);
+	margin-top: 3%;
+	margin-bottom: 3%;
+}
+
+.line-separator {
+	background: #ccc;
+	height: 1px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.footer {
+	padding-top: var(--gutter);
+	padding-bottom: calc(var(--gutter) / 2);
+
+	&.dark {
+		background: #01404f;
+		color: #59bccb;
+	}
+	.footer__logo {
+		display: block;
+		margin: auto;
+		width: 213px;
+		max-width: 30%;
+		img {
+			display: block;
+		}
+	}
+	.nav-footer {
+		list-style: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 1em 0 0;
+		padding: 0;
+		font-size: 11px;
+
+		a {
+			display: block;
+			padding: 1em;
+			font-weight: normal;
+			font-size: inherit;
+			color: inherit;
+		}
+	}
+
+	@include media-breakpoint-up(sm) {
+		.nav-footer {
+			font-size: 14px;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		.nav-footer {
+			font-size: inherit;
+		}
+	}
 }

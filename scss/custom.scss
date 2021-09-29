@@ -6,9 +6,11 @@
 
 // 2. Include any default variable overrides here
 
+
 // Default variable overrides
 $body-bg: #fff;
-$light-bg: #d8f1f0;
+$light-bg: #effdfd;
+// $light-bg: #d8f1f0;
 $body-color: #01404f;
 $light-text-color: #9ddbd9;
 $accent-color: #ec008c;
@@ -26,8 +28,58 @@ $input-border-radius-lg: 0;
 
 $offcanvas-horizontal-width: 300px;
 
+$spacer: 1rem;
+
+$defult-border: 2px solid $primary;
+
+// scss-docs-start grid-breakpoints
+$grid-breakpoints: (
+	xs: 0,
+	sm: 340px,
+	md: 600px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+) !default;
+// scss-docs-end grid-breakpoints
+
+$aside-menu-width: 270px;
+
 $gradient1: linear-gradient(to bottom, $secondary 0%, $primary 30%);
+$gradient-header: linear-gradient(
+	0deg,
+	rgba(1, 64, 79, 1) 0%,
+	rgba(1, 64, 79, 1) 63.59%,
+	rgba(1, 68, 82, 1) 74.48%,
+	rgba(1, 81, 92, 1) 85.96%,
+	rgba(1, 102, 108, 1) 97.67%,
+	rgba(1, 107, 112, 1) 100%
+);
+// $gradient-header: linear-gradient(to bottom, $secondary 0%, $primary 60%);
 $radial1: radial-gradient(120deg, $secondary, $primary);
+
+$component-active-color: $accent-color;
+$component-active-bg: #fff;
+
+$form-check-input-focus-border: 2px solid $body-color ;
+$form-check-input-border: 2px solid $body-color ;
+$form-check-input-checked-border-color: $body-color;
+
+
+// Tooltip
+// $tooltip-font-size:                 $font-size-sm;
+$tooltip-max-width:                 200px;
+// $tooltip-color:                     $white;
+$tooltip-bg:                        $accent-color;
+$tooltip-border-radius:             100px;
+$tooltip-opacity:                   1;
+$tooltip-padding-y:                 $spacer * .1;
+$tooltip-padding-x:                 $spacer * 1;
+$tooltip-margin:                    0;
+
+$tooltip-arrow-width:               .8rem;
+$tooltip-arrow-height:              .4rem;
+$tooltip-arrow-color:               $accent-color;
 
 // 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
@@ -36,6 +88,25 @@ $radial1: radial-gradient(120deg, $secondary, $primary);
 
 // 4. Include any optional Bootstrap CSS as needed
 @import "../node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge(
+	$utilities,
+	(
+		"width": (
+			responsive: true,
+			property: width,
+			class: w,
+			values: (
+				25: 25%,
+				50: 50%,
+				75: 75%,
+				100: 100%,
+				auto: auto,
+			),
+		),
+	)
+);
+
 @import "../node_modules/bootstrap/scss/reboot";
 @import "../node_modules/bootstrap/scss/type";
 @import "../node_modules/bootstrap/scss/images";
@@ -44,6 +115,7 @@ $radial1: radial-gradient(120deg, $secondary, $primary);
 @import "../node_modules/bootstrap/scss/helpers";
 @import "../node_modules/bootstrap/scss/forms";
 @import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/tooltip";
 @import "../node_modules/bootstrap/scss/modal";
 @import "../node_modules/bootstrap/scss/offcanvas";
 

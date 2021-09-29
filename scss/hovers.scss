@@ -3,3 +3,83 @@
 
 	transform: scale(1.1);
 }
+
+// https://codepen.io/thejamespower/pen/OVNYLL?editors=0100
+
+@mixin btn-skew-x($bgcolor:#fff,$textcolor:inherit){
+
+	flex: 1 1 auto;
+	position: relative;
+	overflow:hidden;
+	transition: .3s;
+
+	&:hover{
+		color: $textcolor;
+	}
+
+	&::after {
+	  position: absolute;
+	  transition: .3s;
+	  content: '';
+	  width: 0;
+	  left: 50%;
+	  bottom: 0;
+	  height: 3px;
+	  background: $bgcolor;
+	  height: 120%;
+	  left: -10%;
+	  transform: skewX(15deg);
+	  z-index: -1;
+	}
+
+
+
+
+	&:hover:after {
+		transform: skewX(15deg);
+		z-index: -1;
+		left: -10%;
+		width: 120%;
+	}
+
+}
+
+/*
+require span
+*/
+@mixin btn-blink-hover(){
+
+& {
+	
+	overflow: hidden;
+	position: relative;
+	
+	span {
+	  z-index: 20;
+	}
+	
+	&:after {
+	  background: #fff;
+	  content: "";
+	  height: 155px;
+	  left: -75px;
+	  opacity: .2;
+	  position: absolute;
+	  top: -50px;
+	  transform: rotate(35deg);
+	  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+	  width: 50px;
+	  z-index: -10;
+	//   mix-blend-mode: overlay;
+	}
+  }
+  
+  &:hover {
+	
+	&:after {
+	  left: 120%;
+	  transition: all 550ms cubic-bezier(0.19, 1, 0.22, 1);
+	}
+  }
+  
+}

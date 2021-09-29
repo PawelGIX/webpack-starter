@@ -7,13 +7,16 @@ export function stickHeaderInit({
 }){
 
     $header = $(header);
-
-    $window.on('scroll', e => {
-        if ($window.scrollTop() > 1){  
+    var run = e => {
+        const sct = $window.scrollTop();
+        if (sct > 120) {
             $header.addClass("sticky");
-        }
-        else{
+        }else if(sct<10){
             $header.removeClass("sticky");
         }
-    });
+    }
+    run();
+    
+
+    $window.on('scroll', run);
 }

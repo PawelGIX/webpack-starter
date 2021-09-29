@@ -10,116 +10,83 @@
     <?php include('./parts/head-scripts.php'); ?>
 </head>
 
-<body>
+<body class="default-bg">
     <div style="display:none">
         <?php include('./dist/spritemap.svg'); ?>
     </div>
 
 
     <div class="main-wrapper">
-        <div class="relative">
-            <div class="main-header">
-                <div class="d-flex default-wrapper">
-
-                    <!-- <div class="col-2"> -->
-                    <a class="main-header__logo" href="#top"><img src="./img/logo.svg" alt=""></a>
-                    <!-- </div> -->
-                    <nav class="main-menu">
-                        <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">About</a></li>
-                            <li><a href="">Distributors</a></li>
-                            <li><a href="">Products</a></li>
-                            <li><a href="">News</a></li>
-                            <li><a href="">Contacts</a></li>
-                        </ul>
-                        <!-- <div class="flex-grow-1 lang"> -->
-
-
-                        <!-- </div> -->
-                    </nav>
-                    <div class="main-header__buttons">
-                        <a href="">
-                            <svg class="icon">
-                                <use xlink:href="#sprite-magnify" />
-                            </svg>
-                        </a>
-                        <a href="">
-                            <svg class="icon">
-                                <use xlink:href="#sprite-account" />
-                            </svg>
-                        </a>
-                        <a href="">
-                            <svg class="icon">
-                                <use xlink:href="#sprite-cart" />
-                            </svg>
-                        </a>
-                        <button id="hamburger" class="hamburger-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">
-                            <div class="toggle">
-                                <!-- <input type="checkbox"> -->
-                                <div>
-                                    <div>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                    <svg>
-                                        <use xlink:href="#path">
-                                    </svg>
-                                    <svg>
-                                        <use xlink:href="#path">
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                                <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" id="path">
-                                    <path d="M22,22 L2,22 C2,11 11,2 22,2 C33,2 42,11 42,22"></path>
-                                </symbol>
-                            </svg>
-                        </button>
-
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
+        <?php include('./parts/main-header.php') ?>
 
 
         <section>
             <!-- Slider main container -->
-            <div class="default-wrapper">
-                <div id="topSwiper" class="swiper">
+            <div class="default-wrapper top-section">
+                <div id="topSwiper" class="swiper-top swiper">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-top swiper-wrapper">
+                    <div class=" swiper-wrapper">
                         <!-- Slides -->
                         <div class="swiper-slide">
                             <div class="swiper-top__wrapper">
                                 <div class="row m-0">
-                                    <div class="col col-12 col-lg-8 col-text ">
+                                    <div class="col col-12 col-md-8 col-text ">
                                         <h1>
                                             Oosafe Filters <br>New MDR regulations
                                         </h1>
-                                        <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor.</p>
+                                        <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
                                         <a href="" class="btn primary more">More</a>
                                     </div>
-                                    <div class="col col-12 col-lg-4 col-image">
-                                        <img class="top-slide-product" data-parallax data-speed=".2" src="./img/slide1-product.png" alt="">
-                                        <img class="top-slide-sticker" data-parallax data-speed=".4" src="./img/sticker.png" alt="">
+                                    <div class="col col-12 col-md-4 col-image">
+                                        <img class="top-slide-product" data-parallax data-start="0" data-y="100" data-end="300" src="./img/slide1-product.png" alt="">
+                                        <img class="top-slide-sticker" data-parallax data-start="0" data-y="180" data-end="300" src="./img/sticker.png" alt="">
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
-                        ...
+                        <div class="swiper-slide">
+                            <div class="swiper-top__wrapper">
+                                <div class="row m-0">
+                                    <div class="col col-12 col-md-8 col-text ">
+                                        <h1>
+                                            Oosafe Filters <br>New MDR regulations
+                                        </h1>
+                                        <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
+                                        <a href="" class="btn primary more">More</a>
+                                    </div>
+                                    <div class="col col-12 col-md-4 col-image">
+                                        <img class="top-slide-product" data-parallax data-start="0" data-y="100" data-end="300" src="./img/slide1-product.png" alt="">
+                                        <img class="top-slide-sticker" data-parallax data-start="0" data-y="180" data-end="300" src="./img/sticker.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="swiper-top__wrapper">
+                                <div class="row m-0">
+                                    <div class="col col-12 col-md-8 col-text ">
+                                        <h1>
+                                            Oosafe Filters <br>New MDR regulations
+                                        </h1>
+                                        <p class="">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</p>
+                                        <a href="" class="btn primary more">More</a>
+                                    </div>
+                                    <div class="col col-12 col-md-4 col-image">
+                                        <img class="top-slide-product" data-parallax data-start="0" data-y="100" data-end="300" src="./img/slide1-product.png" alt="">
+                                        <img class="top-slide-sticker" data-parallax data-start="0" data-y="180" data-end="300" src="./img/sticker.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                     <!-- If we need pagination -->
                     <div class="swiper-pagination"></div>
 
                     <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <!-- <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div> -->
 
                     <!-- If we need scrollbar -->
                     <!-- <div class="swiper-scrollbar"></div> -->
@@ -178,7 +145,7 @@
                             </div>
                         </a>
                     </div>
-                    ...
+
                 </div>
                 <!-- If we need pagination -->
                 <div class="swiper-pagination"></div>
@@ -195,7 +162,7 @@
         <section class="default-wrapper paddings-v3 post-container">
             <div class="post">
                 <div class="post__img">
-                    <!-- <img data-parallax data-speed="1" data-start="bottom center" data-end="top center" src="./img/about.jpg" alt=""> -->
+                    <!-- <img style="display: block;" data-parallax data-start="0" data-y="100" data-end="300" data-start="top center" data-end="+=830px" src="./img/about.jpg" alt=""> -->
                     <img src="./img/about.jpg" alt="">
                 </div>
                 <div class="post__content">
@@ -213,15 +180,59 @@
             </div>
         </section>
         <section class="light-bg overflow-hidden">
-            <div class="default-wrapper paddings-v3">
+            <div class="default-wrapper paddings-v3 pb-0">
+                <div class="mb-3 d-flex flex-column flex-lg-row algin-items-end justify-content-between">
+
                 <h2 class="h2">
                     Distributors <br>
                     <span class="marked">All over the World</span>
                 </h2>
+                <div class="d-flex map-radios">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="region" id="chEurope" value="Europe">
+                        <label class="form-check-label" for="chEurope">
+                            Europe
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="region" id="chMiddleEast" value="MiddleEast">
+                        <label class="form-check-label" for="chMiddleEast">
+                            Middle East
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="region" id="chAsiaPacific" value="AsiaPacific">
+                        <label class="form-check-label" for="chAsiaPacific">
+                            Asia Pacific
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="region" id="chAfrica" value="Africa">
+                        <label class="form-check-label" for="chAfrica">
+                            Africa
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="region" id="chAmericas" value="Americas">
+                        <label class="form-check-label" for="chAmericas">
+                            Americas
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="region" id="chAustralia" value="Australia">
+                        <label class="form-check-label" for="chAustralia">
+                            Australia
+                        </label>
+                    </div>
+                </div>
+                
+                </div>
                 <p>Would you like to become one of our distributors and join our world-wide distributor network?
                 </p>
                 <div class="mt-4">
-                    <img src="./img/map.svg" alt="">
+                    <div class="svg-map__container">
+                        <?php include('./parts/svg-map.svg'); ?>
+                    </div>
                 </div>
             </div>
         </section>
@@ -229,12 +240,12 @@
             <div class="default-wrapper paddings-v3">
             </div>
         </section>
-        <section class="light-bg contact-container">
+        <section id="contact" class="light-bg contact-container">
 
             <div class="default-wrapper paddings-v3">
                 <div class="d-flex flex-row flex-wrap">
                     <div class="col col-12 col-md-6 contact-form">
-                        <h2 class="h2">Contact</h2>
+                        <h2  class="h2">Contact</h2>
                         <form>
                             <div class="form-floating mb-4">
                                 <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
