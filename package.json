@@ -41,7 +41,7 @@
     "countup.js": "^2.0.4",
     "foundation-sites": "^6.7.2",
     "gsap": "^3.7.1",
-    "jquery-validation": "^1.19.0",
+    "jquery-validation": "^1.19.4",
     "matchheight": "^0.1.2",
     "mobx": "^6.3.3",
     "rellax": "^1.10.0",
