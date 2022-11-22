@@ -140,6 +140,7 @@ module.exports = env => {
             alias: {
                 index: path.resolve(__dirname, 'js/index.js'),
 
+                "jquery": path.resolve('node_modules', 'jquery/dist/jquery.js'),
                 "TweenLite": path.resolve('node_modules', 'gsap/src/uncompressed/TweenLite.js'),
                 "TweenMax": path.resolve('node_modules', 'gsap/src/uncompressed/TweenMax.js'),
                 "TimelineLite": path.resolve('node_modules', 'gsap/src/uncompressed/TimelineLite.js'),
