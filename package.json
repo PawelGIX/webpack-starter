@@ -41,7 +41,7 @@
     "countup.js": "^2.0.4",
     "foundation-sites": "^6.7.2",
     "gsap": "^3.10.4",
-    "jquery-validation": "^1.19.0",
+    "jquery-validation": "^1.19.5",
     "mobx": "^6.7.0",
     "sal.js": "^0.8.0",
     "scrollmagic": "^2.0.8",
