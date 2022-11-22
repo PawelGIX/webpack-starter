@@ -3,8 +3,7 @@ import '../scss/app.scss';
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
 
-console.log("aassaaa");
+console.log("BS ready");
 
-import '../svg-icons/magnify.svg';
 
 import './main.js'

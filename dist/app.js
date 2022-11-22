@@ -3275,101 +3275,6 @@ $('#contactForm').validate({
 
 /***/ }),
 
-/***/ "./js/cart-box.js":
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var cash_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/cash-dom/dist/cash.js");
-/* harmony import */ var cash_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(cash_dom__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var mobx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/mobx/dist/mobx.esm.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-var CartBoxClass = /*#__PURE__*/function () {
-  function CartBoxClass() {
-    var _this = this;
-
-    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-        _ref$el = _ref.el,
-        el = _ref$el === void 0 ? null : _ref$el;
-
-    _classCallCheck(this, CartBoxClass);
-
-    _defineProperty(this, "quantity", 1);
-
-    _defineProperty(this, "onChange", function (e) {
-      _this.quantity = parseInt(e.target.value);
-    });
-
-    this.$el = cash_dom__WEBPACK_IMPORTED_MODULE_0___default()(el);
-    this.$input = cash_dom__WEBPACK_IMPORTED_MODULE_0___default()(el).find('input');
-    this.$minusBtn = cash_dom__WEBPACK_IMPORTED_MODULE_0___default()(el).find('.btn-icon.minus');
-    this.$plusBtn = cash_dom__WEBPACK_IMPORTED_MODULE_0___default()(el).find('.btn-icon.plus');
-    (0,mobx__WEBPACK_IMPORTED_MODULE_1__.makeObservable)(this, {
-      quantity: mobx__WEBPACK_IMPORTED_MODULE_1__.observable,
-      increment: mobx__WEBPACK_IMPORTED_MODULE_1__.action,
-      decrement: mobx__WEBPACK_IMPORTED_MODULE_1__.action
-    });
-    this.quantity = parseInt(this.$input.val());
-    this.$input.on('change', this.onChange);
-    this.$minusBtn.on('click', function (e) {
-      _this.decrement();
-    });
-    this.$plusBtn.on('click', function (e) {
-      _this.increment();
-    });
-    (0,mobx__WEBPACK_IMPORTED_MODULE_1__.autorun)(function () {
-      _this.$input.val(_this.quantity);
-
-      console.log('this.quantity :>> ', _this.quantity);
-    });
-  }
-
-  _createClass(CartBoxClass, [{
-    key: "increment",
-    value: function increment() {
-      this.quantity += 1;
-    }
-  }, {
-    key: "decrement",
-    value: function decrement() {
-      if (this.quantity > 1) {
-        this.quantity -= 1;
-      }
-    }
-    /**
-     * 
-     * @param {KeyboardEvent} e 
-     */
-
-  }]);
-
-  return CartBoxClass;
-}();
-
-var $carts = cash_dom__WEBPACK_IMPORTED_MODULE_0___default()('.cart-box');
-var CartBox = $carts.map(function (e, el) {
-  return new CartBoxClass({
-    el: el
-  });
-});
-window.CartBox = CartBox;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CartBox);
-
-/***/ }),
-
 /***/ "./js/effects/AnimationOnScroll.js":
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -3622,21 +3527,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _CursorAnimation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./js/CursorAnimation.js");
 /* harmony import */ var _utils_ScrollTo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./js/utils/ScrollTo.js");
 /* harmony import */ var _utils_ScrollTo__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_utils_ScrollTo__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _utils_StickyHeader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./js/utils/StickyHeader.js");
-/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./js/Validation.js");
-/* harmony import */ var _effects_AnimationOnScroll__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./js/effects/AnimationOnScroll.js");
-/* harmony import */ var _swipers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./js/swipers.js");
-/* harmony import */ var _offcanvas__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./js/offcanvas.js");
-/* harmony import */ var _offcanvas__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_offcanvas__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var _effects_ScrollTrigger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./js/effects/ScrollTrigger.js");
-/* harmony import */ var _effects_ButtonMaterialRipple__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__("./js/effects/ButtonMaterialRipple.js");
-/* harmony import */ var _cart_box__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__("./js/cart-box.js");
-/* harmony import */ var _svg_map_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__("./js/svg-map.js");
+/* harmony import */ var _Validation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./js/Validation.js");
+/* harmony import */ var _effects_AnimationOnScroll__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__("./js/effects/AnimationOnScroll.js");
+/* harmony import */ var _swipers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__("./js/swipers.js");
+/* harmony import */ var _offcanvas__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__("./js/offcanvas.js");
+/* harmony import */ var _offcanvas__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_offcanvas__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _effects_ScrollTrigger__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__("./js/effects/ScrollTrigger.js");
+/* harmony import */ var _effects_ButtonMaterialRipple__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__("./js/effects/ButtonMaterialRipple.js");
 
  // import './utils/ParallaxMouseRotation';
 
-
- // import { initPerspectiveCards } from './effects/PerspectiveCard';
+ // import { stickHeaderInit } from './utils/StickyHeader';
+// import { initPerspectiveCards } from './effects/PerspectiveCard';
 
 
  // import MatchHeight from 'matchheight';
@@ -3645,14 +3547,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-$('html').removeClass('no-js');
-_effects_ButtonMaterialRipple__WEBPACK_IMPORTED_MODULE_9__["default"].init(); // initPerspectiveCards();
-
-(0,_utils_StickyHeader__WEBPACK_IMPORTED_MODULE_3__.stickHeaderInit)({
-  header: '.main-header'
-}); // $(document).foundation();
+$('html').removeClass('no-js'); // Ripple.init();
+// initPerspectiveCards();
+// stickHeaderInit({
+//     header:'.main-header'
+// });
+// $(document).foundation();
 
 /*
 * jquery-match-height 0.7.2 by @liabru
@@ -3673,8 +3573,8 @@ _effects_ButtonMaterialRipple__WEBPACK_IMPORTED_MODULE_9__["default"].init(); //
 // });
 
 (0,_utils_Events__WEBPACK_IMPORTED_MODULE_0__.windownLoad)(function () {
-  (0,_effects_ScrollTrigger__WEBPACK_IMPORTED_MODULE_8__.startScrollTrigger)();
-  (0,_effects_AnimationOnScroll__WEBPACK_IMPORTED_MODULE_5__.startAOS)();
+  (0,_effects_ScrollTrigger__WEBPACK_IMPORTED_MODULE_7__.startScrollTrigger)();
+  (0,_effects_AnimationOnScroll__WEBPACK_IMPORTED_MODULE_4__.startAOS)();
 });
 
 /***/ }),
@@ -3694,158 +3594,6 @@ if (toggle) {
 // document.querySelector('body').addEventListener('click', () => {
 //     clearInterval(animate);
 // });
-
-/***/ }),
-
-/***/ "./js/svg-map.js":
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var cash_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./node_modules/cash-dom/dist/cash.js");
-/* harmony import */ var cash_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(cash_dom__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var _utils_Strings__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./js/utils/Strings.js");
-/* harmony import */ var _utils_Events__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./js/utils/Events.js");
-
-
-
-
-
-var svgPanZoom = __webpack_require__("./node_modules/svg-pan-zoom/src/browserify.js");
-
-var enabled = !!document.querySelector('#svgMap');
-var SvgMap = {
-  enabled: enabled
-};
-
-if (enabled) {
-  var calcScale = function calcScale(s) {
-    var scale = window.innerWidth / 1400;
-    return s * scale;
-  };
-
-  // fix attributes
-  var world = document.getElementsByTagName(".svg-map path");
-
-  for (var i = 0; i < world.length; i++) {
-    var country = world[i];
-    country.setAttribute("data-toggle", "tooltip");
-    country.setAttribute("data-placement", "top");
-    country.setAttribute("title", country.getAttribute("id"));
-  } // setup tooltips
-
-  /** @type {Element[]} */
-
-
-  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-toggle="tooltip"]'));
-  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    var title = tooltipTriggerEl.getAttribute('data-name');
-    var marked = tooltipTriggerEl.hasAttribute('data-marked');
-
-    if (title && marked) {
-      tooltipTriggerEl.setAttribute('title', (0,_utils_Strings__WEBPACK_IMPORTED_MODULE_2__.ucfirst)(title));
-      return new bootstrap__WEBPACK_IMPORTED_MODULE_1__.Tooltip(tooltipTriggerEl);
-    }
-
-    return null;
-  }); // initialize zoom in animation 
-
-  var map = svgPanZoom('#svgMap', {
-    zoomEnabled: true,
-    controlIconsEnabled: true,
-    dblClickZoomEnabled: false,
-    mouseWheelZoomEnabled: false,
-    preventMouseEventsDefault: false,
-    fit: true,
-    center: true // viewportSelector: document.getElementById('demo-tiger').querySelector('#g4') // this option will make library to misbehave. Viewport should have no transform attribute
-
-  }); // document.getElementById('enable').addEventListener('click', function() {
-  // map.enableControlIcons();
-  // })
-  // document.getElementById('disable').addEventListener('click', function() {
-  // map.disableControlIcons();
-  // })
-
-  cash_dom__WEBPACK_IMPORTED_MODULE_0___default()(".map-radios input").on('change', function (e) {
-    var $checked = cash_dom__WEBPACK_IMPORTED_MODULE_0___default()(".map-radios input:checked");
-    var value = $checked.val();
-    console.log(value);
-    var methodname = String(value).toLocaleLowerCase();
-
-    if (SvgMap.zoomTo[methodname]) {
-      SvgMap.zoomTo[methodname]();
-    }
-  });
-  window.addEventListener('resize', (0,_utils_Events__WEBPACK_IMPORTED_MODULE_3__.debounce)(function () {
-    map.updateBBox();
-    map.resize();
-    map.contain();
-    map.center();
-    cash_dom__WEBPACK_IMPORTED_MODULE_0___default()(".map-radios input:checked").prop('checked', false);
-    console.log('resize');
-  }, 100), {
-    passive: true
-  });
-  SvgMap.map = map;
-  SvgMap.zoomTo = {
-    americas: function americas() {
-      map.resetZoom();
-      map.center();
-      map.zoomAtPoint(1.8, {
-        x: calcScale(50),
-        y: calcScale(50)
-      });
-    },
-    europe: function europe() {
-      map.resetZoom();
-      map.center();
-      map.zoomAtPoint(2.2, {
-        x: calcScale(650),
-        y: calcScale(150)
-      });
-    },
-    africa: function africa() {
-      map.resetZoom();
-      map.center();
-      map.zoomAtPoint(2.2, {
-        x: calcScale(650),
-        y: calcScale(450)
-      });
-    },
-    australia: function australia() {
-      map.resetZoom();
-      map.center();
-      map.zoomAtPoint(2.2, {
-        x: calcScale(1390),
-        y: calcScale(690)
-      });
-    },
-    middleeast: function middleeast() {
-      map.resetZoom();
-      map.center();
-      map.zoomAtPoint(2.2, {
-        x: calcScale(790),
-        y: calcScale(440)
-      });
-    },
-    asiapacific: function asiapacific() {
-      map.resetZoom();
-      map.center();
-      map.zoomAtPoint(2, {
-        x: calcScale(1000),
-        y: calcScale(300)
-      });
-    }
-  };
-  SvgMap.tooltipList = tooltipList;
-}
-
-window.SvgMap = SvgMap;
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SvgMap);
 
 /***/ }),
 
@@ -4243,55 +3991,6 @@ $('a[href*="#"],[data-scroll-to]') // Remove links that don't actually link to a
     });
   }
 });
-
-/***/ }),
-
-/***/ "./js/utils/StickyHeader.js":
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "stickHeaderInit": () => (/* binding */ stickHeaderInit)
-/* harmony export */ });
-var $window = $(window);
-var $header = null;
-function stickHeaderInit(_ref) {
-  var _ref$header = _ref.header,
-      header = _ref$header === void 0 ? '.header' : _ref$header;
-  $header = $(header);
-
-  var run = function run(e) {
-    var sct = $window.scrollTop();
-
-    if (sct > 120) {
-      $header.addClass("sticky");
-    } else if (sct < 10) {
-      $header.removeClass("sticky");
-    }
-  };
-
-  run();
-  $window.on('scroll', run);
-}
-
-/***/ }),
-
-/***/ "./js/utils/Strings.js":
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ucfirst": () => (/* binding */ ucfirst)
-/* harmony export */ });
-function ucfirst(string) {
-  if (!string) {
-    return '';
-  }
-
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 /***/ }),
 
@@ -9316,1383 +9015,6 @@ defineJQueryPlugin(Toast);
 
 //# sourceMappingURL=bootstrap.esm.js.map
 
-
-/***/ }),
-
-/***/ "./node_modules/cash-dom/dist/cash.js":
-/***/ ((module) => {
-
-/* MIT https://github.com/fabiospampinato/cash */
-(function(){
-"use strict";
-
-var propMap = {
-  /* GENERAL */
-  "class": 'className',
-  contenteditable: 'contentEditable',
-
-  /* LABEL */
-  "for": 'htmlFor',
-
-  /* INPUT */
-  readonly: 'readOnly',
-  maxlength: 'maxLength',
-  tabindex: 'tabIndex',
-
-  /* TABLE */
-  colspan: 'colSpan',
-  rowspan: 'rowSpan',
-
-  /* IMAGE */
-  usemap: 'useMap'
-};
-
-function attempt(fn, arg) {
-  try {
-    return fn(arg);
-  } catch (_a) {
-    return arg;
-  }
-}
-
-var doc = document,
-    win = window,
-    docEle = doc.documentElement,
-    createElement = doc.createElement.bind(doc),
-    div = createElement('div'),
-    table = createElement('table'),
-    tbody = createElement('tbody'),
-    tr = createElement('tr'),
-    isArray = Array.isArray,
-    ArrayPrototype = Array.prototype,
-    concat = ArrayPrototype.concat,
-    filter = ArrayPrototype.filter,
-    indexOf = ArrayPrototype.indexOf,
-    map = ArrayPrototype.map,
-    push = ArrayPrototype.push,
-    slice = ArrayPrototype.slice,
-    some = ArrayPrototype.some,
-    splice = ArrayPrototype.splice;
-var idRe = /^#(?:[\w-]|\\.|[^\x00-\xa0])*$/,
-    classRe = /^\.(?:[\w-]|\\.|[^\x00-\xa0])*$/,
-    htmlRe = /<.+>/,
-    tagRe = /^\w+$/; // @require ./variables.ts
-
-function find(selector, context) {
-  return !selector || !isDocument(context) && !isElement(context) ? [] : classRe.test(selector) ? context.getElementsByClassName(selector.slice(1)) : tagRe.test(selector) ? context.getElementsByTagName(selector) : context.querySelectorAll(selector);
-} // @require ./find.ts
-// @require ./variables.ts
-
-
-var Cash =
-/** @class */
-function () {
-  function Cash(selector, context) {
-    if (!selector) return;
-    if (isCash(selector)) return selector;
-    var eles = selector;
-
-    if (isString(selector)) {
-      var ctx = (isCash(context) ? context[0] : context) || doc;
-      eles = idRe.test(selector) ? ctx.getElementById(selector.slice(1)) : htmlRe.test(selector) ? parseHTML(selector) : find(selector, ctx);
-      if (!eles) return;
-    } else if (isFunction(selector)) {
-      return this.ready(selector); //FIXME: `fn.ready` is not included in `core`, but it's actually a core functionality
-    }
-
-    if (eles.nodeType || eles === win) eles = [eles];
-    this.length = eles.length;
-
-    for (var i = 0, l = this.length; i < l; i++) {
-      this[i] = eles[i];
-    }
-  }
-
-  Cash.prototype.init = function (selector, context) {
-    return new Cash(selector, context);
-  };
-
-  return Cash;
-}();
-
-var fn = Cash.prototype,
-    cash = fn.init;
-cash.fn = cash.prototype = fn; // Ensuring that `cash () instanceof cash`
-
-fn.length = 0;
-fn.splice = splice; // Ensuring a cash collection gets printed as array-like in Chrome's devtools
-
-if (typeof Symbol === 'function') {
-  // Ensuring a cash collection is iterable
-  fn[Symbol['iterator']] = ArrayPrototype[Symbol['iterator']];
-}
-
-fn.map = function (callback) {
-  return cash(concat.apply([], map.call(this, function (ele, i) {
-    return callback.call(ele, i, ele);
-  })));
-};
-
-fn.slice = function (start, end) {
-  return cash(slice.call(this, start, end));
-}; // @require ./cash.ts
-
-
-var dashAlphaRe = /-([a-z])/g;
-
-function camelCase(str) {
-  return str.replace(dashAlphaRe, function (match, letter) {
-    return letter.toUpperCase();
-  });
-}
-
-cash.guid = 1; // @require ./cash.ts
-
-function matches(ele, selector) {
-  var matches = ele && (ele['matches'] || ele['webkitMatchesSelector'] || ele['msMatchesSelector']);
-  return !!matches && !!selector && matches.call(ele, selector);
-}
-
-function isCash(x) {
-  return x instanceof Cash;
-}
-
-function isWindow(x) {
-  return !!x && x === x.window;
-}
-
-function isDocument(x) {
-  return !!x && x.nodeType === 9;
-}
-
-function isElement(x) {
-  return !!x && x.nodeType === 1;
-}
-
-function isBoolean(x) {
-  return typeof x === 'boolean';
-}
-
-function isFunction(x) {
-  return typeof x === 'function';
-}
-
-function isString(x) {
-  return typeof x === 'string';
-}
-
-function isUndefined(x) {
-  return x === undefined;
-}
-
-function isNull(x) {
-  return x === null;
-}
-
-function isNumeric(x) {
-  return !isNaN(parseFloat(x)) && isFinite(x);
-}
-
-function isPlainObject(x) {
-  if (typeof x !== 'object' || x === null) return false;
-  var proto = Object.getPrototypeOf(x);
-  return proto === null || proto === Object.prototype;
-}
-
-cash.isWindow = isWindow;
-cash.isFunction = isFunction;
-cash.isArray = isArray;
-cash.isNumeric = isNumeric;
-cash.isPlainObject = isPlainObject;
-
-fn.get = function (index) {
-  if (isUndefined(index)) return slice.call(this);
-  index = Number(index);
-  return this[index < 0 ? index + this.length : index];
-};
-
-fn.eq = function (index) {
-  return cash(this.get(index));
-};
-
-fn.first = function () {
-  return this.eq(0);
-};
-
-fn.last = function () {
-  return this.eq(-1);
-};
-
-function each(arr, callback, _reverse) {
-  if (_reverse) {
-    var i = arr.length;
-
-    while (i--) {
-      if (callback.call(arr[i], i, arr[i]) === false) return arr;
-    }
-  } else if (isPlainObject(arr)) {
-    var keys = Object.keys(arr);
-
-    for (var i = 0, l = keys.length; i < l; i++) {
-      var key = keys[i];
-      if (callback.call(arr[key], key, arr[key]) === false) return arr;
-    }
-  } else {
-    for (var i = 0, l = arr.length; i < l; i++) {
-      if (callback.call(arr[i], i, arr[i]) === false) return arr;
-    }
-  }
-
-  return arr;
-}
-
-cash.each = each;
-
-fn.each = function (callback) {
-  return each(this, callback);
-};
-
-fn.prop = function (prop, value) {
-  if (!prop) return;
-
-  if (isString(prop)) {
-    prop = propMap[prop] || prop;
-    if (arguments.length < 2) return this[0] && this[0][prop];
-    return this.each(function (i, ele) {
-      ele[prop] = value;
-    });
-  }
-
-  for (var key in prop) {
-    this.prop(key, prop[key]);
-  }
-
-  return this;
-};
-
-fn.removeProp = function (prop) {
-  return this.each(function (i, ele) {
-    delete ele[propMap[prop] || prop];
-  });
-};
-
-function extend() {
-  var sources = [];
-
-  for (var _i = 0; _i < arguments.length; _i++) {
-    sources[_i] = arguments[_i];
-  }
-
-  var deep = isBoolean(sources[0]) ? sources.shift() : false,
-      target = sources.shift(),
-      length = sources.length;
-  if (!target) return {};
-  if (!length) return extend(deep, cash, target);
-
-  for (var i = 0; i < length; i++) {
-    var source = sources[i];
-
-    for (var key in source) {
-      if (deep && (isArray(source[key]) || isPlainObject(source[key]))) {
-        if (!target[key] || target[key].constructor !== source[key].constructor) target[key] = new source[key].constructor();
-        extend(deep, target[key], source[key]);
-      } else {
-        target[key] = source[key];
-      }
-    }
-  }
-
-  return target;
-}
-
-cash.extend = extend;
-
-fn.extend = function (plugins) {
-  return extend(fn, plugins);
-}; // @require ./matches.ts
-// @require ./type_checking.ts
-
-
-function getCompareFunction(comparator) {
-  return isString(comparator) ? function (i, ele) {
-    return matches(ele, comparator);
-  } : isFunction(comparator) ? comparator : isCash(comparator) ? function (i, ele) {
-    return comparator.is(ele);
-  } : !comparator ? function () {
-    return false;
-  } : function (i, ele) {
-    return ele === comparator;
-  };
-}
-
-fn.filter = function (comparator) {
-  var compare = getCompareFunction(comparator);
-  return cash(filter.call(this, function (ele, i) {
-    return compare.call(ele, i, ele);
-  }));
-}; // @require collection/filter.ts
-
-
-function filtered(collection, comparator) {
-  return !comparator ? collection : collection.filter(comparator);
-} // @require ./type_checking.ts
-
-
-var splitValuesRe = /\S+/g;
-
-function getSplitValues(str) {
-  return isString(str) ? str.match(splitValuesRe) || [] : [];
-}
-
-fn.hasClass = function (cls) {
-  return !!cls && some.call(this, function (ele) {
-    return isElement(ele) && ele.classList.contains(cls);
-  });
-};
-
-fn.removeAttr = function (attr) {
-  var attrs = getSplitValues(attr);
-  return this.each(function (i, ele) {
-    if (!isElement(ele)) return;
-    each(attrs, function (i, a) {
-      ele.removeAttribute(a);
-    });
-  });
-};
-
-function attr(attr, value) {
-  if (!attr) return;
-
-  if (isString(attr)) {
-    if (arguments.length < 2) {
-      if (!this[0] || !isElement(this[0])) return;
-      var value_1 = this[0].getAttribute(attr);
-      return isNull(value_1) ? undefined : value_1;
-    }
-
-    if (isUndefined(value)) return this;
-    if (isNull(value)) return this.removeAttr(attr);
-    return this.each(function (i, ele) {
-      if (!isElement(ele)) return;
-      ele.setAttribute(attr, value);
-    });
-  }
-
-  for (var key in attr) {
-    this.attr(key, attr[key]);
-  }
-
-  return this;
-}
-
-fn.attr = attr;
-
-fn.toggleClass = function (cls, force) {
-  var classes = getSplitValues(cls),
-      isForce = !isUndefined(force);
-  return this.each(function (i, ele) {
-    if (!isElement(ele)) return;
-    each(classes, function (i, c) {
-      if (isForce) {
-        force ? ele.classList.add(c) : ele.classList.remove(c);
-      } else {
-        ele.classList.toggle(c);
-      }
-    });
-  });
-};
-
-fn.addClass = function (cls) {
-  return this.toggleClass(cls, true);
-};
-
-fn.removeClass = function (cls) {
-  if (arguments.length) return this.toggleClass(cls, false);
-  return this.attr('class', '');
-};
-
-function pluck(arr, prop, deep, until) {
-  var plucked = [],
-      isCallback = isFunction(prop),
-      compare = until && getCompareFunction(until);
-
-  for (var i = 0, l = arr.length; i < l; i++) {
-    if (isCallback) {
-      var val_1 = prop(arr[i]);
-      if (val_1.length) push.apply(plucked, val_1);
-    } else {
-      var val_2 = arr[i][prop];
-
-      while (val_2 != null) {
-        if (until && compare(-1, val_2)) break;
-        plucked.push(val_2);
-        val_2 = deep ? val_2[prop] : null;
-      }
-    }
-  }
-
-  return plucked;
-}
-
-function unique(arr) {
-  return arr.length > 1 ? filter.call(arr, function (item, index, self) {
-    return indexOf.call(self, item) === index;
-  }) : arr;
-}
-
-cash.unique = unique;
-
-fn.add = function (selector, context) {
-  return cash(unique(this.get().concat(cash(selector, context).get())));
-}; // @require core/type_checking.ts
-// @require core/variables.ts
-
-
-function computeStyle(ele, prop, isVariable) {
-  if (!isElement(ele)) return;
-  var style = win.getComputedStyle(ele, null);
-  return isVariable ? style.getPropertyValue(prop) || undefined : style[prop] || ele.style[prop];
-} // @require ./compute_style.ts
-
-
-function computeStyleInt(ele, prop) {
-  return parseInt(computeStyle(ele, prop), 10) || 0;
-}
-
-var cssVariableRe = /^--/; // @require ./variables.ts
-
-function isCSSVariable(prop) {
-  return cssVariableRe.test(prop);
-} // @require core/camel_case.ts
-// @require core/cash.ts
-// @require core/each.ts
-// @require core/variables.ts
-// @require ./is_css_variable.ts
-
-
-var prefixedProps = {},
-    style = div.style,
-    vendorsPrefixes = ['webkit', 'moz', 'ms'];
-
-function getPrefixedProp(prop, isVariable) {
-  if (isVariable === void 0) {
-    isVariable = isCSSVariable(prop);
-  }
-
-  if (isVariable) return prop;
-
-  if (!prefixedProps[prop]) {
-    var propCC = camelCase(prop),
-        propUC = "" + propCC[0].toUpperCase() + propCC.slice(1),
-        props = (propCC + " " + vendorsPrefixes.join(propUC + " ") + propUC).split(' ');
-    each(props, function (i, p) {
-      if (p in style) {
-        prefixedProps[prop] = p;
-        return false;
-      }
-    });
-  }
-
-  return prefixedProps[prop];
-}
-
-; // @require core/type_checking.ts
-// @require ./is_css_variable.ts
-
-var numericProps = {
-  animationIterationCount: true,
-  columnCount: true,
-  flexGrow: true,
-  flexShrink: true,
-  fontWeight: true,
-  gridArea: true,
-  gridColumn: true,
-  gridColumnEnd: true,
-  gridColumnStart: true,
-  gridRow: true,
-  gridRowEnd: true,
-  gridRowStart: true,
-  lineHeight: true,
-  opacity: true,
-  order: true,
-  orphans: true,
-  widows: true,
-  zIndex: true
-};
-
-function getSuffixedValue(prop, value, isVariable) {
-  if (isVariable === void 0) {
-    isVariable = isCSSVariable(prop);
-  }
-
-  return !isVariable && !numericProps[prop] && isNumeric(value) ? value + "px" : value;
-}
-
-function css(prop, value) {
-  if (isString(prop)) {
-    var isVariable_1 = isCSSVariable(prop);
-    prop = getPrefixedProp(prop, isVariable_1);
-    if (arguments.length < 2) return this[0] && computeStyle(this[0], prop, isVariable_1);
-    if (!prop) return this;
-    value = getSuffixedValue(prop, value, isVariable_1);
-    return this.each(function (i, ele) {
-      if (!isElement(ele)) return;
-
-      if (isVariable_1) {
-        ele.style.setProperty(prop, value);
-      } else {
-        ele.style[prop] = value;
-      }
-    });
-  }
-
-  for (var key in prop) {
-    this.css(key, prop[key]);
-  }
-
-  return this;
-}
-
-;
-fn.css = css; // @optional ./css.ts
-// @require core/attempt.ts
-// @require core/camel_case.ts
-
-var JSONStringRe = /^\s+|\s+$/;
-
-function getData(ele, key) {
-  var value = ele.dataset[key] || ele.dataset[camelCase(key)];
-  if (JSONStringRe.test(value)) return value;
-  return attempt(JSON.parse, value);
-} // @require core/attempt.ts
-// @require core/camel_case.ts
-
-
-function setData(ele, key, value) {
-  value = attempt(JSON.stringify, value);
-  ele.dataset[camelCase(key)] = value;
-}
-
-function data(name, value) {
-  if (!name) {
-    if (!this[0]) return;
-    var datas = {};
-
-    for (var key in this[0].dataset) {
-      datas[key] = getData(this[0], key);
-    }
-
-    return datas;
-  }
-
-  if (isString(name)) {
-    if (arguments.length < 2) return this[0] && getData(this[0], name);
-    if (isUndefined(value)) return this;
-    return this.each(function (i, ele) {
-      setData(ele, name, value);
-    });
-  }
-
-  for (var key in name) {
-    this.data(key, name[key]);
-  }
-
-  return this;
-}
-
-fn.data = data; // @optional ./data.ts
-
-function getDocumentDimension(doc, dimension) {
-  var docEle = doc.documentElement;
-  return Math.max(doc.body["scroll" + dimension], docEle["scroll" + dimension], doc.body["offset" + dimension], docEle["offset" + dimension], docEle["client" + dimension]);
-} // @require css/helpers/compute_style_int.ts
-
-
-function getExtraSpace(ele, xAxis) {
-  return computeStyleInt(ele, "border" + (xAxis ? 'Left' : 'Top') + "Width") + computeStyleInt(ele, "padding" + (xAxis ? 'Left' : 'Top')) + computeStyleInt(ele, "padding" + (xAxis ? 'Right' : 'Bottom')) + computeStyleInt(ele, "border" + (xAxis ? 'Right' : 'Bottom') + "Width");
-}
-
-each([true, false], function (i, outer) {
-  each(['Width', 'Height'], function (i, prop) {
-    var name = "" + (outer ? 'outer' : 'inner') + prop;
-
-    fn[name] = function (includeMargins) {
-      if (!this[0]) return;
-      if (isWindow(this[0])) return outer ? this[0]["inner" + prop] : this[0].document.documentElement["client" + prop];
-      if (isDocument(this[0])) return getDocumentDimension(this[0], prop);
-      return this[0]["" + (outer ? 'offset' : 'client') + prop] + (includeMargins && outer ? computeStyleInt(this[0], "margin" + (i ? 'Top' : 'Left')) + computeStyleInt(this[0], "margin" + (i ? 'Bottom' : 'Right')) : 0);
-    };
-  });
-});
-each(['Width', 'Height'], function (index, prop) {
-  var propLC = prop.toLowerCase();
-
-  fn[propLC] = function (value) {
-    if (!this[0]) return isUndefined(value) ? undefined : this;
-
-    if (!arguments.length) {
-      if (isWindow(this[0])) return this[0].document.documentElement["client" + prop];
-      if (isDocument(this[0])) return getDocumentDimension(this[0], prop);
-      return this[0].getBoundingClientRect()[propLC] - getExtraSpace(this[0], !index);
-    }
-
-    var valueNumber = parseInt(value, 10);
-    return this.each(function (i, ele) {
-      if (!isElement(ele)) return;
-      var boxSizing = computeStyle(ele, 'boxSizing');
-      ele.style[propLC] = getSuffixedValue(propLC, valueNumber + (boxSizing === 'border-box' ? getExtraSpace(ele, !index) : 0));
-    });
-  };
-}); // @optional ./inner_outer.ts
-// @optional ./normal.ts
-// @require css/helpers/compute_style.ts
-
-var defaultDisplay = {};
-
-function getDefaultDisplay(tagName) {
-  if (defaultDisplay[tagName]) return defaultDisplay[tagName];
-  var ele = createElement(tagName);
-  doc.body.insertBefore(ele, null);
-  var display = computeStyle(ele, 'display');
-  doc.body.removeChild(ele);
-  return defaultDisplay[tagName] = display !== 'none' ? display : 'block';
-} // @require css/helpers/compute_style.ts
-
-
-function isHidden(ele) {
-  return computeStyle(ele, 'display') === 'none';
-}
-
-var displayProperty = '___cd';
-
-fn.toggle = function (force) {
-  return this.each(function (i, ele) {
-    if (!isElement(ele)) return;
-    var show = isUndefined(force) ? isHidden(ele) : force;
-
-    if (show) {
-      ele.style.display = ele[displayProperty] || '';
-
-      if (isHidden(ele)) {
-        ele.style.display = getDefaultDisplay(ele.tagName);
-      }
-    } else {
-      ele[displayProperty] = computeStyle(ele, 'display');
-      ele.style.display = 'none';
-    }
-  });
-};
-
-fn.hide = function () {
-  return this.toggle(false);
-};
-
-fn.show = function () {
-  return this.toggle(true);
-}; // @optional ./hide.ts
-// @optional ./show.ts
-// @optional ./toggle.ts
-
-
-function hasNamespaces(ns1, ns2) {
-  return !ns2 || !some.call(ns2, function (ns) {
-    return ns1.indexOf(ns) < 0;
-  });
-}
-
-var eventsNamespace = '___ce',
-    eventsNamespacesSeparator = '.',
-    eventsFocus = {
-  focus: 'focusin',
-  blur: 'focusout'
-},
-    eventsHover = {
-  mouseenter: 'mouseover',
-  mouseleave: 'mouseout'
-},
-    eventsMouseRe = /^(mouse|pointer|contextmenu|drag|drop|click|dblclick)/i; // @require ./variables.ts
-
-function getEventNameBubbling(name) {
-  return eventsHover[name] || eventsFocus[name] || name;
-} // @require ./variables.ts
-
-
-function getEventsCache(ele) {
-  return ele[eventsNamespace] = ele[eventsNamespace] || {};
-} // @require core/guid.ts
-// @require events/helpers/get_events_cache.ts
-
-
-function addEvent(ele, name, namespaces, selector, callback) {
-  var eventCache = getEventsCache(ele);
-  eventCache[name] = eventCache[name] || [];
-  eventCache[name].push([namespaces, selector, callback]);
-  ele.addEventListener(name, callback);
-} // @require ./variables.ts
-
-
-function parseEventName(eventName) {
-  var parts = eventName.split(eventsNamespacesSeparator);
-  return [parts[0], parts.slice(1).sort()]; // [name, namespace[]]
-} // @require ./get_events_cache.ts
-// @require ./has_namespaces.ts
-// @require ./parse_event_name.ts
-
-
-function removeEvent(ele, name, namespaces, selector, callback) {
-  var cache = getEventsCache(ele);
-
-  if (!name) {
-    for (name in cache) {
-      removeEvent(ele, name, namespaces, selector, callback);
-    }
-  } else if (cache[name]) {
-    cache[name] = cache[name].filter(function (_a) {
-      var ns = _a[0],
-          sel = _a[1],
-          cb = _a[2];
-      if (callback && cb.guid !== callback.guid || !hasNamespaces(ns, namespaces) || selector && selector !== sel) return true;
-      ele.removeEventListener(name, cb);
-    });
-  }
-}
-
-fn.off = function (eventFullName, selector, callback) {
-  var _this = this;
-
-  if (isUndefined(eventFullName)) {
-    this.each(function (i, ele) {
-      if (!isElement(ele) && !isDocument(ele) && !isWindow(ele)) return;
-      removeEvent(ele);
-    });
-  } else if (!isString(eventFullName)) {
-    for (var key in eventFullName) {
-      this.off(key, eventFullName[key]);
-    }
-  } else {
-    if (isFunction(selector)) {
-      callback = selector;
-      selector = '';
-    }
-
-    each(getSplitValues(eventFullName), function (i, eventFullName) {
-      var _a = parseEventName(eventFullName),
-          nameOriginal = _a[0],
-          namespaces = _a[1],
-          name = getEventNameBubbling(nameOriginal);
-
-      _this.each(function (i, ele) {
-        if (!isElement(ele) && !isDocument(ele) && !isWindow(ele)) return;
-        removeEvent(ele, name, namespaces, selector, callback);
-      });
-    });
-  }
-
-  return this;
-};
-
-function on(eventFullName, selector, data, callback, _one) {
-  var _this = this;
-
-  if (!isString(eventFullName)) {
-    for (var key in eventFullName) {
-      this.on(key, selector, data, eventFullName[key], _one);
-    }
-
-    return this;
-  }
-
-  if (!isString(selector)) {
-    if (isUndefined(selector) || isNull(selector)) {
-      selector = '';
-    } else if (isUndefined(data)) {
-      data = selector;
-      selector = '';
-    } else {
-      callback = data;
-      data = selector;
-      selector = '';
-    }
-  }
-
-  if (!isFunction(callback)) {
-    callback = data;
-    data = undefined;
-  }
-
-  if (!callback) return this;
-  each(getSplitValues(eventFullName), function (i, eventFullName) {
-    var _a = parseEventName(eventFullName),
-        nameOriginal = _a[0],
-        namespaces = _a[1],
-        name = getEventNameBubbling(nameOriginal),
-        isEventHover = nameOriginal in eventsHover,
-        isEventFocus = nameOriginal in eventsFocus;
-
-    if (!name) return;
-
-    _this.each(function (i, ele) {
-      if (!isElement(ele) && !isDocument(ele) && !isWindow(ele)) return;
-
-      var finalCallback = function finalCallback(event) {
-        if (event.target["___i" + event.type]) return event.stopImmediatePropagation(); // Ignoring native event in favor of the upcoming custom one
-
-        if (event.namespace && !hasNamespaces(namespaces, event.namespace.split(eventsNamespacesSeparator))) return;
-        if (!selector && (isEventFocus && (event.target !== ele || event.___ot === name) || isEventHover && event.relatedTarget && ele.contains(event.relatedTarget))) return;
-        var thisArg = ele;
-
-        if (selector) {
-          var target = event.target;
-
-          while (!matches(target, selector)) {
-            if (target === ele) return;
-            target = target.parentNode;
-            if (!target) return;
-          }
-
-          thisArg = target;
-          event.___cd = true; // Delegate
-        }
-
-        if (event.___cd) {
-          Object.defineProperty(event, 'currentTarget', {
-            configurable: true,
-            get: function get() {
-              return thisArg;
-            }
-          });
-        }
-
-        Object.defineProperty(event, 'data', {
-          configurable: true,
-          get: function get() {
-            return data;
-          }
-        });
-        var returnValue = callback.call(thisArg, event, event.___td);
-
-        if (_one) {
-          removeEvent(ele, name, namespaces, selector, finalCallback);
-        }
-
-        if (returnValue === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-      };
-
-      finalCallback.guid = callback.guid = callback.guid || cash.guid++;
-      addEvent(ele, name, namespaces, selector, finalCallback);
-    });
-  });
-  return this;
-}
-
-fn.on = on;
-
-function one(eventFullName, selector, data, callback) {
-  return this.on(eventFullName, selector, data, callback, true);
-}
-
-;
-fn.one = one;
-
-fn.ready = function (callback) {
-  var cb = function cb() {
-    return setTimeout(callback, 0, cash);
-  };
-
-  if (doc.readyState !== 'loading') {
-    cb();
-  } else {
-    doc.addEventListener('DOMContentLoaded', cb);
-  }
-
-  return this;
-};
-
-fn.trigger = function (event, data) {
-  if (isString(event)) {
-    var _a = parseEventName(event),
-        nameOriginal = _a[0],
-        namespaces = _a[1],
-        name_1 = getEventNameBubbling(nameOriginal);
-
-    if (!name_1) return this;
-    var type = eventsMouseRe.test(name_1) ? 'MouseEvents' : 'HTMLEvents';
-    event = doc.createEvent(type);
-    event.initEvent(name_1, true, true);
-    event.namespace = namespaces.join(eventsNamespacesSeparator);
-    event.___ot = nameOriginal;
-  }
-
-  event.___td = data;
-  var isEventFocus = event.___ot in eventsFocus;
-  return this.each(function (i, ele) {
-    if (isEventFocus && isFunction(ele[event.___ot])) {
-      ele["___i" + event.type] = true; // Ensuring the native event is ignored
-
-      ele[event.___ot]();
-
-      ele["___i" + event.type] = false; // Ensuring the custom event is not ignored
-    }
-
-    ele.dispatchEvent(event);
-  });
-}; // @optional ./off.ts
-// @optional ./on.ts
-// @optional ./one.ts
-// @optional ./ready.ts
-// @optional ./trigger.ts
-// @require core/pluck.ts
-// @require core/variables.ts
-
-
-function getValue(ele) {
-  if (ele.multiple && ele.options) return pluck(filter.call(ele.options, function (option) {
-    return option.selected && !option.disabled && !option.parentNode.disabled;
-  }), 'value');
-  return ele.value || '';
-}
-
-var queryEncodeSpaceRe = /%20/g,
-    queryEncodeCRLFRe = /\r?\n/g;
-
-function queryEncode(prop, value) {
-  return "&" + encodeURIComponent(prop) + "=" + encodeURIComponent(value.replace(queryEncodeCRLFRe, '\r\n')).replace(queryEncodeSpaceRe, '+');
-}
-
-var skippableRe = /file|reset|submit|button|image/i,
-    checkableRe = /radio|checkbox/i;
-
-fn.serialize = function () {
-  var query = '';
-  this.each(function (i, ele) {
-    each(ele.elements || [ele], function (i, ele) {
-      if (ele.disabled || !ele.name || ele.tagName === 'FIELDSET' || skippableRe.test(ele.type) || checkableRe.test(ele.type) && !ele.checked) return;
-      var value = getValue(ele);
-
-      if (!isUndefined(value)) {
-        var values = isArray(value) ? value : [value];
-        each(values, function (i, value) {
-          query += queryEncode(ele.name, value);
-        });
-      }
-    });
-  });
-  return query.slice(1);
-};
-
-function val(value) {
-  if (!arguments.length) return this[0] && getValue(this[0]);
-  return this.each(function (i, ele) {
-    var isSelect = ele.multiple && ele.options;
-
-    if (isSelect || checkableRe.test(ele.type)) {
-      var eleValue_1 = isArray(value) ? map.call(value, String) : isNull(value) ? [] : [String(value)];
-
-      if (isSelect) {
-        each(ele.options, function (i, option) {
-          option.selected = eleValue_1.indexOf(option.value) >= 0;
-        }, true);
-      } else {
-        ele.checked = eleValue_1.indexOf(ele.value) >= 0;
-      }
-    } else {
-      ele.value = isUndefined(value) || isNull(value) ? '' : value;
-    }
-  });
-}
-
-fn.val = val;
-
-fn.clone = function () {
-  return this.map(function (i, ele) {
-    return ele.cloneNode(true);
-  });
-};
-
-fn.detach = function (comparator) {
-  filtered(this, comparator).each(function (i, ele) {
-    if (ele.parentNode) {
-      ele.parentNode.removeChild(ele);
-    }
-  });
-  return this;
-};
-
-var fragmentRe = /^\s*<(\w+)[^>]*>/,
-    singleTagRe = /^<(\w+)\s*\/?>(?:<\/\1>)?$/;
-var containers = {
-  '*': div,
-  tr: tbody,
-  td: tr,
-  th: tr,
-  thead: table,
-  tbody: table,
-  tfoot: table
-}; //TODO: Create elements inside a document fragment, in order to prevent inline event handlers from firing
-//TODO: Ensure the created elements have the fragment as their parent instead of null, this also ensures we can deal with detatched nodes more reliably
-
-function parseHTML(html) {
-  if (!isString(html)) return [];
-  if (singleTagRe.test(html)) return [createElement(RegExp.$1)];
-  var fragment = fragmentRe.test(html) && RegExp.$1,
-      container = containers[fragment] || containers['*'];
-  container.innerHTML = html;
-  return cash(container.childNodes).detach().get();
-}
-
-cash.parseHTML = parseHTML;
-
-fn.empty = function () {
-  return this.each(function (i, ele) {
-    while (ele.firstChild) {
-      ele.removeChild(ele.firstChild);
-    }
-  });
-};
-
-function html(html) {
-  if (!arguments.length) return this[0] && this[0].innerHTML;
-  if (isUndefined(html)) return this;
-  return this.each(function (i, ele) {
-    if (!isElement(ele)) return;
-    ele.innerHTML = html;
-  });
-}
-
-fn.html = html;
-
-fn.remove = function (comparator) {
-  filtered(this, comparator).detach().off();
-  return this;
-};
-
-function text(text) {
-  if (isUndefined(text)) return this[0] ? this[0].textContent : '';
-  return this.each(function (i, ele) {
-    if (!isElement(ele)) return;
-    ele.textContent = text;
-  });
-}
-
-;
-fn.text = text;
-
-fn.unwrap = function () {
-  this.parent().each(function (i, ele) {
-    if (ele.tagName === 'BODY') return;
-    var $ele = cash(ele);
-    $ele.replaceWith($ele.children());
-  });
-  return this;
-};
-
-fn.offset = function () {
-  var ele = this[0];
-  if (!ele) return;
-  var rect = ele.getBoundingClientRect();
-  return {
-    top: rect.top + win.pageYOffset,
-    left: rect.left + win.pageXOffset
-  };
-};
-
-fn.offsetParent = function () {
-  return this.map(function (i, ele) {
-    var offsetParent = ele.offsetParent;
-
-    while (offsetParent && computeStyle(offsetParent, 'position') === 'static') {
-      offsetParent = offsetParent.offsetParent;
-    }
-
-    return offsetParent || docEle;
-  });
-};
-
-fn.position = function () {
-  var ele = this[0];
-  if (!ele) return;
-  var isFixed = computeStyle(ele, 'position') === 'fixed',
-      offset = isFixed ? ele.getBoundingClientRect() : this.offset();
-
-  if (!isFixed) {
-    var doc_1 = ele.ownerDocument;
-    var offsetParent = ele.offsetParent || doc_1.documentElement;
-
-    while ((offsetParent === doc_1.body || offsetParent === doc_1.documentElement) && computeStyle(offsetParent, 'position') === 'static') {
-      offsetParent = offsetParent.parentNode;
-    }
-
-    if (offsetParent !== ele && isElement(offsetParent)) {
-      var parentOffset = cash(offsetParent).offset();
-      offset.top -= parentOffset.top + computeStyleInt(offsetParent, 'borderTopWidth');
-      offset.left -= parentOffset.left + computeStyleInt(offsetParent, 'borderLeftWidth');
-    }
-  }
-
-  return {
-    top: offset.top - computeStyleInt(ele, 'marginTop'),
-    left: offset.left - computeStyleInt(ele, 'marginLeft')
-  };
-};
-
-fn.children = function (comparator) {
-  return filtered(cash(unique(pluck(this, function (ele) {
-    return ele.children;
-  }))), comparator);
-};
-
-fn.contents = function () {
-  return cash(unique(pluck(this, function (ele) {
-    return ele.tagName === 'IFRAME' ? [ele.contentDocument] : ele.tagName === 'TEMPLATE' ? ele.content.childNodes : ele.childNodes;
-  })));
-};
-
-fn.find = function (selector) {
-  return cash(unique(pluck(this, function (ele) {
-    return find(selector, ele);
-  })));
-}; // @require core/variables.ts
-// @require collection/filter.ts
-// @require traversal/find.ts
-
-
-var HTMLCDATARe = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g,
-    scriptTypeRe = /^$|^module$|\/(java|ecma)script/i,
-    scriptAttributes = ['type', 'src', 'nonce', 'noModule'];
-
-function evalScripts(node, doc) {
-  var collection = cash(node);
-  collection.filter('script').add(collection.find('script')).each(function (i, ele) {
-    if (scriptTypeRe.test(ele.type) && docEle.contains(ele)) {
-      // The script type is supported // The element is attached to the DOM // Using `documentElement` for broader browser support
-      var script_1 = createElement('script');
-      script_1.text = ele.textContent.replace(HTMLCDATARe, '');
-      each(scriptAttributes, function (i, attr) {
-        if (ele[attr]) script_1[attr] = ele[attr];
-      });
-      doc.head.insertBefore(script_1, null);
-      doc.head.removeChild(script_1);
-    }
-  });
-} // @require ./eval_scripts.ts
-
-
-function insertElement(anchor, target, left, inside, evaluate) {
-  if (inside) {
-    // prepend/append
-    anchor.insertBefore(target, left ? anchor.firstChild : null);
-  } else {
-    // before/after
-    anchor.parentNode.insertBefore(target, left ? anchor : anchor.nextSibling);
-  }
-
-  if (evaluate) {
-    evalScripts(target, anchor.ownerDocument);
-  }
-} // @require ./insert_element.ts
-
-
-function insertSelectors(selectors, anchors, inverse, left, inside, reverseLoop1, reverseLoop2, reverseLoop3) {
-  each(selectors, function (si, selector) {
-    each(cash(selector), function (ti, target) {
-      each(cash(anchors), function (ai, anchor) {
-        var anchorFinal = inverse ? target : anchor,
-            targetFinal = inverse ? anchor : target,
-            indexFinal = inverse ? ti : ai;
-        insertElement(anchorFinal, !indexFinal ? targetFinal : targetFinal.cloneNode(true), left, inside, !indexFinal);
-      }, reverseLoop3);
-    }, reverseLoop2);
-  }, reverseLoop1);
-  return anchors;
-}
-
-fn.after = function () {
-  return insertSelectors(arguments, this, false, false, false, true, true);
-};
-
-fn.append = function () {
-  return insertSelectors(arguments, this, false, false, true);
-};
-
-fn.appendTo = function (selector) {
-  return insertSelectors(arguments, this, true, false, true);
-};
-
-fn.before = function () {
-  return insertSelectors(arguments, this, false, true);
-};
-
-fn.insertAfter = function (selector) {
-  return insertSelectors(arguments, this, true, false, false, false, false, true);
-};
-
-fn.insertBefore = function (selector) {
-  return insertSelectors(arguments, this, true, true);
-};
-
-fn.prepend = function () {
-  return insertSelectors(arguments, this, false, true, true, true, true);
-};
-
-fn.prependTo = function (selector) {
-  return insertSelectors(arguments, this, true, true, true, false, false, true);
-};
-
-fn.replaceWith = function (selector) {
-  return this.before(selector).remove();
-};
-
-fn.replaceAll = function (selector) {
-  cash(selector).replaceWith(this);
-  return this;
-};
-
-fn.wrapAll = function (selector) {
-  var structure = cash(selector),
-      wrapper = structure[0];
-
-  while (wrapper.children.length) {
-    wrapper = wrapper.firstElementChild;
-  }
-
-  this.first().before(structure);
-  return this.appendTo(wrapper);
-};
-
-fn.wrap = function (selector) {
-  return this.each(function (i, ele) {
-    var wrapper = cash(selector)[0];
-    cash(ele).wrapAll(!i ? wrapper : wrapper.cloneNode(true));
-  });
-};
-
-fn.wrapInner = function (selector) {
-  return this.each(function (i, ele) {
-    var $ele = cash(ele),
-        contents = $ele.contents();
-    contents.length ? contents.wrapAll(selector) : $ele.append(selector);
-  });
-};
-
-fn.has = function (selector) {
-  var comparator = isString(selector) ? function (i, ele) {
-    return find(selector, ele).length;
-  } : function (i, ele) {
-    return ele.contains(selector);
-  };
-  return this.filter(comparator);
-};
-
-fn.is = function (comparator) {
-  var compare = getCompareFunction(comparator);
-  return some.call(this, function (ele, i) {
-    return compare.call(ele, i, ele);
-  });
-};
-
-fn.next = function (comparator, _all, _until) {
-  return filtered(cash(unique(pluck(this, 'nextElementSibling', _all, _until))), comparator);
-};
-
-fn.nextAll = function (comparator) {
-  return this.next(comparator, true);
-};
-
-fn.nextUntil = function (until, comparator) {
-  return this.next(comparator, true, until);
-};
-
-fn.not = function (comparator) {
-  var compare = getCompareFunction(comparator);
-  return this.filter(function (i, ele) {
-    return (!isString(comparator) || isElement(ele)) && !compare.call(ele, i, ele);
-  });
-};
-
-fn.parent = function (comparator) {
-  return filtered(cash(unique(pluck(this, 'parentNode'))), comparator);
-};
-
-fn.index = function (selector) {
-  var child = selector ? cash(selector)[0] : this[0],
-      collection = selector ? this : cash(child).parent().children();
-  return indexOf.call(collection, child);
-};
-
-fn.closest = function (comparator) {
-  var filtered = this.filter(comparator);
-  if (filtered.length) return filtered;
-  var $parent = this.parent();
-  if (!$parent.length) return filtered;
-  return $parent.closest(comparator);
-};
-
-fn.parents = function (comparator, _until) {
-  return filtered(cash(unique(pluck(this, 'parentElement', true, _until))), comparator);
-};
-
-fn.parentsUntil = function (until, comparator) {
-  return this.parents(comparator, until);
-};
-
-fn.prev = function (comparator, _all, _until) {
-  return filtered(cash(unique(pluck(this, 'previousElementSibling', _all, _until))), comparator);
-};
-
-fn.prevAll = function (comparator) {
-  return this.prev(comparator, true);
-};
-
-fn.prevUntil = function (until, comparator) {
-  return this.prev(comparator, true, until);
-};
-
-fn.siblings = function (comparator) {
-  return filtered(cash(unique(pluck(this, function (ele) {
-    return cash(ele).parent().children().not(ele);
-  }))), comparator);
-}; // @optional ./children.ts
-// @optional ./closest.ts
-// @optional ./contents.ts
-// @optional ./find.ts
-// @optional ./has.ts
-// @optional ./is.ts
-// @optional ./next.ts
-// @optional ./next_all.ts
-// @optional ./next_until.ts
-// @optional ./not.ts
-// @optional ./parent.ts
-// @optional ./parents.ts
-// @optional ./parents_until.ts
-// @optional ./prev.ts
-// @optional ./prev_all.ts
-// @optional ./prev_until.ts
-// @optional ./siblings.ts
-// @optional attributes/index.ts
-// @optional collection/index.ts
-// @optional css/index.ts
-// @optional data/index.ts
-// @optional dimensions/index.ts
-// @optional effects/index.ts
-// @optional events/index.ts
-// @optional forms/index.ts
-// @optional manipulation/index.ts
-// @optional offset/index.ts
-// @optional traversal/index.ts
-// @require core/index.ts
-// @priority -100
-// @require ./cash.ts
-// @require ./variables.ts
-
-
-if (true) {
-  // Node.js
-  module.exports = cash;
-} else {}
-})();
 
 /***/ }),
 
@@ -18840,18 +17162,6 @@ module.exports = __webpack_require__("./node_modules/core-js/modules/_core.js");
 
 /***/ }),
 
-/***/ "./svg-icons/magnify.svg":
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__webpack_require__.p + "magnify.svg");
-
-/***/ }),
-
 /***/ "./node_modules/jquery-validation/dist/jquery.validate.js":
 /***/ ((module, exports, __webpack_require__) => {
 
@@ -20554,5856 +18864,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/mobx/dist/mobx.esm.js":
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "$mobx": () => (/* binding */ $mobx),
-/* harmony export */   "FlowCancellationError": () => (/* binding */ FlowCancellationError),
-/* harmony export */   "ObservableMap": () => (/* binding */ ObservableMap),
-/* harmony export */   "ObservableSet": () => (/* binding */ ObservableSet),
-/* harmony export */   "Reaction": () => (/* binding */ Reaction),
-/* harmony export */   "_allowStateChanges": () => (/* binding */ allowStateChanges),
-/* harmony export */   "_allowStateChangesInsideComputed": () => (/* binding */ runInAction),
-/* harmony export */   "_allowStateReadsEnd": () => (/* binding */ allowStateReadsEnd),
-/* harmony export */   "_allowStateReadsStart": () => (/* binding */ allowStateReadsStart),
-/* harmony export */   "_autoAction": () => (/* binding */ autoAction),
-/* harmony export */   "_endAction": () => (/* binding */ _endAction),
-/* harmony export */   "_getAdministration": () => (/* binding */ getAdministration),
-/* harmony export */   "_getGlobalState": () => (/* binding */ getGlobalState),
-/* harmony export */   "_interceptReads": () => (/* binding */ interceptReads),
-/* harmony export */   "_isComputingDerivation": () => (/* binding */ isComputingDerivation),
-/* harmony export */   "_resetGlobalState": () => (/* binding */ resetGlobalState),
-/* harmony export */   "_startAction": () => (/* binding */ _startAction),
-/* harmony export */   "action": () => (/* binding */ action),
-/* harmony export */   "autorun": () => (/* binding */ autorun),
-/* harmony export */   "comparer": () => (/* binding */ comparer),
-/* harmony export */   "computed": () => (/* binding */ computed),
-/* harmony export */   "configure": () => (/* binding */ configure),
-/* harmony export */   "createAtom": () => (/* binding */ createAtom),
-/* harmony export */   "defineProperty": () => (/* binding */ apiDefineProperty),
-/* harmony export */   "entries": () => (/* binding */ entries),
-/* harmony export */   "extendObservable": () => (/* binding */ extendObservable),
-/* harmony export */   "flow": () => (/* binding */ flow),
-/* harmony export */   "flowResult": () => (/* binding */ flowResult),
-/* harmony export */   "get": () => (/* binding */ get),
-/* harmony export */   "getAtom": () => (/* binding */ getAtom),
-/* harmony export */   "getDebugName": () => (/* binding */ getDebugName),
-/* harmony export */   "getDependencyTree": () => (/* binding */ getDependencyTree),
-/* harmony export */   "getObserverTree": () => (/* binding */ getObserverTree),
-/* harmony export */   "has": () => (/* binding */ has),
-/* harmony export */   "intercept": () => (/* binding */ intercept),
-/* harmony export */   "isAction": () => (/* binding */ isAction),
-/* harmony export */   "isBoxedObservable": () => (/* binding */ isObservableValue),
-/* harmony export */   "isComputed": () => (/* binding */ isComputed),
-/* harmony export */   "isComputedProp": () => (/* binding */ isComputedProp),
-/* harmony export */   "isFlow": () => (/* binding */ isFlow),
-/* harmony export */   "isFlowCancellationError": () => (/* binding */ isFlowCancellationError),
-/* harmony export */   "isObservable": () => (/* binding */ isObservable),
-/* harmony export */   "isObservableArray": () => (/* binding */ isObservableArray),
-/* harmony export */   "isObservableMap": () => (/* binding */ isObservableMap),
-/* harmony export */   "isObservableObject": () => (/* binding */ isObservableObject),
-/* harmony export */   "isObservableProp": () => (/* binding */ isObservableProp),
-/* harmony export */   "isObservableSet": () => (/* binding */ isObservableSet),
-/* harmony export */   "keys": () => (/* binding */ keys),
-/* harmony export */   "makeAutoObservable": () => (/* binding */ makeAutoObservable),
-/* harmony export */   "makeObservable": () => (/* binding */ makeObservable),
-/* harmony export */   "observable": () => (/* binding */ observable),
-/* harmony export */   "observe": () => (/* binding */ observe),
-/* harmony export */   "onBecomeObserved": () => (/* binding */ onBecomeObserved),
-/* harmony export */   "onBecomeUnobserved": () => (/* binding */ onBecomeUnobserved),
-/* harmony export */   "onReactionError": () => (/* binding */ onReactionError),
-/* harmony export */   "override": () => (/* binding */ override),
-/* harmony export */   "ownKeys": () => (/* binding */ apiOwnKeys),
-/* harmony export */   "reaction": () => (/* binding */ reaction),
-/* harmony export */   "remove": () => (/* binding */ remove),
-/* harmony export */   "runInAction": () => (/* binding */ runInAction),
-/* harmony export */   "set": () => (/* binding */ set),
-/* harmony export */   "spy": () => (/* binding */ spy),
-/* harmony export */   "toJS": () => (/* binding */ toJS),
-/* harmony export */   "trace": () => (/* binding */ trace),
-/* harmony export */   "transaction": () => (/* binding */ transaction),
-/* harmony export */   "untracked": () => (/* binding */ untracked),
-/* harmony export */   "values": () => (/* binding */ values),
-/* harmony export */   "when": () => (/* binding */ when)
-/* harmony export */ });
-var niceErrors = {
-  0: "Invalid value for configuration 'enforceActions', expected 'never', 'always' or 'observed'",
-  1: function _(annotationType, key) {
-    return "Cannot apply '" + annotationType + "' to '" + key.toString() + "': Field not found.";
-  },
-
-  /*
-  2(prop) {
-      return `invalid decorator for '${prop.toString()}'`
-  },
-  3(prop) {
-      return `Cannot decorate '${prop.toString()}': action can only be used on properties with a function value.`
-  },
-  4(prop) {
-      return `Cannot decorate '${prop.toString()}': computed can only be used on getter properties.`
-  },
-  */
-  5: "'keys()' can only be used on observable objects, arrays, sets and maps",
-  6: "'values()' can only be used on observable objects, arrays, sets and maps",
-  7: "'entries()' can only be used on observable objects, arrays and maps",
-  8: "'set()' can only be used on observable objects, arrays and maps",
-  9: "'remove()' can only be used on observable objects, arrays and maps",
-  10: "'has()' can only be used on observable objects, arrays and maps",
-  11: "'get()' can only be used on observable objects, arrays and maps",
-  12: "Invalid annotation",
-  13: "Dynamic observable objects cannot be frozen",
-  14: "Intercept handlers should return nothing or a change object",
-  15: "Observable arrays cannot be frozen",
-  16: "Modification exception: the internal structure of an observable array was changed.",
-  17: function _(index, length) {
-    return "[mobx.array] Index out of bounds, " + index + " is larger than " + length;
-  },
-  18: "mobx.map requires Map polyfill for the current browser. Check babel-polyfill or core-js/es6/map.js",
-  19: function _(other) {
-    return "Cannot initialize from classes that inherit from Map: " + other.constructor.name;
-  },
-  20: function _(other) {
-    return "Cannot initialize map from " + other;
-  },
-  21: function _(dataStructure) {
-    return "Cannot convert to map from '" + dataStructure + "'";
-  },
-  22: "mobx.set requires Set polyfill for the current browser. Check babel-polyfill or core-js/es6/set.js",
-  23: "It is not possible to get index atoms from arrays",
-  24: function _(thing) {
-    return "Cannot obtain administration from " + thing;
-  },
-  25: function _(property, name) {
-    return "the entry '" + property + "' does not exist in the observable map '" + name + "'";
-  },
-  26: "please specify a property",
-  27: function _(property, name) {
-    return "no observable property '" + property.toString() + "' found on the observable object '" + name + "'";
-  },
-  28: function _(thing) {
-    return "Cannot obtain atom from " + thing;
-  },
-  29: "Expecting some object",
-  30: "invalid action stack. did you forget to finish an action?",
-  31: "missing option for computed: get",
-  32: function _(name, derivation) {
-    return "Cycle detected in computation " + name + ": " + derivation;
-  },
-  33: function _(name) {
-    return "The setter of computed value '" + name + "' is trying to update itself. Did you intend to update an _observable_ value, instead of the computed property?";
-  },
-  34: function _(name) {
-    return "[ComputedValue '" + name + "'] It is not possible to assign a new value to a computed value.";
-  },
-  35: "There are multiple, different versions of MobX active. Make sure MobX is loaded only once or use `configure({ isolateGlobalState: true })`",
-  36: "isolateGlobalState should be called before MobX is running any reactions",
-  37: function _(method) {
-    return "[mobx] `observableArray." + method + "()` mutates the array in-place, which is not allowed inside a derivation. Use `array.slice()." + method + "()` instead";
-  },
-  38: "'ownKeys()' can only be used on observable objects",
-  39: "'defineProperty()' can only be used on observable objects"
-};
-var errors =  true ? niceErrors : 0;
-function die(error) {
-  for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    args[_key - 1] = arguments[_key];
-  }
-
-  if (true) {
-    var e = typeof error === "string" ? error : errors[error];
-    if (typeof e === "function") e = e.apply(null, args);
-    throw new Error("[MobX] " + e);
-  }
-
-  throw new Error(typeof error === "number" ? "[MobX] minified error nr: " + error + (args.length ? " " + args.map(String).join(",") : "") + ". Find the full error at: https://github.com/mobxjs/mobx/blob/main/packages/mobx/src/errors.ts" : "[MobX] " + error);
-}
-
-var mockGlobal = {};
-function getGlobal() {
-  if (typeof globalThis !== "undefined") {
-    return globalThis;
-  }
-
-  if (typeof window !== "undefined") {
-    return window;
-  }
-
-  if (typeof __webpack_require__.g !== "undefined") {
-    return __webpack_require__.g;
-  }
-
-  if (typeof self !== "undefined") {
-    return self;
-  }
-
-  return mockGlobal;
-}
-
-var assign = Object.assign;
-var getDescriptor = Object.getOwnPropertyDescriptor;
-var defineProperty = Object.defineProperty;
-var objectPrototype = Object.prototype;
-var EMPTY_ARRAY = [];
-Object.freeze(EMPTY_ARRAY);
-var EMPTY_OBJECT = {};
-Object.freeze(EMPTY_OBJECT);
-var hasProxy = typeof Proxy !== "undefined";
-var plainObjectString = /*#__PURE__*/Object.toString();
-function assertProxies() {
-  if (!hasProxy) {
-    die( true ? "`Proxy` objects are not available in the current environment. Please configure MobX to enable a fallback implementation.`" : 0);
-  }
-}
-function warnAboutProxyRequirement(msg) {
-  if ( true && globalState.verifyProxies) {
-    die("MobX is currently configured to be able to run in ES5 mode, but in ES5 MobX won't be able to " + msg);
-  }
-}
-function getNextId() {
-  return ++globalState.mobxGuid;
-}
-/**
- * Makes sure that the provided function is invoked at most once.
- */
-
-function once(func) {
-  var invoked = false;
-  return function () {
-    if (invoked) return;
-    invoked = true;
-    return func.apply(this, arguments);
-  };
-}
-var noop = function noop() {};
-function isFunction(fn) {
-  return typeof fn === "function";
-}
-function isStringish(value) {
-  var t = typeof value;
-
-  switch (t) {
-    case "string":
-    case "symbol":
-    case "number":
-      return true;
-  }
-
-  return false;
-}
-function isObject(value) {
-  return value !== null && typeof value === "object";
-}
-function isPlainObject(value) {
-  var _proto$constructor;
-
-  if (!isObject(value)) return false;
-  var proto = Object.getPrototypeOf(value);
-  if (proto == null) return true;
-  return ((_proto$constructor = proto.constructor) == null ? void 0 : _proto$constructor.toString()) === plainObjectString;
-} // https://stackoverflow.com/a/37865170
-
-function isGenerator(obj) {
-  var constructor = obj == null ? void 0 : obj.constructor;
-  if (!constructor) return false;
-  if ("GeneratorFunction" === constructor.name || "GeneratorFunction" === constructor.displayName) return true;
-  return false;
-}
-function addHiddenProp(object, propName, value) {
-  defineProperty(object, propName, {
-    enumerable: false,
-    writable: true,
-    configurable: true,
-    value: value
-  });
-}
-function addHiddenFinalProp(object, propName, value) {
-  defineProperty(object, propName, {
-    enumerable: false,
-    writable: false,
-    configurable: true,
-    value: value
-  });
-}
-function createInstanceofPredicate(name, theClass) {
-  var propName = "isMobX" + name;
-  theClass.prototype[propName] = true;
-  return function (x) {
-    return isObject(x) && x[propName] === true;
-  };
-}
-function isES6Map(thing) {
-  return thing instanceof Map;
-}
-function isES6Set(thing) {
-  return thing instanceof Set;
-}
-var hasGetOwnPropertySymbols = typeof Object.getOwnPropertySymbols !== "undefined";
-/**
- * Returns the following: own enumerable keys and symbols.
- */
-
-function getPlainObjectKeys(object) {
-  var keys = Object.keys(object); // Not supported in IE, so there are not going to be symbol props anyway...
-
-  if (!hasGetOwnPropertySymbols) return keys;
-  var symbols = Object.getOwnPropertySymbols(object);
-  if (!symbols.length) return keys;
-  return [].concat(keys, symbols.filter(function (s) {
-    return objectPrototype.propertyIsEnumerable.call(object, s);
-  }));
-} // From Immer utils
-// Returns all own keys, including non-enumerable and symbolic
-
-var ownKeys = typeof Reflect !== "undefined" && Reflect.ownKeys ? Reflect.ownKeys : hasGetOwnPropertySymbols ? function (obj) {
-  return Object.getOwnPropertyNames(obj).concat(Object.getOwnPropertySymbols(obj));
-} :
-/* istanbul ignore next */
-Object.getOwnPropertyNames;
-function stringifyKey(key) {
-  if (typeof key === "string") return key;
-  if (typeof key === "symbol") return key.toString();
-  return new String(key).toString();
-}
-function toPrimitive(value) {
-  return value === null ? null : typeof value === "object" ? "" + value : value;
-}
-function hasProp(target, prop) {
-  return objectPrototype.hasOwnProperty.call(target, prop);
-} // From Immer utils
-
-var getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors || function getOwnPropertyDescriptors(target) {
-  // Polyfill needed for Hermes and IE, see https://github.com/facebook/hermes/issues/274
-  var res = {}; // Note: without polyfill for ownKeys, symbols won't be picked up
-
-  ownKeys(target).forEach(function (key) {
-    res[key] = getDescriptor(target, key);
-  });
-  return res;
-};
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-function _extends() {
-  _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  subClass.__proto__ = superClass;
-}
-
-function _assertThisInitialized(self) {
-  if (self === void 0) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return self;
-}
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-
-  return arr2;
-}
-
-function _createForOfIteratorHelperLoose(o, allowArrayLike) {
-  var it;
-
-  if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {
-    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-      if (it) o = it;
-      var i = 0;
-      return function () {
-        if (i >= o.length) return {
-          done: true
-        };
-        return {
-          done: false,
-          value: o[i++]
-        };
-      };
-    }
-
-    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-  }
-
-  it = o[Symbol.iterator]();
-  return it.next.bind(it);
-}
-
-var storedAnnotationsSymbol = /*#__PURE__*/Symbol("mobx-stored-annotations");
-/**
- * Creates a function that acts as
- * - decorator
- * - annotation object
- */
-
-function createDecoratorAnnotation(annotation) {
-  function decorator(target, property) {
-    storeAnnotation(target, property, annotation);
-  }
-
-  return Object.assign(decorator, annotation);
-}
-/**
- * Stores annotation to prototype,
- * so it can be inspected later by `makeObservable` called from constructor
- */
-
-function storeAnnotation(prototype, key, annotation) {
-  if (!hasProp(prototype, storedAnnotationsSymbol)) {
-    addHiddenProp(prototype, storedAnnotationsSymbol, _extends({}, prototype[storedAnnotationsSymbol]));
-  } // @override must override something
-
-
-  if ( true && isOverride(annotation) && !hasProp(prototype[storedAnnotationsSymbol], key)) {
-    var fieldName = prototype.constructor.name + ".prototype." + key.toString();
-    die("'" + fieldName + "' is decorated with 'override', " + "but no such decorated member was found on prototype.");
-  } // Cannot re-decorate
-
-
-  assertNotDecorated(prototype, annotation, key); // Ignore override
-
-  if (!isOverride(annotation)) {
-    prototype[storedAnnotationsSymbol][key] = annotation;
-  }
-}
-
-function assertNotDecorated(prototype, annotation, key) {
-  if ( true && !isOverride(annotation) && hasProp(prototype[storedAnnotationsSymbol], key)) {
-    var fieldName = prototype.constructor.name + ".prototype." + key.toString();
-    var currentAnnotationType = prototype[storedAnnotationsSymbol][key].annotationType_;
-    var requestedAnnotationType = annotation.annotationType_;
-    die("Cannot apply '@" + requestedAnnotationType + "' to '" + fieldName + "':" + ("\nThe field is already decorated with '@" + currentAnnotationType + "'.") + "\nRe-decorating fields is not allowed." + "\nUse '@override' decorator for methods overriden by subclass.");
-  }
-}
-/**
- * Collects annotations from prototypes and stores them on target (instance)
- */
-
-
-function collectStoredAnnotations(target) {
-  if (!hasProp(target, storedAnnotationsSymbol)) {
-    if ( true && !target[storedAnnotationsSymbol]) {
-      die("No annotations were passed to makeObservable, but no decorated members have been found either");
-    } // We need a copy as we will remove annotation from the list once it's applied.
-
-
-    addHiddenProp(target, storedAnnotationsSymbol, _extends({}, target[storedAnnotationsSymbol]));
-  }
-
-  return target[storedAnnotationsSymbol];
-}
-
-var $mobx = /*#__PURE__*/Symbol("mobx administration");
-var Atom = /*#__PURE__*/function () {
-  // for effective unobserving. BaseAtom has true, for extra optimization, so its onBecomeUnobserved never gets called, because it's not needed
-
-  /**
-   * Create a new atom. For debugging purposes it is recommended to give it a name.
-   * The onBecomeObserved and onBecomeUnobserved callbacks can be used for resource management.
-   */
-  function Atom(name_) {
-    if (name_ === void 0) {
-      name_ =  true ? "Atom@" + getNextId() : 0;
-    }
-
-    this.name_ = void 0;
-    this.isPendingUnobservation_ = false;
-    this.isBeingObserved_ = false;
-    this.observers_ = new Set();
-    this.diffValue_ = 0;
-    this.lastAccessedBy_ = 0;
-    this.lowestObserverState_ = IDerivationState_.NOT_TRACKING_;
-    this.onBOL = void 0;
-    this.onBUOL = void 0;
-    this.name_ = name_;
-  } // onBecomeObservedListeners
-
-
-  var _proto = Atom.prototype;
-
-  _proto.onBO = function onBO() {
-    if (this.onBOL) {
-      this.onBOL.forEach(function (listener) {
-        return listener();
-      });
-    }
-  };
-
-  _proto.onBUO = function onBUO() {
-    if (this.onBUOL) {
-      this.onBUOL.forEach(function (listener) {
-        return listener();
-      });
-    }
-  }
-  /**
-   * Invoke this method to notify mobx that your atom has been used somehow.
-   * Returns true if there is currently a reactive context.
-   */
-  ;
-
-  _proto.reportObserved = function reportObserved$1() {
-    return reportObserved(this);
-  }
-  /**
-   * Invoke this method _after_ this method has changed to signal mobx that all its observers should invalidate.
-   */
-  ;
-
-  _proto.reportChanged = function reportChanged() {
-    startBatch();
-    propagateChanged(this);
-    endBatch();
-  };
-
-  _proto.toString = function toString() {
-    return this.name_;
-  };
-
-  return Atom;
-}();
-var isAtom = /*#__PURE__*/createInstanceofPredicate("Atom", Atom);
-function createAtom(name, onBecomeObservedHandler, onBecomeUnobservedHandler) {
-  if (onBecomeObservedHandler === void 0) {
-    onBecomeObservedHandler = noop;
-  }
-
-  if (onBecomeUnobservedHandler === void 0) {
-    onBecomeUnobservedHandler = noop;
-  }
-
-  var atom = new Atom(name); // default `noop` listener will not initialize the hook Set
-
-  if (onBecomeObservedHandler !== noop) {
-    onBecomeObserved(atom, onBecomeObservedHandler);
-  }
-
-  if (onBecomeUnobservedHandler !== noop) {
-    onBecomeUnobserved(atom, onBecomeUnobservedHandler);
-  }
-
-  return atom;
-}
-
-function identityComparer(a, b) {
-  return a === b;
-}
-
-function structuralComparer(a, b) {
-  return deepEqual(a, b);
-}
-
-function shallowComparer(a, b) {
-  return deepEqual(a, b, 1);
-}
-
-function defaultComparer(a, b) {
-  if (Object.is) return Object.is(a, b);
-  return a === b ? a !== 0 || 1 / a === 1 / b : a !== a && b !== b;
-}
-
-var comparer = {
-  identity: identityComparer,
-  structural: structuralComparer,
-  "default": defaultComparer,
-  shallow: shallowComparer
-};
-
-function deepEnhancer(v, _, name) {
-  // it is an observable already, done
-  if (isObservable(v)) return v; // something that can be converted and mutated?
-
-  if (Array.isArray(v)) return observable.array(v, {
-    name: name
-  });
-  if (isPlainObject(v)) return observable.object(v, undefined, {
-    name: name
-  });
-  if (isES6Map(v)) return observable.map(v, {
-    name: name
-  });
-  if (isES6Set(v)) return observable.set(v, {
-    name: name
-  });
-
-  if (typeof v === "function" && !isAction(v) && !isFlow(v)) {
-    if (isGenerator(v)) {
-      return flow(v);
-    } else {
-      return autoAction(name, v);
-    }
-  }
-
-  return v;
-}
-function shallowEnhancer(v, _, name) {
-  if (v === undefined || v === null) return v;
-  if (isObservableObject(v) || isObservableArray(v) || isObservableMap(v) || isObservableSet(v)) return v;
-  if (Array.isArray(v)) return observable.array(v, {
-    name: name,
-    deep: false
-  });
-  if (isPlainObject(v)) return observable.object(v, undefined, {
-    name: name,
-    deep: false
-  });
-  if (isES6Map(v)) return observable.map(v, {
-    name: name,
-    deep: false
-  });
-  if (isES6Set(v)) return observable.set(v, {
-    name: name,
-    deep: false
-  });
-  if (true) die("The shallow modifier / decorator can only used in combination with arrays, objects, maps and sets");
-}
-function referenceEnhancer(newValue) {
-  // never turn into an observable
-  return newValue;
-}
-function refStructEnhancer(v, oldValue) {
-  if ( true && isObservable(v)) die("observable.struct should not be used with observable values");
-  if (deepEqual(v, oldValue)) return oldValue;
-  return v;
-}
-
-var OVERRIDE = "override";
-var override = /*#__PURE__*/createDecoratorAnnotation({
-  annotationType_: OVERRIDE,
-  make_: make_,
-  extend_: extend_
-});
-function isOverride(annotation) {
-  return annotation.annotationType_ === OVERRIDE;
-}
-
-function make_(adm, key) {
-  // Must not be plain object
-  if ( true && adm.isPlainObject_) {
-    die("Cannot apply '" + this.annotationType_ + "' to '" + adm.name_ + "." + key.toString() + "':" + ("\n'" + this.annotationType_ + "' cannot be used on plain objects."));
-  } // Must override something
-
-
-  if ( true && !hasProp(adm.appliedAnnotations_, key)) {
-    die("'" + adm.name_ + "." + key.toString() + "' is annotated with '" + this.annotationType_ + "', " + "but no such annotated member was found on prototype.");
-  }
-
-  return 0
-  /* Cancel */
-  ;
-}
-
-function extend_(adm, key, descriptor, proxyTrap) {
-  die("'" + this.annotationType_ + "' can only be used with 'makeObservable'");
-}
-
-function createActionAnnotation(name, options) {
-  return {
-    annotationType_: name,
-    options_: options,
-    make_: make_$1,
-    extend_: extend_$1
-  };
-}
-
-function make_$1(adm, key, descriptor, source) {
-  var _this$options_;
-
-  // bound
-  if ((_this$options_ = this.options_) == null ? void 0 : _this$options_.bound) {
-    return this.extend_(adm, key, descriptor, false) === null ? 0
-    /* Cancel */
-    : 1
-    /* Break */
-    ;
-  } // own
-
-
-  if (source === adm.target_) {
-    return this.extend_(adm, key, descriptor, false) === null ? 0
-    /* Cancel */
-    : 2
-    /* Continue */
-    ;
-  } // prototype
-
-
-  if (isAction(descriptor.value)) {
-    // A prototype could have been annotated already by other constructor,
-    // rest of the proto chain must be annotated already
-    return 1
-    /* Break */
-    ;
-  }
-
-  var actionDescriptor = createActionDescriptor(adm, this, key, descriptor, false);
-  defineProperty(source, key, actionDescriptor);
-  return 2
-  /* Continue */
-  ;
-}
-
-function extend_$1(adm, key, descriptor, proxyTrap) {
-  var actionDescriptor = createActionDescriptor(adm, this, key, descriptor);
-  return adm.defineProperty_(key, actionDescriptor, proxyTrap);
-}
-
-function assertActionDescriptor(adm, _ref, key, _ref2) {
-  var annotationType_ = _ref.annotationType_;
-  var value = _ref2.value;
-
-  if ( true && !isFunction(value)) {
-    die("Cannot apply '" + annotationType_ + "' to '" + adm.name_ + "." + key.toString() + "':" + ("\n'" + annotationType_ + "' can only be used on properties with a function value."));
-  }
-}
-
-function createActionDescriptor(adm, annotation, key, descriptor, // provides ability to disable safeDescriptors for prototypes
-safeDescriptors) {
-  var _annotation$options_, _annotation$options_$, _annotation$options_2, _annotation$options_$2, _annotation$options_3;
-
-  if (safeDescriptors === void 0) {
-    safeDescriptors = globalState.safeDescriptors;
-  }
-
-  assertActionDescriptor(adm, annotation, key, descriptor);
-  var value = descriptor.value;
-
-  if ((_annotation$options_ = annotation.options_) == null ? void 0 : _annotation$options_.bound) {
-    var _adm$proxy_;
-
-    value = value.bind((_adm$proxy_ = adm.proxy_) != null ? _adm$proxy_ : adm.target_);
-  }
-
-  return {
-    value: createAction((_annotation$options_$ = (_annotation$options_2 = annotation.options_) == null ? void 0 : _annotation$options_2.name) != null ? _annotation$options_$ : key.toString(), value, (_annotation$options_$2 = (_annotation$options_3 = annotation.options_) == null ? void 0 : _annotation$options_3.autoAction) != null ? _annotation$options_$2 : false),
-    // Non-configurable for classes
-    // prevents accidental field redefinition in subclass
-    configurable: safeDescriptors ? adm.isPlainObject_ : true,
-    // https://github.com/mobxjs/mobx/pull/2641#issuecomment-737292058
-    enumerable: false,
-    // Non-obsevable, therefore non-writable
-    // Also prevents rewriting in subclass constructor
-    writable: safeDescriptors ? false : true
-  };
-}
-
-function createFlowAnnotation(name, options) {
-  return {
-    annotationType_: name,
-    options_: options,
-    make_: make_$2,
-    extend_: extend_$2
-  };
-}
-
-function make_$2(adm, key, descriptor, source) {
-  var _this$options_;
-
-  // own
-  if (source === adm.target_) {
-    return this.extend_(adm, key, descriptor, false) === null ? 0
-    /* Cancel */
-    : 2
-    /* Continue */
-    ;
-  } // prototype
-  // bound - must annotate protos to support super.flow()
-
-
-  if (((_this$options_ = this.options_) == null ? void 0 : _this$options_.bound) && !isFlow(adm.target_[key])) {
-    if (this.extend_(adm, key, descriptor, false) === null) return 0
-    /* Cancel */
-    ;
-  }
-
-  if (isFlow(descriptor.value)) {
-    // A prototype could have been annotated already by other constructor,
-    // rest of the proto chain must be annotated already
-    return 1
-    /* Break */
-    ;
-  }
-
-  var flowDescriptor = createFlowDescriptor(adm, this, key, descriptor, false, false);
-  defineProperty(source, key, flowDescriptor);
-  return 2
-  /* Continue */
-  ;
-}
-
-function extend_$2(adm, key, descriptor, proxyTrap) {
-  var _this$options_2;
-
-  var flowDescriptor = createFlowDescriptor(adm, this, key, descriptor, (_this$options_2 = this.options_) == null ? void 0 : _this$options_2.bound);
-  return adm.defineProperty_(key, flowDescriptor, proxyTrap);
-}
-
-function assertFlowDescriptor(adm, _ref, key, _ref2) {
-  var annotationType_ = _ref.annotationType_;
-  var value = _ref2.value;
-
-  if ( true && !isFunction(value)) {
-    die("Cannot apply '" + annotationType_ + "' to '" + adm.name_ + "." + key.toString() + "':" + ("\n'" + annotationType_ + "' can only be used on properties with a generator function value."));
-  }
-}
-
-function createFlowDescriptor(adm, annotation, key, descriptor, bound, // provides ability to disable safeDescriptors for prototypes
-safeDescriptors) {
-  if (safeDescriptors === void 0) {
-    safeDescriptors = globalState.safeDescriptors;
-  }
-
-  assertFlowDescriptor(adm, annotation, key, descriptor);
-  var value = descriptor.value;
-
-  if (bound) {
-    var _adm$proxy_;
-
-    value = value.bind((_adm$proxy_ = adm.proxy_) != null ? _adm$proxy_ : adm.target_);
-  }
-
-  return {
-    value: flow(value),
-    // Non-configurable for classes
-    // prevents accidental field redefinition in subclass
-    configurable: safeDescriptors ? adm.isPlainObject_ : true,
-    // https://github.com/mobxjs/mobx/pull/2641#issuecomment-737292058
-    enumerable: false,
-    // Non-obsevable, therefore non-writable
-    // Also prevents rewriting in subclass constructor
-    writable: safeDescriptors ? false : true
-  };
-}
-
-function createComputedAnnotation(name, options) {
-  return {
-    annotationType_: name,
-    options_: options,
-    make_: make_$3,
-    extend_: extend_$3
-  };
-}
-
-function make_$3(adm, key, descriptor) {
-  return this.extend_(adm, key, descriptor, false) === null ? 0
-  /* Cancel */
-  : 1
-  /* Break */
-  ;
-}
-
-function extend_$3(adm, key, descriptor, proxyTrap) {
-  assertComputedDescriptor(adm, this, key, descriptor);
-  return adm.defineComputedProperty_(key, _extends({}, this.options_, {
-    get: descriptor.get,
-    set: descriptor.set
-  }), proxyTrap);
-}
-
-function assertComputedDescriptor(adm, _ref, key, _ref2) {
-  var annotationType_ = _ref.annotationType_;
-  var get = _ref2.get;
-
-  if ( true && !get) {
-    die("Cannot apply '" + annotationType_ + "' to '" + adm.name_ + "." + key.toString() + "':" + ("\n'" + annotationType_ + "' can only be used on getter(+setter) properties."));
-  }
-}
-
-function createObservableAnnotation(name, options) {
-  return {
-    annotationType_: name,
-    options_: options,
-    make_: make_$4,
-    extend_: extend_$4
-  };
-}
-
-function make_$4(adm, key, descriptor) {
-  return this.extend_(adm, key, descriptor, false) === null ? 0
-  /* Cancel */
-  : 1
-  /* Break */
-  ;
-}
-
-function extend_$4(adm, key, descriptor, proxyTrap) {
-  var _this$options_$enhanc, _this$options_;
-
-  assertObservableDescriptor(adm, this, key, descriptor);
-  return adm.defineObservableProperty_(key, descriptor.value, (_this$options_$enhanc = (_this$options_ = this.options_) == null ? void 0 : _this$options_.enhancer) != null ? _this$options_$enhanc : deepEnhancer, proxyTrap);
-}
-
-function assertObservableDescriptor(adm, _ref, key, descriptor) {
-  var annotationType_ = _ref.annotationType_;
-
-  if ( true && !("value" in descriptor)) {
-    die("Cannot apply '" + annotationType_ + "' to '" + adm.name_ + "." + key.toString() + "':" + ("\n'" + annotationType_ + "' cannot be used on getter/setter properties"));
-  }
-}
-
-var AUTO = "true";
-var autoAnnotation = /*#__PURE__*/createAutoAnnotation();
-function createAutoAnnotation(options) {
-  return {
-    annotationType_: AUTO,
-    options_: options,
-    make_: make_$5,
-    extend_: extend_$5
-  };
-}
-
-function make_$5(adm, key, descriptor, source) {
-  var _this$options_3, _this$options_4;
-
-  // getter -> computed
-  if (descriptor.get) {
-    return computed.make_(adm, key, descriptor, source);
-  } // lone setter -> action setter
-
-
-  if (descriptor.set) {
-    // TODO make action applicable to setter and delegate to action.make_
-    var set = createAction(key.toString(), descriptor.set); // own
-
-    if (source === adm.target_) {
-      return adm.defineProperty_(key, {
-        configurable: globalState.safeDescriptors ? adm.isPlainObject_ : true,
-        set: set
-      }) === null ? 0
-      /* Cancel */
-      : 2
-      /* Continue */
-      ;
-    } // proto
-
-
-    defineProperty(source, key, {
-      configurable: true,
-      set: set
-    });
-    return 2
-    /* Continue */
-    ;
-  } // function on proto -> autoAction/flow
-
-
-  if (source !== adm.target_ && typeof descriptor.value === "function") {
-    var _this$options_2;
-
-    if (isGenerator(descriptor.value)) {
-      var _this$options_;
-
-      var flowAnnotation = ((_this$options_ = this.options_) == null ? void 0 : _this$options_.autoBind) ? flow.bound : flow;
-      return flowAnnotation.make_(adm, key, descriptor, source);
-    }
-
-    var actionAnnotation = ((_this$options_2 = this.options_) == null ? void 0 : _this$options_2.autoBind) ? autoAction.bound : autoAction;
-    return actionAnnotation.make_(adm, key, descriptor, source);
-  } // other -> observable
-  // Copy props from proto as well, see test:
-  // "decorate should work with Object.create"
-
-
-  var observableAnnotation = ((_this$options_3 = this.options_) == null ? void 0 : _this$options_3.deep) === false ? observable.ref : observable; // if function respect autoBind option
-
-  if (typeof descriptor.value === "function" && ((_this$options_4 = this.options_) == null ? void 0 : _this$options_4.autoBind)) {
-    var _adm$proxy_;
-
-    descriptor.value = descriptor.value.bind((_adm$proxy_ = adm.proxy_) != null ? _adm$proxy_ : adm.target_);
-  }
-
-  return observableAnnotation.make_(adm, key, descriptor, source);
-}
-
-function extend_$5(adm, key, descriptor, proxyTrap) {
-  var _this$options_5, _this$options_6;
-
-  // getter -> computed
-  if (descriptor.get) {
-    return computed.extend_(adm, key, descriptor, proxyTrap);
-  } // lone setter -> action setter
-
-
-  if (descriptor.set) {
-    // TODO make action applicable to setter and delegate to action.extend_
-    return adm.defineProperty_(key, {
-      configurable: globalState.safeDescriptors ? adm.isPlainObject_ : true,
-      set: createAction(key.toString(), descriptor.set)
-    }, proxyTrap);
-  } // other -> observable
-  // if function respect autoBind option
-
-
-  if (typeof descriptor.value === "function" && ((_this$options_5 = this.options_) == null ? void 0 : _this$options_5.autoBind)) {
-    var _adm$proxy_2;
-
-    descriptor.value = descriptor.value.bind((_adm$proxy_2 = adm.proxy_) != null ? _adm$proxy_2 : adm.target_);
-  }
-
-  var observableAnnotation = ((_this$options_6 = this.options_) == null ? void 0 : _this$options_6.deep) === false ? observable.ref : observable;
-  return observableAnnotation.extend_(adm, key, descriptor, proxyTrap);
-}
-
-var OBSERVABLE = "observable";
-var OBSERVABLE_REF = "observable.ref";
-var OBSERVABLE_SHALLOW = "observable.shallow";
-var OBSERVABLE_STRUCT = "observable.struct"; // Predefined bags of create observable options, to avoid allocating temporarily option objects
-// in the majority of cases
-
-var defaultCreateObservableOptions = {
-  deep: true,
-  name: undefined,
-  defaultDecorator: undefined,
-  proxy: true
-};
-Object.freeze(defaultCreateObservableOptions);
-function asCreateObservableOptions(thing) {
-  return thing || defaultCreateObservableOptions;
-}
-var observableAnnotation = /*#__PURE__*/createObservableAnnotation(OBSERVABLE);
-var observableRefAnnotation = /*#__PURE__*/createObservableAnnotation(OBSERVABLE_REF, {
-  enhancer: referenceEnhancer
-});
-var observableShallowAnnotation = /*#__PURE__*/createObservableAnnotation(OBSERVABLE_SHALLOW, {
-  enhancer: shallowEnhancer
-});
-var observableStructAnnotation = /*#__PURE__*/createObservableAnnotation(OBSERVABLE_STRUCT, {
-  enhancer: refStructEnhancer
-});
-var observableDecoratorAnnotation = /*#__PURE__*/createDecoratorAnnotation(observableAnnotation);
-function getEnhancerFromOptions(options) {
-  return options.deep === true ? deepEnhancer : options.deep === false ? referenceEnhancer : getEnhancerFromAnnotation(options.defaultDecorator);
-}
-function getAnnotationFromOptions(options) {
-  var _options$defaultDecor;
-
-  return options ? (_options$defaultDecor = options.defaultDecorator) != null ? _options$defaultDecor : createAutoAnnotation(options) : undefined;
-}
-function getEnhancerFromAnnotation(annotation) {
-  var _annotation$options_$, _annotation$options_;
-
-  return !annotation ? deepEnhancer : (_annotation$options_$ = (_annotation$options_ = annotation.options_) == null ? void 0 : _annotation$options_.enhancer) != null ? _annotation$options_$ : deepEnhancer;
-}
-/**
- * Turns an object, array or function into a reactive structure.
- * @param v the value which should become observable.
- */
-
-function createObservable(v, arg2, arg3) {
-  // @observable someProp;
-  if (isStringish(arg2)) {
-    storeAnnotation(v, arg2, observableAnnotation);
-    return;
-  } // already observable - ignore
-
-
-  if (isObservable(v)) return v; // plain object
-
-  if (isPlainObject(v)) return observable.object(v, arg2, arg3); // Array
-
-  if (Array.isArray(v)) return observable.array(v, arg2); // Map
-
-  if (isES6Map(v)) return observable.map(v, arg2); // Set
-
-  if (isES6Set(v)) return observable.set(v, arg2); // other object - ignore
-
-  if (typeof v === "object" && v !== null) return v; // anything else
-
-  return observable.box(v, arg2);
-}
-
-Object.assign(createObservable, observableDecoratorAnnotation);
-var observableFactories = {
-  box: function box(value, options) {
-    var o = asCreateObservableOptions(options);
-    return new ObservableValue(value, getEnhancerFromOptions(o), o.name, true, o.equals);
-  },
-  array: function array(initialValues, options) {
-    var o = asCreateObservableOptions(options);
-    return (globalState.useProxies === false || o.proxy === false ? createLegacyArray : createObservableArray)(initialValues, getEnhancerFromOptions(o), o.name);
-  },
-  map: function map(initialValues, options) {
-    var o = asCreateObservableOptions(options);
-    return new ObservableMap(initialValues, getEnhancerFromOptions(o), o.name);
-  },
-  set: function set(initialValues, options) {
-    var o = asCreateObservableOptions(options);
-    return new ObservableSet(initialValues, getEnhancerFromOptions(o), o.name);
-  },
-  object: function object(props, decorators, options) {
-    return extendObservable(globalState.useProxies === false || (options == null ? void 0 : options.proxy) === false ? asObservableObject({}, options) : asDynamicObservableObject({}, options), props, decorators);
-  },
-  ref: /*#__PURE__*/createDecoratorAnnotation(observableRefAnnotation),
-  shallow: /*#__PURE__*/createDecoratorAnnotation(observableShallowAnnotation),
-  deep: observableDecoratorAnnotation,
-  struct: /*#__PURE__*/createDecoratorAnnotation(observableStructAnnotation)
-}; // eslint-disable-next-line
-
-var observable = /*#__PURE__*/assign(createObservable, observableFactories);
-
-var COMPUTED = "computed";
-var COMPUTED_STRUCT = "computed.struct";
-var computedAnnotation = /*#__PURE__*/createComputedAnnotation(COMPUTED);
-var computedStructAnnotation = /*#__PURE__*/createComputedAnnotation(COMPUTED_STRUCT, {
-  equals: comparer.structural
-});
-/**
- * Decorator for class properties: @computed get value() { return expr; }.
- * For legacy purposes also invokable as ES5 observable created: `computed(() => expr)`;
- */
-
-var computed = function computed(arg1, arg2) {
-  if (isStringish(arg2)) {
-    // @computed
-    return storeAnnotation(arg1, arg2, computedAnnotation);
-  }
-
-  if (isPlainObject(arg1)) {
-    // @computed({ options })
-    return createDecoratorAnnotation(createComputedAnnotation(COMPUTED, arg1));
-  } // computed(expr, options?)
-
-
-  if (true) {
-    if (!isFunction(arg1)) die("First argument to `computed` should be an expression.");
-    if (isFunction(arg2)) die("A setter as second argument is no longer supported, use `{ set: fn }` option instead");
-  }
-
-  var opts = isPlainObject(arg2) ? arg2 : {};
-  opts.get = arg1;
-  opts.name || (opts.name = arg1.name || "");
-  /* for generated name */
-
-  return new ComputedValue(opts);
-};
-Object.assign(computed, computedAnnotation);
-computed.struct = /*#__PURE__*/createDecoratorAnnotation(computedStructAnnotation);
-
-var _getDescriptor$config, _getDescriptor;
-// mobx versions
-
-var currentActionId = 0;
-var nextActionId = 1;
-var isFunctionNameConfigurable = (_getDescriptor$config = (_getDescriptor = /*#__PURE__*/getDescriptor(function () {}, "name")) == null ? void 0 : _getDescriptor.configurable) != null ? _getDescriptor$config : false; // we can safely recycle this object
-
-var tmpNameDescriptor = {
-  value: "action",
-  configurable: true,
-  writable: false,
-  enumerable: false
-};
-function createAction(actionName, fn, autoAction, ref) {
-  if (autoAction === void 0) {
-    autoAction = false;
-  }
-
-  if (true) {
-    if (!isFunction(fn)) die("`action` can only be invoked on functions");
-    if (typeof actionName !== "string" || !actionName) die("actions should have valid names, got: '" + actionName + "'");
-  }
-
-  function res() {
-    return executeAction(actionName, autoAction, fn, ref || this, arguments);
-  }
-
-  res.isMobxAction = true;
-
-  if (isFunctionNameConfigurable) {
-    tmpNameDescriptor.value = actionName;
-    Object.defineProperty(res, "name", tmpNameDescriptor);
-  }
-
-  return res;
-}
-function executeAction(actionName, canRunAsDerivation, fn, scope, args) {
-  var runInfo = _startAction(actionName, canRunAsDerivation, scope, args);
-
-  try {
-    return fn.apply(scope, args);
-  } catch (err) {
-    runInfo.error_ = err;
-    throw err;
-  } finally {
-    _endAction(runInfo);
-  }
-}
-function _startAction(actionName, canRunAsDerivation, // true for autoAction
-scope, args) {
-  var notifySpy_ =  true && isSpyEnabled() && !!actionName;
-  var startTime_ = 0;
-
-  if ( true && notifySpy_) {
-    startTime_ = Date.now();
-    var flattenedArgs = args ? Array.from(args) : EMPTY_ARRAY;
-    spyReportStart({
-      type: ACTION,
-      name: actionName,
-      object: scope,
-      arguments: flattenedArgs
-    });
-  }
-
-  var prevDerivation_ = globalState.trackingDerivation;
-  var runAsAction = !canRunAsDerivation || !prevDerivation_;
-  startBatch();
-  var prevAllowStateChanges_ = globalState.allowStateChanges; // by default preserve previous allow
-
-  if (runAsAction) {
-    untrackedStart();
-    prevAllowStateChanges_ = allowStateChangesStart(true);
-  }
-
-  var prevAllowStateReads_ = allowStateReadsStart(true);
-  var runInfo = {
-    runAsAction_: runAsAction,
-    prevDerivation_: prevDerivation_,
-    prevAllowStateChanges_: prevAllowStateChanges_,
-    prevAllowStateReads_: prevAllowStateReads_,
-    notifySpy_: notifySpy_,
-    startTime_: startTime_,
-    actionId_: nextActionId++,
-    parentActionId_: currentActionId
-  };
-  currentActionId = runInfo.actionId_;
-  return runInfo;
-}
-function _endAction(runInfo) {
-  if (currentActionId !== runInfo.actionId_) {
-    die(30);
-  }
-
-  currentActionId = runInfo.parentActionId_;
-
-  if (runInfo.error_ !== undefined) {
-    globalState.suppressReactionErrors = true;
-  }
-
-  allowStateChangesEnd(runInfo.prevAllowStateChanges_);
-  allowStateReadsEnd(runInfo.prevAllowStateReads_);
-  endBatch();
-  if (runInfo.runAsAction_) untrackedEnd(runInfo.prevDerivation_);
-
-  if ( true && runInfo.notifySpy_) {
-    spyReportEnd({
-      time: Date.now() - runInfo.startTime_
-    });
-  }
-
-  globalState.suppressReactionErrors = false;
-}
-function allowStateChanges(allowStateChanges, func) {
-  var prev = allowStateChangesStart(allowStateChanges);
-
-  try {
-    return func();
-  } finally {
-    allowStateChangesEnd(prev);
-  }
-}
-function allowStateChangesStart(allowStateChanges) {
-  var prev = globalState.allowStateChanges;
-  globalState.allowStateChanges = allowStateChanges;
-  return prev;
-}
-function allowStateChangesEnd(prev) {
-  globalState.allowStateChanges = prev;
-}
-
-var _Symbol$toPrimitive;
-var CREATE = "create";
-_Symbol$toPrimitive = Symbol.toPrimitive;
-var ObservableValue = /*#__PURE__*/function (_Atom) {
-  _inheritsLoose(ObservableValue, _Atom);
-
-  function ObservableValue(value, enhancer, name_, notifySpy, equals) {
-    var _this;
-
-    if (name_ === void 0) {
-      name_ =  true ? "ObservableValue@" + getNextId() : 0;
-    }
-
-    if (notifySpy === void 0) {
-      notifySpy = true;
-    }
-
-    if (equals === void 0) {
-      equals = comparer["default"];
-    }
-
-    _this = _Atom.call(this, name_) || this;
-    _this.enhancer = void 0;
-    _this.name_ = void 0;
-    _this.equals = void 0;
-    _this.hasUnreportedChange_ = false;
-    _this.interceptors_ = void 0;
-    _this.changeListeners_ = void 0;
-    _this.value_ = void 0;
-    _this.dehancer = void 0;
-    _this.enhancer = enhancer;
-    _this.name_ = name_;
-    _this.equals = equals;
-    _this.value_ = enhancer(value, undefined, name_);
-
-    if ( true && notifySpy && isSpyEnabled()) {
-      // only notify spy if this is a stand-alone observable
-      spyReport({
-        type: CREATE,
-        object: _assertThisInitialized(_this),
-        observableKind: "value",
-        debugObjectName: _this.name_,
-        newValue: "" + _this.value_
-      });
-    }
-
-    return _this;
-  }
-
-  var _proto = ObservableValue.prototype;
-
-  _proto.dehanceValue = function dehanceValue(value) {
-    if (this.dehancer !== undefined) return this.dehancer(value);
-    return value;
-  };
-
-  _proto.set = function set(newValue) {
-    var oldValue = this.value_;
-    newValue = this.prepareNewValue_(newValue);
-
-    if (newValue !== globalState.UNCHANGED) {
-      var notifySpy = isSpyEnabled();
-
-      if ( true && notifySpy) {
-        spyReportStart({
-          type: UPDATE,
-          object: this,
-          observableKind: "value",
-          debugObjectName: this.name_,
-          newValue: newValue,
-          oldValue: oldValue
-        });
-      }
-
-      this.setNewValue_(newValue);
-      if ( true && notifySpy) spyReportEnd();
-    }
-  };
-
-  _proto.prepareNewValue_ = function prepareNewValue_(newValue) {
-    checkIfStateModificationsAreAllowed(this);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        object: this,
-        type: UPDATE,
-        newValue: newValue
-      });
-      if (!change) return globalState.UNCHANGED;
-      newValue = change.newValue;
-    } // apply modifier
-
-
-    newValue = this.enhancer(newValue, this.value_, this.name_);
-    return this.equals(this.value_, newValue) ? globalState.UNCHANGED : newValue;
-  };
-
-  _proto.setNewValue_ = function setNewValue_(newValue) {
-    var oldValue = this.value_;
-    this.value_ = newValue;
-    this.reportChanged();
-
-    if (hasListeners(this)) {
-      notifyListeners(this, {
-        type: UPDATE,
-        object: this,
-        newValue: newValue,
-        oldValue: oldValue
-      });
-    }
-  };
-
-  _proto.get = function get() {
-    this.reportObserved();
-    return this.dehanceValue(this.value_);
-  };
-
-  _proto.intercept_ = function intercept_(handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  _proto.observe_ = function observe_(listener, fireImmediately) {
-    if (fireImmediately) listener({
-      observableKind: "value",
-      debugObjectName: this.name_,
-      object: this,
-      type: UPDATE,
-      newValue: this.value_,
-      oldValue: undefined
-    });
-    return registerListener(this, listener);
-  };
-
-  _proto.raw = function raw() {
-    // used by MST ot get undehanced value
-    return this.value_;
-  };
-
-  _proto.toJSON = function toJSON() {
-    return this.get();
-  };
-
-  _proto.toString = function toString() {
-    return this.name_ + "[" + this.value_ + "]";
-  };
-
-  _proto.valueOf = function valueOf() {
-    return toPrimitive(this.get());
-  };
-
-  _proto[_Symbol$toPrimitive] = function () {
-    return this.valueOf();
-  };
-
-  return ObservableValue;
-}(Atom);
-var isObservableValue = /*#__PURE__*/createInstanceofPredicate("ObservableValue", ObservableValue);
-
-var _Symbol$toPrimitive$1;
-/**
- * A node in the state dependency root that observes other nodes, and can be observed itself.
- *
- * ComputedValue will remember the result of the computation for the duration of the batch, or
- * while being observed.
- *
- * During this time it will recompute only when one of its direct dependencies changed,
- * but only when it is being accessed with `ComputedValue.get()`.
- *
- * Implementation description:
- * 1. First time it's being accessed it will compute and remember result
- *    give back remembered result until 2. happens
- * 2. First time any deep dependency change, propagate POSSIBLY_STALE to all observers, wait for 3.
- * 3. When it's being accessed, recompute if any shallow dependency changed.
- *    if result changed: propagate STALE to all observers, that were POSSIBLY_STALE from the last step.
- *    go to step 2. either way
- *
- * If at any point it's outside batch and it isn't observed: reset everything and go to 1.
- */
-
-_Symbol$toPrimitive$1 = Symbol.toPrimitive;
-var ComputedValue = /*#__PURE__*/function () {
-  // nodes we are looking at. Our value depends on these nodes
-  // during tracking it's an array with new observed observers
-  // to check for cycles
-  // N.B: unminified as it is used by MST
-
-  /**
-   * Create a new computed value based on a function expression.
-   *
-   * The `name` property is for debug purposes only.
-   *
-   * The `equals` property specifies the comparer function to use to determine if a newly produced
-   * value differs from the previous value. Two comparers are provided in the library; `defaultComparer`
-   * compares based on identity comparison (===), and `structuralComparer` deeply compares the structure.
-   * Structural comparison can be convenient if you always produce a new aggregated object and
-   * don't want to notify observers if it is structurally the same.
-   * This is useful for working with vectors, mouse coordinates etc.
-   */
-  function ComputedValue(options) {
-    this.dependenciesState_ = IDerivationState_.NOT_TRACKING_;
-    this.observing_ = [];
-    this.newObserving_ = null;
-    this.isBeingObserved_ = false;
-    this.isPendingUnobservation_ = false;
-    this.observers_ = new Set();
-    this.diffValue_ = 0;
-    this.runId_ = 0;
-    this.lastAccessedBy_ = 0;
-    this.lowestObserverState_ = IDerivationState_.UP_TO_DATE_;
-    this.unboundDepsCount_ = 0;
-    this.value_ = new CaughtException(null);
-    this.name_ = void 0;
-    this.triggeredBy_ = void 0;
-    this.isComputing_ = false;
-    this.isRunningSetter_ = false;
-    this.derivation = void 0;
-    this.setter_ = void 0;
-    this.isTracing_ = TraceMode.NONE;
-    this.scope_ = void 0;
-    this.equals_ = void 0;
-    this.requiresReaction_ = void 0;
-    this.keepAlive_ = void 0;
-    this.onBOL = void 0;
-    this.onBUOL = void 0;
-    if (!options.get) die(31);
-    this.derivation = options.get;
-    this.name_ = options.name || ( true ? "ComputedValue@" + getNextId() : 0);
-
-    if (options.set) {
-      this.setter_ = createAction( true ? this.name_ + "-setter" : 0, options.set);
-    }
-
-    this.equals_ = options.equals || (options.compareStructural || options.struct ? comparer.structural : comparer["default"]);
-    this.scope_ = options.context;
-    this.requiresReaction_ = !!options.requiresReaction;
-    this.keepAlive_ = !!options.keepAlive;
-  }
-
-  var _proto = ComputedValue.prototype;
-
-  _proto.onBecomeStale_ = function onBecomeStale_() {
-    propagateMaybeChanged(this);
-  };
-
-  _proto.onBO = function onBO() {
-    if (this.onBOL) {
-      this.onBOL.forEach(function (listener) {
-        return listener();
-      });
-    }
-  };
-
-  _proto.onBUO = function onBUO() {
-    if (this.onBUOL) {
-      this.onBUOL.forEach(function (listener) {
-        return listener();
-      });
-    }
-  }
-  /**
-   * Returns the current value of this computed value.
-   * Will evaluate its computation first if needed.
-   */
-  ;
-
-  _proto.get = function get() {
-    if (this.isComputing_) die(32, this.name_, this.derivation);
-
-    if (globalState.inBatch === 0 && // !globalState.trackingDerivatpion &&
-    this.observers_.size === 0 && !this.keepAlive_) {
-      if (shouldCompute(this)) {
-        this.warnAboutUntrackedRead_();
-        startBatch(); // See perf test 'computed memoization'
-
-        this.value_ = this.computeValue_(false);
-        endBatch();
-      }
-    } else {
-      reportObserved(this);
-
-      if (shouldCompute(this)) {
-        var prevTrackingContext = globalState.trackingContext;
-        if (this.keepAlive_ && !prevTrackingContext) globalState.trackingContext = this;
-        if (this.trackAndCompute()) propagateChangeConfirmed(this);
-        globalState.trackingContext = prevTrackingContext;
-      }
-    }
-
-    var result = this.value_;
-    if (isCaughtException(result)) throw result.cause;
-    return result;
-  };
-
-  _proto.set = function set(value) {
-    if (this.setter_) {
-      if (this.isRunningSetter_) die(33, this.name_);
-      this.isRunningSetter_ = true;
-
-      try {
-        this.setter_.call(this.scope_, value);
-      } finally {
-        this.isRunningSetter_ = false;
-      }
-    } else die(34, this.name_);
-  };
-
-  _proto.trackAndCompute = function trackAndCompute() {
-    // N.B: unminified as it is used by MST
-    var oldValue = this.value_;
-    var wasSuspended =
-    /* see #1208 */
-    this.dependenciesState_ === IDerivationState_.NOT_TRACKING_;
-    var newValue = this.computeValue_(true);
-
-    if ( true && isSpyEnabled()) {
-      spyReport({
-        observableKind: "computed",
-        debugObjectName: this.name_,
-        object: this.scope_,
-        type: "update",
-        oldValue: this.value_,
-        newValue: newValue
-      });
-    }
-
-    var changed = wasSuspended || isCaughtException(oldValue) || isCaughtException(newValue) || !this.equals_(oldValue, newValue);
-
-    if (changed) {
-      this.value_ = newValue;
-    }
-
-    return changed;
-  };
-
-  _proto.computeValue_ = function computeValue_(track) {
-    this.isComputing_ = true; // don't allow state changes during computation
-
-    var prev = allowStateChangesStart(false);
-    var res;
-
-    if (track) {
-      res = trackDerivedFunction(this, this.derivation, this.scope_);
-    } else {
-      if (globalState.disableErrorBoundaries === true) {
-        res = this.derivation.call(this.scope_);
-      } else {
-        try {
-          res = this.derivation.call(this.scope_);
-        } catch (e) {
-          res = new CaughtException(e);
-        }
-      }
-    }
-
-    allowStateChangesEnd(prev);
-    this.isComputing_ = false;
-    return res;
-  };
-
-  _proto.suspend_ = function suspend_() {
-    if (!this.keepAlive_) {
-      clearObserving(this);
-      this.value_ = undefined; // don't hold on to computed value!
-
-      if ( true && this.isTracing_ !== TraceMode.NONE) {
-        console.log("[mobx.trace] Computed value '" + this.name_ + "' was suspended and it will recompute on the next access.");
-      }
-    }
-  };
-
-  _proto.observe_ = function observe_(listener, fireImmediately) {
-    var _this = this;
-
-    var firstTime = true;
-    var prevValue = undefined;
-    return autorun(function () {
-      // TODO: why is this in a different place than the spyReport() function? in all other observables it's called in the same place
-      var newValue = _this.get();
-
-      if (!firstTime || fireImmediately) {
-        var prevU = untrackedStart();
-        listener({
-          observableKind: "computed",
-          debugObjectName: _this.name_,
-          type: UPDATE,
-          object: _this,
-          newValue: newValue,
-          oldValue: prevValue
-        });
-        untrackedEnd(prevU);
-      }
-
-      firstTime = false;
-      prevValue = newValue;
-    });
-  };
-
-  _proto.warnAboutUntrackedRead_ = function warnAboutUntrackedRead_() {
-    if (false) {}
-
-    if (this.isTracing_ !== TraceMode.NONE) {
-      console.log("[mobx.trace] Computed value '" + this.name_ + "' is being read outside a reactive context. Doing a full recompute.");
-    }
-
-    if (globalState.computedRequiresReaction || this.requiresReaction_) {
-      console.warn("[mobx] Computed value '" + this.name_ + "' is being read outside a reactive context. Doing a full recompute.");
-    }
-  };
-
-  _proto.toString = function toString() {
-    return this.name_ + "[" + this.derivation.toString() + "]";
-  };
-
-  _proto.valueOf = function valueOf() {
-    return toPrimitive(this.get());
-  };
-
-  _proto[_Symbol$toPrimitive$1] = function () {
-    return this.valueOf();
-  };
-
-  return ComputedValue;
-}();
-var isComputedValue = /*#__PURE__*/createInstanceofPredicate("ComputedValue", ComputedValue);
-
-var IDerivationState_;
-
-(function (IDerivationState_) {
-  // before being run or (outside batch and not being observed)
-  // at this point derivation is not holding any data about dependency tree
-  IDerivationState_[IDerivationState_["NOT_TRACKING_"] = -1] = "NOT_TRACKING_"; // no shallow dependency changed since last computation
-  // won't recalculate derivation
-  // this is what makes mobx fast
-
-  IDerivationState_[IDerivationState_["UP_TO_DATE_"] = 0] = "UP_TO_DATE_"; // some deep dependency changed, but don't know if shallow dependency changed
-  // will require to check first if UP_TO_DATE or POSSIBLY_STALE
-  // currently only ComputedValue will propagate POSSIBLY_STALE
-  //
-  // having this state is second big optimization:
-  // don't have to recompute on every dependency change, but only when it's needed
-
-  IDerivationState_[IDerivationState_["POSSIBLY_STALE_"] = 1] = "POSSIBLY_STALE_"; // A shallow dependency has changed since last computation and the derivation
-  // will need to recompute when it's needed next.
-
-  IDerivationState_[IDerivationState_["STALE_"] = 2] = "STALE_";
-})(IDerivationState_ || (IDerivationState_ = {}));
-
-var TraceMode;
-
-(function (TraceMode) {
-  TraceMode[TraceMode["NONE"] = 0] = "NONE";
-  TraceMode[TraceMode["LOG"] = 1] = "LOG";
-  TraceMode[TraceMode["BREAK"] = 2] = "BREAK";
-})(TraceMode || (TraceMode = {}));
-
-var CaughtException = function CaughtException(cause) {
-  this.cause = void 0;
-  this.cause = cause; // Empty
-};
-function isCaughtException(e) {
-  return e instanceof CaughtException;
-}
-/**
- * Finds out whether any dependency of the derivation has actually changed.
- * If dependenciesState is 1 then it will recalculate dependencies,
- * if any dependency changed it will propagate it by changing dependenciesState to 2.
- *
- * By iterating over the dependencies in the same order that they were reported and
- * stopping on the first change, all the recalculations are only called for ComputedValues
- * that will be tracked by derivation. That is because we assume that if the first x
- * dependencies of the derivation doesn't change then the derivation should run the same way
- * up until accessing x-th dependency.
- */
-
-function shouldCompute(derivation) {
-  switch (derivation.dependenciesState_) {
-    case IDerivationState_.UP_TO_DATE_:
-      return false;
-
-    case IDerivationState_.NOT_TRACKING_:
-    case IDerivationState_.STALE_:
-      return true;
-
-    case IDerivationState_.POSSIBLY_STALE_:
-      {
-        // state propagation can occur outside of action/reactive context #2195
-        var prevAllowStateReads = allowStateReadsStart(true);
-        var prevUntracked = untrackedStart(); // no need for those computeds to be reported, they will be picked up in trackDerivedFunction.
-
-        var obs = derivation.observing_,
-            l = obs.length;
-
-        for (var i = 0; i < l; i++) {
-          var obj = obs[i];
-
-          if (isComputedValue(obj)) {
-            if (globalState.disableErrorBoundaries) {
-              obj.get();
-            } else {
-              try {
-                obj.get();
-              } catch (e) {
-                // we are not interested in the value *or* exception at this moment, but if there is one, notify all
-                untrackedEnd(prevUntracked);
-                allowStateReadsEnd(prevAllowStateReads);
-                return true;
-              }
-            } // if ComputedValue `obj` actually changed it will be computed and propagated to its observers.
-            // and `derivation` is an observer of `obj`
-            // invariantShouldCompute(derivation)
-
-
-            if (derivation.dependenciesState_ === IDerivationState_.STALE_) {
-              untrackedEnd(prevUntracked);
-              allowStateReadsEnd(prevAllowStateReads);
-              return true;
-            }
-          }
-        }
-
-        changeDependenciesStateTo0(derivation);
-        untrackedEnd(prevUntracked);
-        allowStateReadsEnd(prevAllowStateReads);
-        return false;
-      }
-  }
-}
-function isComputingDerivation() {
-  return globalState.trackingDerivation !== null; // filter out actions inside computations
-}
-function checkIfStateModificationsAreAllowed(atom) {
-  if (false) {}
-
-  var hasObservers = atom.observers_.size > 0; // Should not be possible to change observed state outside strict mode, except during initialization, see #563
-
-  if (!globalState.allowStateChanges && (hasObservers || globalState.enforceActions === "always")) console.warn("[MobX] " + (globalState.enforceActions ? "Since strict-mode is enabled, changing (observed) observable values without using an action is not allowed. Tried to modify: " : "Side effects like changing state are not allowed at this point. Are you trying to modify state from, for example, a computed value or the render function of a React component? You can wrap side effects in 'runInAction' (or decorate functions with 'action') if needed. Tried to modify: ") + atom.name_);
-}
-function checkIfStateReadsAreAllowed(observable) {
-  if ( true && !globalState.allowStateReads && globalState.observableRequiresReaction) {
-    console.warn("[mobx] Observable '" + observable.name_ + "' being read outside a reactive context.");
-  }
-}
-/**
- * Executes the provided function `f` and tracks which observables are being accessed.
- * The tracking information is stored on the `derivation` object and the derivation is registered
- * as observer of any of the accessed observables.
- */
-
-function trackDerivedFunction(derivation, f, context) {
-  var prevAllowStateReads = allowStateReadsStart(true); // pre allocate array allocation + room for variation in deps
-  // array will be trimmed by bindDependencies
-
-  changeDependenciesStateTo0(derivation);
-  derivation.newObserving_ = new Array(derivation.observing_.length + 100);
-  derivation.unboundDepsCount_ = 0;
-  derivation.runId_ = ++globalState.runId;
-  var prevTracking = globalState.trackingDerivation;
-  globalState.trackingDerivation = derivation;
-  globalState.inBatch++;
-  var result;
-
-  if (globalState.disableErrorBoundaries === true) {
-    result = f.call(context);
-  } else {
-    try {
-      result = f.call(context);
-    } catch (e) {
-      result = new CaughtException(e);
-    }
-  }
-
-  globalState.inBatch--;
-  globalState.trackingDerivation = prevTracking;
-  bindDependencies(derivation);
-  warnAboutDerivationWithoutDependencies(derivation);
-  allowStateReadsEnd(prevAllowStateReads);
-  return result;
-}
-
-function warnAboutDerivationWithoutDependencies(derivation) {
-  if (false) {}
-  if (derivation.observing_.length !== 0) return;
-
-  if (globalState.reactionRequiresObservable || derivation.requiresObservable_) {
-    console.warn("[mobx] Derivation '" + derivation.name_ + "' is created/updated without reading any observable value.");
-  }
-}
-/**
- * diffs newObserving with observing.
- * update observing to be newObserving with unique observables
- * notify observers that become observed/unobserved
- */
-
-
-function bindDependencies(derivation) {
-  // invariant(derivation.dependenciesState !== IDerivationState.NOT_TRACKING, "INTERNAL ERROR bindDependencies expects derivation.dependenciesState !== -1");
-  var prevObserving = derivation.observing_;
-  var observing = derivation.observing_ = derivation.newObserving_;
-  var lowestNewObservingDerivationState = IDerivationState_.UP_TO_DATE_; // Go through all new observables and check diffValue: (this list can contain duplicates):
-  //   0: first occurrence, change to 1 and keep it
-  //   1: extra occurrence, drop it
-
-  var i0 = 0,
-      l = derivation.unboundDepsCount_;
-
-  for (var i = 0; i < l; i++) {
-    var dep = observing[i];
-
-    if (dep.diffValue_ === 0) {
-      dep.diffValue_ = 1;
-      if (i0 !== i) observing[i0] = dep;
-      i0++;
-    } // Upcast is 'safe' here, because if dep is IObservable, `dependenciesState` will be undefined,
-    // not hitting the condition
-
-
-    if (dep.dependenciesState_ > lowestNewObservingDerivationState) {
-      lowestNewObservingDerivationState = dep.dependenciesState_;
-    }
-  }
-
-  observing.length = i0;
-  derivation.newObserving_ = null; // newObserving shouldn't be needed outside tracking (statement moved down to work around FF bug, see #614)
-  // Go through all old observables and check diffValue: (it is unique after last bindDependencies)
-  //   0: it's not in new observables, unobserve it
-  //   1: it keeps being observed, don't want to notify it. change to 0
-
-  l = prevObserving.length;
-
-  while (l--) {
-    var _dep = prevObserving[l];
-
-    if (_dep.diffValue_ === 0) {
-      removeObserver(_dep, derivation);
-    }
-
-    _dep.diffValue_ = 0;
-  } // Go through all new observables and check diffValue: (now it should be unique)
-  //   0: it was set to 0 in last loop. don't need to do anything.
-  //   1: it wasn't observed, let's observe it. set back to 0
-
-
-  while (i0--) {
-    var _dep2 = observing[i0];
-
-    if (_dep2.diffValue_ === 1) {
-      _dep2.diffValue_ = 0;
-      addObserver(_dep2, derivation);
-    }
-  } // Some new observed derivations may become stale during this derivation computation
-  // so they have had no chance to propagate staleness (#916)
-
-
-  if (lowestNewObservingDerivationState !== IDerivationState_.UP_TO_DATE_) {
-    derivation.dependenciesState_ = lowestNewObservingDerivationState;
-    derivation.onBecomeStale_();
-  }
-}
-
-function clearObserving(derivation) {
-  // invariant(globalState.inBatch > 0, "INTERNAL ERROR clearObserving should be called only inside batch");
-  var obs = derivation.observing_;
-  derivation.observing_ = [];
-  var i = obs.length;
-
-  while (i--) {
-    removeObserver(obs[i], derivation);
-  }
-
-  derivation.dependenciesState_ = IDerivationState_.NOT_TRACKING_;
-}
-function untracked(action) {
-  var prev = untrackedStart();
-
-  try {
-    return action();
-  } finally {
-    untrackedEnd(prev);
-  }
-}
-function untrackedStart() {
-  var prev = globalState.trackingDerivation;
-  globalState.trackingDerivation = null;
-  return prev;
-}
-function untrackedEnd(prev) {
-  globalState.trackingDerivation = prev;
-}
-function allowStateReadsStart(allowStateReads) {
-  var prev = globalState.allowStateReads;
-  globalState.allowStateReads = allowStateReads;
-  return prev;
-}
-function allowStateReadsEnd(prev) {
-  globalState.allowStateReads = prev;
-}
-/**
- * needed to keep `lowestObserverState` correct. when changing from (2 or 1) to 0
- *
- */
-
-function changeDependenciesStateTo0(derivation) {
-  if (derivation.dependenciesState_ === IDerivationState_.UP_TO_DATE_) return;
-  derivation.dependenciesState_ = IDerivationState_.UP_TO_DATE_;
-  var obs = derivation.observing_;
-  var i = obs.length;
-
-  while (i--) {
-    obs[i].lowestObserverState_ = IDerivationState_.UP_TO_DATE_;
-  }
-}
-
-/**
- * These values will persist if global state is reset
- */
-
-var persistentKeys = ["mobxGuid", "spyListeners", "enforceActions", "computedRequiresReaction", "reactionRequiresObservable", "observableRequiresReaction", "allowStateReads", "disableErrorBoundaries", "runId", "UNCHANGED", "useProxies"];
-var MobXGlobals = function MobXGlobals() {
-  this.version = 6;
-  this.UNCHANGED = {};
-  this.trackingDerivation = null;
-  this.trackingContext = null;
-  this.runId = 0;
-  this.mobxGuid = 0;
-  this.inBatch = 0;
-  this.pendingUnobservations = [];
-  this.pendingReactions = [];
-  this.isRunningReactions = false;
-  this.allowStateChanges = false;
-  this.allowStateReads = true;
-  this.enforceActions = true;
-  this.spyListeners = [];
-  this.globalReactionErrorHandlers = [];
-  this.computedRequiresReaction = false;
-  this.reactionRequiresObservable = false;
-  this.observableRequiresReaction = false;
-  this.disableErrorBoundaries = false;
-  this.suppressReactionErrors = false;
-  this.useProxies = true;
-  this.verifyProxies = false;
-  this.safeDescriptors = true;
-};
-var canMergeGlobalState = true;
-var isolateCalled = false;
-var globalState = /*#__PURE__*/function () {
-  var global = /*#__PURE__*/getGlobal();
-  if (global.__mobxInstanceCount > 0 && !global.__mobxGlobals) canMergeGlobalState = false;
-  if (global.__mobxGlobals && global.__mobxGlobals.version !== new MobXGlobals().version) canMergeGlobalState = false;
-
-  if (!canMergeGlobalState) {
-    setTimeout(function () {
-      if (!isolateCalled) {
-        die(35);
-      }
-    }, 1);
-    return new MobXGlobals();
-  } else if (global.__mobxGlobals) {
-    global.__mobxInstanceCount += 1;
-    if (!global.__mobxGlobals.UNCHANGED) global.__mobxGlobals.UNCHANGED = {}; // make merge backward compatible
-
-    return global.__mobxGlobals;
-  } else {
-    global.__mobxInstanceCount = 1;
-    return global.__mobxGlobals = /*#__PURE__*/new MobXGlobals();
-  }
-}();
-function isolateGlobalState() {
-  if (globalState.pendingReactions.length || globalState.inBatch || globalState.isRunningReactions) die(36);
-  isolateCalled = true;
-
-  if (canMergeGlobalState) {
-    var global = getGlobal();
-    if (--global.__mobxInstanceCount === 0) global.__mobxGlobals = undefined;
-    globalState = new MobXGlobals();
-  }
-}
-function getGlobalState() {
-  return globalState;
-}
-/**
- * For testing purposes only; this will break the internal state of existing observables,
- * but can be used to get back at a stable state after throwing errors
- */
-
-function resetGlobalState() {
-  var defaultGlobals = new MobXGlobals();
-
-  for (var key in defaultGlobals) {
-    if (persistentKeys.indexOf(key) === -1) globalState[key] = defaultGlobals[key];
-  }
-
-  globalState.allowStateChanges = !globalState.enforceActions;
-}
-
-function hasObservers(observable) {
-  return observable.observers_ && observable.observers_.size > 0;
-}
-function getObservers(observable) {
-  return observable.observers_;
-} // function invariantObservers(observable: IObservable) {
-//     const list = observable.observers
-//     const map = observable.observersIndexes
-//     const l = list.length
-//     for (let i = 0; i < l; i++) {
-//         const id = list[i].__mapid
-//         if (i) {
-//             invariant(map[id] === i, "INTERNAL ERROR maps derivation.__mapid to index in list") // for performance
-//         } else {
-//             invariant(!(id in map), "INTERNAL ERROR observer on index 0 shouldn't be held in map.") // for performance
-//         }
-//     }
-//     invariant(
-//         list.length === 0 || Object.keys(map).length === list.length - 1,
-//         "INTERNAL ERROR there is no junk in map"
-//     )
-// }
-
-function addObserver(observable, node) {
-  // invariant(node.dependenciesState !== -1, "INTERNAL ERROR, can add only dependenciesState !== -1");
-  // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR add already added node");
-  // invariantObservers(observable);
-  observable.observers_.add(node);
-  if (observable.lowestObserverState_ > node.dependenciesState_) observable.lowestObserverState_ = node.dependenciesState_; // invariantObservers(observable);
-  // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR didn't add node");
-}
-function removeObserver(observable, node) {
-  // invariant(globalState.inBatch > 0, "INTERNAL ERROR, remove should be called only inside batch");
-  // invariant(observable._observers.indexOf(node) !== -1, "INTERNAL ERROR remove already removed node");
-  // invariantObservers(observable);
-  observable.observers_["delete"](node);
-
-  if (observable.observers_.size === 0) {
-    // deleting last observer
-    queueForUnobservation(observable);
-  } // invariantObservers(observable);
-  // invariant(observable._observers.indexOf(node) === -1, "INTERNAL ERROR remove already removed node2");
-
-}
-function queueForUnobservation(observable) {
-  if (observable.isPendingUnobservation_ === false) {
-    // invariant(observable._observers.length === 0, "INTERNAL ERROR, should only queue for unobservation unobserved observables");
-    observable.isPendingUnobservation_ = true;
-    globalState.pendingUnobservations.push(observable);
-  }
-}
-/**
- * Batch starts a transaction, at least for purposes of memoizing ComputedValues when nothing else does.
- * During a batch `onBecomeUnobserved` will be called at most once per observable.
- * Avoids unnecessary recalculations.
- */
-
-function startBatch() {
-  globalState.inBatch++;
-}
-function endBatch() {
-  if (--globalState.inBatch === 0) {
-    runReactions(); // the batch is actually about to finish, all unobserving should happen here.
-
-    var list = globalState.pendingUnobservations;
-
-    for (var i = 0; i < list.length; i++) {
-      var observable = list[i];
-      observable.isPendingUnobservation_ = false;
-
-      if (observable.observers_.size === 0) {
-        if (observable.isBeingObserved_) {
-          // if this observable had reactive observers, trigger the hooks
-          observable.isBeingObserved_ = false;
-          observable.onBUO();
-        }
-
-        if (observable instanceof ComputedValue) {
-          // computed values are automatically teared down when the last observer leaves
-          // this process happens recursively, this computed might be the last observabe of another, etc..
-          observable.suspend_();
-        }
-      }
-    }
-
-    globalState.pendingUnobservations = [];
-  }
-}
-function reportObserved(observable) {
-  checkIfStateReadsAreAllowed(observable);
-  var derivation = globalState.trackingDerivation;
-
-  if (derivation !== null) {
-    /**
-     * Simple optimization, give each derivation run an unique id (runId)
-     * Check if last time this observable was accessed the same runId is used
-     * if this is the case, the relation is already known
-     */
-    if (derivation.runId_ !== observable.lastAccessedBy_) {
-      observable.lastAccessedBy_ = derivation.runId_; // Tried storing newObserving, or observing, or both as Set, but performance didn't come close...
-
-      derivation.newObserving_[derivation.unboundDepsCount_++] = observable;
-
-      if (!observable.isBeingObserved_ && globalState.trackingContext) {
-        observable.isBeingObserved_ = true;
-        observable.onBO();
-      }
-    }
-
-    return true;
-  } else if (observable.observers_.size === 0 && globalState.inBatch > 0) {
-    queueForUnobservation(observable);
-  }
-
-  return false;
-} // function invariantLOS(observable: IObservable, msg: string) {
-//     // it's expensive so better not run it in produciton. but temporarily helpful for testing
-//     const min = getObservers(observable).reduce((a, b) => Math.min(a, b.dependenciesState), 2)
-//     if (min >= observable.lowestObserverState) return // <- the only assumption about `lowestObserverState`
-//     throw new Error(
-//         "lowestObserverState is wrong for " +
-//             msg +
-//             " because " +
-//             min +
-//             " < " +
-//             observable.lowestObserverState
-//     )
-// }
-
-/**
- * NOTE: current propagation mechanism will in case of self reruning autoruns behave unexpectedly
- * It will propagate changes to observers from previous run
- * It's hard or maybe impossible (with reasonable perf) to get it right with current approach
- * Hopefully self reruning autoruns aren't a feature people should depend on
- * Also most basic use cases should be ok
- */
-// Called by Atom when its value changes
-
-function propagateChanged(observable) {
-  // invariantLOS(observable, "changed start");
-  if (observable.lowestObserverState_ === IDerivationState_.STALE_) return;
-  observable.lowestObserverState_ = IDerivationState_.STALE_; // Ideally we use for..of here, but the downcompiled version is really slow...
-
-  observable.observers_.forEach(function (d) {
-    if (d.dependenciesState_ === IDerivationState_.UP_TO_DATE_) {
-      if ( true && d.isTracing_ !== TraceMode.NONE) {
-        logTraceInfo(d, observable);
-      }
-
-      d.onBecomeStale_();
-    }
-
-    d.dependenciesState_ = IDerivationState_.STALE_;
-  }); // invariantLOS(observable, "changed end");
-} // Called by ComputedValue when it recalculate and its value changed
-
-function propagateChangeConfirmed(observable) {
-  // invariantLOS(observable, "confirmed start");
-  if (observable.lowestObserverState_ === IDerivationState_.STALE_) return;
-  observable.lowestObserverState_ = IDerivationState_.STALE_;
-  observable.observers_.forEach(function (d) {
-    if (d.dependenciesState_ === IDerivationState_.POSSIBLY_STALE_) {
-      d.dependenciesState_ = IDerivationState_.STALE_;
-
-      if ( true && d.isTracing_ !== TraceMode.NONE) {
-        logTraceInfo(d, observable);
-      }
-    } else if (d.dependenciesState_ === IDerivationState_.UP_TO_DATE_ // this happens during computing of `d`, just keep lowestObserverState up to date.
-    ) {
-        observable.lowestObserverState_ = IDerivationState_.UP_TO_DATE_;
-      }
-  }); // invariantLOS(observable, "confirmed end");
-} // Used by computed when its dependency changed, but we don't wan't to immediately recompute.
-
-function propagateMaybeChanged(observable) {
-  // invariantLOS(observable, "maybe start");
-  if (observable.lowestObserverState_ !== IDerivationState_.UP_TO_DATE_) return;
-  observable.lowestObserverState_ = IDerivationState_.POSSIBLY_STALE_;
-  observable.observers_.forEach(function (d) {
-    if (d.dependenciesState_ === IDerivationState_.UP_TO_DATE_) {
-      d.dependenciesState_ = IDerivationState_.POSSIBLY_STALE_;
-      d.onBecomeStale_();
-    }
-  }); // invariantLOS(observable, "maybe end");
-}
-
-function logTraceInfo(derivation, observable) {
-  console.log("[mobx.trace] '" + derivation.name_ + "' is invalidated due to a change in: '" + observable.name_ + "'");
-
-  if (derivation.isTracing_ === TraceMode.BREAK) {
-    var lines = [];
-    printDepTree(getDependencyTree(derivation), lines, 1); // prettier-ignore
-
-    new Function("debugger;\n/*\nTracing '" + derivation.name_ + "'\n\nYou are entering this break point because derivation '" + derivation.name_ + "' is being traced and '" + observable.name_ + "' is now forcing it to update.\nJust follow the stacktrace you should now see in the devtools to see precisely what piece of your code is causing this update\nThe stackframe you are looking for is at least ~6-8 stack-frames up.\n\n" + (derivation instanceof ComputedValue ? derivation.derivation.toString().replace(/[*]\//g, "/") : "") + "\n\nThe dependencies for this derivation are:\n\n" + lines.join("\n") + "\n*/\n    ")();
-  }
-}
-
-function printDepTree(tree, lines, depth) {
-  if (lines.length >= 1000) {
-    lines.push("(and many more)");
-    return;
-  }
-
-  lines.push("" + new Array(depth).join("\t") + tree.name); // MWE: not the fastest, but the easiest way :)
-
-  if (tree.dependencies) tree.dependencies.forEach(function (child) {
-    return printDepTree(child, lines, depth + 1);
-  });
-}
-
-var Reaction = /*#__PURE__*/function () {
-  // nodes we are looking at. Our value depends on these nodes
-  function Reaction(name_, onInvalidate_, errorHandler_, requiresObservable_) {
-    if (name_ === void 0) {
-      name_ =  true ? "Reaction@" + getNextId() : 0;
-    }
-
-    if (requiresObservable_ === void 0) {
-      requiresObservable_ = false;
-    }
-
-    this.name_ = void 0;
-    this.onInvalidate_ = void 0;
-    this.errorHandler_ = void 0;
-    this.requiresObservable_ = void 0;
-    this.observing_ = [];
-    this.newObserving_ = [];
-    this.dependenciesState_ = IDerivationState_.NOT_TRACKING_;
-    this.diffValue_ = 0;
-    this.runId_ = 0;
-    this.unboundDepsCount_ = 0;
-    this.isDisposed_ = false;
-    this.isScheduled_ = false;
-    this.isTrackPending_ = false;
-    this.isRunning_ = false;
-    this.isTracing_ = TraceMode.NONE;
-    this.name_ = name_;
-    this.onInvalidate_ = onInvalidate_;
-    this.errorHandler_ = errorHandler_;
-    this.requiresObservable_ = requiresObservable_;
-  }
-
-  var _proto = Reaction.prototype;
-
-  _proto.onBecomeStale_ = function onBecomeStale_() {
-    this.schedule_();
-  };
-
-  _proto.schedule_ = function schedule_() {
-    if (!this.isScheduled_) {
-      this.isScheduled_ = true;
-      globalState.pendingReactions.push(this);
-      runReactions();
-    }
-  };
-
-  _proto.isScheduled = function isScheduled() {
-    return this.isScheduled_;
-  }
-  /**
-   * internal, use schedule() if you intend to kick off a reaction
-   */
-  ;
-
-  _proto.runReaction_ = function runReaction_() {
-    if (!this.isDisposed_) {
-      startBatch();
-      this.isScheduled_ = false;
-      var prev = globalState.trackingContext;
-      globalState.trackingContext = this;
-
-      if (shouldCompute(this)) {
-        this.isTrackPending_ = true;
-
-        try {
-          this.onInvalidate_();
-
-          if ( true && this.isTrackPending_ && isSpyEnabled()) {
-            // onInvalidate didn't trigger track right away..
-            spyReport({
-              name: this.name_,
-              type: "scheduled-reaction"
-            });
-          }
-        } catch (e) {
-          this.reportExceptionInDerivation_(e);
-        }
-      }
-
-      globalState.trackingContext = prev;
-      endBatch();
-    }
-  };
-
-  _proto.track = function track(fn) {
-    if (this.isDisposed_) {
-      return; // console.warn("Reaction already disposed") // Note: Not a warning / error in mobx 4 either
-    }
-
-    startBatch();
-    var notify = isSpyEnabled();
-    var startTime;
-
-    if ( true && notify) {
-      startTime = Date.now();
-      spyReportStart({
-        name: this.name_,
-        type: "reaction"
-      });
-    }
-
-    this.isRunning_ = true;
-    var prevReaction = globalState.trackingContext; // reactions could create reactions...
-
-    globalState.trackingContext = this;
-    var result = trackDerivedFunction(this, fn, undefined);
-    globalState.trackingContext = prevReaction;
-    this.isRunning_ = false;
-    this.isTrackPending_ = false;
-
-    if (this.isDisposed_) {
-      // disposed during last run. Clean up everything that was bound after the dispose call.
-      clearObserving(this);
-    }
-
-    if (isCaughtException(result)) this.reportExceptionInDerivation_(result.cause);
-
-    if ( true && notify) {
-      spyReportEnd({
-        time: Date.now() - startTime
-      });
-    }
-
-    endBatch();
-  };
-
-  _proto.reportExceptionInDerivation_ = function reportExceptionInDerivation_(error) {
-    var _this = this;
-
-    if (this.errorHandler_) {
-      this.errorHandler_(error, this);
-      return;
-    }
-
-    if (globalState.disableErrorBoundaries) throw error;
-    var message =  true ? "[mobx] Encountered an uncaught exception that was thrown by a reaction or observer component, in: '" + this + "'" : 0;
-
-    if (!globalState.suppressReactionErrors) {
-      console.error(message, error);
-      /** If debugging brought you here, please, read the above message :-). Tnx! */
-    } else if (true) console.warn("[mobx] (error in reaction '" + this.name_ + "' suppressed, fix error of causing action below)"); // prettier-ignore
-
-
-    if ( true && isSpyEnabled()) {
-      spyReport({
-        type: "error",
-        name: this.name_,
-        message: message,
-        error: "" + error
-      });
-    }
-
-    globalState.globalReactionErrorHandlers.forEach(function (f) {
-      return f(error, _this);
-    });
-  };
-
-  _proto.dispose = function dispose() {
-    if (!this.isDisposed_) {
-      this.isDisposed_ = true;
-
-      if (!this.isRunning_) {
-        // if disposed while running, clean up later. Maybe not optimal, but rare case
-        startBatch();
-        clearObserving(this);
-        endBatch();
-      }
-    }
-  };
-
-  _proto.getDisposer_ = function getDisposer_() {
-    var r = this.dispose.bind(this);
-    r[$mobx] = this;
-    return r;
-  };
-
-  _proto.toString = function toString() {
-    return "Reaction[" + this.name_ + "]";
-  };
-
-  _proto.trace = function trace$1(enterBreakPoint) {
-    if (enterBreakPoint === void 0) {
-      enterBreakPoint = false;
-    }
-
-    trace(this, enterBreakPoint);
-  };
-
-  return Reaction;
-}();
-function onReactionError(handler) {
-  globalState.globalReactionErrorHandlers.push(handler);
-  return function () {
-    var idx = globalState.globalReactionErrorHandlers.indexOf(handler);
-    if (idx >= 0) globalState.globalReactionErrorHandlers.splice(idx, 1);
-  };
-}
-/**
- * Magic number alert!
- * Defines within how many times a reaction is allowed to re-trigger itself
- * until it is assumed that this is gonna be a never ending loop...
- */
-
-var MAX_REACTION_ITERATIONS = 100;
-
-var reactionScheduler = function reactionScheduler(f) {
-  return f();
-};
-
-function runReactions() {
-  // Trampolining, if runReactions are already running, new reactions will be picked up
-  if (globalState.inBatch > 0 || globalState.isRunningReactions) return;
-  reactionScheduler(runReactionsHelper);
-}
-
-function runReactionsHelper() {
-  globalState.isRunningReactions = true;
-  var allReactions = globalState.pendingReactions;
-  var iterations = 0; // While running reactions, new reactions might be triggered.
-  // Hence we work with two variables and check whether
-  // we converge to no remaining reactions after a while.
-
-  while (allReactions.length > 0) {
-    if (++iterations === MAX_REACTION_ITERATIONS) {
-      console.error( true ? "Reaction doesn't converge to a stable state after " + MAX_REACTION_ITERATIONS + " iterations." + (" Probably there is a cycle in the reactive function: " + allReactions[0]) : 0);
-      allReactions.splice(0); // clear reactions
-    }
-
-    var remainingReactions = allReactions.splice(0);
-
-    for (var i = 0, l = remainingReactions.length; i < l; i++) {
-      remainingReactions[i].runReaction_();
-    }
-  }
-
-  globalState.isRunningReactions = false;
-}
-
-var isReaction = /*#__PURE__*/createInstanceofPredicate("Reaction", Reaction);
-function setReactionScheduler(fn) {
-  var baseScheduler = reactionScheduler;
-
-  reactionScheduler = function reactionScheduler(f) {
-    return fn(function () {
-      return baseScheduler(f);
-    });
-  };
-}
-
-function isSpyEnabled() {
-  return  true && !!globalState.spyListeners.length;
-}
-function spyReport(event) {
-  if (false) {} // dead code elimination can do the rest
-
-  if (!globalState.spyListeners.length) return;
-  var listeners = globalState.spyListeners;
-
-  for (var i = 0, l = listeners.length; i < l; i++) {
-    listeners[i](event);
-  }
-}
-function spyReportStart(event) {
-  if (false) {}
-
-  var change = _extends({}, event, {
-    spyReportStart: true
-  });
-
-  spyReport(change);
-}
-var END_EVENT = {
-  type: "report-end",
-  spyReportEnd: true
-};
-function spyReportEnd(change) {
-  if (false) {}
-  if (change) spyReport(_extends({}, change, {
-    type: "report-end",
-    spyReportEnd: true
-  }));else spyReport(END_EVENT);
-}
-function spy(listener) {
-  if (false) {} else {
-    globalState.spyListeners.push(listener);
-    return once(function () {
-      globalState.spyListeners = globalState.spyListeners.filter(function (l) {
-        return l !== listener;
-      });
-    });
-  }
-}
-
-var ACTION = "action";
-var ACTION_BOUND = "action.bound";
-var AUTOACTION = "autoAction";
-var AUTOACTION_BOUND = "autoAction.bound";
-var DEFAULT_ACTION_NAME = "<unnamed action>";
-var actionAnnotation = /*#__PURE__*/createActionAnnotation(ACTION);
-var actionBoundAnnotation = /*#__PURE__*/createActionAnnotation(ACTION_BOUND, {
-  bound: true
-});
-var autoActionAnnotation = /*#__PURE__*/createActionAnnotation(AUTOACTION, {
-  autoAction: true
-});
-var autoActionBoundAnnotation = /*#__PURE__*/createActionAnnotation(AUTOACTION_BOUND, {
-  autoAction: true,
-  bound: true
-});
-
-function createActionFactory(autoAction) {
-  var res = function action(arg1, arg2) {
-    // action(fn() {})
-    if (isFunction(arg1)) return createAction(arg1.name || DEFAULT_ACTION_NAME, arg1, autoAction); // action("name", fn() {})
-
-    if (isFunction(arg2)) return createAction(arg1, arg2, autoAction); // @action
-
-    if (isStringish(arg2)) {
-      return storeAnnotation(arg1, arg2, autoAction ? autoActionAnnotation : actionAnnotation);
-    } // action("name") & @action("name")
-
-
-    if (isStringish(arg1)) {
-      return createDecoratorAnnotation(createActionAnnotation(autoAction ? AUTOACTION : ACTION, {
-        name: arg1,
-        autoAction: autoAction
-      }));
-    }
-
-    if (true) die("Invalid arguments for `action`");
-  };
-
-  return res;
-}
-
-var action = /*#__PURE__*/createActionFactory(false);
-Object.assign(action, actionAnnotation);
-var autoAction = /*#__PURE__*/createActionFactory(true);
-Object.assign(autoAction, autoActionAnnotation);
-action.bound = /*#__PURE__*/createDecoratorAnnotation(actionBoundAnnotation);
-autoAction.bound = /*#__PURE__*/createDecoratorAnnotation(autoActionBoundAnnotation);
-function runInAction(fn) {
-  return executeAction(fn.name || DEFAULT_ACTION_NAME, false, fn, this, undefined);
-}
-function isAction(thing) {
-  return isFunction(thing) && thing.isMobxAction === true;
-}
-
-/**
- * Creates a named reactive view and keeps it alive, so that the view is always
- * updated if one of the dependencies changes, even when the view is not further used by something else.
- * @param view The reactive view
- * @returns disposer function, which can be used to stop the view from being updated in the future.
- */
-
-function autorun(view, opts) {
-  var _opts$name, _opts;
-
-  if (opts === void 0) {
-    opts = EMPTY_OBJECT;
-  }
-
-  if (true) {
-    if (!isFunction(view)) die("Autorun expects a function as first argument");
-    if (isAction(view)) die("Autorun does not accept actions since actions are untrackable");
-  }
-
-  var name = (_opts$name = (_opts = opts) == null ? void 0 : _opts.name) != null ? _opts$name :  true ? view.name || "Autorun@" + getNextId() : 0;
-  var runSync = !opts.scheduler && !opts.delay;
-  var reaction;
-
-  if (runSync) {
-    // normal autorun
-    reaction = new Reaction(name, function () {
-      this.track(reactionRunner);
-    }, opts.onError, opts.requiresObservable);
-  } else {
-    var scheduler = createSchedulerFromOptions(opts); // debounced autorun
-
-    var isScheduled = false;
-    reaction = new Reaction(name, function () {
-      if (!isScheduled) {
-        isScheduled = true;
-        scheduler(function () {
-          isScheduled = false;
-          if (!reaction.isDisposed_) reaction.track(reactionRunner);
-        });
-      }
-    }, opts.onError, opts.requiresObservable);
-  }
-
-  function reactionRunner() {
-    view(reaction);
-  }
-
-  reaction.schedule_();
-  return reaction.getDisposer_();
-}
-
-var run = function run(f) {
-  return f();
-};
-
-function createSchedulerFromOptions(opts) {
-  return opts.scheduler ? opts.scheduler : opts.delay ? function (f) {
-    return setTimeout(f, opts.delay);
-  } : run;
-}
-
-function reaction(expression, effect, opts) {
-  var _opts$name2;
-
-  if (opts === void 0) {
-    opts = EMPTY_OBJECT;
-  }
-
-  if (true) {
-    if (!isFunction(expression) || !isFunction(effect)) die("First and second argument to reaction should be functions");
-    if (!isPlainObject(opts)) die("Third argument of reactions should be an object");
-  }
-
-  var name = (_opts$name2 = opts.name) != null ? _opts$name2 :  true ? "Reaction@" + getNextId() : 0;
-  var effectAction = action(name, opts.onError ? wrapErrorHandler(opts.onError, effect) : effect);
-  var runSync = !opts.scheduler && !opts.delay;
-  var scheduler = createSchedulerFromOptions(opts);
-  var firstTime = true;
-  var isScheduled = false;
-  var value;
-  var oldValue = undefined; // only an issue with fireImmediately
-
-  var equals = opts.compareStructural ? comparer.structural : opts.equals || comparer["default"];
-  var r = new Reaction(name, function () {
-    if (firstTime || runSync) {
-      reactionRunner();
-    } else if (!isScheduled) {
-      isScheduled = true;
-      scheduler(reactionRunner);
-    }
-  }, opts.onError, opts.requiresObservable);
-
-  function reactionRunner() {
-    isScheduled = false;
-    if (r.isDisposed_) return;
-    var changed = false;
-    r.track(function () {
-      var nextValue = allowStateChanges(false, function () {
-        return expression(r);
-      });
-      changed = firstTime || !equals(value, nextValue);
-      oldValue = value;
-      value = nextValue;
-    });
-    if (firstTime && opts.fireImmediately) effectAction(value, oldValue, r);else if (!firstTime && changed) effectAction(value, oldValue, r);
-    firstTime = false;
-  }
-
-  r.schedule_();
-  return r.getDisposer_();
-}
-
-function wrapErrorHandler(errorHandler, baseFn) {
-  return function () {
-    try {
-      return baseFn.apply(this, arguments);
-    } catch (e) {
-      errorHandler.call(this, e);
-    }
-  };
-}
-
-var ON_BECOME_OBSERVED = "onBO";
-var ON_BECOME_UNOBSERVED = "onBUO";
-function onBecomeObserved(thing, arg2, arg3) {
-  return interceptHook(ON_BECOME_OBSERVED, thing, arg2, arg3);
-}
-function onBecomeUnobserved(thing, arg2, arg3) {
-  return interceptHook(ON_BECOME_UNOBSERVED, thing, arg2, arg3);
-}
-
-function interceptHook(hook, thing, arg2, arg3) {
-  var atom = typeof arg3 === "function" ? getAtom(thing, arg2) : getAtom(thing);
-  var cb = isFunction(arg3) ? arg3 : arg2;
-  var listenersKey = hook + "L";
-
-  if (atom[listenersKey]) {
-    atom[listenersKey].add(cb);
-  } else {
-    atom[listenersKey] = new Set([cb]);
-  }
-
-  return function () {
-    var hookListeners = atom[listenersKey];
-
-    if (hookListeners) {
-      hookListeners["delete"](cb);
-
-      if (hookListeners.size === 0) {
-        delete atom[listenersKey];
-      }
-    }
-  };
-}
-
-var NEVER = "never";
-var ALWAYS = "always";
-var OBSERVED = "observed"; // const IF_AVAILABLE = "ifavailable"
-
-function configure(options) {
-  if (options.isolateGlobalState === true) {
-    isolateGlobalState();
-  }
-
-  var useProxies = options.useProxies,
-      enforceActions = options.enforceActions;
-
-  if (useProxies !== undefined) {
-    globalState.useProxies = useProxies === ALWAYS ? true : useProxies === NEVER ? false : typeof Proxy !== "undefined";
-  }
-
-  if (useProxies === "ifavailable") globalState.verifyProxies = true;
-
-  if (enforceActions !== undefined) {
-    var ea = enforceActions === ALWAYS ? ALWAYS : enforceActions === OBSERVED;
-    globalState.enforceActions = ea;
-    globalState.allowStateChanges = ea === true || ea === ALWAYS ? false : true;
-  }
-  ["computedRequiresReaction", "reactionRequiresObservable", "observableRequiresReaction", "disableErrorBoundaries", "safeDescriptors"].forEach(function (key) {
-    if (key in options) globalState[key] = !!options[key];
-  });
-  globalState.allowStateReads = !globalState.observableRequiresReaction;
-
-  if ( true && globalState.disableErrorBoundaries === true) {
-    console.warn("WARNING: Debug feature only. MobX will NOT recover from errors when `disableErrorBoundaries` is enabled.");
-  }
-
-  if (options.reactionScheduler) {
-    setReactionScheduler(options.reactionScheduler);
-  }
-}
-
-function extendObservable(target, properties, annotations, options) {
-  if (true) {
-    if (arguments.length > 4) die("'extendObservable' expected 2-4 arguments");
-    if (typeof target !== "object") die("'extendObservable' expects an object as first argument");
-    if (isObservableMap(target)) die("'extendObservable' should not be used on maps, use map.merge instead");
-    if (!isPlainObject(properties)) die("'extendObservabe' only accepts plain objects as second argument");
-    if (isObservable(properties) || isObservable(annotations)) die("Extending an object with another observable (object) is not supported");
-  } // Pull descriptors first, so we don't have to deal with props added by administration ($mobx)
-
-
-  var descriptors = getOwnPropertyDescriptors(properties);
-  var adm = asObservableObject(target, options)[$mobx];
-  startBatch();
-
-  try {
-    ownKeys(descriptors).forEach(function (key) {
-      adm.extend_(key, descriptors[key], // must pass "undefined" for { key: undefined }
-      !annotations ? true : key in annotations ? annotations[key] : true);
-    });
-  } finally {
-    endBatch();
-  }
-
-  return target;
-}
-
-function getDependencyTree(thing, property) {
-  return nodeToDependencyTree(getAtom(thing, property));
-}
-
-function nodeToDependencyTree(node) {
-  var result = {
-    name: node.name_
-  };
-  if (node.observing_ && node.observing_.length > 0) result.dependencies = unique(node.observing_).map(nodeToDependencyTree);
-  return result;
-}
-
-function getObserverTree(thing, property) {
-  return nodeToObserverTree(getAtom(thing, property));
-}
-
-function nodeToObserverTree(node) {
-  var result = {
-    name: node.name_
-  };
-  if (hasObservers(node)) result.observers = Array.from(getObservers(node)).map(nodeToObserverTree);
-  return result;
-}
-
-function unique(list) {
-  return Array.from(new Set(list));
-}
-
-var generatorId = 0;
-function FlowCancellationError() {
-  this.message = "FLOW_CANCELLED";
-}
-FlowCancellationError.prototype = /*#__PURE__*/Object.create(Error.prototype);
-function isFlowCancellationError(error) {
-  return error instanceof FlowCancellationError;
-}
-var flowAnnotation = /*#__PURE__*/createFlowAnnotation("flow");
-var flowBoundAnnotation = /*#__PURE__*/createFlowAnnotation("flow.bound", {
-  bound: true
-});
-var flow = /*#__PURE__*/Object.assign(function flow(arg1, arg2) {
-  // @flow
-  if (isStringish(arg2)) {
-    return storeAnnotation(arg1, arg2, flowAnnotation);
-  } // flow(fn)
-
-
-  if ( true && arguments.length !== 1) die("Flow expects single argument with generator function");
-  var generator = arg1;
-  var name = generator.name || "<unnamed flow>"; // Implementation based on https://github.com/tj/co/blob/master/index.js
-
-  var res = function res() {
-    var ctx = this;
-    var args = arguments;
-    var runId = ++generatorId;
-    var gen = action(name + " - runid: " + runId + " - init", generator).apply(ctx, args);
-    var rejector;
-    var pendingPromise = undefined;
-    var promise = new Promise(function (resolve, reject) {
-      var stepId = 0;
-      rejector = reject;
-
-      function onFulfilled(res) {
-        pendingPromise = undefined;
-        var ret;
-
-        try {
-          ret = action(name + " - runid: " + runId + " - yield " + stepId++, gen.next).call(gen, res);
-        } catch (e) {
-          return reject(e);
-        }
-
-        next(ret);
-      }
-
-      function onRejected(err) {
-        pendingPromise = undefined;
-        var ret;
-
-        try {
-          ret = action(name + " - runid: " + runId + " - yield " + stepId++, gen["throw"]).call(gen, err);
-        } catch (e) {
-          return reject(e);
-        }
-
-        next(ret);
-      }
-
-      function next(ret) {
-        if (isFunction(ret == null ? void 0 : ret.then)) {
-          // an async iterator
-          ret.then(next, reject);
-          return;
-        }
-
-        if (ret.done) return resolve(ret.value);
-        pendingPromise = Promise.resolve(ret.value);
-        return pendingPromise.then(onFulfilled, onRejected);
-      }
-
-      onFulfilled(undefined); // kick off the process
-    });
-    promise.cancel = action(name + " - runid: " + runId + " - cancel", function () {
-      try {
-        if (pendingPromise) cancelPromise(pendingPromise); // Finally block can return (or yield) stuff..
-
-        var _res = gen["return"](undefined); // eat anything that promise would do, it's cancelled!
-
-
-        var yieldedPromise = Promise.resolve(_res.value);
-        yieldedPromise.then(noop, noop);
-        cancelPromise(yieldedPromise); // maybe it can be cancelled :)
-        // reject our original promise
-
-        rejector(new FlowCancellationError());
-      } catch (e) {
-        rejector(e); // there could be a throwing finally block
-      }
-    });
-    return promise;
-  };
-
-  res.isMobXFlow = true;
-  return res;
-}, flowAnnotation);
-flow.bound = /*#__PURE__*/createDecoratorAnnotation(flowBoundAnnotation);
-
-function cancelPromise(promise) {
-  if (isFunction(promise.cancel)) promise.cancel();
-}
-
-function flowResult(result) {
-  return result; // just tricking TypeScript :)
-}
-function isFlow(fn) {
-  return (fn == null ? void 0 : fn.isMobXFlow) === true;
-}
-
-function interceptReads(thing, propOrHandler, handler) {
-  var target;
-
-  if (isObservableMap(thing) || isObservableArray(thing) || isObservableValue(thing)) {
-    target = getAdministration(thing);
-  } else if (isObservableObject(thing)) {
-    if ( true && !isStringish(propOrHandler)) return die("InterceptReads can only be used with a specific property, not with an object in general");
-    target = getAdministration(thing, propOrHandler);
-  } else if (true) {
-    return die("Expected observable map, object or array as first array");
-  }
-
-  if ( true && target.dehancer !== undefined) return die("An intercept reader was already established");
-  target.dehancer = typeof propOrHandler === "function" ? propOrHandler : handler;
-  return function () {
-    target.dehancer = undefined;
-  };
-}
-
-function intercept(thing, propOrHandler, handler) {
-  if (isFunction(handler)) return interceptProperty(thing, propOrHandler, handler);else return interceptInterceptable(thing, propOrHandler);
-}
-
-function interceptInterceptable(thing, handler) {
-  return getAdministration(thing).intercept_(handler);
-}
-
-function interceptProperty(thing, property, handler) {
-  return getAdministration(thing, property).intercept_(handler);
-}
-
-function _isComputed(value, property) {
-  if (property !== undefined) {
-    if (isObservableObject(value) === false) return false;
-    if (!value[$mobx].values_.has(property)) return false;
-    var atom = getAtom(value, property);
-    return isComputedValue(atom);
-  }
-
-  return isComputedValue(value);
-}
-function isComputed(value) {
-  if ( true && arguments.length > 1) return die("isComputed expects only 1 argument. Use isComputedProp to inspect the observability of a property");
-  return _isComputed(value);
-}
-function isComputedProp(value, propName) {
-  if ( true && !isStringish(propName)) return die("isComputed expected a property name as second argument");
-  return _isComputed(value, propName);
-}
-
-function _isObservable(value, property) {
-  if (!value) return false;
-
-  if (property !== undefined) {
-    if ( true && (isObservableMap(value) || isObservableArray(value))) return die("isObservable(object, propertyName) is not supported for arrays and maps. Use map.has or array.length instead.");
-
-    if (isObservableObject(value)) {
-      return value[$mobx].values_.has(property);
-    }
-
-    return false;
-  } // For first check, see #701
-
-
-  return isObservableObject(value) || !!value[$mobx] || isAtom(value) || isReaction(value) || isComputedValue(value);
-}
-
-function isObservable(value) {
-  if ( true && arguments.length !== 1) die("isObservable expects only 1 argument. Use isObservableProp to inspect the observability of a property");
-  return _isObservable(value);
-}
-function isObservableProp(value, propName) {
-  if ( true && !isStringish(propName)) return die("expected a property name as second argument");
-  return _isObservable(value, propName);
-}
-
-function keys(obj) {
-  if (isObservableObject(obj)) {
-    return obj[$mobx].keys_();
-  }
-
-  if (isObservableMap(obj) || isObservableSet(obj)) {
-    return Array.from(obj.keys());
-  }
-
-  if (isObservableArray(obj)) {
-    return obj.map(function (_, index) {
-      return index;
-    });
-  }
-
-  die(5);
-}
-function values(obj) {
-  if (isObservableObject(obj)) {
-    return keys(obj).map(function (key) {
-      return obj[key];
-    });
-  }
-
-  if (isObservableMap(obj)) {
-    return keys(obj).map(function (key) {
-      return obj.get(key);
-    });
-  }
-
-  if (isObservableSet(obj)) {
-    return Array.from(obj.values());
-  }
-
-  if (isObservableArray(obj)) {
-    return obj.slice();
-  }
-
-  die(6);
-}
-function entries(obj) {
-  if (isObservableObject(obj)) {
-    return keys(obj).map(function (key) {
-      return [key, obj[key]];
-    });
-  }
-
-  if (isObservableMap(obj)) {
-    return keys(obj).map(function (key) {
-      return [key, obj.get(key)];
-    });
-  }
-
-  if (isObservableSet(obj)) {
-    return Array.from(obj.entries());
-  }
-
-  if (isObservableArray(obj)) {
-    return obj.map(function (key, index) {
-      return [index, key];
-    });
-  }
-
-  die(7);
-}
-function set(obj, key, value) {
-  if (arguments.length === 2 && !isObservableSet(obj)) {
-    startBatch();
-    var _values = key;
-
-    try {
-      for (var _key in _values) {
-        set(obj, _key, _values[_key]);
-      }
-    } finally {
-      endBatch();
-    }
-
-    return;
-  }
-
-  if (isObservableObject(obj)) {
-    obj[$mobx].set_(key, value);
-  } else if (isObservableMap(obj)) {
-    obj.set(key, value);
-  } else if (isObservableSet(obj)) {
-    obj.add(key);
-  } else if (isObservableArray(obj)) {
-    if (typeof key !== "number") key = parseInt(key, 10);
-    if (key < 0) die("Invalid index: '" + key + "'");
-    startBatch();
-    if (key >= obj.length) obj.length = key + 1;
-    obj[key] = value;
-    endBatch();
-  } else die(8);
-}
-function remove(obj, key) {
-  if (isObservableObject(obj)) {
-    obj[$mobx].delete_(key);
-  } else if (isObservableMap(obj)) {
-    obj["delete"](key);
-  } else if (isObservableSet(obj)) {
-    obj["delete"](key);
-  } else if (isObservableArray(obj)) {
-    if (typeof key !== "number") key = parseInt(key, 10);
-    obj.splice(key, 1);
-  } else {
-    die(9);
-  }
-}
-function has(obj, key) {
-  if (isObservableObject(obj)) {
-    return obj[$mobx].has_(key);
-  } else if (isObservableMap(obj)) {
-    return obj.has(key);
-  } else if (isObservableSet(obj)) {
-    return obj.has(key);
-  } else if (isObservableArray(obj)) {
-    return key >= 0 && key < obj.length;
-  }
-
-  die(10);
-}
-function get(obj, key) {
-  if (!has(obj, key)) return undefined;
-
-  if (isObservableObject(obj)) {
-    return obj[$mobx].get_(key);
-  } else if (isObservableMap(obj)) {
-    return obj.get(key);
-  } else if (isObservableArray(obj)) {
-    return obj[key];
-  }
-
-  die(11);
-}
-function apiDefineProperty(obj, key, descriptor) {
-  if (isObservableObject(obj)) {
-    return obj[$mobx].defineProperty_(key, descriptor);
-  }
-
-  die(39);
-}
-function apiOwnKeys(obj) {
-  if (isObservableObject(obj)) {
-    return obj[$mobx].ownKeys_();
-  }
-
-  die(38);
-}
-
-function observe(thing, propOrCb, cbOrFire, fireImmediately) {
-  if (isFunction(cbOrFire)) return observeObservableProperty(thing, propOrCb, cbOrFire, fireImmediately);else return observeObservable(thing, propOrCb, cbOrFire);
-}
-
-function observeObservable(thing, listener, fireImmediately) {
-  return getAdministration(thing).observe_(listener, fireImmediately);
-}
-
-function observeObservableProperty(thing, property, listener, fireImmediately) {
-  return getAdministration(thing, property).observe_(listener, fireImmediately);
-}
-
-function cache(map, key, value) {
-  map.set(key, value);
-  return value;
-}
-
-function toJSHelper(source, __alreadySeen) {
-  if (source == null || typeof source !== "object" || source instanceof Date || !isObservable(source)) return source;
-  if (isObservableValue(source) || isComputedValue(source)) return toJSHelper(source.get(), __alreadySeen);
-
-  if (__alreadySeen.has(source)) {
-    return __alreadySeen.get(source);
-  }
-
-  if (isObservableArray(source)) {
-    var res = cache(__alreadySeen, source, new Array(source.length));
-    source.forEach(function (value, idx) {
-      res[idx] = toJSHelper(value, __alreadySeen);
-    });
-    return res;
-  }
-
-  if (isObservableSet(source)) {
-    var _res = cache(__alreadySeen, source, new Set());
-
-    source.forEach(function (value) {
-      _res.add(toJSHelper(value, __alreadySeen));
-    });
-    return _res;
-  }
-
-  if (isObservableMap(source)) {
-    var _res2 = cache(__alreadySeen, source, new Map());
-
-    source.forEach(function (value, key) {
-      _res2.set(key, toJSHelper(value, __alreadySeen));
-    });
-    return _res2;
-  } else {
-    // must be observable object
-    var _res3 = cache(__alreadySeen, source, {});
-
-    apiOwnKeys(source).forEach(function (key) {
-      if (objectPrototype.propertyIsEnumerable.call(source, key)) {
-        _res3[key] = toJSHelper(source[key], __alreadySeen);
-      }
-    });
-    return _res3;
-  }
-}
-/**
- * Basically, a deep clone, so that no reactive property will exist anymore.
- */
-
-
-function toJS(source, options) {
-  if ( true && options) die("toJS no longer supports options");
-  return toJSHelper(source, new Map());
-}
-
-function trace() {
-  if (false) {}
-  var enterBreakPoint = false;
-
-  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
-
-  if (typeof args[args.length - 1] === "boolean") enterBreakPoint = args.pop();
-  var derivation = getAtomFromArgs(args);
-
-  if (!derivation) {
-    return die("'trace(break?)' can only be used inside a tracked computed value or a Reaction. Consider passing in the computed value or reaction explicitly");
-  }
-
-  if (derivation.isTracing_ === TraceMode.NONE) {
-    console.log("[mobx.trace] '" + derivation.name_ + "' tracing enabled");
-  }
-
-  derivation.isTracing_ = enterBreakPoint ? TraceMode.BREAK : TraceMode.LOG;
-}
-
-function getAtomFromArgs(args) {
-  switch (args.length) {
-    case 0:
-      return globalState.trackingDerivation;
-
-    case 1:
-      return getAtom(args[0]);
-
-    case 2:
-      return getAtom(args[0], args[1]);
-  }
-}
-
-/**
- * During a transaction no views are updated until the end of the transaction.
- * The transaction will be run synchronously nonetheless.
- *
- * @param action a function that updates some reactive state
- * @returns any value that was returned by the 'action' parameter.
- */
-
-function transaction(action, thisArg) {
-  if (thisArg === void 0) {
-    thisArg = undefined;
-  }
-
-  startBatch();
-
-  try {
-    return action.apply(thisArg);
-  } finally {
-    endBatch();
-  }
-}
-
-function when(predicate, arg1, arg2) {
-  if (arguments.length === 1 || arg1 && typeof arg1 === "object") return whenPromise(predicate, arg1);
-  return _when(predicate, arg1, arg2 || {});
-}
-
-function _when(predicate, effect, opts) {
-  var timeoutHandle;
-
-  if (typeof opts.timeout === "number") {
-    var error = new Error("WHEN_TIMEOUT");
-    timeoutHandle = setTimeout(function () {
-      if (!disposer[$mobx].isDisposed_) {
-        disposer();
-        if (opts.onError) opts.onError(error);else throw error;
-      }
-    }, opts.timeout);
-  }
-
-  opts.name =  true ? opts.name || "When@" + getNextId() : 0;
-  var effectAction = createAction( true ? opts.name + "-effect" : 0, effect); // eslint-disable-next-line
-
-  var disposer = autorun(function (r) {
-    // predicate should not change state
-    var cond = allowStateChanges(false, predicate);
-
-    if (cond) {
-      r.dispose();
-      if (timeoutHandle) clearTimeout(timeoutHandle);
-      effectAction();
-    }
-  }, opts);
-  return disposer;
-}
-
-function whenPromise(predicate, opts) {
-  if ( true && opts && opts.onError) return die("the options 'onError' and 'promise' cannot be combined");
-  var cancel;
-  var res = new Promise(function (resolve, reject) {
-    var disposer = _when(predicate, resolve, _extends({}, opts, {
-      onError: reject
-    }));
-
-    cancel = function cancel() {
-      disposer();
-      reject("WHEN_CANCELLED");
-    };
-  });
-  res.cancel = cancel;
-  return res;
-}
-
-function getAdm(target) {
-  return target[$mobx];
-} // Optimization: we don't need the intermediate objects and could have a completely custom administration for DynamicObjects,
-// and skip either the internal values map, or the base object with its property descriptors!
-
-
-var objectProxyTraps = {
-  has: function has(target, name) {
-    if ( true && globalState.trackingDerivation) warnAboutProxyRequirement("detect new properties using the 'in' operator. Use 'has' from 'mobx' instead.");
-    return getAdm(target).has_(name);
-  },
-  get: function get(target, name) {
-    return getAdm(target).get_(name);
-  },
-  set: function set(target, name, value) {
-    var _getAdm$set_;
-
-    if (!isStringish(name)) return false;
-
-    if ( true && !getAdm(target).values_.has(name)) {
-      warnAboutProxyRequirement("add a new observable property through direct assignment. Use 'set' from 'mobx' instead.");
-    } // null (intercepted) -> true (success)
-
-
-    return (_getAdm$set_ = getAdm(target).set_(name, value, true)) != null ? _getAdm$set_ : true;
-  },
-  deleteProperty: function deleteProperty(target, name) {
-    var _getAdm$delete_;
-
-    if (true) {
-      warnAboutProxyRequirement("delete properties from an observable object. Use 'remove' from 'mobx' instead.");
-    }
-
-    if (!isStringish(name)) return false; // null (intercepted) -> true (success)
-
-    return (_getAdm$delete_ = getAdm(target).delete_(name, true)) != null ? _getAdm$delete_ : true;
-  },
-  defineProperty: function defineProperty(target, name, descriptor) {
-    var _getAdm$definePropert;
-
-    if (true) {
-      warnAboutProxyRequirement("define property on an observable object. Use 'defineProperty' from 'mobx' instead.");
-    } // null (intercepted) -> true (success)
-
-
-    return (_getAdm$definePropert = getAdm(target).defineProperty_(name, descriptor)) != null ? _getAdm$definePropert : true;
-  },
-  ownKeys: function ownKeys(target) {
-    if ( true && globalState.trackingDerivation) warnAboutProxyRequirement("iterate keys to detect added / removed properties. Use 'keys' from 'mobx' instead.");
-    return getAdm(target).ownKeys_();
-  },
-  preventExtensions: function preventExtensions(target) {
-    die(13);
-  }
-};
-function asDynamicObservableObject(target, options) {
-  var _target$$mobx, _target$$mobx$proxy_;
-
-  assertProxies();
-  target = asObservableObject(target, options);
-  return (_target$$mobx$proxy_ = (_target$$mobx = target[$mobx]).proxy_) != null ? _target$$mobx$proxy_ : _target$$mobx.proxy_ = new Proxy(target, objectProxyTraps);
-}
-
-function hasInterceptors(interceptable) {
-  return interceptable.interceptors_ !== undefined && interceptable.interceptors_.length > 0;
-}
-function registerInterceptor(interceptable, handler) {
-  var interceptors = interceptable.interceptors_ || (interceptable.interceptors_ = []);
-  interceptors.push(handler);
-  return once(function () {
-    var idx = interceptors.indexOf(handler);
-    if (idx !== -1) interceptors.splice(idx, 1);
-  });
-}
-function interceptChange(interceptable, change) {
-  var prevU = untrackedStart();
-
-  try {
-    // Interceptor can modify the array, copy it to avoid concurrent modification, see #1950
-    var interceptors = [].concat(interceptable.interceptors_ || []);
-
-    for (var i = 0, l = interceptors.length; i < l; i++) {
-      change = interceptors[i](change);
-      if (change && !change.type) die(14);
-      if (!change) break;
-    }
-
-    return change;
-  } finally {
-    untrackedEnd(prevU);
-  }
-}
-
-function hasListeners(listenable) {
-  return listenable.changeListeners_ !== undefined && listenable.changeListeners_.length > 0;
-}
-function registerListener(listenable, handler) {
-  var listeners = listenable.changeListeners_ || (listenable.changeListeners_ = []);
-  listeners.push(handler);
-  return once(function () {
-    var idx = listeners.indexOf(handler);
-    if (idx !== -1) listeners.splice(idx, 1);
-  });
-}
-function notifyListeners(listenable, change) {
-  var prevU = untrackedStart();
-  var listeners = listenable.changeListeners_;
-  if (!listeners) return;
-  listeners = listeners.slice();
-
-  for (var i = 0, l = listeners.length; i < l; i++) {
-    listeners[i](change);
-  }
-
-  untrackedEnd(prevU);
-}
-
-function makeObservable(target, annotations, options) {
-  var adm = asObservableObject(target, options)[$mobx];
-  startBatch();
-
-  try {
-    var _annotations;
-
-    // Default to decorators
-    (_annotations = annotations) != null ? _annotations : annotations = collectStoredAnnotations(target); // Annotate
-
-    ownKeys(annotations).forEach(function (key) {
-      return adm.make_(key, annotations[key]);
-    });
-  } finally {
-    endBatch();
-  }
-
-  return target;
-} // proto[keysSymbol] = new Set<PropertyKey>()
-
-var keysSymbol = /*#__PURE__*/Symbol("mobx-keys");
-function makeAutoObservable(target, overrides, options) {
-  if (true) {
-    if (!isPlainObject(target) && !isPlainObject(Object.getPrototypeOf(target))) die("'makeAutoObservable' can only be used for classes that don't have a superclass");
-    if (isObservableObject(target)) die("makeAutoObservable can only be used on objects not already made observable");
-  } // Optimization: avoid visiting protos
-  // Assumes that annotation.make_/.extend_ works the same for plain objects
-
-
-  if (isPlainObject(target)) {
-    return extendObservable(target, target, overrides, options);
-  }
-
-  var adm = asObservableObject(target, options)[$mobx]; // Optimization: cache keys on proto
-  // Assumes makeAutoObservable can be called only once per object and can't be used in subclass
-
-  if (!target[keysSymbol]) {
-    var proto = Object.getPrototypeOf(target);
-    var keys = new Set([].concat(ownKeys(target), ownKeys(proto)));
-    keys["delete"]("constructor");
-    keys["delete"]($mobx);
-    addHiddenProp(proto, keysSymbol, keys);
-  }
-
-  startBatch();
-
-  try {
-    target[keysSymbol].forEach(function (key) {
-      return adm.make_(key, // must pass "undefined" for { key: undefined }
-      !overrides ? true : key in overrides ? overrides[key] : true);
-    });
-  } finally {
-    endBatch();
-  }
-
-  return target;
-}
-
-var SPLICE = "splice";
-var UPDATE = "update";
-var MAX_SPLICE_SIZE = 10000; // See e.g. https://github.com/mobxjs/mobx/issues/859
-
-var arrayTraps = {
-  get: function get(target, name) {
-    var adm = target[$mobx];
-    if (name === $mobx) return adm;
-    if (name === "length") return adm.getArrayLength_();
-
-    if (typeof name === "string" && !isNaN(name)) {
-      return adm.get_(parseInt(name));
-    }
-
-    if (hasProp(arrayExtensions, name)) {
-      return arrayExtensions[name];
-    }
-
-    return target[name];
-  },
-  set: function set(target, name, value) {
-    var adm = target[$mobx];
-
-    if (name === "length") {
-      adm.setArrayLength_(value);
-    }
-
-    if (typeof name === "symbol" || isNaN(name)) {
-      target[name] = value;
-    } else {
-      // numeric string
-      adm.set_(parseInt(name), value);
-    }
-
-    return true;
-  },
-  preventExtensions: function preventExtensions() {
-    die(15);
-  }
-};
-var ObservableArrayAdministration = /*#__PURE__*/function () {
-  // this is the prop that gets proxied, so can't replace it!
-  function ObservableArrayAdministration(name, enhancer, owned_, legacyMode_) {
-    if (name === void 0) {
-      name =  true ? "ObservableArray@" + getNextId() : 0;
-    }
-
-    this.owned_ = void 0;
-    this.legacyMode_ = void 0;
-    this.atom_ = void 0;
-    this.values_ = [];
-    this.interceptors_ = void 0;
-    this.changeListeners_ = void 0;
-    this.enhancer_ = void 0;
-    this.dehancer = void 0;
-    this.proxy_ = void 0;
-    this.lastKnownLength_ = 0;
-    this.owned_ = owned_;
-    this.legacyMode_ = legacyMode_;
-    this.atom_ = new Atom(name);
-
-    this.enhancer_ = function (newV, oldV) {
-      return enhancer(newV, oldV,  true ? name + "[..]" : 0);
-    };
-  }
-
-  var _proto = ObservableArrayAdministration.prototype;
-
-  _proto.dehanceValue_ = function dehanceValue_(value) {
-    if (this.dehancer !== undefined) return this.dehancer(value);
-    return value;
-  };
-
-  _proto.dehanceValues_ = function dehanceValues_(values) {
-    if (this.dehancer !== undefined && values.length > 0) return values.map(this.dehancer);
-    return values;
-  };
-
-  _proto.intercept_ = function intercept_(handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  _proto.observe_ = function observe_(listener, fireImmediately) {
-    if (fireImmediately === void 0) {
-      fireImmediately = false;
-    }
-
-    if (fireImmediately) {
-      listener({
-        observableKind: "array",
-        object: this.proxy_,
-        debugObjectName: this.atom_.name_,
-        type: "splice",
-        index: 0,
-        added: this.values_.slice(),
-        addedCount: this.values_.length,
-        removed: [],
-        removedCount: 0
-      });
-    }
-
-    return registerListener(this, listener);
-  };
-
-  _proto.getArrayLength_ = function getArrayLength_() {
-    this.atom_.reportObserved();
-    return this.values_.length;
-  };
-
-  _proto.setArrayLength_ = function setArrayLength_(newLength) {
-    if (typeof newLength !== "number" || newLength < 0) die("Out of range: " + newLength);
-    var currentLength = this.values_.length;
-    if (newLength === currentLength) return;else if (newLength > currentLength) {
-      var newItems = new Array(newLength - currentLength);
-
-      for (var i = 0; i < newLength - currentLength; i++) {
-        newItems[i] = undefined;
-      } // No Array.fill everywhere...
-
-
-      this.spliceWithArray_(currentLength, 0, newItems);
-    } else this.spliceWithArray_(newLength, currentLength - newLength);
-  };
-
-  _proto.updateArrayLength_ = function updateArrayLength_(oldLength, delta) {
-    if (oldLength !== this.lastKnownLength_) die(16);
-    this.lastKnownLength_ += delta;
-    if (this.legacyMode_ && delta > 0) reserveArrayBuffer(oldLength + delta + 1);
-  };
-
-  _proto.spliceWithArray_ = function spliceWithArray_(index, deleteCount, newItems) {
-    var _this = this;
-
-    checkIfStateModificationsAreAllowed(this.atom_);
-    var length = this.values_.length;
-    if (index === undefined) index = 0;else if (index > length) index = length;else if (index < 0) index = Math.max(0, length + index);
-    if (arguments.length === 1) deleteCount = length - index;else if (deleteCount === undefined || deleteCount === null) deleteCount = 0;else deleteCount = Math.max(0, Math.min(deleteCount, length - index));
-    if (newItems === undefined) newItems = EMPTY_ARRAY;
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        object: this.proxy_,
-        type: SPLICE,
-        index: index,
-        removedCount: deleteCount,
-        added: newItems
-      });
-      if (!change) return EMPTY_ARRAY;
-      deleteCount = change.removedCount;
-      newItems = change.added;
-    }
-
-    newItems = newItems.length === 0 ? newItems : newItems.map(function (v) {
-      return _this.enhancer_(v, undefined);
-    });
-
-    if (this.legacyMode_ || "development" !== "production") {
-      var lengthDelta = newItems.length - deleteCount;
-      this.updateArrayLength_(length, lengthDelta); // checks if internal array wasn't modified
-    }
-
-    var res = this.spliceItemsIntoValues_(index, deleteCount, newItems);
-    if (deleteCount !== 0 || newItems.length !== 0) this.notifyArraySplice_(index, newItems, res);
-    return this.dehanceValues_(res);
-  };
-
-  _proto.spliceItemsIntoValues_ = function spliceItemsIntoValues_(index, deleteCount, newItems) {
-    if (newItems.length < MAX_SPLICE_SIZE) {
-      var _this$values_;
-
-      return (_this$values_ = this.values_).splice.apply(_this$values_, [index, deleteCount].concat(newItems));
-    } else {
-      var res = this.values_.slice(index, index + deleteCount);
-      var oldItems = this.values_.slice(index + deleteCount);
-      this.values_.length = index + newItems.length - deleteCount;
-
-      for (var i = 0; i < newItems.length; i++) {
-        this.values_[index + i] = newItems[i];
-      }
-
-      for (var _i = 0; _i < oldItems.length; _i++) {
-        this.values_[index + newItems.length + _i] = oldItems[_i];
-      }
-
-      return res;
-    }
-  };
-
-  _proto.notifyArrayChildUpdate_ = function notifyArrayChildUpdate_(index, newValue, oldValue) {
-    var notifySpy = !this.owned_ && isSpyEnabled();
-    var notify = hasListeners(this);
-    var change = notify || notifySpy ? {
-      observableKind: "array",
-      object: this.proxy_,
-      type: UPDATE,
-      debugObjectName: this.atom_.name_,
-      index: index,
-      newValue: newValue,
-      oldValue: oldValue
-    } : null; // The reason why this is on right hand side here (and not above), is this way the uglifier will drop it, but it won't
-    // cause any runtime overhead in development mode without NODE_ENV set, unless spying is enabled
-
-    if ( true && notifySpy) spyReportStart(change);
-    this.atom_.reportChanged();
-    if (notify) notifyListeners(this, change);
-    if ( true && notifySpy) spyReportEnd();
-  };
-
-  _proto.notifyArraySplice_ = function notifyArraySplice_(index, added, removed) {
-    var notifySpy = !this.owned_ && isSpyEnabled();
-    var notify = hasListeners(this);
-    var change = notify || notifySpy ? {
-      observableKind: "array",
-      object: this.proxy_,
-      debugObjectName: this.atom_.name_,
-      type: SPLICE,
-      index: index,
-      removed: removed,
-      added: added,
-      removedCount: removed.length,
-      addedCount: added.length
-    } : null;
-    if ( true && notifySpy) spyReportStart(change);
-    this.atom_.reportChanged(); // conform: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/observe
-
-    if (notify) notifyListeners(this, change);
-    if ( true && notifySpy) spyReportEnd();
-  };
-
-  _proto.get_ = function get_(index) {
-    if (index < this.values_.length) {
-      this.atom_.reportObserved();
-      return this.dehanceValue_(this.values_[index]);
-    }
-
-    console.warn( true ? "[mobx] Out of bounds read: " + index : 0);
-  };
-
-  _proto.set_ = function set_(index, newValue) {
-    var values = this.values_;
-
-    if (index < values.length) {
-      // update at index in range
-      checkIfStateModificationsAreAllowed(this.atom_);
-      var oldValue = values[index];
-
-      if (hasInterceptors(this)) {
-        var change = interceptChange(this, {
-          type: UPDATE,
-          object: this.proxy_,
-          index: index,
-          newValue: newValue
-        });
-        if (!change) return;
-        newValue = change.newValue;
-      }
-
-      newValue = this.enhancer_(newValue, oldValue);
-      var changed = newValue !== oldValue;
-
-      if (changed) {
-        values[index] = newValue;
-        this.notifyArrayChildUpdate_(index, newValue, oldValue);
-      }
-    } else if (index === values.length) {
-      // add a new item
-      this.spliceWithArray_(index, 0, [newValue]);
-    } else {
-      // out of bounds
-      die(17, index, values.length);
-    }
-  };
-
-  return ObservableArrayAdministration;
-}();
-function createObservableArray(initialValues, enhancer, name, owned) {
-  if (name === void 0) {
-    name =  true ? "ObservableArray@" + getNextId() : 0;
-  }
-
-  if (owned === void 0) {
-    owned = false;
-  }
-
-  assertProxies();
-  var adm = new ObservableArrayAdministration(name, enhancer, owned, false);
-  addHiddenFinalProp(adm.values_, $mobx, adm);
-  var proxy = new Proxy(adm.values_, arrayTraps);
-  adm.proxy_ = proxy;
-
-  if (initialValues && initialValues.length) {
-    var prev = allowStateChangesStart(true);
-    adm.spliceWithArray_(0, 0, initialValues);
-    allowStateChangesEnd(prev);
-  }
-
-  return proxy;
-} // eslint-disable-next-line
-
-var arrayExtensions = {
-  clear: function clear() {
-    return this.splice(0);
-  },
-  replace: function replace(newItems) {
-    var adm = this[$mobx];
-    return adm.spliceWithArray_(0, adm.values_.length, newItems);
-  },
-  // Used by JSON.stringify
-  toJSON: function toJSON() {
-    return this.slice();
-  },
-
-  /*
-   * functions that do alter the internal structure of the array, (based on lib.es6.d.ts)
-   * since these functions alter the inner structure of the array, the have side effects.
-   * Because the have side effects, they should not be used in computed function,
-   * and for that reason the do not call dependencyState.notifyObserved
-   */
-  splice: function splice(index, deleteCount) {
-    for (var _len = arguments.length, newItems = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-      newItems[_key - 2] = arguments[_key];
-    }
-
-    var adm = this[$mobx];
-
-    switch (arguments.length) {
-      case 0:
-        return [];
-
-      case 1:
-        return adm.spliceWithArray_(index);
-
-      case 2:
-        return adm.spliceWithArray_(index, deleteCount);
-    }
-
-    return adm.spliceWithArray_(index, deleteCount, newItems);
-  },
-  spliceWithArray: function spliceWithArray(index, deleteCount, newItems) {
-    return this[$mobx].spliceWithArray_(index, deleteCount, newItems);
-  },
-  push: function push() {
-    var adm = this[$mobx];
-
-    for (var _len2 = arguments.length, items = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-      items[_key2] = arguments[_key2];
-    }
-
-    adm.spliceWithArray_(adm.values_.length, 0, items);
-    return adm.values_.length;
-  },
-  pop: function pop() {
-    return this.splice(Math.max(this[$mobx].values_.length - 1, 0), 1)[0];
-  },
-  shift: function shift() {
-    return this.splice(0, 1)[0];
-  },
-  unshift: function unshift() {
-    var adm = this[$mobx];
-
-    for (var _len3 = arguments.length, items = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-      items[_key3] = arguments[_key3];
-    }
-
-    adm.spliceWithArray_(0, 0, items);
-    return adm.values_.length;
-  },
-  reverse: function reverse() {
-    // reverse by default mutates in place before returning the result
-    // which makes it both a 'derivation' and a 'mutation'.
-    if (globalState.trackingDerivation) {
-      die(37, "reverse");
-    }
-
-    this.replace(this.slice().reverse());
-    return this;
-  },
-  sort: function sort() {
-    // sort by default mutates in place before returning the result
-    // which goes against all good practices. Let's not change the array in place!
-    if (globalState.trackingDerivation) {
-      die(37, "sort");
-    }
-
-    var copy = this.slice();
-    copy.sort.apply(copy, arguments);
-    this.replace(copy);
-    return this;
-  },
-  remove: function remove(value) {
-    var adm = this[$mobx];
-    var idx = adm.dehanceValues_(adm.values_).indexOf(value);
-
-    if (idx > -1) {
-      this.splice(idx, 1);
-      return true;
-    }
-
-    return false;
-  }
-};
-/**
- * Wrap function from prototype
- * Without this, everything works as well, but this works
- * faster as everything works on unproxied values
- */
-
-addArrayExtension("concat", simpleFunc);
-addArrayExtension("flat", simpleFunc);
-addArrayExtension("includes", simpleFunc);
-addArrayExtension("indexOf", simpleFunc);
-addArrayExtension("join", simpleFunc);
-addArrayExtension("lastIndexOf", simpleFunc);
-addArrayExtension("slice", simpleFunc);
-addArrayExtension("toString", simpleFunc);
-addArrayExtension("toLocaleString", simpleFunc); // map
-
-addArrayExtension("every", mapLikeFunc);
-addArrayExtension("filter", mapLikeFunc);
-addArrayExtension("find", mapLikeFunc);
-addArrayExtension("findIndex", mapLikeFunc);
-addArrayExtension("flatMap", mapLikeFunc);
-addArrayExtension("forEach", mapLikeFunc);
-addArrayExtension("map", mapLikeFunc);
-addArrayExtension("some", mapLikeFunc); // reduce
-
-addArrayExtension("reduce", reduceLikeFunc);
-addArrayExtension("reduceRight", reduceLikeFunc);
-
-function addArrayExtension(funcName, funcFactory) {
-  if (typeof Array.prototype[funcName] === "function") {
-    arrayExtensions[funcName] = funcFactory(funcName);
-  }
-} // Report and delegate to dehanced array
-
-
-function simpleFunc(funcName) {
-  return function () {
-    var adm = this[$mobx];
-    adm.atom_.reportObserved();
-    var dehancedValues = adm.dehanceValues_(adm.values_);
-    return dehancedValues[funcName].apply(dehancedValues, arguments);
-  };
-} // Make sure callbacks recieve correct array arg #2326
-
-
-function mapLikeFunc(funcName) {
-  return function (callback, thisArg) {
-    var _this2 = this;
-
-    var adm = this[$mobx];
-    adm.atom_.reportObserved();
-    var dehancedValues = adm.dehanceValues_(adm.values_);
-    return dehancedValues[funcName](function (element, index) {
-      return callback.call(thisArg, element, index, _this2);
-    });
-  };
-} // Make sure callbacks recieve correct array arg #2326
-
-
-function reduceLikeFunc(funcName) {
-  return function () {
-    var _this3 = this;
-
-    var adm = this[$mobx];
-    adm.atom_.reportObserved();
-    var dehancedValues = adm.dehanceValues_(adm.values_); // #2432 - reduce behavior depends on arguments.length
-
-    var callback = arguments[0];
-
-    arguments[0] = function (accumulator, currentValue, index) {
-      return callback(accumulator, currentValue, index, _this3);
-    };
-
-    return dehancedValues[funcName].apply(dehancedValues, arguments);
-  };
-}
-
-var isObservableArrayAdministration = /*#__PURE__*/createInstanceofPredicate("ObservableArrayAdministration", ObservableArrayAdministration);
-function isObservableArray(thing) {
-  return isObject(thing) && isObservableArrayAdministration(thing[$mobx]);
-}
-
-var _Symbol$iterator, _Symbol$toStringTag;
-var ObservableMapMarker = {};
-var ADD = "add";
-var DELETE = "delete"; // just extend Map? See also https://gist.github.com/nestharus/13b4d74f2ef4a2f4357dbd3fc23c1e54
-// But: https://github.com/mobxjs/mobx/issues/1556
-
-_Symbol$iterator = Symbol.iterator;
-_Symbol$toStringTag = Symbol.toStringTag;
-var ObservableMap = /*#__PURE__*/function () {
-  // hasMap, not hashMap >-).
-  function ObservableMap(initialData, enhancer_, name_) {
-    if (enhancer_ === void 0) {
-      enhancer_ = deepEnhancer;
-    }
-
-    if (name_ === void 0) {
-      name_ =  true ? "ObservableMap@" + getNextId() : 0;
-    }
-
-    this.enhancer_ = void 0;
-    this.name_ = void 0;
-    this[$mobx] = ObservableMapMarker;
-    this.data_ = void 0;
-    this.hasMap_ = void 0;
-    this.keysAtom_ = void 0;
-    this.interceptors_ = void 0;
-    this.changeListeners_ = void 0;
-    this.dehancer = void 0;
-    this.enhancer_ = enhancer_;
-    this.name_ = name_;
-
-    if (!isFunction(Map)) {
-      die(18);
-    }
-
-    this.keysAtom_ = createAtom( true ? this.name_ + ".keys()" : 0);
-    this.data_ = new Map();
-    this.hasMap_ = new Map();
-    this.merge(initialData);
-  }
-
-  var _proto = ObservableMap.prototype;
-
-  _proto.has_ = function has_(key) {
-    return this.data_.has(key);
-  };
-
-  _proto.has = function has(key) {
-    var _this = this;
-
-    if (!globalState.trackingDerivation) return this.has_(key);
-    var entry = this.hasMap_.get(key);
-
-    if (!entry) {
-      var newEntry = entry = new ObservableValue(this.has_(key), referenceEnhancer,  true ? this.name_ + "." + stringifyKey(key) + "?" : 0, false);
-      this.hasMap_.set(key, newEntry);
-      onBecomeUnobserved(newEntry, function () {
-        return _this.hasMap_["delete"](key);
-      });
-    }
-
-    return entry.get();
-  };
-
-  _proto.set = function set(key, value) {
-    var hasKey = this.has_(key);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: hasKey ? UPDATE : ADD,
-        object: this,
-        newValue: value,
-        name: key
-      });
-      if (!change) return this;
-      value = change.newValue;
-    }
-
-    if (hasKey) {
-      this.updateValue_(key, value);
-    } else {
-      this.addValue_(key, value);
-    }
-
-    return this;
-  };
-
-  _proto["delete"] = function _delete(key) {
-    var _this2 = this;
-
-    checkIfStateModificationsAreAllowed(this.keysAtom_);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: DELETE,
-        object: this,
-        name: key
-      });
-      if (!change) return false;
-    }
-
-    if (this.has_(key)) {
-      var notifySpy = isSpyEnabled();
-      var notify = hasListeners(this);
-
-      var _change = notify || notifySpy ? {
-        observableKind: "map",
-        debugObjectName: this.name_,
-        type: DELETE,
-        object: this,
-        oldValue: this.data_.get(key).value_,
-        name: key
-      } : null;
-
-      if ( true && notifySpy) spyReportStart(_change);
-      transaction(function () {
-        _this2.keysAtom_.reportChanged();
-
-        _this2.updateHasMapEntry_(key, false);
-
-        var observable = _this2.data_.get(key);
-
-        observable.setNewValue_(undefined);
-
-        _this2.data_["delete"](key);
-      });
-      if (notify) notifyListeners(this, _change);
-      if ( true && notifySpy) spyReportEnd();
-      return true;
-    }
-
-    return false;
-  };
-
-  _proto.updateHasMapEntry_ = function updateHasMapEntry_(key, value) {
-    var entry = this.hasMap_.get(key);
-
-    if (entry) {
-      entry.setNewValue_(value);
-    }
-  };
-
-  _proto.updateValue_ = function updateValue_(key, newValue) {
-    var observable = this.data_.get(key);
-    newValue = observable.prepareNewValue_(newValue);
-
-    if (newValue !== globalState.UNCHANGED) {
-      var notifySpy = isSpyEnabled();
-      var notify = hasListeners(this);
-      var change = notify || notifySpy ? {
-        observableKind: "map",
-        debugObjectName: this.name_,
-        type: UPDATE,
-        object: this,
-        oldValue: observable.value_,
-        name: key,
-        newValue: newValue
-      } : null;
-      if ( true && notifySpy) spyReportStart(change);
-      observable.setNewValue_(newValue);
-      if (notify) notifyListeners(this, change);
-      if ( true && notifySpy) spyReportEnd();
-    }
-  };
-
-  _proto.addValue_ = function addValue_(key, newValue) {
-    var _this3 = this;
-
-    checkIfStateModificationsAreAllowed(this.keysAtom_);
-    transaction(function () {
-      var observable = new ObservableValue(newValue, _this3.enhancer_,  true ? _this3.name_ + "." + stringifyKey(key) : 0, false);
-
-      _this3.data_.set(key, observable);
-
-      newValue = observable.value_; // value might have been changed
-
-      _this3.updateHasMapEntry_(key, true);
-
-      _this3.keysAtom_.reportChanged();
-    });
-    var notifySpy = isSpyEnabled();
-    var notify = hasListeners(this);
-    var change = notify || notifySpy ? {
-      observableKind: "map",
-      debugObjectName: this.name_,
-      type: ADD,
-      object: this,
-      name: key,
-      newValue: newValue
-    } : null;
-    if ( true && notifySpy) spyReportStart(change);
-    if (notify) notifyListeners(this, change);
-    if ( true && notifySpy) spyReportEnd();
-  };
-
-  _proto.get = function get(key) {
-    if (this.has(key)) return this.dehanceValue_(this.data_.get(key).get());
-    return this.dehanceValue_(undefined);
-  };
-
-  _proto.dehanceValue_ = function dehanceValue_(value) {
-    if (this.dehancer !== undefined) {
-      return this.dehancer(value);
-    }
-
-    return value;
-  };
-
-  _proto.keys = function keys() {
-    this.keysAtom_.reportObserved();
-    return this.data_.keys();
-  };
-
-  _proto.values = function values() {
-    var self = this;
-    var keys = this.keys();
-    return makeIterable({
-      next: function next() {
-        var _keys$next = keys.next(),
-            done = _keys$next.done,
-            value = _keys$next.value;
-
-        return {
-          done: done,
-          value: done ? undefined : self.get(value)
-        };
-      }
-    });
-  };
-
-  _proto.entries = function entries() {
-    var self = this;
-    var keys = this.keys();
-    return makeIterable({
-      next: function next() {
-        var _keys$next2 = keys.next(),
-            done = _keys$next2.done,
-            value = _keys$next2.value;
-
-        return {
-          done: done,
-          value: done ? undefined : [value, self.get(value)]
-        };
-      }
-    });
-  };
-
-  _proto[_Symbol$iterator] = function () {
-    return this.entries();
-  };
-
-  _proto.forEach = function forEach(callback, thisArg) {
-    for (var _iterator = _createForOfIteratorHelperLoose(this), _step; !(_step = _iterator()).done;) {
-      var _step$value = _step.value,
-          key = _step$value[0],
-          value = _step$value[1];
-      callback.call(thisArg, value, key, this);
-    }
-  }
-  /** Merge another object into this object, returns this. */
-  ;
-
-  _proto.merge = function merge(other) {
-    var _this4 = this;
-
-    if (isObservableMap(other)) {
-      other = new Map(other);
-    }
-
-    transaction(function () {
-      if (isPlainObject(other)) getPlainObjectKeys(other).forEach(function (key) {
-        return _this4.set(key, other[key]);
-      });else if (Array.isArray(other)) other.forEach(function (_ref) {
-        var key = _ref[0],
-            value = _ref[1];
-        return _this4.set(key, value);
-      });else if (isES6Map(other)) {
-        if (other.constructor !== Map) die(19, other);
-        other.forEach(function (value, key) {
-          return _this4.set(key, value);
-        });
-      } else if (other !== null && other !== undefined) die(20, other);
-    });
-    return this;
-  };
-
-  _proto.clear = function clear() {
-    var _this5 = this;
-
-    transaction(function () {
-      untracked(function () {
-        for (var _iterator2 = _createForOfIteratorHelperLoose(_this5.keys()), _step2; !(_step2 = _iterator2()).done;) {
-          var key = _step2.value;
-
-          _this5["delete"](key);
-        }
-      });
-    });
-  };
-
-  _proto.replace = function replace(values) {
-    var _this6 = this;
-
-    // Implementation requirements:
-    // - respect ordering of replacement map
-    // - allow interceptors to run and potentially prevent individual operations
-    // - don't recreate observables that already exist in original map (so we don't destroy existing subscriptions)
-    // - don't _keysAtom.reportChanged if the keys of resulting map are indentical (order matters!)
-    // - note that result map may differ from replacement map due to the interceptors
-    transaction(function () {
-      // Convert to map so we can do quick key lookups
-      var replacementMap = convertToMap(values);
-      var orderedData = new Map(); // Used for optimization
-
-      var keysReportChangedCalled = false; // Delete keys that don't exist in replacement map
-      // if the key deletion is prevented by interceptor
-      // add entry at the beginning of the result map
-
-      for (var _iterator3 = _createForOfIteratorHelperLoose(_this6.data_.keys()), _step3; !(_step3 = _iterator3()).done;) {
-        var key = _step3.value;
-
-        // Concurrently iterating/deleting keys
-        // iterator should handle this correctly
-        if (!replacementMap.has(key)) {
-          var deleted = _this6["delete"](key); // Was the key removed?
-
-
-          if (deleted) {
-            // _keysAtom.reportChanged() was already called
-            keysReportChangedCalled = true;
-          } else {
-            // Delete prevented by interceptor
-            var value = _this6.data_.get(key);
-
-            orderedData.set(key, value);
-          }
-        }
-      } // Merge entries
-
-
-      for (var _iterator4 = _createForOfIteratorHelperLoose(replacementMap.entries()), _step4; !(_step4 = _iterator4()).done;) {
-        var _step4$value = _step4.value,
-            _key = _step4$value[0],
-            _value = _step4$value[1];
-
-        // We will want to know whether a new key is added
-        var keyExisted = _this6.data_.has(_key); // Add or update value
-
-
-        _this6.set(_key, _value); // The addition could have been prevent by interceptor
-
-
-        if (_this6.data_.has(_key)) {
-          // The update could have been prevented by interceptor
-          // and also we want to preserve existing values
-          // so use value from _data map (instead of replacement map)
-          var _value2 = _this6.data_.get(_key);
-
-          orderedData.set(_key, _value2); // Was a new key added?
-
-          if (!keyExisted) {
-            // _keysAtom.reportChanged() was already called
-            keysReportChangedCalled = true;
-          }
-        }
-      } // Check for possible key order change
-
-
-      if (!keysReportChangedCalled) {
-        if (_this6.data_.size !== orderedData.size) {
-          // If size differs, keys are definitely modified
-          _this6.keysAtom_.reportChanged();
-        } else {
-          var iter1 = _this6.data_.keys();
-
-          var iter2 = orderedData.keys();
-          var next1 = iter1.next();
-          var next2 = iter2.next();
-
-          while (!next1.done) {
-            if (next1.value !== next2.value) {
-              _this6.keysAtom_.reportChanged();
-
-              break;
-            }
-
-            next1 = iter1.next();
-            next2 = iter2.next();
-          }
-        }
-      } // Use correctly ordered map
-
-
-      _this6.data_ = orderedData;
-    });
-    return this;
-  };
-
-  _proto.toString = function toString() {
-    return "[object ObservableMap]";
-  };
-
-  _proto.toJSON = function toJSON() {
-    return Array.from(this);
-  };
-
-  /**
-   * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
-   * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
-   * for callback details
-   */
-  _proto.observe_ = function observe_(listener, fireImmediately) {
-    if ( true && fireImmediately === true) die("`observe` doesn't support fireImmediately=true in combination with maps.");
-    return registerListener(this, listener);
-  };
-
-  _proto.intercept_ = function intercept_(handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  _createClass(ObservableMap, [{
-    key: "size",
-    get: function get() {
-      this.keysAtom_.reportObserved();
-      return this.data_.size;
-    }
-  }, {
-    key: _Symbol$toStringTag,
-    get: function get() {
-      return "Map";
-    }
-  }]);
-
-  return ObservableMap;
-}(); // eslint-disable-next-line
-
-var isObservableMap = /*#__PURE__*/createInstanceofPredicate("ObservableMap", ObservableMap);
-
-function convertToMap(dataStructure) {
-  if (isES6Map(dataStructure) || isObservableMap(dataStructure)) {
-    return dataStructure;
-  } else if (Array.isArray(dataStructure)) {
-    return new Map(dataStructure);
-  } else if (isPlainObject(dataStructure)) {
-    var map = new Map();
-
-    for (var key in dataStructure) {
-      map.set(key, dataStructure[key]);
-    }
-
-    return map;
-  } else {
-    return die(21, dataStructure);
-  }
-}
-
-var _Symbol$iterator$1, _Symbol$toStringTag$1;
-var ObservableSetMarker = {};
-_Symbol$iterator$1 = Symbol.iterator;
-_Symbol$toStringTag$1 = Symbol.toStringTag;
-var ObservableSet = /*#__PURE__*/function () {
-  function ObservableSet(initialData, enhancer, name_) {
-    if (enhancer === void 0) {
-      enhancer = deepEnhancer;
-    }
-
-    if (name_ === void 0) {
-      name_ =  true ? "ObservableSet@" + getNextId() : 0;
-    }
-
-    this.name_ = void 0;
-    this[$mobx] = ObservableSetMarker;
-    this.data_ = new Set();
-    this.atom_ = void 0;
-    this.changeListeners_ = void 0;
-    this.interceptors_ = void 0;
-    this.dehancer = void 0;
-    this.enhancer_ = void 0;
-    this.name_ = name_;
-
-    if (!isFunction(Set)) {
-      die(22);
-    }
-
-    this.atom_ = createAtom(this.name_);
-
-    this.enhancer_ = function (newV, oldV) {
-      return enhancer(newV, oldV, name_);
-    };
-
-    if (initialData) {
-      this.replace(initialData);
-    }
-  }
-
-  var _proto = ObservableSet.prototype;
-
-  _proto.dehanceValue_ = function dehanceValue_(value) {
-    if (this.dehancer !== undefined) {
-      return this.dehancer(value);
-    }
-
-    return value;
-  };
-
-  _proto.clear = function clear() {
-    var _this = this;
-
-    transaction(function () {
-      untracked(function () {
-        for (var _iterator = _createForOfIteratorHelperLoose(_this.data_.values()), _step; !(_step = _iterator()).done;) {
-          var value = _step.value;
-
-          _this["delete"](value);
-        }
-      });
-    });
-  };
-
-  _proto.forEach = function forEach(callbackFn, thisArg) {
-    for (var _iterator2 = _createForOfIteratorHelperLoose(this), _step2; !(_step2 = _iterator2()).done;) {
-      var value = _step2.value;
-      callbackFn.call(thisArg, value, value, this);
-    }
-  };
-
-  _proto.add = function add(value) {
-    var _this2 = this;
-
-    checkIfStateModificationsAreAllowed(this.atom_);
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: ADD,
-        object: this,
-        newValue: value
-      });
-      if (!change) return this; // ideally, value = change.value would be done here, so that values can be
-      // changed by interceptor. Same applies for other Set and Map api's.
-    }
-
-    if (!this.has(value)) {
-      transaction(function () {
-        _this2.data_.add(_this2.enhancer_(value, undefined));
-
-        _this2.atom_.reportChanged();
-      });
-      var notifySpy =  true && isSpyEnabled();
-      var notify = hasListeners(this);
-
-      var _change = notify || notifySpy ? {
-        observableKind: "set",
-        debugObjectName: this.name_,
-        type: ADD,
-        object: this,
-        newValue: value
-      } : null;
-
-      if (notifySpy && "development" !== "production") spyReportStart(_change);
-      if (notify) notifyListeners(this, _change);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-    }
-
-    return this;
-  };
-
-  _proto["delete"] = function _delete(value) {
-    var _this3 = this;
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: DELETE,
-        object: this,
-        oldValue: value
-      });
-      if (!change) return false;
-    }
-
-    if (this.has(value)) {
-      var notifySpy =  true && isSpyEnabled();
-      var notify = hasListeners(this);
-
-      var _change2 = notify || notifySpy ? {
-        observableKind: "set",
-        debugObjectName: this.name_,
-        type: DELETE,
-        object: this,
-        oldValue: value
-      } : null;
-
-      if (notifySpy && "development" !== "production") spyReportStart(_change2);
-      transaction(function () {
-        _this3.atom_.reportChanged();
-
-        _this3.data_["delete"](value);
-      });
-      if (notify) notifyListeners(this, _change2);
-      if (notifySpy && "development" !== "production") spyReportEnd();
-      return true;
-    }
-
-    return false;
-  };
-
-  _proto.has = function has(value) {
-    this.atom_.reportObserved();
-    return this.data_.has(this.dehanceValue_(value));
-  };
-
-  _proto.entries = function entries() {
-    var nextIndex = 0;
-    var keys = Array.from(this.keys());
-    var values = Array.from(this.values());
-    return makeIterable({
-      next: function next() {
-        var index = nextIndex;
-        nextIndex += 1;
-        return index < values.length ? {
-          value: [keys[index], values[index]],
-          done: false
-        } : {
-          done: true
-        };
-      }
-    });
-  };
-
-  _proto.keys = function keys() {
-    return this.values();
-  };
-
-  _proto.values = function values() {
-    this.atom_.reportObserved();
-    var self = this;
-    var nextIndex = 0;
-    var observableValues = Array.from(this.data_.values());
-    return makeIterable({
-      next: function next() {
-        return nextIndex < observableValues.length ? {
-          value: self.dehanceValue_(observableValues[nextIndex++]),
-          done: false
-        } : {
-          done: true
-        };
-      }
-    });
-  };
-
-  _proto.replace = function replace(other) {
-    var _this4 = this;
-
-    if (isObservableSet(other)) {
-      other = new Set(other);
-    }
-
-    transaction(function () {
-      if (Array.isArray(other)) {
-        _this4.clear();
-
-        other.forEach(function (value) {
-          return _this4.add(value);
-        });
-      } else if (isES6Set(other)) {
-        _this4.clear();
-
-        other.forEach(function (value) {
-          return _this4.add(value);
-        });
-      } else if (other !== null && other !== undefined) {
-        die("Cannot initialize set from " + other);
-      }
-    });
-    return this;
-  };
-
-  _proto.observe_ = function observe_(listener, fireImmediately) {
-    // ... 'fireImmediately' could also be true?
-    if ( true && fireImmediately === true) die("`observe` doesn't support fireImmediately=true in combination with sets.");
-    return registerListener(this, listener);
-  };
-
-  _proto.intercept_ = function intercept_(handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  _proto.toJSON = function toJSON() {
-    return Array.from(this);
-  };
-
-  _proto.toString = function toString() {
-    return "[object ObservableSet]";
-  };
-
-  _proto[_Symbol$iterator$1] = function () {
-    return this.values();
-  };
-
-  _createClass(ObservableSet, [{
-    key: "size",
-    get: function get() {
-      this.atom_.reportObserved();
-      return this.data_.size;
-    }
-  }, {
-    key: _Symbol$toStringTag$1,
-    get: function get() {
-      return "Set";
-    }
-  }]);
-
-  return ObservableSet;
-}(); // eslint-disable-next-line
-
-var isObservableSet = /*#__PURE__*/createInstanceofPredicate("ObservableSet", ObservableSet);
-
-var descriptorCache = /*#__PURE__*/Object.create(null);
-var REMOVE = "remove";
-var ObservableObjectAdministration = /*#__PURE__*/function () {
-  function ObservableObjectAdministration(target_, values_, name_, // Used anytime annotation is not explicitely provided
-  defaultAnnotation_) {
-    if (values_ === void 0) {
-      values_ = new Map();
-    }
-
-    if (defaultAnnotation_ === void 0) {
-      defaultAnnotation_ = autoAnnotation;
-    }
-
-    this.target_ = void 0;
-    this.values_ = void 0;
-    this.name_ = void 0;
-    this.defaultAnnotation_ = void 0;
-    this.keysAtom_ = void 0;
-    this.changeListeners_ = void 0;
-    this.interceptors_ = void 0;
-    this.proxy_ = void 0;
-    this.isPlainObject_ = void 0;
-    this.appliedAnnotations_ = void 0;
-    this.pendingKeys_ = void 0;
-    this.target_ = target_;
-    this.values_ = values_;
-    this.name_ = name_;
-    this.defaultAnnotation_ = defaultAnnotation_;
-    this.keysAtom_ = new Atom( true ? this.name_ + ".keys" : 0); // Optimization: we use this frequently
-
-    this.isPlainObject_ = isPlainObject(this.target_);
-
-    if ( true && !isAnnotation(this.defaultAnnotation_)) {
-      die("defaultAnnotation must be valid annotation");
-    }
-
-    if (true) {
-      // Prepare structure for tracking which fields were already annotated
-      this.appliedAnnotations_ = {};
-    }
-  }
-
-  var _proto = ObservableObjectAdministration.prototype;
-
-  _proto.getObservablePropValue_ = function getObservablePropValue_(key) {
-    return this.values_.get(key).get();
-  };
-
-  _proto.setObservablePropValue_ = function setObservablePropValue_(key, newValue) {
-    var observable = this.values_.get(key);
-
-    if (observable instanceof ComputedValue) {
-      observable.set(newValue);
-      return true;
-    } // intercept
-
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        type: UPDATE,
-        object: this.proxy_ || this.target_,
-        name: key,
-        newValue: newValue
-      });
-      if (!change) return null;
-      newValue = change.newValue;
-    }
-
-    newValue = observable.prepareNewValue_(newValue); // notify spy & observers
-
-    if (newValue !== globalState.UNCHANGED) {
-      var notify = hasListeners(this);
-      var notifySpy =  true && isSpyEnabled();
-
-      var _change = notify || notifySpy ? {
-        type: UPDATE,
-        observableKind: "object",
-        debugObjectName: this.name_,
-        object: this.proxy_ || this.target_,
-        oldValue: observable.value_,
-        name: key,
-        newValue: newValue
-      } : null;
-
-      if ( true && notifySpy) spyReportStart(_change);
-      observable.setNewValue_(newValue);
-      if (notify) notifyListeners(this, _change);
-      if ( true && notifySpy) spyReportEnd();
-    }
-
-    return true;
-  };
-
-  _proto.get_ = function get_(key) {
-    if (globalState.trackingDerivation && !hasProp(this.target_, key)) {
-      // Key doesn't exist yet, subscribe for it in case it's added later
-      this.has_(key);
-    }
-
-    return this.target_[key];
-  }
-  /**
-   * @param {PropertyKey} key
-   * @param {any} value
-   * @param {Annotation|boolean} annotation true - use default annotation, false - copy as is
-   * @param {boolean} proxyTrap whether it's called from proxy trap
-   * @returns {boolean|null} true on success, false on failure (proxyTrap + non-configurable), null when cancelled by interceptor
-   */
-  ;
-
-  _proto.set_ = function set_(key, value, proxyTrap) {
-    if (proxyTrap === void 0) {
-      proxyTrap = false;
-    }
-
-    // Don't use .has(key) - we care about own
-    if (hasProp(this.target_, key)) {
-      // Existing prop
-      if (this.values_.has(key)) {
-        // Observable (can be intercepted)
-        return this.setObservablePropValue_(key, value);
-      } else if (proxyTrap) {
-        // Non-observable - proxy
-        return Reflect.set(this.target_, key, value);
-      } else {
-        // Non-observable
-        this.target_[key] = value;
-        return true;
-      }
-    } else {
-      // New prop
-      return this.extend_(key, {
-        value: value,
-        enumerable: true,
-        writable: true,
-        configurable: true
-      }, this.defaultAnnotation_, proxyTrap);
-    }
-  } // Trap for "in"
-  ;
-
-  _proto.has_ = function has_(key) {
-    if (!globalState.trackingDerivation) {
-      // Skip key subscription outside derivation
-      return key in this.target_;
-    }
-
-    this.pendingKeys_ || (this.pendingKeys_ = new Map());
-    var entry = this.pendingKeys_.get(key);
-
-    if (!entry) {
-      entry = new ObservableValue(key in this.target_, referenceEnhancer,  true ? this.name_ + "." + stringifyKey(key) + "?" : 0, false);
-      this.pendingKeys_.set(key, entry);
-    }
-
-    return entry.get();
-  }
-  /**
-   * @param {PropertyKey} key
-   * @param {Annotation|boolean} annotation true - use default annotation, false - ignore prop
-   */
-  ;
-
-  _proto.make_ = function make_(key, annotation) {
-    if (annotation === true) {
-      annotation = this.defaultAnnotation_;
-    }
-
-    if (annotation === false) {
-      return;
-    }
-
-    assertAnnotable(this, annotation, key);
-
-    if (!(key in this.target_)) {
-      var _this$target_$storedA;
-
-      // Throw on missing key, except for decorators:
-      // Decorator annotations are collected from whole prototype chain.
-      // When called from super() some props may not exist yet.
-      // However we don't have to worry about missing prop,
-      // because the decorator must have been applied to something.
-      if ((_this$target_$storedA = this.target_[storedAnnotationsSymbol]) == null ? void 0 : _this$target_$storedA[key]) {
-        return; // will be annotated by subclass constructor
-      } else {
-        die(1, annotation.annotationType_, this.name_ + "." + key.toString());
-      }
-    }
-
-    var source = this.target_;
-
-    while (source && source !== objectPrototype) {
-      var descriptor = getDescriptor(source, key);
-
-      if (descriptor) {
-        var outcome = annotation.make_(this, key, descriptor, source);
-        if (outcome === 0
-        /* Cancel */
-        ) return;
-        if (outcome === 1
-        /* Break */
-        ) break;
-      }
-
-      source = Object.getPrototypeOf(source);
-    }
-
-    recordAnnotationApplied(this, annotation, key);
-  }
-  /**
-   * @param {PropertyKey} key
-   * @param {PropertyDescriptor} descriptor
-   * @param {Annotation|boolean} annotation true - use default annotation, false - copy as is
-   * @param {boolean} proxyTrap whether it's called from proxy trap
-   * @returns {boolean|null} true on success, false on failure (proxyTrap + non-configurable), null when cancelled by interceptor
-   */
-  ;
-
-  _proto.extend_ = function extend_(key, descriptor, annotation, proxyTrap) {
-    if (proxyTrap === void 0) {
-      proxyTrap = false;
-    }
-
-    if (annotation === true) {
-      annotation = this.defaultAnnotation_;
-    }
-
-    if (annotation === false) {
-      return this.defineProperty_(key, descriptor, proxyTrap);
-    }
-
-    assertAnnotable(this, annotation, key);
-    var outcome = annotation.extend_(this, key, descriptor, proxyTrap);
-
-    if (outcome) {
-      recordAnnotationApplied(this, annotation, key);
-    }
-
-    return outcome;
-  }
-  /**
-   * @param {PropertyKey} key
-   * @param {PropertyDescriptor} descriptor
-   * @param {boolean} proxyTrap whether it's called from proxy trap
-   * @returns {boolean|null} true on success, false on failure (proxyTrap + non-configurable), null when cancelled by interceptor
-   */
-  ;
-
-  _proto.defineProperty_ = function defineProperty_(key, descriptor, proxyTrap) {
-    if (proxyTrap === void 0) {
-      proxyTrap = false;
-    }
-
-    try {
-      startBatch(); // Delete
-
-      var deleteOutcome = this.delete_(key);
-
-      if (!deleteOutcome) {
-        // Failure or intercepted
-        return deleteOutcome;
-      } // ADD interceptor
-
-
-      if (hasInterceptors(this)) {
-        var change = interceptChange(this, {
-          object: this.proxy_ || this.target_,
-          name: key,
-          type: ADD,
-          newValue: descriptor.value
-        });
-        if (!change) return null;
-        var newValue = change.newValue;
-
-        if (descriptor.value !== newValue) {
-          descriptor = _extends({}, descriptor, {
-            value: newValue
-          });
-        }
-      } // Define
-
-
-      if (proxyTrap) {
-        if (!Reflect.defineProperty(this.target_, key, descriptor)) {
-          return false;
-        }
-      } else {
-        defineProperty(this.target_, key, descriptor);
-      } // Notify
-
-
-      this.notifyPropertyAddition_(key, descriptor.value);
-    } finally {
-      endBatch();
-    }
-
-    return true;
-  } // If original descriptor becomes relevant, move this to annotation directly
-  ;
-
-  _proto.defineObservableProperty_ = function defineObservableProperty_(key, value, enhancer, proxyTrap) {
-    if (proxyTrap === void 0) {
-      proxyTrap = false;
-    }
-
-    try {
-      startBatch(); // Delete
-
-      var deleteOutcome = this.delete_(key);
-
-      if (!deleteOutcome) {
-        // Failure or intercepted
-        return deleteOutcome;
-      } // ADD interceptor
-
-
-      if (hasInterceptors(this)) {
-        var change = interceptChange(this, {
-          object: this.proxy_ || this.target_,
-          name: key,
-          type: ADD,
-          newValue: value
-        });
-        if (!change) return null;
-        value = change.newValue;
-      }
-
-      var cachedDescriptor = getCachedObservablePropDescriptor(key);
-      var descriptor = {
-        configurable: globalState.safeDescriptors ? this.isPlainObject_ : true,
-        enumerable: true,
-        get: cachedDescriptor.get,
-        set: cachedDescriptor.set
-      }; // Define
-
-      if (proxyTrap) {
-        if (!Reflect.defineProperty(this.target_, key, descriptor)) {
-          return false;
-        }
-      } else {
-        defineProperty(this.target_, key, descriptor);
-      }
-
-      var observable = new ObservableValue(value, enhancer,  true ? this.name_ + "." + key.toString() : 0, false);
-      this.values_.set(key, observable); // Notify (value possibly changed by ObservableValue)
-
-      this.notifyPropertyAddition_(key, observable.value_);
-    } finally {
-      endBatch();
-    }
-
-    return true;
-  } // If original descriptor becomes relevant, move this to annotation directly
-  ;
-
-  _proto.defineComputedProperty_ = function defineComputedProperty_(key, options, proxyTrap) {
-    if (proxyTrap === void 0) {
-      proxyTrap = false;
-    }
-
-    try {
-      startBatch(); // Delete
-
-      var deleteOutcome = this.delete_(key);
-
-      if (!deleteOutcome) {
-        // Failure or intercepted
-        return deleteOutcome;
-      } // ADD interceptor
-
-
-      if (hasInterceptors(this)) {
-        var change = interceptChange(this, {
-          object: this.proxy_ || this.target_,
-          name: key,
-          type: ADD,
-          newValue: undefined
-        });
-        if (!change) return null;
-      }
-
-      options.name || (options.name =  true ? this.name_ + "." + key.toString() : 0);
-      options.context = this.proxy_ || this.target_;
-      var cachedDescriptor = getCachedObservablePropDescriptor(key);
-      var descriptor = {
-        configurable: globalState.safeDescriptors ? this.isPlainObject_ : true,
-        enumerable: false,
-        get: cachedDescriptor.get,
-        set: cachedDescriptor.set
-      }; // Define
-
-      if (proxyTrap) {
-        if (!Reflect.defineProperty(this.target_, key, descriptor)) {
-          return false;
-        }
-      } else {
-        defineProperty(this.target_, key, descriptor);
-      }
-
-      this.values_.set(key, new ComputedValue(options)); // Notify
-
-      this.notifyPropertyAddition_(key, undefined);
-    } finally {
-      endBatch();
-    }
-
-    return true;
-  }
-  /**
-   * @param {PropertyKey} key
-   * @param {PropertyDescriptor} descriptor
-   * @param {boolean} proxyTrap whether it's called from proxy trap
-   * @returns {boolean|null} true on success, false on failure (proxyTrap + non-configurable), null when cancelled by interceptor
-   */
-  ;
-
-  _proto.delete_ = function delete_(key, proxyTrap) {
-    if (proxyTrap === void 0) {
-      proxyTrap = false;
-    }
-
-    // No such prop
-    if (!hasProp(this.target_, key)) {
-      return true;
-    } // Intercept
-
-
-    if (hasInterceptors(this)) {
-      var change = interceptChange(this, {
-        object: this.proxy_ || this.target_,
-        name: key,
-        type: REMOVE
-      }); // Cancelled
-
-      if (!change) return null;
-    } // Delete
-
-
-    try {
-      var _this$pendingKeys_, _this$pendingKeys_$ge;
-
-      startBatch();
-      var notify = hasListeners(this);
-      var notifySpy =  true && isSpyEnabled();
-      var observable = this.values_.get(key); // Value needed for spies/listeners
-
-      var value = undefined; // Optimization: don't pull the value unless we will need it
-
-      if (!observable && (notify || notifySpy)) {
-        var _getDescriptor;
-
-        value = (_getDescriptor = getDescriptor(this.target_, key)) == null ? void 0 : _getDescriptor.value;
-      } // delete prop (do first, may fail)
-
-
-      if (proxyTrap) {
-        if (!Reflect.deleteProperty(this.target_, key)) {
-          return false;
-        }
-      } else {
-        delete this.target_[key];
-      } // Allow re-annotating this field
-
-
-      if (true) {
-        delete this.appliedAnnotations_[key];
-      } // Clear observable
-
-
-      if (observable) {
-        this.values_["delete"](key); // for computed, value is undefined
-
-        if (observable instanceof ObservableValue) {
-          value = observable.value_;
-        } // Notify: autorun(() => obj[key]), see #1796
-
-
-        propagateChanged(observable);
-      } // Notify "keys/entries/values" observers
-
-
-      this.keysAtom_.reportChanged(); // Notify "has" observers
-      // "in" as it may still exist in proto
-
-      (_this$pendingKeys_ = this.pendingKeys_) == null ? void 0 : (_this$pendingKeys_$ge = _this$pendingKeys_.get(key)) == null ? void 0 : _this$pendingKeys_$ge.set(key in this.target_); // Notify spies/listeners
-
-      if (notify || notifySpy) {
-        var _change2 = {
-          type: REMOVE,
-          observableKind: "object",
-          object: this.proxy_ || this.target_,
-          debugObjectName: this.name_,
-          oldValue: value,
-          name: key
-        };
-        if ( true && notifySpy) spyReportStart(_change2);
-        if (notify) notifyListeners(this, _change2);
-        if ( true && notifySpy) spyReportEnd();
-      }
-    } finally {
-      endBatch();
-    }
-
-    return true;
-  }
-  /**
-   * Observes this object. Triggers for the events 'add', 'update' and 'delete'.
-   * See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/observe
-   * for callback details
-   */
-  ;
-
-  _proto.observe_ = function observe_(callback, fireImmediately) {
-    if ( true && fireImmediately === true) die("`observe` doesn't support the fire immediately property for observable objects.");
-    return registerListener(this, callback);
-  };
-
-  _proto.intercept_ = function intercept_(handler) {
-    return registerInterceptor(this, handler);
-  };
-
-  _proto.notifyPropertyAddition_ = function notifyPropertyAddition_(key, value) {
-    var _this$pendingKeys_2, _this$pendingKeys_2$g;
-
-    var notify = hasListeners(this);
-    var notifySpy =  true && isSpyEnabled();
-
-    if (notify || notifySpy) {
-      var change = notify || notifySpy ? {
-        type: ADD,
-        observableKind: "object",
-        debugObjectName: this.name_,
-        object: this.proxy_ || this.target_,
-        name: key,
-        newValue: value
-      } : null;
-      if ( true && notifySpy) spyReportStart(change);
-      if (notify) notifyListeners(this, change);
-      if ( true && notifySpy) spyReportEnd();
-    }
-
-    (_this$pendingKeys_2 = this.pendingKeys_) == null ? void 0 : (_this$pendingKeys_2$g = _this$pendingKeys_2.get(key)) == null ? void 0 : _this$pendingKeys_2$g.set(true); // Notify "keys/entries/values" observers
-
-    this.keysAtom_.reportChanged();
-  };
-
-  _proto.ownKeys_ = function ownKeys_() {
-    this.keysAtom_.reportObserved();
-    return ownKeys(this.target_);
-  };
-
-  _proto.keys_ = function keys_() {
-    // Returns enumerable && own, but unfortunately keysAtom will report on ANY key change.
-    // There is no way to distinguish between Object.keys(object) and Reflect.ownKeys(object) - both are handled by ownKeys trap.
-    // We can either over-report in Object.keys(object) or under-report in Reflect.ownKeys(object)
-    // We choose to over-report in Object.keys(object), because:
-    // - typically it's used with simple data objects
-    // - when symbolic/non-enumerable keys are relevant Reflect.ownKeys works as expected
-    this.keysAtom_.reportObserved();
-    return Object.keys(this.target_);
-  };
-
-  return ObservableObjectAdministration;
-}();
-function asObservableObject(target, options) {
-  var _options$name;
-
-  if ( true && options && isObservableObject(target)) {
-    die("Options can't be provided for already observable objects.");
-  }
-
-  if (hasProp(target, $mobx)) {
-    if ( true && !(getAdministration(target) instanceof ObservableObjectAdministration)) {
-      die("Cannot convert '" + getDebugName(target) + "' into observable object:" + "\nThe target is already observable of different type." + "\nExtending builtins is not supported.");
-    }
-
-    return target;
-  }
-
-  if ( true && !Object.isExtensible(target)) die("Cannot make the designated object observable; it is not extensible");
-  var name = (_options$name = options == null ? void 0 : options.name) != null ? _options$name :  true ? (isPlainObject(target) ? "ObservableObject" : target.constructor.name) + "@" + getNextId() : 0;
-  var adm = new ObservableObjectAdministration(target, new Map(), String(name), getAnnotationFromOptions(options));
-  addHiddenProp(target, $mobx, adm);
-  return target;
-}
-var isObservableObjectAdministration = /*#__PURE__*/createInstanceofPredicate("ObservableObjectAdministration", ObservableObjectAdministration);
-
-function getCachedObservablePropDescriptor(key) {
-  return descriptorCache[key] || (descriptorCache[key] = {
-    get: function get() {
-      return this[$mobx].getObservablePropValue_(key);
-    },
-    set: function set(value) {
-      return this[$mobx].setObservablePropValue_(key, value);
-    }
-  });
-}
-
-function isObservableObject(thing) {
-  if (isObject(thing)) {
-    return isObservableObjectAdministration(thing[$mobx]);
-  }
-
-  return false;
-}
-function recordAnnotationApplied(adm, annotation, key) {
-  var _adm$target_$storedAn;
-
-  if (true) {
-    adm.appliedAnnotations_[key] = annotation;
-  } // Remove applied decorator annotation so we don't try to apply it again in subclass constructor
-
-
-  (_adm$target_$storedAn = adm.target_[storedAnnotationsSymbol]) == null ? true : delete _adm$target_$storedAn[key];
-}
-
-function assertAnnotable(adm, annotation, key) {
-  // Valid annotation
-  if ( true && !isAnnotation(annotation)) {
-    die("Cannot annotate '" + adm.name_ + "." + key.toString() + "': Invalid annotation.");
-  }
-  /*
-  // Configurable, not sealed, not frozen
-  // Possibly not needed, just a little better error then the one thrown by engine.
-  // Cases where this would be useful the most (subclass field initializer) are not interceptable by this.
-  if (__DEV__) {
-      const configurable = getDescriptor(adm.target_, key)?.configurable
-      const frozen = Object.isFrozen(adm.target_)
-      const sealed = Object.isSealed(adm.target_)
-      if (!configurable || frozen || sealed) {
-          const fieldName = `${adm.name_}.${key.toString()}`
-          const requestedAnnotationType = annotation.annotationType_
-          let error = `Cannot apply '${requestedAnnotationType}' to '${fieldName}':`
-          if (frozen) {
-              error += `\nObject is frozen.`
-          }
-          if (sealed) {
-              error += `\nObject is sealed.`
-          }
-          if (!configurable) {
-              error += `\nproperty is not configurable.`
-              // Mention only if caused by us to avoid confusion
-              if (hasProp(adm.appliedAnnotations!, key)) {
-                  error += `\nTo prevent accidental re-definition of a field by a subclass, `
-                  error += `all annotated fields of non-plain objects (classes) are not configurable.`
-              }
-          }
-          die(error)
-      }
-  }
-  */
-  // Not annotated
-
-
-  if ( true && !isOverride(annotation) && hasProp(adm.appliedAnnotations_, key)) {
-    var fieldName = adm.name_ + "." + key.toString();
-    var currentAnnotationType = adm.appliedAnnotations_[key].annotationType_;
-    var requestedAnnotationType = annotation.annotationType_;
-    die("Cannot apply '" + requestedAnnotationType + "' to '" + fieldName + "':" + ("\nThe field is already annotated with '" + currentAnnotationType + "'.") + "\nRe-annotating fields is not allowed." + "\nUse 'override' annotation for methods overriden by subclass.");
-  }
-}
-
-/**
- * This array buffer contains two lists of properties, so that all arrays
- * can recycle their property definitions, which significantly improves performance of creating
- * properties on the fly.
- */
-
-var OBSERVABLE_ARRAY_BUFFER_SIZE = 0; // Typescript workaround to make sure ObservableArray extends Array
-
-var StubArray = function StubArray() {};
-
-function inherit(ctor, proto) {
-  if (Object.setPrototypeOf) {
-    Object.setPrototypeOf(ctor.prototype, proto);
-  } else if (ctor.prototype.__proto__ !== undefined) {
-    ctor.prototype.__proto__ = proto;
-  } else {
-    ctor.prototype = proto;
-  }
-}
-
-inherit(StubArray, Array.prototype); // Weex proto freeze protection was here,
-// but it is unclear why the hack is need as MobX never changed the prototype
-// anyway, so removed it in V6
-
-var LegacyObservableArray = /*#__PURE__*/function (_StubArray) {
-  _inheritsLoose(LegacyObservableArray, _StubArray);
-
-  function LegacyObservableArray(initialValues, enhancer, name, owned) {
-    var _this;
-
-    if (name === void 0) {
-      name =  true ? "ObservableArray@" + getNextId() : 0;
-    }
-
-    if (owned === void 0) {
-      owned = false;
-    }
-
-    _this = _StubArray.call(this) || this;
-    var adm = new ObservableArrayAdministration(name, enhancer, owned, true);
-    adm.proxy_ = _assertThisInitialized(_this);
-    addHiddenFinalProp(_assertThisInitialized(_this), $mobx, adm);
-
-    if (initialValues && initialValues.length) {
-      var prev = allowStateChangesStart(true); // @ts-ignore
-
-      _this.spliceWithArray(0, 0, initialValues);
-
-      allowStateChangesEnd(prev);
-    }
-
-    return _this;
-  }
-
-  var _proto = LegacyObservableArray.prototype;
-
-  _proto.concat = function concat() {
-    this[$mobx].atom_.reportObserved();
-
-    for (var _len = arguments.length, arrays = new Array(_len), _key = 0; _key < _len; _key++) {
-      arrays[_key] = arguments[_key];
-    }
-
-    return Array.prototype.concat.apply(this.slice(), //@ts-ignore
-    arrays.map(function (a) {
-      return isObservableArray(a) ? a.slice() : a;
-    }));
-  };
-
-  _proto[Symbol.iterator] = function () {
-    var self = this;
-    var nextIndex = 0;
-    return makeIterable({
-      next: function next() {
-        // @ts-ignore
-        return nextIndex < self.length ? {
-          value: self[nextIndex++],
-          done: false
-        } : {
-          done: true,
-          value: undefined
-        };
-      }
-    });
-  };
-
-  _createClass(LegacyObservableArray, [{
-    key: "length",
-    get: function get() {
-      return this[$mobx].getArrayLength_();
-    },
-    set: function set(newLength) {
-      this[$mobx].setArrayLength_(newLength);
-    }
-  }, {
-    key: Symbol.toStringTag,
-    get: function get() {
-      return "Array";
-    }
-  }]);
-
-  return LegacyObservableArray;
-}(StubArray);
-
-Object.entries(arrayExtensions).forEach(function (_ref) {
-  var prop = _ref[0],
-      fn = _ref[1];
-  if (prop !== "concat") addHiddenProp(LegacyObservableArray.prototype, prop, fn);
-});
-
-function createArrayEntryDescriptor(index) {
-  return {
-    enumerable: false,
-    configurable: true,
-    get: function get() {
-      return this[$mobx].get_(index);
-    },
-    set: function set(value) {
-      this[$mobx].set_(index, value);
-    }
-  };
-}
-
-function createArrayBufferItem(index) {
-  defineProperty(LegacyObservableArray.prototype, "" + index, createArrayEntryDescriptor(index));
-}
-
-function reserveArrayBuffer(max) {
-  if (max > OBSERVABLE_ARRAY_BUFFER_SIZE) {
-    for (var index = OBSERVABLE_ARRAY_BUFFER_SIZE; index < max + 100; index++) {
-      createArrayBufferItem(index);
-    }
-
-    OBSERVABLE_ARRAY_BUFFER_SIZE = max;
-  }
-}
-reserveArrayBuffer(1000);
-function createLegacyArray(initialValues, enhancer, name) {
-  return new LegacyObservableArray(initialValues, enhancer, name);
-}
-
-function getAtom(thing, property) {
-  if (typeof thing === "object" && thing !== null) {
-    if (isObservableArray(thing)) {
-      if (property !== undefined) die(23);
-      return thing[$mobx].atom_;
-    }
-
-    if (isObservableSet(thing)) {
-      return thing[$mobx];
-    }
-
-    if (isObservableMap(thing)) {
-      if (property === undefined) return thing.keysAtom_;
-      var observable = thing.data_.get(property) || thing.hasMap_.get(property);
-      if (!observable) die(25, property, getDebugName(thing));
-      return observable;
-    }
-
-    if (isObservableObject(thing)) {
-      if (!property) return die(26);
-
-      var _observable = thing[$mobx].values_.get(property);
-
-      if (!_observable) die(27, property, getDebugName(thing));
-      return _observable;
-    }
-
-    if (isAtom(thing) || isComputedValue(thing) || isReaction(thing)) {
-      return thing;
-    }
-  } else if (isFunction(thing)) {
-    if (isReaction(thing[$mobx])) {
-      // disposer function
-      return thing[$mobx];
-    }
-  }
-
-  die(28);
-}
-function getAdministration(thing, property) {
-  if (!thing) die(29);
-  if (property !== undefined) return getAdministration(getAtom(thing, property));
-  if (isAtom(thing) || isComputedValue(thing) || isReaction(thing)) return thing;
-  if (isObservableMap(thing) || isObservableSet(thing)) return thing;
-  if (thing[$mobx]) return thing[$mobx];
-  die(24, thing);
-}
-function getDebugName(thing, property) {
-  var named;
-
-  if (property !== undefined) {
-    named = getAtom(thing, property);
-  } else if (isAction(thing)) {
-    return thing.name;
-  } else if (isObservableObject(thing) || isObservableMap(thing) || isObservableSet(thing)) {
-    named = getAdministration(thing);
-  } else {
-    // valid for arrays as well
-    named = getAtom(thing);
-  }
-
-  return named.name_;
-}
-
-var toString = objectPrototype.toString;
-function deepEqual(a, b, depth) {
-  if (depth === void 0) {
-    depth = -1;
-  }
-
-  return eq(a, b, depth);
-} // Copied from https://github.com/jashkenas/underscore/blob/5c237a7c682fb68fd5378203f0bf22dce1624854/underscore.js#L1186-L1289
-// Internal recursive comparison function for `isEqual`.
-
-function eq(a, b, depth, aStack, bStack) {
-  // Identical objects are equal. `0 === -0`, but they aren't identical.
-  // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
-  if (a === b) return a !== 0 || 1 / a === 1 / b; // `null` or `undefined` only equal to itself (strict comparison).
-
-  if (a == null || b == null) return false; // `NaN`s are equivalent, but non-reflexive.
-
-  if (a !== a) return b !== b; // Exhaust primitive checks
-
-  var type = typeof a;
-  if (!isFunction(type) && type !== "object" && typeof b != "object") return false; // Compare `[[Class]]` names.
-
-  var className = toString.call(a);
-  if (className !== toString.call(b)) return false;
-
-  switch (className) {
-    // Strings, numbers, regular expressions, dates, and booleans are compared by value.
-    case "[object RegExp]": // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-
-    case "[object String]":
-      // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-      // equivalent to `new String("5")`.
-      return "" + a === "" + b;
-
-    case "[object Number]":
-      // `NaN`s are equivalent, but non-reflexive.
-      // Object(NaN) is equivalent to NaN.
-      if (+a !== +a) return +b !== +b; // An `egal` comparison is performed for other numeric values.
-
-      return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-
-    case "[object Date]":
-    case "[object Boolean]":
-      // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-      // millisecond representations. Note that invalid dates with millisecond representations
-      // of `NaN` are not equivalent.
-      return +a === +b;
-
-    case "[object Symbol]":
-      return typeof Symbol !== "undefined" && Symbol.valueOf.call(a) === Symbol.valueOf.call(b);
-
-    case "[object Map]":
-    case "[object Set]":
-      // Maps and Sets are unwrapped to arrays of entry-pairs, adding an incidental level.
-      // Hide this extra level by increasing the depth.
-      if (depth >= 0) {
-        depth++;
-      }
-
-      break;
-  } // Unwrap any wrapped objects.
-
-
-  a = unwrap(a);
-  b = unwrap(b);
-  var areArrays = className === "[object Array]";
-
-  if (!areArrays) {
-    if (typeof a != "object" || typeof b != "object") return false; // Objects with different constructors are not equivalent, but `Object`s or `Array`s
-    // from different frames are.
-
-    var aCtor = a.constructor,
-        bCtor = b.constructor;
-
-    if (aCtor !== bCtor && !(isFunction(aCtor) && aCtor instanceof aCtor && isFunction(bCtor) && bCtor instanceof bCtor) && "constructor" in a && "constructor" in b) {
-      return false;
-    }
-  }
-
-  if (depth === 0) {
-    return false;
-  } else if (depth < 0) {
-    depth = -1;
-  } // Assume equality for cyclic structures. The algorithm for detecting cyclic
-  // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
-  // Initializing stack of traversed objects.
-  // It's done here since we only need them for objects and arrays comparison.
-
-
-  aStack = aStack || [];
-  bStack = bStack || [];
-  var length = aStack.length;
-
-  while (length--) {
-    // Linear search. Performance is inversely proportional to the number of
-    // unique nested structures.
-    if (aStack[length] === a) return bStack[length] === b;
-  } // Add the first object to the stack of traversed objects.
-
-
-  aStack.push(a);
-  bStack.push(b); // Recursively compare objects and arrays.
-
-  if (areArrays) {
-    // Compare array lengths to determine if a deep comparison is necessary.
-    length = a.length;
-    if (length !== b.length) return false; // Deep compare the contents, ignoring non-numeric properties.
-
-    while (length--) {
-      if (!eq(a[length], b[length], depth - 1, aStack, bStack)) return false;
-    }
-  } else {
-    // Deep compare objects.
-    var keys = Object.keys(a);
-    var key;
-    length = keys.length; // Ensure that both objects contain the same number of properties before comparing deep equality.
-
-    if (Object.keys(b).length !== length) return false;
-
-    while (length--) {
-      // Deep compare each member
-      key = keys[length];
-      if (!(hasProp(b, key) && eq(a[key], b[key], depth - 1, aStack, bStack))) return false;
-    }
-  } // Remove the first object from the stack of traversed objects.
-
-
-  aStack.pop();
-  bStack.pop();
-  return true;
-}
-
-function unwrap(a) {
-  if (isObservableArray(a)) return a.slice();
-  if (isES6Map(a) || isObservableMap(a)) return Array.from(a.entries());
-  if (isES6Set(a) || isObservableSet(a)) return Array.from(a.entries());
-  return a;
-}
-
-function makeIterable(iterator) {
-  iterator[Symbol.iterator] = getSelf;
-  return iterator;
-}
-
-function getSelf() {
-  return this;
-}
-
-function isAnnotation(thing) {
-  return (// Can be function
-    thing instanceof Object && typeof thing.annotationType_ === "string" && isFunction(thing.make_) && isFunction(thing.extend_)
-  );
-}
-
-/**
- * (c) Michel Weststrate 2015 - 2020
- * MIT Licensed
- *
- * Welcome to the mobx sources! To get an global overview of how MobX internally works,
- * this is a good place to start:
- * https://medium.com/@mweststrate/becoming-fully-reactive-an-in-depth-explanation-of-mobservable-55995262a254#.xvbh6qd74
- *
- * Source folders:
- * ===============
- *
- * - api/     Most of the public static methods exposed by the module can be found here.
- * - core/    Implementation of the MobX algorithm; atoms, derivations, reactions, dependency trees, optimizations. Cool stuff can be found here.
- * - types/   All the magic that is need to have observable objects, arrays and values is in this folder. Including the modifiers like `asFlat`.
- * - utils/   Utility stuff.
- *
- */
-["Symbol", "Map", "Set"].forEach(function (m) {
-  var g = getGlobal();
-
-  if (typeof g[m] === "undefined") {
-    die("MobX requires global '" + m + "' to be available or polyfilled");
-  }
-});
-
-if (typeof __MOBX_DEVTOOLS_GLOBAL_HOOK__ === "object") {
-  // See: https://github.com/andykog/mobx-devtools/
-  __MOBX_DEVTOOLS_GLOBAL_HOOK__.injectMobx({
-    spy: spy,
-    extras: {
-      getDebugName: getDebugName
-    },
-    $mobx: $mobx
-  });
-}
-
-
-//# sourceMappingURL=mobx.esm.js.map
-
-
-/***/ }),
-
 /***/ "./node_modules/regenerator-runtime/runtime.js":
 /***/ ((module) => {
 
@@ -27165,2538 +19625,427 @@ try {
 
 /***/ }),
 
-/***/ "./node_modules/svg-pan-zoom/src/browserify.js":
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var SvgPanZoom = __webpack_require__("./node_modules/svg-pan-zoom/src/svg-pan-zoom.js");
-
-module.exports = SvgPanZoom;
-
-
-/***/ }),
-
-/***/ "./node_modules/svg-pan-zoom/src/control-icons.js":
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var SvgUtils = __webpack_require__("./node_modules/svg-pan-zoom/src/svg-utilities.js");
-
-module.exports = {
-  enable: function(instance) {
-    // Select (and create if necessary) defs
-    var defs = instance.svg.querySelector("defs");
-    if (!defs) {
-      defs = document.createElementNS(SvgUtils.svgNS, "defs");
-      instance.svg.appendChild(defs);
-    }
-
-    // Check for style element, and create it if it doesn't exist
-    var styleEl = defs.querySelector("style#svg-pan-zoom-controls-styles");
-    if (!styleEl) {
-      var style = document.createElementNS(SvgUtils.svgNS, "style");
-      style.setAttribute("id", "svg-pan-zoom-controls-styles");
-      style.setAttribute("type", "text/css");
-      style.textContent =
-        ".svg-pan-zoom-control { cursor: pointer; fill: black; fill-opacity: 0.333; } .svg-pan-zoom-control:hover { fill-opacity: 0.8; } .svg-pan-zoom-control-background { fill: white; fill-opacity: 0.5; } .svg-pan-zoom-control-background { fill-opacity: 0.8; }";
-      defs.appendChild(style);
-    }
-
-    // Zoom Group
-    var zoomGroup = document.createElementNS(SvgUtils.svgNS, "g");
-    zoomGroup.setAttribute("id", "svg-pan-zoom-controls");
-    zoomGroup.setAttribute(
-      "transform",
-      "translate(" +
-        (instance.width - 70) +
-        " " +
-        (instance.height - 76) +
-        ") scale(0.75)"
-    );
-    zoomGroup.setAttribute("class", "svg-pan-zoom-control");
-
-    // Control elements
-    zoomGroup.appendChild(this._createZoomIn(instance));
-    zoomGroup.appendChild(this._createZoomReset(instance));
-    zoomGroup.appendChild(this._createZoomOut(instance));
-
-    // Finally append created element
-    instance.svg.appendChild(zoomGroup);
-
-    // Cache control instance
-    instance.controlIcons = zoomGroup;
-  },
-
-  _createZoomIn: function(instance) {
-    var zoomIn = document.createElementNS(SvgUtils.svgNS, "g");
-    zoomIn.setAttribute("id", "svg-pan-zoom-zoom-in");
-    zoomIn.setAttribute("transform", "translate(30.5 5) scale(0.015)");
-    zoomIn.setAttribute("class", "svg-pan-zoom-control");
-    zoomIn.addEventListener(
-      "click",
-      function() {
-        instance.getPublicInstance().zoomIn();
-      },
-      false
-    );
-    zoomIn.addEventListener(
-      "touchstart",
-      function() {
-        instance.getPublicInstance().zoomIn();
-      },
-      false
-    );
-
-    var zoomInBackground = document.createElementNS(SvgUtils.svgNS, "rect"); // TODO change these background space fillers to rounded rectangles so they look prettier
-    zoomInBackground.setAttribute("x", "0");
-    zoomInBackground.setAttribute("y", "0");
-    zoomInBackground.setAttribute("width", "1500"); // larger than expected because the whole group is transformed to scale down
-    zoomInBackground.setAttribute("height", "1400");
-    zoomInBackground.setAttribute("class", "svg-pan-zoom-control-background");
-    zoomIn.appendChild(zoomInBackground);
-
-    var zoomInShape = document.createElementNS(SvgUtils.svgNS, "path");
-    zoomInShape.setAttribute(
-      "d",
-      "M1280 576v128q0 26 -19 45t-45 19h-320v320q0 26 -19 45t-45 19h-128q-26 0 -45 -19t-19 -45v-320h-320q-26 0 -45 -19t-19 -45v-128q0 -26 19 -45t45 -19h320v-320q0 -26 19 -45t45 -19h128q26 0 45 19t19 45v320h320q26 0 45 19t19 45zM1536 1120v-960 q0 -119 -84.5 -203.5t-203.5 -84.5h-960q-119 0 -203.5 84.5t-84.5 203.5v960q0 119 84.5 203.5t203.5 84.5h960q119 0 203.5 -84.5t84.5 -203.5z"
-    );
-    zoomInShape.setAttribute("class", "svg-pan-zoom-control-element");
-    zoomIn.appendChild(zoomInShape);
-
-    return zoomIn;
-  },
-
-  _createZoomReset: function(instance) {
-    // reset
-    var resetPanZoomControl = document.createElementNS(SvgUtils.svgNS, "g");
-    resetPanZoomControl.setAttribute("id", "svg-pan-zoom-reset-pan-zoom");
-    resetPanZoomControl.setAttribute("transform", "translate(5 35) scale(0.4)");
-    resetPanZoomControl.setAttribute("class", "svg-pan-zoom-control");
-    resetPanZoomControl.addEventListener(
-      "click",
-      function() {
-        instance.getPublicInstance().reset();
-      },
-      false
-    );
-    resetPanZoomControl.addEventListener(
-      "touchstart",
-      function() {
-        instance.getPublicInstance().reset();
-      },
-      false
-    );
-
-    var resetPanZoomControlBackground = document.createElementNS(
-      SvgUtils.svgNS,
-      "rect"
-    ); // TODO change these background space fillers to rounded rectangles so they look prettier
-    resetPanZoomControlBackground.setAttribute("x", "2");
-    resetPanZoomControlBackground.setAttribute("y", "2");
-    resetPanZoomControlBackground.setAttribute("width", "182"); // larger than expected because the whole group is transformed to scale down
-    resetPanZoomControlBackground.setAttribute("height", "58");
-    resetPanZoomControlBackground.setAttribute(
-      "class",
-      "svg-pan-zoom-control-background"
-    );
-    resetPanZoomControl.appendChild(resetPanZoomControlBackground);
-
-    var resetPanZoomControlShape1 = document.createElementNS(
-      SvgUtils.svgNS,
-      "path"
-    );
-    resetPanZoomControlShape1.setAttribute(
-      "d",
-      "M33.051,20.632c-0.742-0.406-1.854-0.609-3.338-0.609h-7.969v9.281h7.769c1.543,0,2.701-0.188,3.473-0.562c1.365-0.656,2.048-1.953,2.048-3.891C35.032,22.757,34.372,21.351,33.051,20.632z"
-    );
-    resetPanZoomControlShape1.setAttribute(
-      "class",
-      "svg-pan-zoom-control-element"
-    );
-    resetPanZoomControl.appendChild(resetPanZoomControlShape1);
-
-    var resetPanZoomControlShape2 = document.createElementNS(
-      SvgUtils.svgNS,
-      "path"
-    );
-    resetPanZoomControlShape2.setAttribute(
-      "d",
-      "M170.231,0.5H15.847C7.102,0.5,0.5,5.708,0.5,11.84v38.861C0.5,56.833,7.102,61.5,15.847,61.5h154.384c8.745,0,15.269-4.667,15.269-10.798V11.84C185.5,5.708,178.976,0.5,170.231,0.5z M42.837,48.569h-7.969c-0.219-0.766-0.375-1.383-0.469-1.852c-0.188-0.969-0.289-1.961-0.305-2.977l-0.047-3.211c-0.03-2.203-0.41-3.672-1.142-4.406c-0.732-0.734-2.103-1.102-4.113-1.102h-7.05v13.547h-7.055V14.022h16.524c2.361,0.047,4.178,0.344,5.45,0.891c1.272,0.547,2.351,1.352,3.234,2.414c0.731,0.875,1.31,1.844,1.737,2.906s0.64,2.273,0.64,3.633c0,1.641-0.414,3.254-1.242,4.84s-2.195,2.707-4.102,3.363c1.594,0.641,2.723,1.551,3.387,2.73s0.996,2.98,0.996,5.402v2.32c0,1.578,0.063,2.648,0.19,3.211c0.19,0.891,0.635,1.547,1.333,1.969V48.569z M75.579,48.569h-26.18V14.022h25.336v6.117H56.454v7.336h16.781v6H56.454v8.883h19.125V48.569z M104.497,46.331c-2.44,2.086-5.887,3.129-10.34,3.129c-4.548,0-8.125-1.027-10.731-3.082s-3.909-4.879-3.909-8.473h6.891c0.224,1.578,0.662,2.758,1.316,3.539c1.196,1.422,3.246,2.133,6.15,2.133c1.739,0,3.151-0.188,4.236-0.562c2.058-0.719,3.087-2.055,3.087-4.008c0-1.141-0.504-2.023-1.512-2.648c-1.008-0.609-2.607-1.148-4.796-1.617l-3.74-0.82c-3.676-0.812-6.201-1.695-7.576-2.648c-2.328-1.594-3.492-4.086-3.492-7.477c0-3.094,1.139-5.664,3.417-7.711s5.623-3.07,10.036-3.07c3.685,0,6.829,0.965,9.431,2.895c2.602,1.93,3.966,4.73,4.093,8.402h-6.938c-0.128-2.078-1.057-3.555-2.787-4.43c-1.154-0.578-2.587-0.867-4.301-0.867c-1.907,0-3.428,0.375-4.565,1.125c-1.138,0.75-1.706,1.797-1.706,3.141c0,1.234,0.561,2.156,1.682,2.766c0.721,0.406,2.25,0.883,4.589,1.43l6.063,1.43c2.657,0.625,4.648,1.461,5.975,2.508c2.059,1.625,3.089,3.977,3.089,7.055C108.157,41.624,106.937,44.245,104.497,46.331z M139.61,48.569h-26.18V14.022h25.336v6.117h-18.281v7.336h16.781v6h-16.781v8.883h19.125V48.569z M170.337,20.14h-10.336v28.43h-7.266V20.14h-10.383v-6.117h27.984V20.14z"
-    );
-    resetPanZoomControlShape2.setAttribute(
-      "class",
-      "svg-pan-zoom-control-element"
-    );
-    resetPanZoomControl.appendChild(resetPanZoomControlShape2);
-
-    return resetPanZoomControl;
-  },
-
-  _createZoomOut: function(instance) {
-    // zoom out
-    var zoomOut = document.createElementNS(SvgUtils.svgNS, "g");
-    zoomOut.setAttribute("id", "svg-pan-zoom-zoom-out");
-    zoomOut.setAttribute("transform", "translate(30.5 70) scale(0.015)");
-    zoomOut.setAttribute("class", "svg-pan-zoom-control");
-    zoomOut.addEventListener(
-      "click",
-      function() {
-        instance.getPublicInstance().zoomOut();
-      },
-      false
-    );
-    zoomOut.addEventListener(
-      "touchstart",
-      function() {
-        instance.getPublicInstance().zoomOut();
-      },
-      false
-    );
-
-    var zoomOutBackground = document.createElementNS(SvgUtils.svgNS, "rect"); // TODO change these background space fillers to rounded rectangles so they look prettier
-    zoomOutBackground.setAttribute("x", "0");
-    zoomOutBackground.setAttribute("y", "0");
-    zoomOutBackground.setAttribute("width", "1500"); // larger than expected because the whole group is transformed to scale down
-    zoomOutBackground.setAttribute("height", "1400");
-    zoomOutBackground.setAttribute("class", "svg-pan-zoom-control-background");
-    zoomOut.appendChild(zoomOutBackground);
-
-    var zoomOutShape = document.createElementNS(SvgUtils.svgNS, "path");
-    zoomOutShape.setAttribute(
-      "d",
-      "M1280 576v128q0 26 -19 45t-45 19h-896q-26 0 -45 -19t-19 -45v-128q0 -26 19 -45t45 -19h896q26 0 45 19t19 45zM1536 1120v-960q0 -119 -84.5 -203.5t-203.5 -84.5h-960q-119 0 -203.5 84.5t-84.5 203.5v960q0 119 84.5 203.5t203.5 84.5h960q119 0 203.5 -84.5 t84.5 -203.5z"
-    );
-    zoomOutShape.setAttribute("class", "svg-pan-zoom-control-element");
-    zoomOut.appendChild(zoomOutShape);
-
-    return zoomOut;
-  },
-
-  disable: function(instance) {
-    if (instance.controlIcons) {
-      instance.controlIcons.parentNode.removeChild(instance.controlIcons);
-      instance.controlIcons = null;
-    }
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/svg-pan-zoom/src/shadow-viewport.js":
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var SvgUtils = __webpack_require__("./node_modules/svg-pan-zoom/src/svg-utilities.js"),
-  Utils = __webpack_require__("./node_modules/svg-pan-zoom/src/utilities.js");
-
-var ShadowViewport = function(viewport, options) {
-  this.init(viewport, options);
-};
-
-/**
- * Initialization
- *
- * @param  {SVGElement} viewport
- * @param  {Object} options
- */
-ShadowViewport.prototype.init = function(viewport, options) {
-  // DOM Elements
-  this.viewport = viewport;
-  this.options = options;
-
-  // State cache
-  this.originalState = { zoom: 1, x: 0, y: 0 };
-  this.activeState = { zoom: 1, x: 0, y: 0 };
-
-  this.updateCTMCached = Utils.proxy(this.updateCTM, this);
-
-  // Create a custom requestAnimationFrame taking in account refreshRate
-  this.requestAnimationFrame = Utils.createRequestAnimationFrame(
-    this.options.refreshRate
-  );
-
-  // ViewBox
-  this.viewBox = { x: 0, y: 0, width: 0, height: 0 };
-  this.cacheViewBox();
-
-  // Process CTM
-  var newCTM = this.processCTM();
-
-  // Update viewport CTM and cache zoom and pan
-  this.setCTM(newCTM);
-
-  // Update CTM in this frame
-  this.updateCTM();
-};
-
-/**
- * Cache initial viewBox value
- * If no viewBox is defined, then use viewport size/position instead for viewBox values
- */
-ShadowViewport.prototype.cacheViewBox = function() {
-  var svgViewBox = this.options.svg.getAttribute("viewBox");
-
-  if (svgViewBox) {
-    var viewBoxValues = svgViewBox
-      .split(/[\s\,]/)
-      .filter(function(v) {
-        return v;
-      })
-      .map(parseFloat);
-
-    // Cache viewbox x and y offset
-    this.viewBox.x = viewBoxValues[0];
-    this.viewBox.y = viewBoxValues[1];
-    this.viewBox.width = viewBoxValues[2];
-    this.viewBox.height = viewBoxValues[3];
-
-    var zoom = Math.min(
-      this.options.width / this.viewBox.width,
-      this.options.height / this.viewBox.height
-    );
-
-    // Update active state
-    this.activeState.zoom = zoom;
-    this.activeState.x = (this.options.width - this.viewBox.width * zoom) / 2;
-    this.activeState.y = (this.options.height - this.viewBox.height * zoom) / 2;
-
-    // Force updating CTM
-    this.updateCTMOnNextFrame();
-
-    this.options.svg.removeAttribute("viewBox");
-  } else {
-    this.simpleViewBoxCache();
-  }
-};
-
-/**
- * Recalculate viewport sizes and update viewBox cache
- */
-ShadowViewport.prototype.simpleViewBoxCache = function() {
-  var bBox = this.viewport.getBBox();
-
-  this.viewBox.x = bBox.x;
-  this.viewBox.y = bBox.y;
-  this.viewBox.width = bBox.width;
-  this.viewBox.height = bBox.height;
-};
-
-/**
- * Returns a viewbox object. Safe to alter
- *
- * @return {Object} viewbox object
- */
-ShadowViewport.prototype.getViewBox = function() {
-  return Utils.extend({}, this.viewBox);
-};
-
-/**
- * Get initial zoom and pan values. Save them into originalState
- * Parses viewBox attribute to alter initial sizes
- *
- * @return {CTM} CTM object based on options
- */
-ShadowViewport.prototype.processCTM = function() {
-  var newCTM = this.getCTM();
-
-  if (this.options.fit || this.options.contain) {
-    var newScale;
-    if (this.options.fit) {
-      newScale = Math.min(
-        this.options.width / this.viewBox.width,
-        this.options.height / this.viewBox.height
-      );
-    } else {
-      newScale = Math.max(
-        this.options.width / this.viewBox.width,
-        this.options.height / this.viewBox.height
-      );
-    }
-
-    newCTM.a = newScale; //x-scale
-    newCTM.d = newScale; //y-scale
-    newCTM.e = -this.viewBox.x * newScale; //x-transform
-    newCTM.f = -this.viewBox.y * newScale; //y-transform
-  }
-
-  if (this.options.center) {
-    var offsetX =
-        (this.options.width -
-          (this.viewBox.width + this.viewBox.x * 2) * newCTM.a) *
-        0.5,
-      offsetY =
-        (this.options.height -
-          (this.viewBox.height + this.viewBox.y * 2) * newCTM.a) *
-        0.5;
-
-    newCTM.e = offsetX;
-    newCTM.f = offsetY;
-  }
-
-  // Cache initial values. Based on activeState and fix+center opitons
-  this.originalState.zoom = newCTM.a;
-  this.originalState.x = newCTM.e;
-  this.originalState.y = newCTM.f;
-
-  return newCTM;
-};
-
-/**
- * Return originalState object. Safe to alter
- *
- * @return {Object}
- */
-ShadowViewport.prototype.getOriginalState = function() {
-  return Utils.extend({}, this.originalState);
-};
-
-/**
- * Return actualState object. Safe to alter
- *
- * @return {Object}
- */
-ShadowViewport.prototype.getState = function() {
-  return Utils.extend({}, this.activeState);
-};
-
-/**
- * Get zoom scale
- *
- * @return {Float} zoom scale
- */
-ShadowViewport.prototype.getZoom = function() {
-  return this.activeState.zoom;
-};
-
-/**
- * Get zoom scale for pubilc usage
- *
- * @return {Float} zoom scale
- */
-ShadowViewport.prototype.getRelativeZoom = function() {
-  return this.activeState.zoom / this.originalState.zoom;
-};
-
-/**
- * Compute zoom scale for pubilc usage
- *
- * @return {Float} zoom scale
- */
-ShadowViewport.prototype.computeRelativeZoom = function(scale) {
-  return scale / this.originalState.zoom;
-};
-
-/**
- * Get pan
- *
- * @return {Object}
- */
-ShadowViewport.prototype.getPan = function() {
-  return { x: this.activeState.x, y: this.activeState.y };
-};
-
-/**
- * Return cached viewport CTM value that can be safely modified
- *
- * @return {SVGMatrix}
- */
-ShadowViewport.prototype.getCTM = function() {
-  var safeCTM = this.options.svg.createSVGMatrix();
-
-  // Copy values manually as in FF they are not itterable
-  safeCTM.a = this.activeState.zoom;
-  safeCTM.b = 0;
-  safeCTM.c = 0;
-  safeCTM.d = this.activeState.zoom;
-  safeCTM.e = this.activeState.x;
-  safeCTM.f = this.activeState.y;
-
-  return safeCTM;
-};
-
-/**
- * Set a new CTM
- *
- * @param {SVGMatrix} newCTM
- */
-ShadowViewport.prototype.setCTM = function(newCTM) {
-  var willZoom = this.isZoomDifferent(newCTM),
-    willPan = this.isPanDifferent(newCTM);
-
-  if (willZoom || willPan) {
-    // Before zoom
-    if (willZoom) {
-      // If returns false then cancel zooming
-      if (
-        this.options.beforeZoom(
-          this.getRelativeZoom(),
-          this.computeRelativeZoom(newCTM.a)
-        ) === false
-      ) {
-        newCTM.a = newCTM.d = this.activeState.zoom;
-        willZoom = false;
-      } else {
-        this.updateCache(newCTM);
-        this.options.onZoom(this.getRelativeZoom());
-      }
-    }
-
-    // Before pan
-    if (willPan) {
-      var preventPan = this.options.beforePan(this.getPan(), {
-          x: newCTM.e,
-          y: newCTM.f
-        }),
-        // If prevent pan is an object
-        preventPanX = false,
-        preventPanY = false;
-
-      // If prevent pan is Boolean false
-      if (preventPan === false) {
-        // Set x and y same as before
-        newCTM.e = this.getPan().x;
-        newCTM.f = this.getPan().y;
-
-        preventPanX = preventPanY = true;
-      } else if (Utils.isObject(preventPan)) {
-        // Check for X axes attribute
-        if (preventPan.x === false) {
-          // Prevent panning on x axes
-          newCTM.e = this.getPan().x;
-          preventPanX = true;
-        } else if (Utils.isNumber(preventPan.x)) {
-          // Set a custom pan value
-          newCTM.e = preventPan.x;
-        }
-
-        // Check for Y axes attribute
-        if (preventPan.y === false) {
-          // Prevent panning on x axes
-          newCTM.f = this.getPan().y;
-          preventPanY = true;
-        } else if (Utils.isNumber(preventPan.y)) {
-          // Set a custom pan value
-          newCTM.f = preventPan.y;
-        }
-      }
-
-      // Update willPan flag
-      // Check if newCTM is still different
-      if ((preventPanX && preventPanY) || !this.isPanDifferent(newCTM)) {
-        willPan = false;
-      } else {
-        this.updateCache(newCTM);
-        this.options.onPan(this.getPan());
-      }
-    }
-
-    // Check again if should zoom or pan
-    if (willZoom || willPan) {
-      this.updateCTMOnNextFrame();
-    }
-  }
-};
-
-ShadowViewport.prototype.isZoomDifferent = function(newCTM) {
-  return this.activeState.zoom !== newCTM.a;
-};
-
-ShadowViewport.prototype.isPanDifferent = function(newCTM) {
-  return this.activeState.x !== newCTM.e || this.activeState.y !== newCTM.f;
-};
-
-/**
- * Update cached CTM and active state
- *
- * @param {SVGMatrix} newCTM
- */
-ShadowViewport.prototype.updateCache = function(newCTM) {
-  this.activeState.zoom = newCTM.a;
-  this.activeState.x = newCTM.e;
-  this.activeState.y = newCTM.f;
-};
-
-ShadowViewport.prototype.pendingUpdate = false;
-
-/**
- * Place a request to update CTM on next Frame
- */
-ShadowViewport.prototype.updateCTMOnNextFrame = function() {
-  if (!this.pendingUpdate) {
-    // Lock
-    this.pendingUpdate = true;
-
-    // Throttle next update
-    this.requestAnimationFrame.call(window, this.updateCTMCached);
-  }
-};
-
-/**
- * Update viewport CTM with cached CTM
- */
-ShadowViewport.prototype.updateCTM = function() {
-  var ctm = this.getCTM();
-
-  // Updates SVG element
-  SvgUtils.setCTM(this.viewport, ctm, this.defs);
-
-  // Free the lock
-  this.pendingUpdate = false;
-
-  // Notify about the update
-  if (this.options.onUpdatedCTM) {
-    this.options.onUpdatedCTM(ctm);
-  }
-};
-
-module.exports = function(viewport, options) {
-  return new ShadowViewport(viewport, options);
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/svg-pan-zoom/src/svg-pan-zoom.js":
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-var Wheel = __webpack_require__("./node_modules/svg-pan-zoom/src/uniwheel.js"),
-  ControlIcons = __webpack_require__("./node_modules/svg-pan-zoom/src/control-icons.js"),
-  Utils = __webpack_require__("./node_modules/svg-pan-zoom/src/utilities.js"),
-  SvgUtils = __webpack_require__("./node_modules/svg-pan-zoom/src/svg-utilities.js"),
-  ShadowViewport = __webpack_require__("./node_modules/svg-pan-zoom/src/shadow-viewport.js");
-
-var SvgPanZoom = function(svg, options) {
-  this.init(svg, options);
-};
-
-var optionsDefaults = {
-  viewportSelector: ".svg-pan-zoom_viewport", // Viewport selector. Can be querySelector string or SVGElement
-  panEnabled: true, // enable or disable panning (default enabled)
-  controlIconsEnabled: false, // insert icons to give user an option in addition to mouse events to control pan/zoom (default disabled)
-  zoomEnabled: true, // enable or disable zooming (default enabled)
-  dblClickZoomEnabled: true, // enable or disable zooming by double clicking (default enabled)
-  mouseWheelZoomEnabled: true, // enable or disable zooming by mouse wheel (default enabled)
-  preventMouseEventsDefault: true, // enable or disable preventDefault for mouse events
-  zoomScaleSensitivity: 0.1, // Zoom sensitivity
-  minZoom: 0.5, // Minimum Zoom level
-  maxZoom: 10, // Maximum Zoom level
-  fit: true, // enable or disable viewport fit in SVG (default true)
-  contain: false, // enable or disable viewport contain the svg (default false)
-  center: true, // enable or disable viewport centering in SVG (default true)
-  refreshRate: "auto", // Maximum number of frames per second (altering SVG's viewport)
-  beforeZoom: null,
-  onZoom: null,
-  beforePan: null,
-  onPan: null,
-  customEventsHandler: null,
-  eventsListenerElement: null,
-  onUpdatedCTM: null
-};
-
-var passiveListenerOption = { passive: true };
-
-SvgPanZoom.prototype.init = function(svg, options) {
-  var that = this;
-
-  this.svg = svg;
-  this.defs = svg.querySelector("defs");
-
-  // Add default attributes to SVG
-  SvgUtils.setupSvgAttributes(this.svg);
-
-  // Set options
-  this.options = Utils.extend(Utils.extend({}, optionsDefaults), options);
-
-  // Set default state
-  this.state = "none";
-
-  // Get dimensions
-  var boundingClientRectNormalized = SvgUtils.getBoundingClientRectNormalized(
-    svg
-  );
-  this.width = boundingClientRectNormalized.width;
-  this.height = boundingClientRectNormalized.height;
-
-  // Init shadow viewport
-  this.viewport = ShadowViewport(
-    SvgUtils.getOrCreateViewport(this.svg, this.options.viewportSelector),
-    {
-      svg: this.svg,
-      width: this.width,
-      height: this.height,
-      fit: this.options.fit,
-      contain: this.options.contain,
-      center: this.options.center,
-      refreshRate: this.options.refreshRate,
-      // Put callbacks into functions as they can change through time
-      beforeZoom: function(oldScale, newScale) {
-        if (that.viewport && that.options.beforeZoom) {
-          return that.options.beforeZoom(oldScale, newScale);
-        }
-      },
-      onZoom: function(scale) {
-        if (that.viewport && that.options.onZoom) {
-          return that.options.onZoom(scale);
-        }
-      },
-      beforePan: function(oldPoint, newPoint) {
-        if (that.viewport && that.options.beforePan) {
-          return that.options.beforePan(oldPoint, newPoint);
-        }
-      },
-      onPan: function(point) {
-        if (that.viewport && that.options.onPan) {
-          return that.options.onPan(point);
-        }
-      },
-      onUpdatedCTM: function(ctm) {
-        if (that.viewport && that.options.onUpdatedCTM) {
-          return that.options.onUpdatedCTM(ctm);
-        }
-      }
-    }
-  );
-
-  // Wrap callbacks into public API context
-  var publicInstance = this.getPublicInstance();
-  publicInstance.setBeforeZoom(this.options.beforeZoom);
-  publicInstance.setOnZoom(this.options.onZoom);
-  publicInstance.setBeforePan(this.options.beforePan);
-  publicInstance.setOnPan(this.options.onPan);
-  publicInstance.setOnUpdatedCTM(this.options.onUpdatedCTM);
-
-  if (this.options.controlIconsEnabled) {
-    ControlIcons.enable(this);
-  }
-
-  // Init events handlers
-  this.lastMouseWheelEventTime = Date.now();
-  this.setupHandlers();
-};
-
-/**
- * Register event handlers
- */
-SvgPanZoom.prototype.setupHandlers = function() {
-  var that = this,
-    prevEvt = null; // use for touchstart event to detect double tap
-
-  this.eventListeners = {
-    // Mouse down group
-    mousedown: function(evt) {
-      var result = that.handleMouseDown(evt, prevEvt);
-      prevEvt = evt;
-      return result;
-    },
-    touchstart: function(evt) {
-      var result = that.handleMouseDown(evt, prevEvt);
-      prevEvt = evt;
-      return result;
-    },
-
-    // Mouse up group
-    mouseup: function(evt) {
-      return that.handleMouseUp(evt);
-    },
-    touchend: function(evt) {
-      return that.handleMouseUp(evt);
-    },
-
-    // Mouse move group
-    mousemove: function(evt) {
-      return that.handleMouseMove(evt);
-    },
-    touchmove: function(evt) {
-      return that.handleMouseMove(evt);
-    },
-
-    // Mouse leave group
-    mouseleave: function(evt) {
-      return that.handleMouseUp(evt);
-    },
-    touchleave: function(evt) {
-      return that.handleMouseUp(evt);
-    },
-    touchcancel: function(evt) {
-      return that.handleMouseUp(evt);
-    }
-  };
-
-  // Init custom events handler if available
-  // eslint-disable-next-line eqeqeq
-  if (this.options.customEventsHandler != null) {
-    this.options.customEventsHandler.init({
-      svgElement: this.svg,
-      eventsListenerElement: this.options.eventsListenerElement,
-      instance: this.getPublicInstance()
-    });
-
-    // Custom event handler may halt builtin listeners
-    var haltEventListeners = this.options.customEventsHandler
-      .haltEventListeners;
-    if (haltEventListeners && haltEventListeners.length) {
-      for (var i = haltEventListeners.length - 1; i >= 0; i--) {
-        if (this.eventListeners.hasOwnProperty(haltEventListeners[i])) {
-          delete this.eventListeners[haltEventListeners[i]];
-        }
-      }
-    }
-  }
-
-  // Bind eventListeners
-  for (var event in this.eventListeners) {
-    // Attach event to eventsListenerElement or SVG if not available
-    (this.options.eventsListenerElement || this.svg).addEventListener(
-      event,
-      this.eventListeners[event],
-      !this.options.preventMouseEventsDefault ? passiveListenerOption : false
-    );
-  }
-
-  // Zoom using mouse wheel
-  if (this.options.mouseWheelZoomEnabled) {
-    this.options.mouseWheelZoomEnabled = false; // set to false as enable will set it back to true
-    this.enableMouseWheelZoom();
-  }
-};
-
-/**
- * Enable ability to zoom using mouse wheel
- */
-SvgPanZoom.prototype.enableMouseWheelZoom = function() {
-  if (!this.options.mouseWheelZoomEnabled) {
-    var that = this;
-
-    // Mouse wheel listener
-    this.wheelListener = function(evt) {
-      return that.handleMouseWheel(evt);
-    };
-
-    // Bind wheelListener
-    var isPassiveListener = !this.options.preventMouseEventsDefault;
-    Wheel.on(
-      this.options.eventsListenerElement || this.svg,
-      this.wheelListener,
-      isPassiveListener
-    );
-
-    this.options.mouseWheelZoomEnabled = true;
-  }
-};
-
-/**
- * Disable ability to zoom using mouse wheel
- */
-SvgPanZoom.prototype.disableMouseWheelZoom = function() {
-  if (this.options.mouseWheelZoomEnabled) {
-    var isPassiveListener = !this.options.preventMouseEventsDefault;
-    Wheel.off(
-      this.options.eventsListenerElement || this.svg,
-      this.wheelListener,
-      isPassiveListener
-    );
-    this.options.mouseWheelZoomEnabled = false;
-  }
-};
-
-/**
- * Handle mouse wheel event
- *
- * @param  {Event} evt
- */
-SvgPanZoom.prototype.handleMouseWheel = function(evt) {
-  if (!this.options.zoomEnabled || this.state !== "none") {
-    return;
-  }
-
-  if (this.options.preventMouseEventsDefault) {
-    if (evt.preventDefault) {
-      evt.preventDefault();
-    } else {
-      evt.returnValue = false;
-    }
-  }
-
-  // Default delta in case that deltaY is not available
-  var delta = evt.deltaY || 1,
-    timeDelta = Date.now() - this.lastMouseWheelEventTime,
-    divider = 3 + Math.max(0, 30 - timeDelta);
-
-  // Update cache
-  this.lastMouseWheelEventTime = Date.now();
-
-  // Make empirical adjustments for browsers that give deltaY in pixels (deltaMode=0)
-  if ("deltaMode" in evt && evt.deltaMode === 0 && evt.wheelDelta) {
-    delta = evt.deltaY === 0 ? 0 : Math.abs(evt.wheelDelta) / evt.deltaY;
-  }
-
-  delta =
-    -0.3 < delta && delta < 0.3
-      ? delta
-      : ((delta > 0 ? 1 : -1) * Math.log(Math.abs(delta) + 10)) / divider;
-
-  var inversedScreenCTM = this.svg.getScreenCTM().inverse(),
-    relativeMousePoint = SvgUtils.getEventPoint(evt, this.svg).matrixTransform(
-      inversedScreenCTM
-    ),
-    zoom = Math.pow(1 + this.options.zoomScaleSensitivity, -1 * delta); // multiplying by neg. 1 so as to make zoom in/out behavior match Google maps behavior
-
-  this.zoomAtPoint(zoom, relativeMousePoint);
-};
-
-/**
- * Zoom in at a SVG point
- *
- * @param  {SVGPoint} point
- * @param  {Float} zoomScale    Number representing how much to zoom
- * @param  {Boolean} zoomAbsolute Default false. If true, zoomScale is treated as an absolute value.
- *                                Otherwise, zoomScale is treated as a multiplied (e.g. 1.10 would zoom in 10%)
- */
-SvgPanZoom.prototype.zoomAtPoint = function(zoomScale, point, zoomAbsolute) {
-  var originalState = this.viewport.getOriginalState();
-
-  if (!zoomAbsolute) {
-    // Fit zoomScale in set bounds
-    if (
-      this.getZoom() * zoomScale <
-      this.options.minZoom * originalState.zoom
-    ) {
-      zoomScale = (this.options.minZoom * originalState.zoom) / this.getZoom();
-    } else if (
-      this.getZoom() * zoomScale >
-      this.options.maxZoom * originalState.zoom
-    ) {
-      zoomScale = (this.options.maxZoom * originalState.zoom) / this.getZoom();
-    }
-  } else {
-    // Fit zoomScale in set bounds
-    zoomScale = Math.max(
-      this.options.minZoom * originalState.zoom,
-      Math.min(this.options.maxZoom * originalState.zoom, zoomScale)
-    );
-    // Find relative scale to achieve desired scale
-    zoomScale = zoomScale / this.getZoom();
-  }
-
-  var oldCTM = this.viewport.getCTM(),
-    relativePoint = point.matrixTransform(oldCTM.inverse()),
-    modifier = this.svg
-      .createSVGMatrix()
-      .translate(relativePoint.x, relativePoint.y)
-      .scale(zoomScale)
-      .translate(-relativePoint.x, -relativePoint.y),
-    newCTM = oldCTM.multiply(modifier);
-
-  if (newCTM.a !== oldCTM.a) {
-    this.viewport.setCTM(newCTM);
-  }
-};
-
-/**
- * Zoom at center point
- *
- * @param  {Float} scale
- * @param  {Boolean} absolute Marks zoom scale as relative or absolute
- */
-SvgPanZoom.prototype.zoom = function(scale, absolute) {
-  this.zoomAtPoint(
-    scale,
-    SvgUtils.getSvgCenterPoint(this.svg, this.width, this.height),
-    absolute
-  );
-};
-
-/**
- * Zoom used by public instance
- *
- * @param  {Float} scale
- * @param  {Boolean} absolute Marks zoom scale as relative or absolute
- */
-SvgPanZoom.prototype.publicZoom = function(scale, absolute) {
-  if (absolute) {
-    scale = this.computeFromRelativeZoom(scale);
-  }
-
-  this.zoom(scale, absolute);
-};
-
-/**
- * Zoom at point used by public instance
- *
- * @param  {Float} scale
- * @param  {SVGPoint|Object} point    An object that has x and y attributes
- * @param  {Boolean} absolute Marks zoom scale as relative or absolute
- */
-SvgPanZoom.prototype.publicZoomAtPoint = function(scale, point, absolute) {
-  if (absolute) {
-    // Transform zoom into a relative value
-    scale = this.computeFromRelativeZoom(scale);
-  }
-
-  // If not a SVGPoint but has x and y then create a SVGPoint
-  if (Utils.getType(point) !== "SVGPoint") {
-    if ("x" in point && "y" in point) {
-      point = SvgUtils.createSVGPoint(this.svg, point.x, point.y);
-    } else {
-      throw new Error("Given point is invalid");
-    }
-  }
-
-  this.zoomAtPoint(scale, point, absolute);
-};
-
-/**
- * Get zoom scale
- *
- * @return {Float} zoom scale
- */
-SvgPanZoom.prototype.getZoom = function() {
-  return this.viewport.getZoom();
-};
-
-/**
- * Get zoom scale for public usage
- *
- * @return {Float} zoom scale
- */
-SvgPanZoom.prototype.getRelativeZoom = function() {
-  return this.viewport.getRelativeZoom();
-};
-
-/**
- * Compute actual zoom from public zoom
- *
- * @param  {Float} zoom
- * @return {Float} zoom scale
- */
-SvgPanZoom.prototype.computeFromRelativeZoom = function(zoom) {
-  return zoom * this.viewport.getOriginalState().zoom;
-};
-
-/**
- * Set zoom to initial state
- */
-SvgPanZoom.prototype.resetZoom = function() {
-  var originalState = this.viewport.getOriginalState();
-
-  this.zoom(originalState.zoom, true);
-};
-
-/**
- * Set pan to initial state
- */
-SvgPanZoom.prototype.resetPan = function() {
-  this.pan(this.viewport.getOriginalState());
-};
-
-/**
- * Set pan and zoom to initial state
- */
-SvgPanZoom.prototype.reset = function() {
-  this.resetZoom();
-  this.resetPan();
-};
-
-/**
- * Handle double click event
- * See handleMouseDown() for alternate detection method
- *
- * @param {Event} evt
- */
-SvgPanZoom.prototype.handleDblClick = function(evt) {
-  if (this.options.preventMouseEventsDefault) {
-    if (evt.preventDefault) {
-      evt.preventDefault();
-    } else {
-      evt.returnValue = false;
-    }
-  }
-
-  // Check if target was a control button
-  if (this.options.controlIconsEnabled) {
-    var targetClass = evt.target.getAttribute("class") || "";
-    if (targetClass.indexOf("svg-pan-zoom-control") > -1) {
-      return false;
-    }
-  }
-
-  var zoomFactor;
-
-  if (evt.shiftKey) {
-    zoomFactor = 1 / ((1 + this.options.zoomScaleSensitivity) * 2); // zoom out when shift key pressed
-  } else {
-    zoomFactor = (1 + this.options.zoomScaleSensitivity) * 2;
-  }
-
-  var point = SvgUtils.getEventPoint(evt, this.svg).matrixTransform(
-    this.svg.getScreenCTM().inverse()
-  );
-  this.zoomAtPoint(zoomFactor, point);
-};
-
-/**
- * Handle click event
- *
- * @param {Event} evt
- */
-SvgPanZoom.prototype.handleMouseDown = function(evt, prevEvt) {
-  if (this.options.preventMouseEventsDefault) {
-    if (evt.preventDefault) {
-      evt.preventDefault();
-    } else {
-      evt.returnValue = false;
-    }
-  }
-
-  Utils.mouseAndTouchNormalize(evt, this.svg);
-
-  // Double click detection; more consistent than ondblclick
-  if (this.options.dblClickZoomEnabled && Utils.isDblClick(evt, prevEvt)) {
-    this.handleDblClick(evt);
-  } else {
-    // Pan mode
-    this.state = "pan";
-    this.firstEventCTM = this.viewport.getCTM();
-    this.stateOrigin = SvgUtils.getEventPoint(evt, this.svg).matrixTransform(
-      this.firstEventCTM.inverse()
-    );
-  }
-};
-
-/**
- * Handle mouse move event
- *
- * @param  {Event} evt
- */
-SvgPanZoom.prototype.handleMouseMove = function(evt) {
-  if (this.options.preventMouseEventsDefault) {
-    if (evt.preventDefault) {
-      evt.preventDefault();
-    } else {
-      evt.returnValue = false;
-    }
-  }
-
-  if (this.state === "pan" && this.options.panEnabled) {
-    // Pan mode
-    var point = SvgUtils.getEventPoint(evt, this.svg).matrixTransform(
-        this.firstEventCTM.inverse()
-      ),
-      viewportCTM = this.firstEventCTM.translate(
-        point.x - this.stateOrigin.x,
-        point.y - this.stateOrigin.y
-      );
-
-    this.viewport.setCTM(viewportCTM);
-  }
-};
-
-/**
- * Handle mouse button release event
- *
- * @param {Event} evt
- */
-SvgPanZoom.prototype.handleMouseUp = function(evt) {
-  if (this.options.preventMouseEventsDefault) {
-    if (evt.preventDefault) {
-      evt.preventDefault();
-    } else {
-      evt.returnValue = false;
-    }
-  }
-
-  if (this.state === "pan") {
-    // Quit pan mode
-    this.state = "none";
-  }
-};
-
-/**
- * Adjust viewport size (only) so it will fit in SVG
- * Does not center image
- */
-SvgPanZoom.prototype.fit = function() {
-  var viewBox = this.viewport.getViewBox(),
-    newScale = Math.min(
-      this.width / viewBox.width,
-      this.height / viewBox.height
-    );
-
-  this.zoom(newScale, true);
-};
-
-/**
- * Adjust viewport size (only) so it will contain the SVG
- * Does not center image
- */
-SvgPanZoom.prototype.contain = function() {
-  var viewBox = this.viewport.getViewBox(),
-    newScale = Math.max(
-      this.width / viewBox.width,
-      this.height / viewBox.height
-    );
-
-  this.zoom(newScale, true);
-};
-
-/**
- * Adjust viewport pan (only) so it will be centered in SVG
- * Does not zoom/fit/contain image
- */
-SvgPanZoom.prototype.center = function() {
-  var viewBox = this.viewport.getViewBox(),
-    offsetX =
-      (this.width - (viewBox.width + viewBox.x * 2) * this.getZoom()) * 0.5,
-    offsetY =
-      (this.height - (viewBox.height + viewBox.y * 2) * this.getZoom()) * 0.5;
-
-  this.getPublicInstance().pan({ x: offsetX, y: offsetY });
-};
-
-/**
- * Update content cached BorderBox
- * Use when viewport contents change
- */
-SvgPanZoom.prototype.updateBBox = function() {
-  this.viewport.simpleViewBoxCache();
-};
-
-/**
- * Pan to a rendered position
- *
- * @param  {Object} point {x: 0, y: 0}
- */
-SvgPanZoom.prototype.pan = function(point) {
-  var viewportCTM = this.viewport.getCTM();
-  viewportCTM.e = point.x;
-  viewportCTM.f = point.y;
-  this.viewport.setCTM(viewportCTM);
-};
-
-/**
- * Relatively pan the graph by a specified rendered position vector
- *
- * @param  {Object} point {x: 0, y: 0}
- */
-SvgPanZoom.prototype.panBy = function(point) {
-  var viewportCTM = this.viewport.getCTM();
-  viewportCTM.e += point.x;
-  viewportCTM.f += point.y;
-  this.viewport.setCTM(viewportCTM);
-};
-
-/**
- * Get pan vector
- *
- * @return {Object} {x: 0, y: 0}
- */
-SvgPanZoom.prototype.getPan = function() {
-  var state = this.viewport.getState();
-
-  return { x: state.x, y: state.y };
-};
-
-/**
- * Recalculates cached svg dimensions and controls position
- */
-SvgPanZoom.prototype.resize = function() {
-  // Get dimensions
-  var boundingClientRectNormalized = SvgUtils.getBoundingClientRectNormalized(
-    this.svg
-  );
-  this.width = boundingClientRectNormalized.width;
-  this.height = boundingClientRectNormalized.height;
-
-  // Recalculate original state
-  var viewport = this.viewport;
-  viewport.options.width = this.width;
-  viewport.options.height = this.height;
-  viewport.processCTM();
-
-  // Reposition control icons by re-enabling them
-  if (this.options.controlIconsEnabled) {
-    this.getPublicInstance().disableControlIcons();
-    this.getPublicInstance().enableControlIcons();
-  }
-};
-
-/**
- * Unbind mouse events, free callbacks and destroy public instance
- */
-SvgPanZoom.prototype.destroy = function() {
-  var that = this;
-
-  // Free callbacks
-  this.beforeZoom = null;
-  this.onZoom = null;
-  this.beforePan = null;
-  this.onPan = null;
-  this.onUpdatedCTM = null;
-
-  // Destroy custom event handlers
-  // eslint-disable-next-line eqeqeq
-  if (this.options.customEventsHandler != null) {
-    this.options.customEventsHandler.destroy({
-      svgElement: this.svg,
-      eventsListenerElement: this.options.eventsListenerElement,
-      instance: this.getPublicInstance()
-    });
-  }
-
-  // Unbind eventListeners
-  for (var event in this.eventListeners) {
-    (this.options.eventsListenerElement || this.svg).removeEventListener(
-      event,
-      this.eventListeners[event],
-      !this.options.preventMouseEventsDefault ? passiveListenerOption : false
-    );
-  }
-
-  // Unbind wheelListener
-  this.disableMouseWheelZoom();
-
-  // Remove control icons
-  this.getPublicInstance().disableControlIcons();
-
-  // Reset zoom and pan
-  this.reset();
-
-  // Remove instance from instancesStore
-  instancesStore = instancesStore.filter(function(instance) {
-    return instance.svg !== that.svg;
-  });
-
-  // Delete options and its contents
-  delete this.options;
-
-  // Delete viewport to make public shadow viewport functions uncallable
-  delete this.viewport;
-
-  // Destroy public instance and rewrite getPublicInstance
-  delete this.publicInstance;
-  delete this.pi;
-  this.getPublicInstance = function() {
-    return null;
-  };
-};
-
-/**
- * Returns a public instance object
- *
- * @return {Object} Public instance object
- */
-SvgPanZoom.prototype.getPublicInstance = function() {
-  var that = this;
-
-  // Create cache
-  if (!this.publicInstance) {
-    this.publicInstance = this.pi = {
-      // Pan
-      enablePan: function() {
-        that.options.panEnabled = true;
-        return that.pi;
-      },
-      disablePan: function() {
-        that.options.panEnabled = false;
-        return that.pi;
-      },
-      isPanEnabled: function() {
-        return !!that.options.panEnabled;
-      },
-      pan: function(point) {
-        that.pan(point);
-        return that.pi;
-      },
-      panBy: function(point) {
-        that.panBy(point);
-        return that.pi;
-      },
-      getPan: function() {
-        return that.getPan();
-      },
-      // Pan event
-      setBeforePan: function(fn) {
-        that.options.beforePan =
-          fn === null ? null : Utils.proxy(fn, that.publicInstance);
-        return that.pi;
-      },
-      setOnPan: function(fn) {
-        that.options.onPan =
-          fn === null ? null : Utils.proxy(fn, that.publicInstance);
-        return that.pi;
-      },
-      // Zoom and Control Icons
-      enableZoom: function() {
-        that.options.zoomEnabled = true;
-        return that.pi;
-      },
-      disableZoom: function() {
-        that.options.zoomEnabled = false;
-        return that.pi;
-      },
-      isZoomEnabled: function() {
-        return !!that.options.zoomEnabled;
-      },
-      enableControlIcons: function() {
-        if (!that.options.controlIconsEnabled) {
-          that.options.controlIconsEnabled = true;
-          ControlIcons.enable(that);
-        }
-        return that.pi;
-      },
-      disableControlIcons: function() {
-        if (that.options.controlIconsEnabled) {
-          that.options.controlIconsEnabled = false;
-          ControlIcons.disable(that);
-        }
-        return that.pi;
-      },
-      isControlIconsEnabled: function() {
-        return !!that.options.controlIconsEnabled;
-      },
-      // Double click zoom
-      enableDblClickZoom: function() {
-        that.options.dblClickZoomEnabled = true;
-        return that.pi;
-      },
-      disableDblClickZoom: function() {
-        that.options.dblClickZoomEnabled = false;
-        return that.pi;
-      },
-      isDblClickZoomEnabled: function() {
-        return !!that.options.dblClickZoomEnabled;
-      },
-      // Mouse wheel zoom
-      enableMouseWheelZoom: function() {
-        that.enableMouseWheelZoom();
-        return that.pi;
-      },
-      disableMouseWheelZoom: function() {
-        that.disableMouseWheelZoom();
-        return that.pi;
-      },
-      isMouseWheelZoomEnabled: function() {
-        return !!that.options.mouseWheelZoomEnabled;
-      },
-      // Zoom scale and bounds
-      setZoomScaleSensitivity: function(scale) {
-        that.options.zoomScaleSensitivity = scale;
-        return that.pi;
-      },
-      setMinZoom: function(zoom) {
-        that.options.minZoom = zoom;
-        return that.pi;
-      },
-      setMaxZoom: function(zoom) {
-        that.options.maxZoom = zoom;
-        return that.pi;
-      },
-      // Zoom event
-      setBeforeZoom: function(fn) {
-        that.options.beforeZoom =
-          fn === null ? null : Utils.proxy(fn, that.publicInstance);
-        return that.pi;
-      },
-      setOnZoom: function(fn) {
-        that.options.onZoom =
-          fn === null ? null : Utils.proxy(fn, that.publicInstance);
-        return that.pi;
-      },
-      // Zooming
-      zoom: function(scale) {
-        that.publicZoom(scale, true);
-        return that.pi;
-      },
-      zoomBy: function(scale) {
-        that.publicZoom(scale, false);
-        return that.pi;
-      },
-      zoomAtPoint: function(scale, point) {
-        that.publicZoomAtPoint(scale, point, true);
-        return that.pi;
-      },
-      zoomAtPointBy: function(scale, point) {
-        that.publicZoomAtPoint(scale, point, false);
-        return that.pi;
-      },
-      zoomIn: function() {
-        this.zoomBy(1 + that.options.zoomScaleSensitivity);
-        return that.pi;
-      },
-      zoomOut: function() {
-        this.zoomBy(1 / (1 + that.options.zoomScaleSensitivity));
-        return that.pi;
-      },
-      getZoom: function() {
-        return that.getRelativeZoom();
-      },
-      // CTM update
-      setOnUpdatedCTM: function(fn) {
-        that.options.onUpdatedCTM =
-          fn === null ? null : Utils.proxy(fn, that.publicInstance);
-        return that.pi;
-      },
-      // Reset
-      resetZoom: function() {
-        that.resetZoom();
-        return that.pi;
-      },
-      resetPan: function() {
-        that.resetPan();
-        return that.pi;
-      },
-      reset: function() {
-        that.reset();
-        return that.pi;
-      },
-      // Fit, Contain and Center
-      fit: function() {
-        that.fit();
-        return that.pi;
-      },
-      contain: function() {
-        that.contain();
-        return that.pi;
-      },
-      center: function() {
-        that.center();
-        return that.pi;
-      },
-      // Size and Resize
-      updateBBox: function() {
-        that.updateBBox();
-        return that.pi;
-      },
-      resize: function() {
-        that.resize();
-        return that.pi;
-      },
-      getSizes: function() {
-        return {
-          width: that.width,
-          height: that.height,
-          realZoom: that.getZoom(),
-          viewBox: that.viewport.getViewBox()
-        };
-      },
-      // Destroy
-      destroy: function() {
-        that.destroy();
-        return that.pi;
-      }
-    };
-  }
-
-  return this.publicInstance;
-};
-
-/**
- * Stores pairs of instances of SvgPanZoom and SVG
- * Each pair is represented by an object {svg: SVGSVGElement, instance: SvgPanZoom}
- *
- * @type {Array}
- */
-var instancesStore = [];
-
-var svgPanZoom = function(elementOrSelector, options) {
-  var svg = Utils.getSvg(elementOrSelector);
-
-  if (svg === null) {
-    return null;
-  } else {
-    // Look for existent instance
-    for (var i = instancesStore.length - 1; i >= 0; i--) {
-      if (instancesStore[i].svg === svg) {
-        return instancesStore[i].instance.getPublicInstance();
-      }
-    }
-
-    // If instance not found - create one
-    instancesStore.push({
-      svg: svg,
-      instance: new SvgPanZoom(svg, options)
-    });
-
-    // Return just pushed instance
-    return instancesStore[
-      instancesStore.length - 1
-    ].instance.getPublicInstance();
-  }
-};
-
-module.exports = svgPanZoom;
-
-
-/***/ }),
-
-/***/ "./node_modules/svg-pan-zoom/src/svg-utilities.js":
-/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
-
-var Utils = __webpack_require__("./node_modules/svg-pan-zoom/src/utilities.js"),
-  _browser = "unknown";
-
-// http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
-if (/*@cc_on!@*/  false || !!document.documentMode) {
-  // internet explorer
-  _browser = "ie";
-}
-
-module.exports = {
-  svgNS: "http://www.w3.org/2000/svg",
-  xmlNS: "http://www.w3.org/XML/1998/namespace",
-  xmlnsNS: "http://www.w3.org/2000/xmlns/",
-  xlinkNS: "http://www.w3.org/1999/xlink",
-  evNS: "http://www.w3.org/2001/xml-events",
-
-  /**
-   * Get svg dimensions: width and height
-   *
-   * @param  {SVGSVGElement} svg
-   * @return {Object}     {width: 0, height: 0}
-   */
-  getBoundingClientRectNormalized: function(svg) {
-    if (svg.clientWidth && svg.clientHeight) {
-      return { width: svg.clientWidth, height: svg.clientHeight };
-    } else if (!!svg.getBoundingClientRect()) {
-      return svg.getBoundingClientRect();
-    } else {
-      throw new Error("Cannot get BoundingClientRect for SVG.");
-    }
-  },
-
-  /**
-   * Gets g element with class of "viewport" or creates it if it doesn't exist
-   *
-   * @param  {SVGSVGElement} svg
-   * @return {SVGElement}     g (group) element
-   */
-  getOrCreateViewport: function(svg, selector) {
-    var viewport = null;
-
-    if (Utils.isElement(selector)) {
-      viewport = selector;
-    } else {
-      viewport = svg.querySelector(selector);
-    }
-
-    // Check if there is just one main group in SVG
-    if (!viewport) {
-      var childNodes = Array.prototype.slice
-        .call(svg.childNodes || svg.children)
-        .filter(function(el) {
-          return el.nodeName !== "defs" && el.nodeName !== "#text";
-        });
-
-      // Node name should be SVGGElement and should have no transform attribute
-      // Groups with transform are not used as viewport because it involves parsing of all transform possibilities
-      if (
-        childNodes.length === 1 &&
-        childNodes[0].nodeName === "g" &&
-        childNodes[0].getAttribute("transform") === null
-      ) {
-        viewport = childNodes[0];
-      }
-    }
-
-    // If no favorable group element exists then create one
-    if (!viewport) {
-      var viewportId =
-        "viewport-" + new Date().toISOString().replace(/\D/g, "");
-      viewport = document.createElementNS(this.svgNS, "g");
-      viewport.setAttribute("id", viewportId);
-
-      // Internet Explorer (all versions?) can't use childNodes, but other browsers prefer (require?) using childNodes
-      var svgChildren = svg.childNodes || svg.children;
-      if (!!svgChildren && svgChildren.length > 0) {
-        for (var i = svgChildren.length; i > 0; i--) {
-          // Move everything into viewport except defs
-          if (svgChildren[svgChildren.length - i].nodeName !== "defs") {
-            viewport.appendChild(svgChildren[svgChildren.length - i]);
-          }
-        }
-      }
-      svg.appendChild(viewport);
-    }
-
-    // Parse class names
-    var classNames = [];
-    if (viewport.getAttribute("class")) {
-      classNames = viewport.getAttribute("class").split(" ");
-    }
-
-    // Set class (if not set already)
-    if (!~classNames.indexOf("svg-pan-zoom_viewport")) {
-      classNames.push("svg-pan-zoom_viewport");
-      viewport.setAttribute("class", classNames.join(" "));
-    }
-
-    return viewport;
-  },
-
-  /**
-   * Set SVG attributes
-   *
-   * @param  {SVGSVGElement} svg
-   */
-  setupSvgAttributes: function(svg) {
-    // Setting default attributes
-    svg.setAttribute("xmlns", this.svgNS);
-    svg.setAttributeNS(this.xmlnsNS, "xmlns:xlink", this.xlinkNS);
-    svg.setAttributeNS(this.xmlnsNS, "xmlns:ev", this.evNS);
-
-    // Needed for Internet Explorer, otherwise the viewport overflows
-    if (svg.parentNode !== null) {
-      var style = svg.getAttribute("style") || "";
-      if (style.toLowerCase().indexOf("overflow") === -1) {
-        svg.setAttribute("style", "overflow: hidden; " + style);
-      }
-    }
-  },
-
-  /**
-   * How long Internet Explorer takes to finish updating its display (ms).
-   */
-  internetExplorerRedisplayInterval: 300,
-
-  /**
-   * Forces the browser to redisplay all SVG elements that rely on an
-   * element defined in a 'defs' section. It works globally, for every
-   * available defs element on the page.
-   * The throttling is intentionally global.
-   *
-   * This is only needed for IE. It is as a hack to make markers (and 'use' elements?)
-   * visible after pan/zoom when there are multiple SVGs on the page.
-   * See bug report: https://connect.microsoft.com/IE/feedback/details/781964/
-   * also see svg-pan-zoom issue: https://github.com/ariutta/svg-pan-zoom/issues/62
-   */
-  refreshDefsGlobal: Utils.throttle(
-    function() {
-      var allDefs = document.querySelectorAll("defs");
-      var allDefsCount = allDefs.length;
-      for (var i = 0; i < allDefsCount; i++) {
-        var thisDefs = allDefs[i];
-        thisDefs.parentNode.insertBefore(thisDefs, thisDefs);
-      }
-    },
-    this ? this.internetExplorerRedisplayInterval : null
-  ),
-
-  /**
-   * Sets the current transform matrix of an element
-   *
-   * @param {SVGElement} element
-   * @param {SVGMatrix} matrix  CTM
-   * @param {SVGElement} defs
-   */
-  setCTM: function(element, matrix, defs) {
-    var that = this,
-      s =
-        "matrix(" +
-        matrix.a +
-        "," +
-        matrix.b +
-        "," +
-        matrix.c +
-        "," +
-        matrix.d +
-        "," +
-        matrix.e +
-        "," +
-        matrix.f +
-        ")";
-
-    element.setAttributeNS(null, "transform", s);
-    if ("transform" in element.style) {
-      element.style.transform = s;
-    } else if ("-ms-transform" in element.style) {
-      element.style["-ms-transform"] = s;
-    } else if ("-webkit-transform" in element.style) {
-      element.style["-webkit-transform"] = s;
-    }
-
-    // IE has a bug that makes markers disappear on zoom (when the matrix "a" and/or "d" elements change)
-    // see http://stackoverflow.com/questions/17654578/svg-marker-does-not-work-in-ie9-10
-    // and http://srndolha.wordpress.com/2013/11/25/svg-line-markers-may-disappear-in-internet-explorer-11/
-    if (_browser === "ie" && !!defs) {
-      // this refresh is intended for redisplaying the SVG during zooming
-      defs.parentNode.insertBefore(defs, defs);
-      // this refresh is intended for redisplaying the other SVGs on a page when panning a given SVG
-      // it is also needed for the given SVG itself, on zoomEnd, if the SVG contains any markers that
-      // are located under any other element(s).
-      window.setTimeout(function() {
-        that.refreshDefsGlobal();
-      }, that.internetExplorerRedisplayInterval);
-    }
-  },
-
-  /**
-   * Instantiate an SVGPoint object with given event coordinates
-   *
-   * @param {Event} evt
-   * @param  {SVGSVGElement} svg
-   * @return {SVGPoint}     point
-   */
-  getEventPoint: function(evt, svg) {
-    var point = svg.createSVGPoint();
-
-    Utils.mouseAndTouchNormalize(evt, svg);
-
-    point.x = evt.clientX;
-    point.y = evt.clientY;
-
-    return point;
-  },
-
-  /**
-   * Get SVG center point
-   *
-   * @param  {SVGSVGElement} svg
-   * @return {SVGPoint}
-   */
-  getSvgCenterPoint: function(svg, width, height) {
-    return this.createSVGPoint(svg, width / 2, height / 2);
-  },
-
-  /**
-   * Create a SVGPoint with given x and y
-   *
-   * @param  {SVGSVGElement} svg
-   * @param  {Number} x
-   * @param  {Number} y
-   * @return {SVGPoint}
-   */
-  createSVGPoint: function(svg, x, y) {
-    var point = svg.createSVGPoint();
-    point.x = x;
-    point.y = y;
-
-    return point;
-  }
-};
-
-
-/***/ }),
-
-/***/ "./node_modules/svg-pan-zoom/src/uniwheel.js":
-/***/ ((module) => {
-
-// uniwheel 0.1.2 (customized)
-// A unified cross browser mouse wheel event handler
-// https://github.com/teemualap/uniwheel
-
-module.exports = (function(){
-
-  //Full details: https://developer.mozilla.org/en-US/docs/Web/Reference/Events/wheel
-
-  var prefix = "", _addEventListener, _removeEventListener, support, fns = [];
-  var passiveOption = {passive: true};
-
-  // detect event model
-  if ( window.addEventListener ) {
-    _addEventListener = "addEventListener";
-    _removeEventListener = "removeEventListener";
-  } else {
-    _addEventListener = "attachEvent";
-    _removeEventListener = "detachEvent";
-    prefix = "on";
-  }
-
-  // detect available wheel event
-  support = "onwheel" in document.createElement("div") ? "wheel" : // Modern browsers support "wheel"
-            document.onmousewheel !== undefined ? "mousewheel" : // Webkit and IE support at least "mousewheel"
-            "DOMMouseScroll"; // let's assume that remaining browsers are older Firefox
-
-
-  function createCallback(element,callback) {
-
-    var fn = function(originalEvent) {
-
-      !originalEvent && ( originalEvent = window.event );
-
-      // create a normalized event object
-      var event = {
-        // keep a ref to the original event object
-        originalEvent: originalEvent,
-        target: originalEvent.target || originalEvent.srcElement,
-        type: "wheel",
-        deltaMode: originalEvent.type == "MozMousePixelScroll" ? 0 : 1,
-        deltaX: 0,
-        delatZ: 0,
-        preventDefault: function() {
-          originalEvent.preventDefault ?
-            originalEvent.preventDefault() :
-            originalEvent.returnValue = false;
-        }
-      };
-
-      // calculate deltaY (and deltaX) according to the event
-      if ( support == "mousewheel" ) {
-        event.deltaY = - 1/40 * originalEvent.wheelDelta;
-        // Webkit also support wheelDeltaX
-        originalEvent.wheelDeltaX && ( event.deltaX = - 1/40 * originalEvent.wheelDeltaX );
-      } else {
-        event.deltaY = originalEvent.detail;
-      }
-
-      // it's time to fire the callback
-      return callback( event );
-
-    };
-
-    fns.push({
-      element: element,
-      fn: fn,
-    });
-
-    return fn;
-  }
-
-  function getCallback(element) {
-    for (var i = 0; i < fns.length; i++) {
-      if (fns[i].element === element) {
-        return fns[i].fn;
-      }
-    }
-    return function(){};
-  }
-
-  function removeCallback(element) {
-    for (var i = 0; i < fns.length; i++) {
-      if (fns[i].element === element) {
-        return fns.splice(i,1);
-      }
-    }
-  }
-
-  function _addWheelListener(elem, eventName, callback, isPassiveListener ) {
-    var cb;
-
-    if (support === "wheel") {
-      cb = callback;
-    } else {
-      cb = createCallback(elem, callback);
-    }
-
-    elem[_addEventListener](prefix + eventName, cb, isPassiveListener ? passiveOption : false);
-  }
-
-  function _removeWheelListener(elem, eventName, callback, isPassiveListener ) {
-
-    var cb;
-
-    if (support === "wheel") {
-      cb = callback;
-    } else {
-      cb = getCallback(elem);
-    }
-
-    elem[_removeEventListener](prefix + eventName, cb, isPassiveListener ? passiveOption : false);
-
-    removeCallback(elem);
-  }
-
-  function addWheelListener( elem, callback, isPassiveListener ) {
-    _addWheelListener(elem, support, callback, isPassiveListener );
-
-    // handle MozMousePixelScroll in older Firefox
-    if( support == "DOMMouseScroll" ) {
-      _addWheelListener(elem, "MozMousePixelScroll", callback, isPassiveListener );
-    }
-  }
-
-  function removeWheelListener(elem, callback, isPassiveListener){
-    _removeWheelListener(elem, support, callback, isPassiveListener);
-
-    // handle MozMousePixelScroll in older Firefox
-    if( support == "DOMMouseScroll" ) {
-      _removeWheelListener(elem, "MozMousePixelScroll", callback, isPassiveListener);
-    }
-  }
-
-  return {
-    on: addWheelListener,
-    off: removeWheelListener
-  };
-
-})();
-
-
-/***/ }),
-
-/***/ "./node_modules/svg-pan-zoom/src/utilities.js":
-/***/ ((module) => {
-
-module.exports = {
-  /**
-   * Extends an object
-   *
-   * @param  {Object} target object to extend
-   * @param  {Object} source object to take properties from
-   * @return {Object}        extended object
-   */
-  extend: function(target, source) {
-    target = target || {};
-    for (var prop in source) {
-      // Go recursively
-      if (this.isObject(source[prop])) {
-        target[prop] = this.extend(target[prop], source[prop]);
-      } else {
-        target[prop] = source[prop];
-      }
-    }
-    return target;
-  },
-
-  /**
-   * Checks if an object is a DOM element
-   *
-   * @param  {Object}  o HTML element or String
-   * @return {Boolean}   returns true if object is a DOM element
-   */
-  isElement: function(o) {
-    return (
-      o instanceof HTMLElement ||
-      o instanceof SVGElement ||
-      o instanceof SVGSVGElement || //DOM2
-      (o &&
-        typeof o === "object" &&
-        o !== null &&
-        o.nodeType === 1 &&
-        typeof o.nodeName === "string")
-    );
-  },
-
-  /**
-   * Checks if an object is an Object
-   *
-   * @param  {Object}  o Object
-   * @return {Boolean}   returns true if object is an Object
-   */
-  isObject: function(o) {
-    return Object.prototype.toString.call(o) === "[object Object]";
-  },
-
-  /**
-   * Checks if variable is Number
-   *
-   * @param  {Integer|Float}  n
-   * @return {Boolean}   returns true if variable is Number
-   */
-  isNumber: function(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-  },
-
-  /**
-   * Search for an SVG element
-   *
-   * @param  {Object|String} elementOrSelector DOM Element or selector String
-   * @return {Object|Null}                   SVG or null
-   */
-  getSvg: function(elementOrSelector) {
-    var element, svg;
-
-    if (!this.isElement(elementOrSelector)) {
-      // If selector provided
-      if (
-        typeof elementOrSelector === "string" ||
-        elementOrSelector instanceof String
-      ) {
-        // Try to find the element
-        element = document.querySelector(elementOrSelector);
-
-        if (!element) {
-          throw new Error(
-            "Provided selector did not find any elements. Selector: " +
-              elementOrSelector
-          );
-          return null;
-        }
-      } else {
-        throw new Error("Provided selector is not an HTML object nor String");
-        return null;
-      }
-    } else {
-      element = elementOrSelector;
-    }
-
-    if (element.tagName.toLowerCase() === "svg") {
-      svg = element;
-    } else {
-      if (element.tagName.toLowerCase() === "object") {
-        svg = element.contentDocument.documentElement;
-      } else {
-        if (element.tagName.toLowerCase() === "embed") {
-          svg = element.getSVGDocument().documentElement;
-        } else {
-          if (element.tagName.toLowerCase() === "img") {
-            throw new Error(
-              'Cannot script an SVG in an "img" element. Please use an "object" element or an in-line SVG.'
-            );
-          } else {
-            throw new Error("Cannot get SVG.");
-          }
-          return null;
-        }
-      }
-    }
-
-    return svg;
-  },
-
-  /**
-   * Attach a given context to a function
-   * @param  {Function} fn      Function
-   * @param  {Object}   context Context
-   * @return {Function}           Function with certain context
-   */
-  proxy: function(fn, context) {
-    return function() {
-      return fn.apply(context, arguments);
-    };
-  },
-
-  /**
-   * Returns object type
-   * Uses toString that returns [object SVGPoint]
-   * And than parses object type from string
-   *
-   * @param  {Object} o Any object
-   * @return {String}   Object type
-   */
-  getType: function(o) {
-    return Object.prototype.toString
-      .apply(o)
-      .replace(/^\[object\s/, "")
-      .replace(/\]$/, "");
-  },
-
-  /**
-   * If it is a touch event than add clientX and clientY to event object
-   *
-   * @param  {Event} evt
-   * @param  {SVGSVGElement} svg
-   */
-  mouseAndTouchNormalize: function(evt, svg) {
-    // If no clientX then fallback
-    if (evt.clientX === void 0 || evt.clientX === null) {
-      // Fallback
-      evt.clientX = 0;
-      evt.clientY = 0;
-
-      // If it is a touch event
-      if (evt.touches !== void 0 && evt.touches.length) {
-        if (evt.touches[0].clientX !== void 0) {
-          evt.clientX = evt.touches[0].clientX;
-          evt.clientY = evt.touches[0].clientY;
-        } else if (evt.touches[0].pageX !== void 0) {
-          var rect = svg.getBoundingClientRect();
-
-          evt.clientX = evt.touches[0].pageX - rect.left;
-          evt.clientY = evt.touches[0].pageY - rect.top;
-        }
-        // If it is a custom event
-      } else if (evt.originalEvent !== void 0) {
-        if (evt.originalEvent.clientX !== void 0) {
-          evt.clientX = evt.originalEvent.clientX;
-          evt.clientY = evt.originalEvent.clientY;
-        }
-      }
-    }
-  },
-
-  /**
-   * Check if an event is a double click/tap
-   * TODO: For touch gestures use a library (hammer.js) that takes in account other events
-   * (touchmove and touchend). It should take in account tap duration and traveled distance
-   *
-   * @param  {Event}  evt
-   * @param  {Event}  prevEvt Previous Event
-   * @return {Boolean}
-   */
-  isDblClick: function(evt, prevEvt) {
-    // Double click detected by browser
-    if (evt.detail === 2) {
-      return true;
-    }
-    // Try to compare events
-    else if (prevEvt !== void 0 && prevEvt !== null) {
-      var timeStampDiff = evt.timeStamp - prevEvt.timeStamp, // should be lower than 250 ms
-        touchesDistance = Math.sqrt(
-          Math.pow(evt.clientX - prevEvt.clientX, 2) +
-            Math.pow(evt.clientY - prevEvt.clientY, 2)
-        );
-
-      return timeStampDiff < 250 && touchesDistance < 10;
-    }
-
-    // Nothing found
-    return false;
-  },
-
-  /**
-   * Returns current timestamp as an integer
-   *
-   * @return {Number}
-   */
-  now:
-    Date.now ||
-    function() {
-      return new Date().getTime();
-    },
-
-  // From underscore.
-  // Returns a function, that, when invoked, will only be triggered at most once
-  // during a given window of time. Normally, the throttled function will run
-  // as much as it can, without ever going more than once per `wait` duration;
-  // but if you'd like to disable the execution on the leading edge, pass
-  // `{leading: false}`. To disable execution on the trailing edge, ditto.
-  throttle: function(func, wait, options) {
-    var that = this;
-    var context, args, result;
-    var timeout = null;
-    var previous = 0;
-    if (!options) {
-      options = {};
-    }
-    var later = function() {
-      previous = options.leading === false ? 0 : that.now();
-      timeout = null;
-      result = func.apply(context, args);
-      if (!timeout) {
-        context = args = null;
-      }
-    };
-    return function() {
-      var now = that.now();
-      if (!previous && options.leading === false) {
-        previous = now;
-      }
-      var remaining = wait - (now - previous);
-      context = this; // eslint-disable-line consistent-this
-      args = arguments;
-      if (remaining <= 0 || remaining > wait) {
-        clearTimeout(timeout);
-        timeout = null;
-        previous = now;
-        result = func.apply(context, args);
-        if (!timeout) {
-          context = args = null;
-        }
-      } else if (!timeout && options.trailing !== false) {
-        timeout = setTimeout(later, remaining);
-      }
-      return result;
-    };
-  },
-
-  /**
-   * Create a requestAnimationFrame simulation
-   *
-   * @param  {Number|String} refreshRate
-   * @return {Function}
-   */
-  createRequestAnimationFrame: function(refreshRate) {
-    var timeout = null;
-
-    // Convert refreshRate to timeout
-    if (refreshRate !== "auto" && refreshRate < 60 && refreshRate > 1) {
-      timeout = Math.floor(1000 / refreshRate);
-    }
-
-    if (timeout === null) {
-      return window.requestAnimationFrame || requestTimeout(33);
-    } else {
-      return requestTimeout(timeout);
-    }
-  }
-};
-
-/**
- * Create a callback that will execute after a given timeout
- *
- * @param  {Function} timeout
- * @return {Function}
- */
-function requestTimeout(timeout) {
-  return function(callback) {
-    window.setTimeout(callback, timeout);
-  };
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/sweetalert2/dist/sweetalert2.js":
 /***/ (function(module) {
 
 /*!
-* sweetalert2 v11.1.5
+* sweetalert2 v11.6.11
 * Released under the MIT License.
 */
 (function (global, factory) {
    true ? module.exports = factory() :
   0;
-}(this, function () { 'use strict';
+})(this, (function () { 'use strict';
 
-  const DismissReason = Object.freeze({
-    cancel: 'cancel',
-    backdrop: 'backdrop',
-    close: 'close',
-    esc: 'esc',
-    timer: 'timer'
-  });
-
-  const consolePrefix = 'SweetAlert2:';
   /**
-   * Filter the unique values into a new array
-   * @param arr
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
    */
 
+  var privateProps = {
+    awaitingPromise: new WeakMap(),
+    promise: new WeakMap(),
+    innerParams: new WeakMap(),
+    domCache: new WeakMap()
+  };
+
+  const swalPrefix = 'swal2-';
+
+  /**
+   * @param {string[]} items
+   * @returns {object}
+   */
+  const prefix = items => {
+    const result = {};
+    for (const i in items) {
+      result[items[i]] = swalPrefix + items[i];
+    }
+    return result;
+  };
+  const swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
+  const iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
+
+  const consolePrefix = 'SweetAlert2:';
+
+  /**
+   * Filter the unique values into a new array
+   *
+   * @param {Array} arr
+   * @returns {Array}
+   */
   const uniqueArray = arr => {
     const result = [];
-
     for (let i = 0; i < arr.length; i++) {
       if (result.indexOf(arr[i]) === -1) {
         result.push(arr[i]);
       }
     }
-
     return result;
   };
+
   /**
    * Capitalize the first letter of a string
-   * @param str
+   *
+   * @param {string} str
+   * @returns {string}
    */
-
   const capitalizeFirstLetter = str => str.charAt(0).toUpperCase() + str.slice(1);
-  /**
-   * Convert NodeList to Array
-   * @param nodeList
-   */
 
-  const toArray = nodeList => Array.prototype.slice.call(nodeList);
   /**
-   * Standardise console warnings
-   * @param message
+   * Standardize console warnings
+   *
+   * @param {string | Array} message
    */
-
   const warn = message => {
-    console.warn("".concat(consolePrefix, " ").concat(typeof message === 'object' ? message.join(' ') : message));
+    console.warn(`${consolePrefix} ${typeof message === 'object' ? message.join(' ') : message}`);
   };
-  /**
-   * Standardise console errors
-   * @param message
-   */
 
+  /**
+   * Standardize console errors
+   *
+   * @param {string} message
+   */
   const error = message => {
-    console.error("".concat(consolePrefix, " ").concat(message));
+    console.error(`${consolePrefix} ${message}`);
   };
+
   /**
    * Private global state for `warnOnce`
+   *
    * @type {Array}
    * @private
    */
-
   const previousWarnOnceMessages = [];
+
   /**
    * Show a console warning, but only if it hasn't already been shown
-   * @param message
+   *
+   * @param {string} message
    */
-
   const warnOnce = message => {
     if (!previousWarnOnceMessages.includes(message)) {
       previousWarnOnceMessages.push(message);
       warn(message);
     }
   };
+
   /**
    * Show a one-time console warning about deprecated params/methods
+   *
+   * @param {string} deprecatedParam
+   * @param {string} useInstead
    */
-
   const warnAboutDeprecation = (deprecatedParam, useInstead) => {
-    warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
+    warnOnce(`"${deprecatedParam}" is deprecated and will be removed in the next major release. Please use "${useInstead}" instead.`);
   };
+
   /**
    * If `arg` is a function, call it (with no arguments or context) and return the result.
    * Otherwise, just pass the value through
-   * @param arg
+   *
+   * @param {Function | any} arg
+   * @returns {any}
    */
-
   const callIfFunction = arg => typeof arg === 'function' ? arg() : arg;
+
+  /**
+   * @param {any} arg
+   * @returns {boolean}
+   */
   const hasToPromiseFn = arg => arg && typeof arg.toPromise === 'function';
+
+  /**
+   * @param {any} arg
+   * @returns {Promise}
+   */
   const asPromise = arg => hasToPromiseFn(arg) ? arg.toPromise() : Promise.resolve(arg);
+
+  /**
+   * @param {any} arg
+   * @returns {boolean}
+   */
   const isPromise = arg => arg && Promise.resolve(arg) === arg;
 
-  const isJqueryElement = elem => typeof elem === 'object' && elem.jquery;
+  /**
+   * Gets the popup container which contains the backdrop and the popup itself.
+   *
+   * @returns {HTMLElement | null}
+   */
+  const getContainer = () => document.body.querySelector(`.${swalClasses.container}`);
 
-  const isElement = elem => elem instanceof Element || isJqueryElement(elem);
-
-  const argsToParams = args => {
-    const params = {};
-
-    if (typeof args[0] === 'object' && !isElement(args[0])) {
-      Object.assign(params, args[0]);
-    } else {
-      ['title', 'html', 'icon'].forEach((name, index) => {
-        const arg = args[index];
-
-        if (typeof arg === 'string' || isElement(arg)) {
-          params[name] = arg;
-        } else if (arg !== undefined) {
-          error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(typeof arg));
-        }
-      });
-    }
-
-    return params;
-  };
-
-  const swalPrefix = 'swal2-';
-  const prefix = items => {
-    const result = {};
-
-    for (const i in items) {
-      result[items[i]] = swalPrefix + items[i];
-    }
-
-    return result;
-  };
-  const swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
-  const iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
-
-  const getContainer = () => document.body.querySelector(".".concat(swalClasses.container));
+  /**
+   * @param {string} selectorString
+   * @returns {HTMLElement | null}
+   */
   const elementBySelector = selectorString => {
     const container = getContainer();
     return container ? container.querySelector(selectorString) : null;
   };
 
+  /**
+   * @param {string} className
+   * @returns {HTMLElement | null}
+   */
   const elementByClass = className => {
-    return elementBySelector(".".concat(className));
+    return elementBySelector(`.${className}`);
   };
 
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getPopup = () => elementByClass(swalClasses.popup);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getIcon = () => elementByClass(swalClasses.icon);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getIconContent = () => elementByClass(swalClasses['icon-content']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getTitle = () => elementByClass(swalClasses.title);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getHtmlContainer = () => elementByClass(swalClasses['html-container']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getImage = () => elementByClass(swalClasses.image);
-  const getProgressSteps = () => elementByClass(swalClasses['progress-steps']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getProgressSteps$1 = () => elementByClass(swalClasses['progress-steps']);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getValidationMessage = () => elementByClass(swalClasses['validation-message']);
-  const getConfirmButton = () => elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
-  const getDenyButton = () => elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.deny));
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getConfirmButton = () => elementBySelector(`.${swalClasses.actions} .${swalClasses.confirm}`);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getDenyButton = () => elementBySelector(`.${swalClasses.actions} .${swalClasses.deny}`);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getInputLabel = () => elementByClass(swalClasses['input-label']);
-  const getLoader = () => elementBySelector(".".concat(swalClasses.loader));
-  const getCancelButton = () => elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getLoader = () => elementBySelector(`.${swalClasses.loader}`);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getCancelButton = () => elementBySelector(`.${swalClasses.actions} .${swalClasses.cancel}`);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getActions = () => elementByClass(swalClasses.actions);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getFooter = () => elementByClass(swalClasses.footer);
+
+  /**
+   * @returns {HTMLElement | null}
+   */
   const getTimerProgressBar = () => elementByClass(swalClasses['timer-progress-bar']);
-  const getCloseButton = () => elementByClass(swalClasses.close); // https://github.com/jkup/focusable/blob/master/index.js
 
-  const focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
+  /**
+   * @returns {HTMLElement | null}
+   */
+  const getCloseButton = () => elementByClass(swalClasses.close);
+
+  // https://github.com/jkup/focusable/blob/master/index.js
+  const focusable = `
+  a[href],
+  area[href],
+  input:not([disabled]),
+  select:not([disabled]),
+  textarea:not([disabled]),
+  button:not([disabled]),
+  iframe,
+  object,
+  embed,
+  [tabindex="0"],
+  [contenteditable],
+  audio[controls],
+  video[controls],
+  summary
+`;
+  /**
+   * @returns {HTMLElement[]}
+   */
   const getFocusableElements = () => {
-    const focusableElementsWithTabindex = toArray(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])')) // sort according to tabindex
+    const focusableElementsWithTabindex = Array.from(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'))
+    // sort according to tabindex
     .sort((a, b) => {
-      a = parseInt(a.getAttribute('tabindex'));
-      b = parseInt(b.getAttribute('tabindex'));
-
-      if (a > b) {
+      const tabindexA = parseInt(a.getAttribute('tabindex'));
+      const tabindexB = parseInt(b.getAttribute('tabindex'));
+      if (tabindexA > tabindexB) {
         return 1;
-      } else if (a < b) {
+      } else if (tabindexA < tabindexB) {
         return -1;
       }
-
       return 0;
     });
-    const otherFocusableElements = toArray(getPopup().querySelectorAll(focusable)).filter(el => el.getAttribute('tabindex') !== '-1');
-    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(el => isVisible(el));
+    const otherFocusableElements = Array.from(getPopup().querySelectorAll(focusable)).filter(el => el.getAttribute('tabindex') !== '-1');
+    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(el => isVisible$1(el));
   };
+
+  /**
+   * @returns {boolean}
+   */
   const isModal = () => {
-    return !isToast() && !document.body.classList.contains(swalClasses['no-backdrop']);
+    return hasClass(document.body, swalClasses.shown) && !hasClass(document.body, swalClasses['toast-shown']) && !hasClass(document.body, swalClasses['no-backdrop']);
   };
+
+  /**
+   * @returns {boolean}
+   */
   const isToast = () => {
-    return document.body.classList.contains(swalClasses['toast-shown']);
+    return getPopup() && hasClass(getPopup(), swalClasses.toast);
   };
+
+  /**
+   * @returns {boolean}
+   */
   const isLoading = () => {
     return getPopup().hasAttribute('data-loading');
   };
 
+  // Remember state in cases where opening and handling a modal will fiddle with it.
   const states = {
     previousBodyPadding: null
   };
-  const setInnerHtml = (elem, html) => {
-    // #1926
-    elem.textContent = '';
 
+  /**
+   * Securely set innerHTML of an element
+   * https://github.com/sweetalert2/sweetalert2/issues/1926
+   *
+   * @param {HTMLElement} elem
+   * @param {string} html
+   */
+  const setInnerHtml = (elem, html) => {
+    elem.textContent = '';
     if (html) {
       const parser = new DOMParser();
-      const parsed = parser.parseFromString(html, "text/html");
-      toArray(parsed.querySelector('head').childNodes).forEach(child => {
+      const parsed = parser.parseFromString(html, `text/html`);
+      Array.from(parsed.querySelector('head').childNodes).forEach(child => {
         elem.appendChild(child);
       });
-      toArray(parsed.querySelector('body').childNodes).forEach(child => {
-        elem.appendChild(child);
+      Array.from(parsed.querySelector('body').childNodes).forEach(child => {
+        if (child instanceof HTMLVideoElement || child instanceof HTMLAudioElement) {
+          elem.appendChild(child.cloneNode(true)); // https://github.com/sweetalert2/sweetalert2/issues/2507
+        } else {
+          elem.appendChild(child);
+        }
       });
     }
   };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} className
+   * @returns {boolean}
+   */
   const hasClass = (elem, className) => {
     if (!className) {
       return false;
     }
-
     const classList = className.split(/\s+/);
-
     for (let i = 0; i < classList.length; i++) {
       if (!elem.classList.contains(classList[i])) {
         return false;
       }
     }
-
     return true;
   };
 
+  /**
+   * @param {HTMLElement} elem
+   * @param {SweetAlertOptions} params
+   */
   const removeCustomClasses = (elem, params) => {
-    toArray(elem.classList).forEach(className => {
+    Array.from(elem.classList).forEach(className => {
       if (!Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass).includes(className)) {
         elem.classList.remove(className);
       }
     });
   };
 
+  /**
+   * @param {HTMLElement} elem
+   * @param {SweetAlertOptions} params
+   * @param {string} className
+   */
   const applyCustomClass = (elem, params, className) => {
     removeCustomClasses(elem, params);
-
     if (params.customClass && params.customClass[className]) {
       if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
-        return warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(typeof params.customClass[className], "\""));
+        warn(`Invalid type of customClass.${className}! Expected string or iterable object, got "${typeof params.customClass[className]}"`);
+        return;
       }
-
       addClass(elem, params.customClass[className]);
     }
   };
-  const getInput = (popup, inputType) => {
-    if (!inputType) {
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {import('./renderers/renderInput').InputClass} inputClass
+   * @returns {HTMLInputElement | null}
+   */
+  const getInput$1 = (popup, inputClass) => {
+    if (!inputClass) {
       return null;
     }
-
-    switch (inputType) {
+    switch (inputClass) {
       case 'select':
       case 'textarea':
       case 'file':
-        return getChildByClass(popup, swalClasses[inputType]);
-
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses[inputClass]}`);
       case 'checkbox':
-        return popup.querySelector(".".concat(swalClasses.checkbox, " input"));
-
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.checkbox} input`);
       case 'radio':
-        return popup.querySelector(".".concat(swalClasses.radio, " input:checked")) || popup.querySelector(".".concat(swalClasses.radio, " input:first-child"));
-
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:checked`) || popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:first-child`);
       case 'range':
-        return popup.querySelector(".".concat(swalClasses.range, " input"));
-
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.range} input`);
       default:
-        return getChildByClass(popup, swalClasses.input);
+        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.input}`);
     }
   };
-  const focusInput = input => {
-    input.focus(); // place cursor at end of text in text input
 
+  /**
+   * @param {HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement} input
+   */
+  const focusInput = input => {
+    input.focus();
+
+    // place cursor at end of text in text input
     if (input.type !== 'file') {
       // http://stackoverflow.com/a/2345915
       const val = input.value;
@@ -29704,17 +20053,21 @@ function requestTimeout(timeout) {
       input.value = val;
     }
   };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[]} classList
+   * @param {boolean} condition
+   */
   const toggleClass = (target, classList, condition) => {
     if (!target || !classList) {
       return;
     }
-
     if (typeof classList === 'string') {
       classList = classList.split(/\s+/).filter(Boolean);
     }
-
     classList.forEach(className => {
-      if (target.forEach) {
+      if (Array.isArray(target)) {
         target.forEach(elem => {
           condition ? elem.classList.add(className) : elem.classList.remove(className);
         });
@@ -29723,68 +20076,142 @@ function requestTimeout(timeout) {
       }
     });
   };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[]} classList
+   */
   const addClass = (target, classList) => {
     toggleClass(target, classList, true);
   };
+
+  /**
+   * @param {HTMLElement | HTMLElement[] | null} target
+   * @param {string | string[] | readonly string[]} classList
+   */
   const removeClass = (target, classList) => {
     toggleClass(target, classList, false);
   };
-  const getChildByClass = (elem, className) => {
-    for (let i = 0; i < elem.childNodes.length; i++) {
-      if (hasClass(elem.childNodes[i], className)) {
-        return elem.childNodes[i];
+
+  /**
+   * Get direct child of an element by class name
+   *
+   * @param {HTMLElement} elem
+   * @param {string} className
+   * @returns {HTMLElement | undefined}
+   */
+  const getDirectChildByClass = (elem, className) => {
+    const children = Array.from(elem.children);
+    for (let i = 0; i < children.length; i++) {
+      const child = children[i];
+      if (child instanceof HTMLElement && hasClass(child, className)) {
+        return child;
       }
     }
   };
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} property
+   * @param {*} value
+   */
   const applyNumericalStyle = (elem, property, value) => {
-    if (value === "".concat(parseInt(value))) {
+    if (value === `${parseInt(value)}`) {
       value = parseInt(value);
     }
-
     if (value || parseInt(value) === 0) {
-      elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
+      elem.style[property] = typeof value === 'number' ? `${value}px` : value;
     } else {
       elem.style.removeProperty(property);
     }
   };
-  const show = (elem, display = 'flex') => {
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {string} display
+   */
+  const show = function (elem) {
+    let display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
     elem.style.display = display;
   };
+
+  /**
+   * @param {HTMLElement} elem
+   */
   const hide = elem => {
     elem.style.display = 'none';
   };
-  const setStyle = (parent, selector, property, value) => {
-    const el = parent.querySelector(selector);
 
+  /**
+   * @param {HTMLElement} parent
+   * @param {string} selector
+   * @param {string} property
+   * @param {string} value
+   */
+  const setStyle = (parent, selector, property, value) => {
+    /** @type {HTMLElement} */
+    const el = parent.querySelector(selector);
     if (el) {
       el.style[property] = value;
     }
   };
-  const toggle = (elem, condition, display) => {
+
+  /**
+   * @param {HTMLElement} elem
+   * @param {any} condition
+   * @param {string} display
+   */
+  const toggle = function (elem, condition) {
+    let display = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'flex';
     condition ? show(elem, display) : hide(elem);
-  }; // borrowed from jquery $(elem).is(':visible') implementation
+  };
 
-  const isVisible = elem => !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
-  const allButtonsAreHidden = () => !isVisible(getConfirmButton()) && !isVisible(getDenyButton()) && !isVisible(getCancelButton());
-  const isScrollable = elem => !!(elem.scrollHeight > elem.clientHeight); // borrowed from https://stackoverflow.com/a/46352119
+  /**
+   * borrowed from jquery $(elem).is(':visible') implementation
+   *
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
+  const isVisible$1 = elem => !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
 
+  /**
+   * @returns {boolean}
+   */
+  const allButtonsAreHidden = () => !isVisible$1(getConfirmButton()) && !isVisible$1(getDenyButton()) && !isVisible$1(getCancelButton());
+
+  /**
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
+  const isScrollable = elem => !!(elem.scrollHeight > elem.clientHeight);
+
+  /**
+   * borrowed from https://stackoverflow.com/a/46352119
+   *
+   * @param {HTMLElement} elem
+   * @returns {boolean}
+   */
   const hasCssAnimation = elem => {
     const style = window.getComputedStyle(elem);
     const animDuration = parseFloat(style.getPropertyValue('animation-duration') || '0');
     const transDuration = parseFloat(style.getPropertyValue('transition-duration') || '0');
     return animDuration > 0 || transDuration > 0;
   };
-  const animateTimerProgressBar = (timer, reset = false) => {
-    const timerProgressBar = getTimerProgressBar();
 
-    if (isVisible(timerProgressBar)) {
+  /**
+   * @param {number} timer
+   * @param {boolean} reset
+   */
+  const animateTimerProgressBar = function (timer) {
+    let reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    const timerProgressBar = getTimerProgressBar();
+    if (isVisible$1(timerProgressBar)) {
       if (reset) {
         timerProgressBar.style.transition = 'none';
         timerProgressBar.style.width = '100%';
       }
-
       setTimeout(() => {
-        timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
+        timerProgressBar.style.transition = `width ${timer / 1000}s linear`;
         timerProgressBar.style.width = '0%';
       }, 10);
     }
@@ -29795,889 +20222,35 @@ function requestTimeout(timeout) {
     timerProgressBar.style.removeProperty('transition');
     timerProgressBar.style.width = '100%';
     const timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
-    const timerProgressBarPercent = parseInt(timerProgressBarWidth / timerProgressBarFullWidth * 100);
+    const timerProgressBarPercent = timerProgressBarWidth / timerProgressBarFullWidth * 100;
     timerProgressBar.style.removeProperty('transition');
-    timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
-  };
-
-  // Detect Node env
-  const isNodeEnv = () => typeof window === 'undefined' || typeof document === 'undefined';
-
-  const sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses['html-container'], "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n   <div class=\"").concat(swalClasses.icon, "\"></div>\n   <img class=\"").concat(swalClasses.image, "\" />\n   <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n   <div class=\"").concat(swalClasses['html-container'], "\" id=\"").concat(swalClasses['html-container'], "\"></div>\n   <input class=\"").concat(swalClasses.input, "\" />\n   <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n   <div class=\"").concat(swalClasses.range, "\">\n     <input type=\"range\" />\n     <output></output>\n   </div>\n   <select class=\"").concat(swalClasses.select, "\"></select>\n   <div class=\"").concat(swalClasses.radio, "\"></div>\n   <label for=\"").concat(swalClasses.checkbox, "\" class=\"").concat(swalClasses.checkbox, "\">\n     <input type=\"checkbox\" />\n     <span class=\"").concat(swalClasses.label, "\"></span>\n   </label>\n   <textarea class=\"").concat(swalClasses.textarea, "\"></textarea>\n   <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <div class=\"").concat(swalClasses.loader, "\"></div>\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.deny, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar-container'], "\">\n     <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
-
-  const resetOldContainer = () => {
-    const oldContainer = getContainer();
-
-    if (!oldContainer) {
-      return false;
-    }
-
-    oldContainer.remove();
-    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
-    return true;
-  };
-
-  const resetValidationMessage = () => {
-    if (Swal.isVisible()) {
-      Swal.resetValidationMessage();
-    }
-  };
-
-  const addInputChangeListeners = () => {
-    const popup = getPopup();
-    const input = getChildByClass(popup, swalClasses.input);
-    const file = getChildByClass(popup, swalClasses.file);
-    const range = popup.querySelector(".".concat(swalClasses.range, " input"));
-    const rangeOutput = popup.querySelector(".".concat(swalClasses.range, " output"));
-    const select = getChildByClass(popup, swalClasses.select);
-    const checkbox = popup.querySelector(".".concat(swalClasses.checkbox, " input"));
-    const textarea = getChildByClass(popup, swalClasses.textarea);
-    input.oninput = resetValidationMessage;
-    file.onchange = resetValidationMessage;
-    select.onchange = resetValidationMessage;
-    checkbox.onchange = resetValidationMessage;
-    textarea.oninput = resetValidationMessage;
-
-    range.oninput = () => {
-      resetValidationMessage();
-      rangeOutput.value = range.value;
-    };
-
-    range.onchange = () => {
-      resetValidationMessage();
-      range.nextSibling.value = range.value;
-    };
-  };
-
-  const getTarget = target => typeof target === 'string' ? document.querySelector(target) : target;
-
-  const setupAccessibility = params => {
-    const popup = getPopup();
-    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
-    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
-
-    if (!params.toast) {
-      popup.setAttribute('aria-modal', 'true');
-    }
-  };
-
-  const setupRTL = targetElement => {
-    if (window.getComputedStyle(targetElement).direction === 'rtl') {
-      addClass(getContainer(), swalClasses.rtl);
-    }
-  };
-  /*
-   * Add modal + backdrop to DOM
-   */
-
-
-  const init = params => {
-    // Clean up the old popup container if it exists
-    const oldContainerExisted = resetOldContainer();
-    /* istanbul ignore if */
-
-    if (isNodeEnv()) {
-      error('SweetAlert2 requires document to initialize');
-      return;
-    }
-
-    const container = document.createElement('div');
-    container.className = swalClasses.container;
-
-    if (oldContainerExisted) {
-      addClass(container, swalClasses['no-transition']);
-    }
-
-    setInnerHtml(container, sweetHTML);
-    const targetElement = getTarget(params.target);
-    targetElement.appendChild(container);
-    setupAccessibility(params);
-    setupRTL(targetElement);
-    addInputChangeListeners();
-  };
-
-  const parseHtmlToContainer = (param, target) => {
-    // DOM element
-    if (param instanceof HTMLElement) {
-      target.appendChild(param); // Object
-    } else if (typeof param === 'object') {
-      handleObject(param, target); // Plain string
-    } else if (param) {
-      setInnerHtml(target, param);
-    }
-  };
-
-  const handleObject = (param, target) => {
-    // JQuery element(s)
-    if (param.jquery) {
-      handleJqueryElem(target, param); // For other objects use their string representation
-    } else {
-      setInnerHtml(target, param.toString());
-    }
-  };
-
-  const handleJqueryElem = (target, elem) => {
-    target.textContent = '';
-
-    if (0 in elem) {
-      for (let i = 0; (i in elem); i++) {
-        target.appendChild(elem[i].cloneNode(true));
-      }
-    } else {
-      target.appendChild(elem.cloneNode(true));
-    }
-  };
-
-  const animationEndEvent = (() => {
-    // Prevent run in Node env
-
-    /* istanbul ignore if */
-    if (isNodeEnv()) {
-      return false;
-    }
-
-    const testEl = document.createElement('div');
-    const transEndEventNames = {
-      WebkitAnimation: 'webkitAnimationEnd',
-      OAnimation: 'oAnimationEnd oanimationend',
-      animation: 'animationend'
-    };
-
-    for (const i in transEndEventNames) {
-      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
-        return transEndEventNames[i];
-      }
-    }
-
-    return false;
-  })();
-
-  // https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
-
-  const measureScrollbar = () => {
-    const scrollDiv = document.createElement('div');
-    scrollDiv.className = swalClasses['scrollbar-measure'];
-    document.body.appendChild(scrollDiv);
-    const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-    document.body.removeChild(scrollDiv);
-    return scrollbarWidth;
-  };
-
-  const renderActions = (instance, params) => {
-    const actions = getActions();
-    const loader = getLoader();
-    const confirmButton = getConfirmButton();
-    const denyButton = getDenyButton();
-    const cancelButton = getCancelButton(); // Actions (buttons) wrapper
-
-    if (!params.showConfirmButton && !params.showDenyButton && !params.showCancelButton) {
-      hide(actions);
-    } else {
-      show(actions);
-    } // Custom class
-
-
-    applyCustomClass(actions, params, 'actions'); // Render buttons
-
-    renderButton(confirmButton, 'confirm', params);
-    renderButton(denyButton, 'deny', params);
-    renderButton(cancelButton, 'cancel', params);
-    handleButtonsStyling(confirmButton, denyButton, cancelButton, params);
-
-    if (params.reverseButtons) {
-      actions.insertBefore(cancelButton, loader);
-      actions.insertBefore(denyButton, loader);
-      actions.insertBefore(confirmButton, loader);
-    } // Loader
-
-
-    setInnerHtml(loader, params.loaderHtml);
-    applyCustomClass(loader, params, 'loader');
-  };
-
-  function handleButtonsStyling(confirmButton, denyButton, cancelButton, params) {
-    if (!params.buttonsStyling) {
-      return removeClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
-    }
-
-    addClass([confirmButton, denyButton, cancelButton], swalClasses.styled); // Buttons background colors
-
-    if (params.confirmButtonColor) {
-      confirmButton.style.backgroundColor = params.confirmButtonColor;
-      addClass(confirmButton, swalClasses['default-outline']);
-    }
-
-    if (params.denyButtonColor) {
-      denyButton.style.backgroundColor = params.denyButtonColor;
-      addClass(denyButton, swalClasses['default-outline']);
-    }
-
-    if (params.cancelButtonColor) {
-      cancelButton.style.backgroundColor = params.cancelButtonColor;
-      addClass(cancelButton, swalClasses['default-outline']);
-    }
-  }
-
-  function renderButton(button, buttonType, params) {
-    toggle(button, params["show".concat(capitalizeFirstLetter(buttonType), "Button")], 'inline-block');
-    setInnerHtml(button, params["".concat(buttonType, "ButtonText")]); // Set caption text
-
-    button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")]); // ARIA label
-    // Add buttons custom classes
-
-    button.className = swalClasses[buttonType];
-    applyCustomClass(button, params, "".concat(buttonType, "Button"));
-    addClass(button, params["".concat(buttonType, "ButtonClass")]);
-  }
-
-  function handleBackdropParam(container, backdrop) {
-    if (typeof backdrop === 'string') {
-      container.style.background = backdrop;
-    } else if (!backdrop) {
-      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
-    }
-  }
-
-  function handlePositionParam(container, position) {
-    if (position in swalClasses) {
-      addClass(container, swalClasses[position]);
-    } else {
-      warn('The "position" parameter is not valid, defaulting to "center"');
-      addClass(container, swalClasses.center);
-    }
-  }
-
-  function handleGrowParam(container, grow) {
-    if (grow && typeof grow === 'string') {
-      const growClass = "grow-".concat(grow);
-
-      if (growClass in swalClasses) {
-        addClass(container, swalClasses[growClass]);
-      }
-    }
-  }
-
-  const renderContainer = (instance, params) => {
-    const container = getContainer();
-
-    if (!container) {
-      return;
-    }
-
-    handleBackdropParam(container, params.backdrop);
-    handlePositionParam(container, params.position);
-    handleGrowParam(container, params.grow); // Custom class
-
-    applyCustomClass(container, params, 'container');
-  };
-
-  /**
-   * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
-   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
-   * This is the approach that Babel will probably take to implement private methods/fields
-   *   https://github.com/tc39/proposal-private-methods
-   *   https://github.com/babel/babel/pull/7555
-   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
-   *   then we can use that language feature.
-   */
-  var privateProps = {
-    promise: new WeakMap(),
-    innerParams: new WeakMap(),
-    domCache: new WeakMap()
-  };
-
-  const inputTypes = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
-  const renderInput = (instance, params) => {
-    const popup = getPopup();
-    const innerParams = privateProps.innerParams.get(instance);
-    const rerender = !innerParams || params.input !== innerParams.input;
-    inputTypes.forEach(inputType => {
-      const inputClass = swalClasses[inputType];
-      const inputContainer = getChildByClass(popup, inputClass); // set attributes
-
-      setAttributes(inputType, params.inputAttributes); // set class
-
-      inputContainer.className = inputClass;
-
-      if (rerender) {
-        hide(inputContainer);
-      }
-    });
-
-    if (params.input) {
-      if (rerender) {
-        showInput(params);
-      } // set custom class
-
-
-      setCustomClass(params);
-    }
-  };
-
-  const showInput = params => {
-    if (!renderInputType[params.input]) {
-      return error("Unexpected type of input! Expected \"text\", \"email\", \"password\", \"number\", \"tel\", \"select\", \"radio\", \"checkbox\", \"textarea\", \"file\" or \"url\", got \"".concat(params.input, "\""));
-    }
-
-    const inputContainer = getInputContainer(params.input);
-    const input = renderInputType[params.input](inputContainer, params);
-    show(input); // input autofocus
-
-    setTimeout(() => {
-      focusInput(input);
-    });
-  };
-
-  const removeAttributes = input => {
-    for (let i = 0; i < input.attributes.length; i++) {
-      const attrName = input.attributes[i].name;
-
-      if (!['type', 'value', 'style'].includes(attrName)) {
-        input.removeAttribute(attrName);
-      }
-    }
-  };
-
-  const setAttributes = (inputType, inputAttributes) => {
-    const input = getInput(getPopup(), inputType);
-
-    if (!input) {
-      return;
-    }
-
-    removeAttributes(input);
-
-    for (const attr in inputAttributes) {
-      input.setAttribute(attr, inputAttributes[attr]);
-    }
-  };
-
-  const setCustomClass = params => {
-    const inputContainer = getInputContainer(params.input);
-
-    if (params.customClass) {
-      addClass(inputContainer, params.customClass.input);
-    }
-  };
-
-  const setInputPlaceholder = (input, params) => {
-    if (!input.placeholder || params.inputPlaceholder) {
-      input.placeholder = params.inputPlaceholder;
-    }
-  };
-
-  const setInputLabel = (input, prependTo, params) => {
-    if (params.inputLabel) {
-      input.id = swalClasses.input;
-      const label = document.createElement('label');
-      const labelClass = swalClasses['input-label'];
-      label.setAttribute('for', input.id);
-      label.className = labelClass;
-      addClass(label, params.customClass.inputLabel);
-      label.innerText = params.inputLabel;
-      prependTo.insertAdjacentElement('beforebegin', label);
-    }
-  };
-
-  const getInputContainer = inputType => {
-    const inputClass = swalClasses[inputType] ? swalClasses[inputType] : swalClasses.input;
-    return getChildByClass(getPopup(), inputClass);
-  };
-
-  const renderInputType = {};
-
-  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = (input, params) => {
-    if (typeof params.inputValue === 'string' || typeof params.inputValue === 'number') {
-      input.value = params.inputValue;
-    } else if (!isPromise(params.inputValue)) {
-      warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(typeof params.inputValue, "\""));
-    }
-
-    setInputLabel(input, input, params);
-    setInputPlaceholder(input, params);
-    input.type = params.input;
-    return input;
-  };
-
-  renderInputType.file = (input, params) => {
-    setInputLabel(input, input, params);
-    setInputPlaceholder(input, params);
-    return input;
-  };
-
-  renderInputType.range = (range, params) => {
-    const rangeInput = range.querySelector('input');
-    const rangeOutput = range.querySelector('output');
-    rangeInput.value = params.inputValue;
-    rangeInput.type = params.input;
-    rangeOutput.value = params.inputValue;
-    setInputLabel(rangeInput, range, params);
-    return range;
-  };
-
-  renderInputType.select = (select, params) => {
-    select.textContent = '';
-
-    if (params.inputPlaceholder) {
-      const placeholder = document.createElement('option');
-      setInnerHtml(placeholder, params.inputPlaceholder);
-      placeholder.value = '';
-      placeholder.disabled = true;
-      placeholder.selected = true;
-      select.appendChild(placeholder);
-    }
-
-    setInputLabel(select, select, params);
-    return select;
-  };
-
-  renderInputType.radio = radio => {
-    radio.textContent = '';
-    return radio;
-  };
-
-  renderInputType.checkbox = (checkboxContainer, params) => {
-    const checkbox = getInput(getPopup(), 'checkbox');
-    checkbox.value = 1;
-    checkbox.id = swalClasses.checkbox;
-    checkbox.checked = Boolean(params.inputValue);
-    const label = checkboxContainer.querySelector('span');
-    setInnerHtml(label, params.inputPlaceholder);
-    return checkboxContainer;
-  };
-
-  renderInputType.textarea = (textarea, params) => {
-    textarea.value = params.inputValue;
-    setInputPlaceholder(textarea, params);
-    setInputLabel(textarea, textarea, params);
-
-    const getMargin = el => parseInt(window.getComputedStyle(el).marginLeft) + parseInt(window.getComputedStyle(el).marginRight);
-
-    setTimeout(() => {
-      // #2291
-      if ('MutationObserver' in window) {
-        // #1699
-        const initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
-
-        const textareaResizeHandler = () => {
-          const textareaWidth = textarea.offsetWidth + getMargin(textarea);
-
-          if (textareaWidth > initialPopupWidth) {
-            getPopup().style.width = "".concat(textareaWidth, "px");
-          } else {
-            getPopup().style.width = null;
-          }
-        };
-
-        new MutationObserver(textareaResizeHandler).observe(textarea, {
-          attributes: true,
-          attributeFilter: ['style']
-        });
-      }
-    });
-    return textarea;
-  };
-
-  const renderContent = (instance, params) => {
-    const htmlContainer = getHtmlContainer();
-    applyCustomClass(htmlContainer, params, 'htmlContainer'); // Content as HTML
-
-    if (params.html) {
-      parseHtmlToContainer(params.html, htmlContainer);
-      show(htmlContainer, 'block'); // Content as plain text
-    } else if (params.text) {
-      htmlContainer.textContent = params.text;
-      show(htmlContainer, 'block'); // No content
-    } else {
-      hide(htmlContainer);
-    }
-
-    renderInput(instance, params);
-  };
-
-  const renderFooter = (instance, params) => {
-    const footer = getFooter();
-    toggle(footer, params.footer);
-
-    if (params.footer) {
-      parseHtmlToContainer(params.footer, footer);
-    } // Custom class
-
-
-    applyCustomClass(footer, params, 'footer');
-  };
-
-  const renderCloseButton = (instance, params) => {
-    const closeButton = getCloseButton();
-    setInnerHtml(closeButton, params.closeButtonHtml); // Custom class
-
-    applyCustomClass(closeButton, params, 'closeButton');
-    toggle(closeButton, params.showCloseButton);
-    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
-  };
-
-  const renderIcon = (instance, params) => {
-    const innerParams = privateProps.innerParams.get(instance);
-    const icon = getIcon(); // if the given icon already rendered, apply the styling without re-rendering the icon
-
-    if (innerParams && params.icon === innerParams.icon) {
-      // Custom or default content
-      setContent(icon, params);
-      applyStyles(icon, params);
-      return;
-    }
-
-    if (!params.icon && !params.iconHtml) {
-      return hide(icon);
-    }
-
-    if (params.icon && Object.keys(iconTypes).indexOf(params.icon) === -1) {
-      error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
-      return hide(icon);
-    }
-
-    show(icon); // Custom or default content
-
-    setContent(icon, params);
-    applyStyles(icon, params); // Animate icon
-
-    addClass(icon, params.showClass.icon);
-  };
-
-  const applyStyles = (icon, params) => {
-    for (const iconType in iconTypes) {
-      if (params.icon !== iconType) {
-        removeClass(icon, iconTypes[iconType]);
-      }
-    }
-
-    addClass(icon, iconTypes[params.icon]); // Icon color
-
-    setColor(icon, params); // Success icon background color
-
-    adjustSuccessIconBackgoundColor(); // Custom class
-
-    applyCustomClass(icon, params, 'icon');
-  }; // Adjust success icon background color to match the popup background color
-
-
-  const adjustSuccessIconBackgoundColor = () => {
-    const popup = getPopup();
-    const popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
-    const successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
-
-    for (let i = 0; i < successIconParts.length; i++) {
-      successIconParts[i].style.backgroundColor = popupBackgroundColor;
-    }
-  };
-
-  const setContent = (icon, params) => {
-    icon.textContent = '';
-
-    if (params.iconHtml) {
-      setInnerHtml(icon, iconContent(params.iconHtml));
-    } else if (params.icon === 'success') {
-      setInnerHtml(icon, "\n      <div class=\"swal2-success-circular-line-left\"></div>\n      <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n      <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n      <div class=\"swal2-success-circular-line-right\"></div>\n    ");
-    } else if (params.icon === 'error') {
-      setInnerHtml(icon, "\n      <span class=\"swal2-x-mark\">\n        <span class=\"swal2-x-mark-line-left\"></span>\n        <span class=\"swal2-x-mark-line-right\"></span>\n      </span>\n    ");
-    } else {
-      const defaultIconHtml = {
-        question: '?',
-        warning: '!',
-        info: 'i'
-      };
-      setInnerHtml(icon, iconContent(defaultIconHtml[params.icon]));
-    }
-  };
-
-  const setColor = (icon, params) => {
-    if (!params.iconColor) {
-      return;
-    }
-
-    icon.style.color = params.iconColor;
-    icon.style.borderColor = params.iconColor;
-
-    for (const sel of ['.swal2-success-line-tip', '.swal2-success-line-long', '.swal2-x-mark-line-left', '.swal2-x-mark-line-right']) {
-      setStyle(icon, sel, 'backgroundColor', params.iconColor);
-    }
-
-    setStyle(icon, '.swal2-success-ring', 'borderColor', params.iconColor);
-  };
-
-  const iconContent = content => "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
-
-  const renderImage = (instance, params) => {
-    const image = getImage();
-
-    if (!params.imageUrl) {
-      return hide(image);
-    }
-
-    show(image, ''); // Src, alt
-
-    image.setAttribute('src', params.imageUrl);
-    image.setAttribute('alt', params.imageAlt); // Width, height
-
-    applyNumericalStyle(image, 'width', params.imageWidth);
-    applyNumericalStyle(image, 'height', params.imageHeight); // Class
-
-    image.className = swalClasses.image;
-    applyCustomClass(image, params, 'image');
-  };
-
-  const createStepElement = step => {
-    const stepEl = document.createElement('li');
-    addClass(stepEl, swalClasses['progress-step']);
-    setInnerHtml(stepEl, step);
-    return stepEl;
-  };
-
-  const createLineElement = params => {
-    const lineEl = document.createElement('li');
-    addClass(lineEl, swalClasses['progress-step-line']);
-
-    if (params.progressStepsDistance) {
-      lineEl.style.width = params.progressStepsDistance;
-    }
-
-    return lineEl;
-  };
-
-  const renderProgressSteps = (instance, params) => {
-    const progressStepsContainer = getProgressSteps();
-
-    if (!params.progressSteps || params.progressSteps.length === 0) {
-      return hide(progressStepsContainer);
-    }
-
-    show(progressStepsContainer);
-    progressStepsContainer.textContent = '';
-
-    if (params.currentProgressStep >= params.progressSteps.length) {
-      warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
-    }
-
-    params.progressSteps.forEach((step, index) => {
-      const stepEl = createStepElement(step);
-      progressStepsContainer.appendChild(stepEl);
-
-      if (index === params.currentProgressStep) {
-        addClass(stepEl, swalClasses['active-progress-step']);
-      }
-
-      if (index !== params.progressSteps.length - 1) {
-        const lineEl = createLineElement(params);
-        progressStepsContainer.appendChild(lineEl);
-      }
-    });
-  };
-
-  const renderTitle = (instance, params) => {
-    const title = getTitle();
-    toggle(title, params.title || params.titleText, 'block');
-
-    if (params.title) {
-      parseHtmlToContainer(params.title, title);
-    }
-
-    if (params.titleText) {
-      title.innerText = params.titleText;
-    } // Custom class
-
-
-    applyCustomClass(title, params, 'title');
-  };
-
-  const renderPopup = (instance, params) => {
-    const container = getContainer();
-    const popup = getPopup(); // Width
-
-    if (params.toast) {
-      // #2170
-      applyNumericalStyle(container, 'width', params.width);
-      popup.style.width = '100%';
-      popup.insertBefore(getLoader(), getIcon());
-    } else {
-      applyNumericalStyle(popup, 'width', params.width);
-    } // Padding
-
-
-    applyNumericalStyle(popup, 'padding', params.padding); // Background
-
-    if (params.background) {
-      popup.style.background = params.background;
-    }
-
-    hide(getValidationMessage()); // Classes
-
-    addClasses(popup, params);
-  };
-
-  const addClasses = (popup, params) => {
-    // Default Class + showClass when updating Swal.update({})
-    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible(popup) ? params.showClass.popup : '');
-
-    if (params.toast) {
-      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
-      addClass(popup, swalClasses.toast);
-    } else {
-      addClass(popup, swalClasses.modal);
-    } // Custom class
-
-
-    applyCustomClass(popup, params, 'popup');
-
-    if (typeof params.customClass === 'string') {
-      addClass(popup, params.customClass);
-    } // Icon class (#1842)
-
-
-    if (params.icon) {
-      addClass(popup, swalClasses["icon-".concat(params.icon)]);
-    }
-  };
-
-  const render = (instance, params) => {
-    renderPopup(instance, params);
-    renderContainer(instance, params);
-    renderProgressSteps(instance, params);
-    renderIcon(instance, params);
-    renderImage(instance, params);
-    renderTitle(instance, params);
-    renderCloseButton(instance, params);
-    renderContent(instance, params);
-    renderActions(instance, params);
-    renderFooter(instance, params);
-
-    if (typeof params.didRender === 'function') {
-      params.didRender(getPopup());
-    }
-  };
-
-  /*
-   * Global function to determine if SweetAlert2 popup is shown
-   */
-
-  const isVisible$1 = () => {
-    return isVisible(getPopup());
-  };
-  /*
-   * Global function to click 'Confirm' button
-   */
-
-  const clickConfirm = () => getConfirmButton() && getConfirmButton().click();
-  /*
-   * Global function to click 'Deny' button
-   */
-
-  const clickDeny = () => getDenyButton() && getDenyButton().click();
-  /*
-   * Global function to click 'Cancel' button
-   */
-
-  const clickCancel = () => getCancelButton() && getCancelButton().click();
-
-  function fire(...args) {
-    const Swal = this;
-    return new Swal(...args);
-  }
-
-  /**
-   * Returns an extended version of `Swal` containing `params` as defaults.
-   * Useful for reusing Swal configuration.
-   *
-   * For example:
-   *
-   * Before:
-   * const textPromptOptions = { input: 'text', showCancelButton: true }
-   * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
-   * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
-   *
-   * After:
-   * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
-   * const {value: firstName} = await TextPrompt('What is your first name?')
-   * const {value: lastName} = await TextPrompt('What is your last name?')
-   *
-   * @param mixinParams
-   */
-  function mixin(mixinParams) {
-    class MixinSwal extends this {
-      _main(params, priorityMixinParams) {
-        return super._main(params, Object.assign({}, mixinParams, priorityMixinParams));
-      }
-
-    }
-
-    return MixinSwal;
-  }
-
-  /**
-   * Shows loader (spinner), this is useful with AJAX requests.
-   * By default the loader be shown instead of the "Confirm" button.
-   */
-
-  const showLoading = buttonToReplace => {
-    let popup = getPopup();
-
-    if (!popup) {
-      Swal.fire();
-    }
-
-    popup = getPopup();
-    const loader = getLoader();
-
-    if (isToast()) {
-      hide(getIcon());
-    } else {
-      replaceButton(popup, buttonToReplace);
-    }
-
-    show(loader);
-    popup.setAttribute('data-loading', true);
-    popup.setAttribute('aria-busy', true);
-    popup.focus();
-  };
-
-  const replaceButton = (popup, buttonToReplace) => {
-    const actions = getActions();
-    const loader = getLoader();
-
-    if (!buttonToReplace && isVisible(getConfirmButton())) {
-      buttonToReplace = getConfirmButton();
-    }
-
-    show(actions);
-
-    if (buttonToReplace) {
-      hide(buttonToReplace);
-      loader.setAttribute('data-button-to-replace', buttonToReplace.className);
-    }
-
-    loader.parentNode.insertBefore(loader, buttonToReplace);
-    addClass([popup, actions], swalClasses.loading);
+    timerProgressBar.style.width = `${timerProgressBarPercent}%`;
   };
 
   const RESTORE_FOCUS_TIMEOUT = 100;
 
+  /** @type {GlobalState} */
   const globalState = {};
-
   const focusPreviousActiveElement = () => {
-    if (globalState.previousActiveElement && globalState.previousActiveElement.focus) {
+    if (globalState.previousActiveElement instanceof HTMLElement) {
       globalState.previousActiveElement.focus();
       globalState.previousActiveElement = null;
     } else if (document.body) {
       document.body.focus();
     }
-  }; // Restore previous active (focused) element
+  };
 
-
+  /**
+   * Restore previous active (focused) element
+   *
+   * @param {boolean} returnFocus
+   * @returns {Promise}
+   */
   const restoreActiveElement = returnFocus => {
     return new Promise(resolve => {
       if (!returnFocus) {
         return resolve();
       }
-
       const x = window.scrollX;
       const y = window.scrollY;
       globalState.restoreFocusTimeout = setTimeout(() => {
@@ -30690,93 +20263,1663 @@ function requestTimeout(timeout) {
   };
 
   /**
-   * If `timer` parameter is set, returns number of milliseconds of timer remained.
-   * Otherwise, returns undefined.
+   * Detect Node env
+   *
+   * @returns {boolean}
    */
+  const isNodeEnv = () => typeof window === 'undefined' || typeof document === 'undefined';
 
-  const getTimerLeft = () => {
-    return globalState.timeout && globalState.timeout.getTimerLeft();
-  };
+  const sweetHTML = `
+ <div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses['html-container']}" class="${swalClasses.popup}" tabindex="-1">
+   <button type="button" class="${swalClasses.close}"></button>
+   <ul class="${swalClasses['progress-steps']}"></ul>
+   <div class="${swalClasses.icon}"></div>
+   <img class="${swalClasses.image}" />
+   <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
+   <div class="${swalClasses['html-container']}" id="${swalClasses['html-container']}"></div>
+   <input class="${swalClasses.input}" />
+   <input type="file" class="${swalClasses.file}" />
+   <div class="${swalClasses.range}">
+     <input type="range" />
+     <output></output>
+   </div>
+   <select class="${swalClasses.select}"></select>
+   <div class="${swalClasses.radio}"></div>
+   <label for="${swalClasses.checkbox}" class="${swalClasses.checkbox}">
+     <input type="checkbox" />
+     <span class="${swalClasses.label}"></span>
+   </label>
+   <textarea class="${swalClasses.textarea}"></textarea>
+   <div class="${swalClasses['validation-message']}" id="${swalClasses['validation-message']}"></div>
+   <div class="${swalClasses.actions}">
+     <div class="${swalClasses.loader}"></div>
+     <button type="button" class="${swalClasses.confirm}"></button>
+     <button type="button" class="${swalClasses.deny}"></button>
+     <button type="button" class="${swalClasses.cancel}"></button>
+   </div>
+   <div class="${swalClasses.footer}"></div>
+   <div class="${swalClasses['timer-progress-bar-container']}">
+     <div class="${swalClasses['timer-progress-bar']}"></div>
+   </div>
+ </div>
+`.replace(/(^|\n)\s*/g, '');
+
   /**
-   * Stop timer. Returns number of milliseconds of timer remained.
-   * If `timer` parameter isn't set, returns undefined.
+   * @returns {boolean}
    */
+  const resetOldContainer = () => {
+    const oldContainer = getContainer();
+    if (!oldContainer) {
+      return false;
+    }
+    oldContainer.remove();
+    removeClass([document.documentElement, document.body], [swalClasses['no-backdrop'], swalClasses['toast-shown'], swalClasses['has-column']]);
+    return true;
+  };
+  const resetValidationMessage$1 = () => {
+    globalState.currentInstance.resetValidationMessage();
+  };
+  const addInputChangeListeners = () => {
+    const popup = getPopup();
+    const input = getDirectChildByClass(popup, swalClasses.input);
+    const file = getDirectChildByClass(popup, swalClasses.file);
+    /** @type {HTMLInputElement} */
+    const range = popup.querySelector(`.${swalClasses.range} input`);
+    /** @type {HTMLOutputElement} */
+    const rangeOutput = popup.querySelector(`.${swalClasses.range} output`);
+    const select = getDirectChildByClass(popup, swalClasses.select);
+    /** @type {HTMLInputElement} */
+    const checkbox = popup.querySelector(`.${swalClasses.checkbox} input`);
+    const textarea = getDirectChildByClass(popup, swalClasses.textarea);
+    input.oninput = resetValidationMessage$1;
+    file.onchange = resetValidationMessage$1;
+    select.onchange = resetValidationMessage$1;
+    checkbox.onchange = resetValidationMessage$1;
+    textarea.oninput = resetValidationMessage$1;
+    range.oninput = () => {
+      resetValidationMessage$1();
+      rangeOutput.value = range.value;
+    };
+    range.onchange = () => {
+      resetValidationMessage$1();
+      rangeOutput.value = range.value;
+    };
+  };
 
-  const stopTimer = () => {
-    if (globalState.timeout) {
-      stopTimerProgressBar();
-      return globalState.timeout.stop();
+  /**
+   * @param {string | HTMLElement} target
+   * @returns {HTMLElement}
+   */
+  const getTarget = target => typeof target === 'string' ? document.querySelector(target) : target;
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  const setupAccessibility = params => {
+    const popup = getPopup();
+    popup.setAttribute('role', params.toast ? 'alert' : 'dialog');
+    popup.setAttribute('aria-live', params.toast ? 'polite' : 'assertive');
+    if (!params.toast) {
+      popup.setAttribute('aria-modal', 'true');
     }
   };
-  /**
-   * Resume timer. Returns number of milliseconds of timer remained.
-   * If `timer` parameter isn't set, returns undefined.
-   */
 
-  const resumeTimer = () => {
-    if (globalState.timeout) {
-      const remaining = globalState.timeout.start();
-      animateTimerProgressBar(remaining);
-      return remaining;
+  /**
+   * @param {HTMLElement} targetElement
+   */
+  const setupRTL = targetElement => {
+    if (window.getComputedStyle(targetElement).direction === 'rtl') {
+      addClass(getContainer(), swalClasses.rtl);
     }
   };
-  /**
-   * Resume timer. Returns number of milliseconds of timer remained.
-   * If `timer` parameter isn't set, returns undefined.
-   */
 
-  const toggleTimer = () => {
-    const timer = globalState.timeout;
-    return timer && (timer.running ? stopTimer() : resumeTimer());
+  /**
+   * Add modal + backdrop + no-war message for Russians to DOM
+   *
+   * @param {SweetAlertOptions} params
+   */
+  const init = params => {
+    // Clean up the old popup container if it exists
+    const oldContainerExisted = resetOldContainer();
+
+    /* istanbul ignore if */
+    if (isNodeEnv()) {
+      error('SweetAlert2 requires document to initialize');
+      return;
+    }
+    const container = document.createElement('div');
+    container.className = swalClasses.container;
+    if (oldContainerExisted) {
+      addClass(container, swalClasses['no-transition']);
+    }
+    setInnerHtml(container, sweetHTML);
+    const targetElement = getTarget(params.target);
+    targetElement.appendChild(container);
+    setupAccessibility(params);
+    setupRTL(targetElement);
+    addInputChangeListeners();
   };
-  /**
-   * Increase timer. Returns number of milliseconds of an updated timer.
-   * If `timer` parameter isn't set, returns undefined.
-   */
 
-  const increaseTimer = n => {
-    if (globalState.timeout) {
-      const remaining = globalState.timeout.increase(n);
-      animateTimerProgressBar(remaining, true);
-      return remaining;
+  /**
+   * @param {HTMLElement | object | string} param
+   * @param {HTMLElement} target
+   */
+  const parseHtmlToContainer = (param, target) => {
+    // DOM element
+    if (param instanceof HTMLElement) {
+      target.appendChild(param);
+    }
+
+    // Object
+    else if (typeof param === 'object') {
+      handleObject(param, target);
+    }
+
+    // Plain string
+    else if (param) {
+      setInnerHtml(target, param);
     }
   };
-  /**
-   * Check if timer is running. Returns true if timer is running
-   * or false if timer is paused or stopped.
-   * If `timer` parameter isn't set, returns undefined
-   */
 
-  const isTimerRunning = () => {
-    return globalState.timeout && globalState.timeout.isRunning();
+  /**
+   * @param {object} param
+   * @param {HTMLElement} target
+   */
+  const handleObject = (param, target) => {
+    // JQuery element(s)
+    if (param.jquery) {
+      handleJqueryElem(target, param);
+    }
+
+    // For other objects use their string representation
+    else {
+      setInnerHtml(target, param.toString());
+    }
   };
 
-  let bodyClickListenerAdded = false;
-  const clickHandlers = {};
-  function bindClickHandler(attr = 'data-swal-template') {
-    clickHandlers[attr] = this;
+  /**
+   * @param {HTMLElement} target
+   * @param {HTMLElement} elem
+   */
+  const handleJqueryElem = (target, elem) => {
+    target.textContent = '';
+    if (0 in elem) {
+      for (let i = 0; (i in elem); i++) {
+        target.appendChild(elem[i].cloneNode(true));
+      }
+    } else {
+      target.appendChild(elem.cloneNode(true));
+    }
+  };
 
-    if (!bodyClickListenerAdded) {
-      document.body.addEventListener('click', bodyClickListener);
-      bodyClickListenerAdded = true;
+  /**
+   * @returns {'webkitAnimationEnd' | 'animationend' | false}
+   */
+  const animationEndEvent = (() => {
+    // Prevent run in Node env
+    /* istanbul ignore if */
+    if (isNodeEnv()) {
+      return false;
+    }
+    const testEl = document.createElement('div');
+    const transEndEventNames = {
+      WebkitAnimation: 'webkitAnimationEnd',
+      // Chrome, Safari and Opera
+      animation: 'animationend' // Standard syntax
+    };
+
+    for (const i in transEndEventNames) {
+      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
+        return transEndEventNames[i];
+      }
+    }
+    return false;
+  })();
+
+  /**
+   * Measure scrollbar width for padding body during modal show/hide
+   * https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
+   *
+   * @returns {number}
+   */
+  const measureScrollbar = () => {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.className = swalClasses['scrollbar-measure'];
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderActions = (instance, params) => {
+    const actions = getActions();
+    const loader = getLoader();
+
+    // Actions (buttons) wrapper
+    if (!params.showConfirmButton && !params.showDenyButton && !params.showCancelButton) {
+      hide(actions);
+    } else {
+      show(actions);
+    }
+
+    // Custom class
+    applyCustomClass(actions, params, 'actions');
+
+    // Render all the buttons
+    renderButtons(actions, loader, params);
+
+    // Loader
+    setInnerHtml(loader, params.loaderHtml);
+    applyCustomClass(loader, params, 'loader');
+  };
+
+  /**
+   * @param {HTMLElement} actions
+   * @param {HTMLElement} loader
+   * @param {SweetAlertOptions} params
+   */
+  function renderButtons(actions, loader, params) {
+    const confirmButton = getConfirmButton();
+    const denyButton = getDenyButton();
+    const cancelButton = getCancelButton();
+
+    // Render buttons
+    renderButton(confirmButton, 'confirm', params);
+    renderButton(denyButton, 'deny', params);
+    renderButton(cancelButton, 'cancel', params);
+    handleButtonsStyling(confirmButton, denyButton, cancelButton, params);
+    if (params.reverseButtons) {
+      if (params.toast) {
+        actions.insertBefore(cancelButton, confirmButton);
+        actions.insertBefore(denyButton, confirmButton);
+      } else {
+        actions.insertBefore(cancelButton, loader);
+        actions.insertBefore(denyButton, loader);
+        actions.insertBefore(confirmButton, loader);
+      }
     }
   }
 
-  const bodyClickListener = event => {
-    // TODO: replace with event.composedPath()
-    for (let el = event.target; el && el !== document; el = el.parentNode) {
-      for (const attr in clickHandlers) {
-        const template = el.getAttribute(attr);
+  /**
+   * @param {HTMLElement} confirmButton
+   * @param {HTMLElement} denyButton
+   * @param {HTMLElement} cancelButton
+   * @param {SweetAlertOptions} params
+   */
+  function handleButtonsStyling(confirmButton, denyButton, cancelButton, params) {
+    if (!params.buttonsStyling) {
+      removeClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
+      return;
+    }
+    addClass([confirmButton, denyButton, cancelButton], swalClasses.styled);
 
-        if (template) {
-          clickHandlers[attr].fire({
-            template
-          });
-          return;
-        }
+    // Buttons background colors
+    if (params.confirmButtonColor) {
+      confirmButton.style.backgroundColor = params.confirmButtonColor;
+      addClass(confirmButton, swalClasses['default-outline']);
+    }
+    if (params.denyButtonColor) {
+      denyButton.style.backgroundColor = params.denyButtonColor;
+      addClass(denyButton, swalClasses['default-outline']);
+    }
+    if (params.cancelButtonColor) {
+      cancelButton.style.backgroundColor = params.cancelButtonColor;
+      addClass(cancelButton, swalClasses['default-outline']);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} button
+   * @param {'confirm' | 'deny' | 'cancel'} buttonType
+   * @param {SweetAlertOptions} params
+   */
+  function renderButton(button, buttonType, params) {
+    toggle(button, params[`show${capitalizeFirstLetter(buttonType)}Button`], 'inline-block');
+    setInnerHtml(button, params[`${buttonType}ButtonText`]); // Set caption text
+    button.setAttribute('aria-label', params[`${buttonType}ButtonAriaLabel`]); // ARIA label
+
+    // Add buttons custom classes
+    button.className = swalClasses[buttonType];
+    applyCustomClass(button, params, `${buttonType}Button`);
+    addClass(button, params[`${buttonType}ButtonClass`]);
+  }
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderCloseButton = (instance, params) => {
+    const closeButton = getCloseButton();
+    setInnerHtml(closeButton, params.closeButtonHtml);
+
+    // Custom class
+    applyCustomClass(closeButton, params, 'closeButton');
+    toggle(closeButton, params.showCloseButton);
+    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderContainer = (instance, params) => {
+    const container = getContainer();
+    if (!container) {
+      return;
+    }
+    handleBackdropParam(container, params.backdrop);
+    handlePositionParam(container, params.position);
+    handleGrowParam(container, params.grow);
+
+    // Custom class
+    applyCustomClass(container, params, 'container');
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['backdrop']} backdrop
+   */
+  function handleBackdropParam(container, backdrop) {
+    if (typeof backdrop === 'string') {
+      container.style.background = backdrop;
+    } else if (!backdrop) {
+      addClass([document.documentElement, document.body], swalClasses['no-backdrop']);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['position']} position
+   */
+  function handlePositionParam(container, position) {
+    if (position in swalClasses) {
+      addClass(container, swalClasses[position]);
+    } else {
+      warn('The "position" parameter is not valid, defaulting to "center"');
+      addClass(container, swalClasses.center);
+    }
+  }
+
+  /**
+   * @param {HTMLElement} container
+   * @param {SweetAlertOptions['grow']} grow
+   */
+  function handleGrowParam(container, grow) {
+    if (grow && typeof grow === 'string') {
+      const growClass = `grow-${grow}`;
+      if (growClass in swalClasses) {
+        addClass(container, swalClasses[growClass]);
+      }
+    }
+  }
+
+  /// <reference path="../../../../sweetalert2.d.ts"/>
+
+  /** @type {InputClass[]} */
+  const inputClasses = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderInput = (instance, params) => {
+    const popup = getPopup();
+    const innerParams = privateProps.innerParams.get(instance);
+    const rerender = !innerParams || params.input !== innerParams.input;
+    inputClasses.forEach(inputClass => {
+      const inputContainer = getDirectChildByClass(popup, swalClasses[inputClass]);
+
+      // set attributes
+      setAttributes(inputClass, params.inputAttributes);
+
+      // set class
+      inputContainer.className = swalClasses[inputClass];
+      if (rerender) {
+        hide(inputContainer);
+      }
+    });
+    if (params.input) {
+      if (rerender) {
+        showInput(params);
+      }
+      // set custom class
+      setCustomClass(params);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  const showInput = params => {
+    if (!renderInputType[params.input]) {
+      error(`Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "${params.input}"`);
+      return;
+    }
+    const inputContainer = getInputContainer(params.input);
+    const input = renderInputType[params.input](inputContainer, params);
+    show(inputContainer);
+
+    // input autofocus
+    setTimeout(() => {
+      focusInput(input);
+    });
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   */
+  const removeAttributes = input => {
+    for (let i = 0; i < input.attributes.length; i++) {
+      const attrName = input.attributes[i].name;
+      if (!['type', 'value', 'style'].includes(attrName)) {
+        input.removeAttribute(attrName);
       }
     }
   };
+
+  /**
+   * @param {InputClass} inputClass
+   * @param {SweetAlertOptions['inputAttributes']} inputAttributes
+   */
+  const setAttributes = (inputClass, inputAttributes) => {
+    const input = getInput$1(getPopup(), inputClass);
+    if (!input) {
+      return;
+    }
+    removeAttributes(input);
+    for (const attr in inputAttributes) {
+      input.setAttribute(attr, inputAttributes[attr]);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   */
+  const setCustomClass = params => {
+    const inputContainer = getInputContainer(params.input);
+    if (typeof params.customClass === 'object') {
+      addClass(inputContainer, params.customClass.input);
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLTextAreaElement} input
+   * @param {SweetAlertOptions} params
+   */
+  const setInputPlaceholder = (input, params) => {
+    if (!input.placeholder || params.inputPlaceholder) {
+      input.placeholder = params.inputPlaceholder;
+    }
+  };
+
+  /**
+   * @param {Input} input
+   * @param {Input} prependTo
+   * @param {SweetAlertOptions} params
+   */
+  const setInputLabel = (input, prependTo, params) => {
+    if (params.inputLabel) {
+      input.id = swalClasses.input;
+      const label = document.createElement('label');
+      const labelClass = swalClasses['input-label'];
+      label.setAttribute('for', input.id);
+      label.className = labelClass;
+      if (typeof params.customClass === 'object') {
+        addClass(label, params.customClass.inputLabel);
+      }
+      label.innerText = params.inputLabel;
+      prependTo.insertAdjacentElement('beforebegin', label);
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions['input']} inputType
+   * @returns {HTMLElement}
+   */
+  const getInputContainer = inputType => {
+    return getDirectChildByClass(getPopup(), swalClasses[inputType] || swalClasses.input);
+  };
+
+  /**
+   * @param {HTMLInputElement | HTMLOutputElement | HTMLTextAreaElement} input
+   * @param {SweetAlertOptions['inputValue']} inputValue
+   */
+  const checkAndSetInputValue = (input, inputValue) => {
+    if (['string', 'number'].includes(typeof inputValue)) {
+      input.value = `${inputValue}`;
+    } else if (!isPromise(inputValue)) {
+      warn(`Unexpected type of inputValue! Expected "string", "number" or "Promise", got "${typeof inputValue}"`);
+    }
+  };
+
+  /** @type {Record<string, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
+  const renderInputType = {};
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = (input, params) => {
+    checkAndSetInputValue(input, params.inputValue);
+    setInputLabel(input, input, params);
+    setInputPlaceholder(input, params);
+    input.type = params.input;
+    return input;
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.file = (input, params) => {
+    setInputLabel(input, input, params);
+    setInputPlaceholder(input, params);
+    return input;
+  };
+
+  /**
+   * @param {HTMLInputElement} range
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.range = (range, params) => {
+    const rangeInput = range.querySelector('input');
+    const rangeOutput = range.querySelector('output');
+    checkAndSetInputValue(rangeInput, params.inputValue);
+    rangeInput.type = params.input;
+    checkAndSetInputValue(rangeOutput, params.inputValue);
+    setInputLabel(rangeInput, range, params);
+    return range;
+  };
+
+  /**
+   * @param {HTMLSelectElement} select
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLSelectElement}
+   */
+  renderInputType.select = (select, params) => {
+    select.textContent = '';
+    if (params.inputPlaceholder) {
+      const placeholder = document.createElement('option');
+      setInnerHtml(placeholder, params.inputPlaceholder);
+      placeholder.value = '';
+      placeholder.disabled = true;
+      placeholder.selected = true;
+      select.appendChild(placeholder);
+    }
+    setInputLabel(select, select, params);
+    return select;
+  };
+
+  /**
+   * @param {HTMLInputElement} radio
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.radio = radio => {
+    radio.textContent = '';
+    return radio;
+  };
+
+  /**
+   * @param {HTMLLabelElement} checkboxContainer
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLInputElement}
+   */
+  renderInputType.checkbox = (checkboxContainer, params) => {
+    const checkbox = getInput$1(getPopup(), 'checkbox');
+    checkbox.value = '1';
+    checkbox.id = swalClasses.checkbox;
+    checkbox.checked = Boolean(params.inputValue);
+    const label = checkboxContainer.querySelector('span');
+    setInnerHtml(label, params.inputPlaceholder);
+    return checkbox;
+  };
+
+  /**
+   * @param {HTMLTextAreaElement} textarea
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLTextAreaElement}
+   */
+  renderInputType.textarea = (textarea, params) => {
+    checkAndSetInputValue(textarea, params.inputValue);
+    setInputPlaceholder(textarea, params);
+    setInputLabel(textarea, textarea, params);
+
+    /**
+     * @param {HTMLElement} el
+     * @returns {number}
+     */
+    const getMargin = el => parseInt(window.getComputedStyle(el).marginLeft) + parseInt(window.getComputedStyle(el).marginRight);
+
+    // https://github.com/sweetalert2/sweetalert2/issues/2291
+    setTimeout(() => {
+      // https://github.com/sweetalert2/sweetalert2/issues/1699
+      if ('MutationObserver' in window) {
+        const initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
+        const textareaResizeHandler = () => {
+          const textareaWidth = textarea.offsetWidth + getMargin(textarea);
+          if (textareaWidth > initialPopupWidth) {
+            getPopup().style.width = `${textareaWidth}px`;
+          } else {
+            getPopup().style.width = null;
+          }
+        };
+        new MutationObserver(textareaResizeHandler).observe(textarea, {
+          attributes: true,
+          attributeFilter: ['style']
+        });
+      }
+    });
+    return textarea;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderContent = (instance, params) => {
+    const htmlContainer = getHtmlContainer();
+    applyCustomClass(htmlContainer, params, 'htmlContainer');
+
+    // Content as HTML
+    if (params.html) {
+      parseHtmlToContainer(params.html, htmlContainer);
+      show(htmlContainer, 'block');
+    }
+
+    // Content as plain text
+    else if (params.text) {
+      htmlContainer.textContent = params.text;
+      show(htmlContainer, 'block');
+    }
+
+    // No content
+    else {
+      hide(htmlContainer);
+    }
+    renderInput(instance, params);
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderFooter = (instance, params) => {
+    const footer = getFooter();
+    toggle(footer, params.footer);
+    if (params.footer) {
+      parseHtmlToContainer(params.footer, footer);
+    }
+
+    // Custom class
+    applyCustomClass(footer, params, 'footer');
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderIcon = (instance, params) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    const icon = getIcon();
+
+    // if the given icon already rendered, apply the styling without re-rendering the icon
+    if (innerParams && params.icon === innerParams.icon) {
+      // Custom or default content
+      setContent(icon, params);
+      applyStyles(icon, params);
+      return;
+    }
+    if (!params.icon && !params.iconHtml) {
+      hide(icon);
+      return;
+    }
+    if (params.icon && Object.keys(iconTypes).indexOf(params.icon) === -1) {
+      error(`Unknown icon! Expected "success", "error", "warning", "info" or "question", got "${params.icon}"`);
+      hide(icon);
+      return;
+    }
+    show(icon);
+
+    // Custom or default content
+    setContent(icon, params);
+    applyStyles(icon, params);
+
+    // Animate icon
+    addClass(icon, params.showClass.icon);
+  };
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  const applyStyles = (icon, params) => {
+    for (const iconType in iconTypes) {
+      if (params.icon !== iconType) {
+        removeClass(icon, iconTypes[iconType]);
+      }
+    }
+    addClass(icon, iconTypes[params.icon]);
+
+    // Icon color
+    setColor(icon, params);
+
+    // Success icon background color
+    adjustSuccessIconBackgroundColor();
+
+    // Custom class
+    applyCustomClass(icon, params, 'icon');
+  };
+
+  // Adjust success icon background color to match the popup background color
+  const adjustSuccessIconBackgroundColor = () => {
+    const popup = getPopup();
+    const popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
+    /** @type {NodeListOf<HTMLElement>} */
+    const successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
+    for (let i = 0; i < successIconParts.length; i++) {
+      successIconParts[i].style.backgroundColor = popupBackgroundColor;
+    }
+  };
+  const successIconHtml = `
+  <div class="swal2-success-circular-line-left"></div>
+  <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
+  <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
+  <div class="swal2-success-circular-line-right"></div>
+`;
+  const errorIconHtml = `
+  <span class="swal2-x-mark">
+    <span class="swal2-x-mark-line-left"></span>
+    <span class="swal2-x-mark-line-right"></span>
+  </span>
+`;
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  const setContent = (icon, params) => {
+    let oldContent = icon.innerHTML;
+    let newContent;
+    if (params.iconHtml) {
+      newContent = iconContent(params.iconHtml);
+    } else if (params.icon === 'success') {
+      newContent = successIconHtml;
+      oldContent = oldContent.replace(/ style=".*?"/g, ''); // undo adjustSuccessIconBackgroundColor()
+    } else if (params.icon === 'error') {
+      newContent = errorIconHtml;
+    } else {
+      const defaultIconHtml = {
+        question: '?',
+        warning: '!',
+        info: 'i'
+      };
+      newContent = iconContent(defaultIconHtml[params.icon]);
+    }
+    if (oldContent.trim() !== newContent.trim()) {
+      setInnerHtml(icon, newContent);
+    }
+  };
+
+  /**
+   * @param {HTMLElement} icon
+   * @param {SweetAlertOptions} params
+   */
+  const setColor = (icon, params) => {
+    if (!params.iconColor) {
+      return;
+    }
+    icon.style.color = params.iconColor;
+    icon.style.borderColor = params.iconColor;
+    for (const sel of ['.swal2-success-line-tip', '.swal2-success-line-long', '.swal2-x-mark-line-left', '.swal2-x-mark-line-right']) {
+      setStyle(icon, sel, 'backgroundColor', params.iconColor);
+    }
+    setStyle(icon, '.swal2-success-ring', 'borderColor', params.iconColor);
+  };
+
+  /**
+   * @param {string} content
+   * @returns {string}
+   */
+  const iconContent = content => `<div class="${swalClasses['icon-content']}">${content}</div>`;
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderImage = (instance, params) => {
+    const image = getImage();
+    if (!params.imageUrl) {
+      hide(image);
+      return;
+    }
+    show(image, '');
+
+    // Src, alt
+    image.setAttribute('src', params.imageUrl);
+    image.setAttribute('alt', params.imageAlt);
+
+    // Width, height
+    applyNumericalStyle(image, 'width', params.imageWidth);
+    applyNumericalStyle(image, 'height', params.imageHeight);
+
+    // Class
+    image.className = swalClasses.image;
+    applyCustomClass(image, params, 'image');
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderPopup = (instance, params) => {
+    const container = getContainer();
+    const popup = getPopup();
+
+    // Width
+    // https://github.com/sweetalert2/sweetalert2/issues/2170
+    if (params.toast) {
+      applyNumericalStyle(container, 'width', params.width);
+      popup.style.width = '100%';
+      popup.insertBefore(getLoader(), getIcon());
+    } else {
+      applyNumericalStyle(popup, 'width', params.width);
+    }
+
+    // Padding
+    applyNumericalStyle(popup, 'padding', params.padding);
+
+    // Color
+    if (params.color) {
+      popup.style.color = params.color;
+    }
+
+    // Background
+    if (params.background) {
+      popup.style.background = params.background;
+    }
+    hide(getValidationMessage());
+
+    // Classes
+    addClasses$1(popup, params);
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} params
+   */
+  const addClasses$1 = (popup, params) => {
+    // Default Class + showClass when updating Swal.update({})
+    popup.className = `${swalClasses.popup} ${isVisible$1(popup) ? params.showClass.popup : ''}`;
+    if (params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['toast-shown']);
+      addClass(popup, swalClasses.toast);
+    } else {
+      addClass(popup, swalClasses.modal);
+    }
+
+    // Custom class
+    applyCustomClass(popup, params, 'popup');
+    if (typeof params.customClass === 'string') {
+      addClass(popup, params.customClass);
+    }
+
+    // Icon class (#1842)
+    if (params.icon) {
+      addClass(popup, swalClasses[`icon-${params.icon}`]);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderProgressSteps = (instance, params) => {
+    const progressStepsContainer = getProgressSteps$1();
+    if (!params.progressSteps || params.progressSteps.length === 0) {
+      hide(progressStepsContainer);
+      return;
+    }
+    show(progressStepsContainer);
+    progressStepsContainer.textContent = '';
+    if (params.currentProgressStep >= params.progressSteps.length) {
+      warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
+    }
+    params.progressSteps.forEach((step, index) => {
+      const stepEl = createStepElement(step);
+      progressStepsContainer.appendChild(stepEl);
+      if (index === params.currentProgressStep) {
+        addClass(stepEl, swalClasses['active-progress-step']);
+      }
+      if (index !== params.progressSteps.length - 1) {
+        const lineEl = createLineElement(params);
+        progressStepsContainer.appendChild(lineEl);
+      }
+    });
+  };
+
+  /**
+   * @param {string} step
+   * @returns {HTMLLIElement}
+   */
+  const createStepElement = step => {
+    const stepEl = document.createElement('li');
+    addClass(stepEl, swalClasses['progress-step']);
+    setInnerHtml(stepEl, step);
+    return stepEl;
+  };
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {HTMLLIElement}
+   */
+  const createLineElement = params => {
+    const lineEl = document.createElement('li');
+    addClass(lineEl, swalClasses['progress-step-line']);
+    if (params.progressStepsDistance) {
+      applyNumericalStyle(lineEl, 'width', params.progressStepsDistance);
+    }
+    return lineEl;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const renderTitle = (instance, params) => {
+    const title = getTitle();
+    toggle(title, params.title || params.titleText, 'block');
+    if (params.title) {
+      parseHtmlToContainer(params.title, title);
+    }
+    if (params.titleText) {
+      title.innerText = params.titleText;
+    }
+
+    // Custom class
+    applyCustomClass(title, params, 'title');
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const render = (instance, params) => {
+    renderPopup(instance, params);
+    renderContainer(instance, params);
+    renderProgressSteps(instance, params);
+    renderIcon(instance, params);
+    renderImage(instance, params);
+    renderTitle(instance, params);
+    renderCloseButton(instance, params);
+    renderContent(instance, params);
+    renderActions(instance, params);
+    renderFooter(instance, params);
+    if (typeof params.didRender === 'function') {
+      params.didRender(getPopup());
+    }
+  };
+
+  /**
+   * Hides loader and shows back the button which was hidden by .showLoading()
+   */
+  function hideLoading() {
+    // do nothing if popup is closed
+    const innerParams = privateProps.innerParams.get(this);
+    if (!innerParams) {
+      return;
+    }
+    const domCache = privateProps.domCache.get(this);
+    hide(domCache.loader);
+    if (isToast()) {
+      if (innerParams.icon) {
+        show(getIcon());
+      }
+    } else {
+      showRelatedButton(domCache);
+    }
+    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
+    domCache.popup.removeAttribute('aria-busy');
+    domCache.popup.removeAttribute('data-loading');
+    domCache.confirmButton.disabled = false;
+    domCache.denyButton.disabled = false;
+    domCache.cancelButton.disabled = false;
+  }
+  const showRelatedButton = domCache => {
+    const buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute('data-button-to-replace'));
+    if (buttonToReplace.length) {
+      show(buttonToReplace[0], 'inline-block');
+    } else if (allButtonsAreHidden()) {
+      hide(domCache.actions);
+    }
+  };
+
+  /**
+   * Gets the input DOM node, this method works with input parameter.
+   *
+   * @param {SweetAlert2} instance
+   * @returns {HTMLElement | null}
+   */
+  function getInput(instance) {
+    const innerParams = privateProps.innerParams.get(instance || this);
+    const domCache = privateProps.domCache.get(instance || this);
+    if (!domCache) {
+      return null;
+    }
+    return getInput$1(domCache.popup, innerParams.input);
+  }
+
+  /*
+   * Global function to determine if SweetAlert2 popup is shown
+   */
+  const isVisible = () => {
+    return isVisible$1(getPopup());
+  };
+
+  /*
+   * Global function to click 'Confirm' button
+   */
+  const clickConfirm = () => getConfirmButton() && getConfirmButton().click();
+
+  /*
+   * Global function to click 'Deny' button
+   */
+  const clickDeny = () => getDenyButton() && getDenyButton().click();
+
+  /*
+   * Global function to click 'Cancel' button
+   */
+  const clickCancel = () => getCancelButton() && getCancelButton().click();
+
+  const DismissReason = Object.freeze({
+    cancel: 'cancel',
+    backdrop: 'backdrop',
+    close: 'close',
+    esc: 'esc',
+    timer: 'timer'
+  });
+
+  /**
+   * @param {GlobalState} globalState
+   */
+  const removeKeydownHandler = globalState => {
+    if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
+      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = false;
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {GlobalState} globalState
+   * @param {SweetAlertOptions} innerParams
+   * @param {*} dismissWith
+   */
+  const addKeydownHandler = (instance, globalState, innerParams, dismissWith) => {
+    removeKeydownHandler(globalState);
+    if (!innerParams.toast) {
+      globalState.keydownHandler = e => keydownHandler(instance, e, dismissWith);
+      globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
+      globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
+      globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
+        capture: globalState.keydownListenerCapture
+      });
+      globalState.keydownHandlerAdded = true;
+    }
+  };
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {number} index
+   * @param {number} increment
+   */
+  const setFocus = (innerParams, index, increment) => {
+    const focusableElements = getFocusableElements();
+    // search for visible elements and select the next possible match
+    if (focusableElements.length) {
+      index = index + increment;
+
+      // rollover to first item
+      if (index === focusableElements.length) {
+        index = 0;
+
+        // go to last item
+      } else if (index === -1) {
+        index = focusableElements.length - 1;
+      }
+      return focusableElements[index].focus();
+    }
+    // no visible focusable elements, focus the popup
+    getPopup().focus();
+  };
+  const arrowKeysNextButton = ['ArrowRight', 'ArrowDown'];
+  const arrowKeysPreviousButton = ['ArrowLeft', 'ArrowUp'];
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {KeyboardEvent} e
+   * @param {function} dismissWith
+   */
+  const keydownHandler = (instance, e, dismissWith) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams) {
+      return; // This instance has already been destroyed
+    }
+
+    // Ignore keydown during IME composition
+    // https://developer.mozilla.org/en-US/docs/Web/API/Document/keydown_event#ignoring_keydown_during_ime_composition
+    // https://github.com/sweetalert2/sweetalert2/issues/720
+    // https://github.com/sweetalert2/sweetalert2/issues/2406
+    if (e.isComposing || e.keyCode === 229) {
+      return;
+    }
+    if (innerParams.stopKeydownPropagation) {
+      e.stopPropagation();
+    }
+
+    // ENTER
+    if (e.key === 'Enter') {
+      handleEnter(instance, e, innerParams);
+    }
+
+    // TAB
+    else if (e.key === 'Tab') {
+      handleTab(e, innerParams);
+    }
+
+    // ARROWS - switch focus between buttons
+    else if ([...arrowKeysNextButton, ...arrowKeysPreviousButton].includes(e.key)) {
+      handleArrows(e.key);
+    }
+
+    // ESC
+    else if (e.key === 'Escape') {
+      handleEsc(e, innerParams, dismissWith);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {KeyboardEvent} e
+   * @param {SweetAlertOptions} innerParams
+   */
+  const handleEnter = (instance, e, innerParams) => {
+    // https://github.com/sweetalert2/sweetalert2/issues/2386
+    if (!callIfFunction(innerParams.allowEnterKey)) {
+      return;
+    }
+    if (e.target && instance.getInput() && e.target instanceof HTMLElement && e.target.outerHTML === instance.getInput().outerHTML) {
+      if (['textarea', 'file'].includes(innerParams.input)) {
+        return; // do not submit
+      }
+
+      clickConfirm();
+      e.preventDefault();
+    }
+  };
+
+  /**
+   * @param {KeyboardEvent} e
+   * @param {SweetAlertOptions} innerParams
+   */
+  const handleTab = (e, innerParams) => {
+    const targetElement = e.target;
+    const focusableElements = getFocusableElements();
+    let btnIndex = -1;
+    for (let i = 0; i < focusableElements.length; i++) {
+      if (targetElement === focusableElements[i]) {
+        btnIndex = i;
+        break;
+      }
+    }
+
+    // Cycle to the next button
+    if (!e.shiftKey) {
+      setFocus(innerParams, btnIndex, 1);
+    }
+
+    // Cycle to the prev button
+    else {
+      setFocus(innerParams, btnIndex, -1);
+    }
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
+  /**
+   * @param {string} key
+   */
+  const handleArrows = key => {
+    const confirmButton = getConfirmButton();
+    const denyButton = getDenyButton();
+    const cancelButton = getCancelButton();
+    if (document.activeElement instanceof HTMLElement && ![confirmButton, denyButton, cancelButton].includes(document.activeElement)) {
+      return;
+    }
+    const sibling = arrowKeysNextButton.includes(key) ? 'nextElementSibling' : 'previousElementSibling';
+    let buttonToFocus = document.activeElement;
+    for (let i = 0; i < getActions().children.length; i++) {
+      buttonToFocus = buttonToFocus[sibling];
+      if (!buttonToFocus) {
+        return;
+      }
+      if (buttonToFocus instanceof HTMLButtonElement && isVisible$1(buttonToFocus)) {
+        break;
+      }
+    }
+    if (buttonToFocus instanceof HTMLButtonElement) {
+      buttonToFocus.focus();
+    }
+  };
+
+  /**
+   * @param {KeyboardEvent} e
+   * @param {SweetAlertOptions} innerParams
+   * @param {function} dismissWith
+   */
+  const handleEsc = (e, innerParams, dismissWith) => {
+    if (callIfFunction(innerParams.allowEscapeKey)) {
+      e.preventDefault();
+      dismissWith(DismissReason.esc);
+    }
+  };
+
+  /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+
+  var privateMethods = {
+    swalPromiseResolve: new WeakMap(),
+    swalPromiseReject: new WeakMap()
+  };
+
+  // From https://developer.paciellogroup.com/blog/2018/06/the-current-state-of-modal-dialog-accessibility/
+  // Adding aria-hidden="true" to elements outside of the active modal dialog ensures that
+  // elements not within the active modal dialog will not be surfaced if a user opens a screen
+  // reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
+
+  const setAriaHidden = () => {
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(el => {
+      if (el === getContainer() || el.contains(getContainer())) {
+        return;
+      }
+      if (el.hasAttribute('aria-hidden')) {
+        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
+      }
+      el.setAttribute('aria-hidden', 'true');
+    });
+  };
+  const unsetAriaHidden = () => {
+    const bodyChildren = Array.from(document.body.children);
+    bodyChildren.forEach(el => {
+      if (el.hasAttribute('data-previous-aria-hidden')) {
+        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
+        el.removeAttribute('data-previous-aria-hidden');
+      } else {
+        el.removeAttribute('aria-hidden');
+      }
+    });
+  };
+
+  /* istanbul ignore file */
+
+  // Fix iOS scrolling http://stackoverflow.com/q/39626302
+
+  const iOSfix = () => {
+    const iOS =
+    // @ts-ignore
+    /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
+      const offset = document.body.scrollTop;
+      document.body.style.top = `${offset * -1}px`;
+      addClass(document.body, swalClasses.iosfix);
+      lockBodyScroll();
+      addBottomPaddingForTallPopups();
+    }
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1948
+   */
+  const addBottomPaddingForTallPopups = () => {
+    const ua = navigator.userAgent;
+    const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    const webkit = !!ua.match(/WebKit/i);
+    const iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+    if (iOSSafari) {
+      const bottomPanelHeight = 44;
+      if (getPopup().scrollHeight > window.innerHeight - bottomPanelHeight) {
+        getContainer().style.paddingBottom = `${bottomPanelHeight}px`;
+      }
+    }
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1246
+   */
+  const lockBodyScroll = () => {
+    const container = getContainer();
+    let preventTouchMove;
+    /**
+     * @param {TouchEvent} e
+     */
+    container.ontouchstart = e => {
+      preventTouchMove = shouldPreventTouchMove(e);
+    };
+    /**
+     * @param {TouchEvent} e
+     */
+    container.ontouchmove = e => {
+      if (preventTouchMove) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+  };
+
+  /**
+   * @param {TouchEvent} event
+   * @returns {boolean}
+   */
+  const shouldPreventTouchMove = event => {
+    const target = event.target;
+    const container = getContainer();
+    if (isStylus(event) || isZoom(event)) {
+      return false;
+    }
+    if (target === container) {
+      return true;
+    }
+    if (!isScrollable(container) && target instanceof HTMLElement && target.tagName !== 'INPUT' &&
+    // #1603
+    target.tagName !== 'TEXTAREA' &&
+    // #2266
+    !(isScrollable(getHtmlContainer()) &&
+    // #1944
+    getHtmlContainer().contains(target))) {
+      return true;
+    }
+    return false;
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1786
+   *
+   * @param {*} event
+   * @returns {boolean}
+   */
+  const isStylus = event => {
+    return event.touches && event.touches.length && event.touches[0].touchType === 'stylus';
+  };
+
+  /**
+   * https://github.com/sweetalert2/sweetalert2/issues/1891
+   *
+   * @param {TouchEvent} event
+   * @returns {boolean}
+   */
+  const isZoom = event => {
+    return event.touches && event.touches.length > 1;
+  };
+  const undoIOSfix = () => {
+    if (hasClass(document.body, swalClasses.iosfix)) {
+      const offset = parseInt(document.body.style.top, 10);
+      removeClass(document.body, swalClasses.iosfix);
+      document.body.style.top = '';
+      document.body.scrollTop = offset * -1;
+    }
+  };
+
+  const fixScrollbar = () => {
+    // for queues, do not do this more than once
+    if (states.previousBodyPadding !== null) {
+      return;
+    }
+    // if the body has overflow
+    if (document.body.scrollHeight > window.innerHeight) {
+      // add padding so the content doesn't shift after removal of scrollbar
+      states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
+      document.body.style.paddingRight = `${states.previousBodyPadding + measureScrollbar()}px`;
+    }
+  };
+  const undoScrollbar = () => {
+    if (states.previousBodyPadding !== null) {
+      document.body.style.paddingRight = `${states.previousBodyPadding}px`;
+      states.previousBodyPadding = null;
+    }
+  };
+
+  /*
+   * Instance method to close sweetAlert
+   */
+
+  function removePopupAndResetState(instance, container, returnFocus, didClose) {
+    if (isToast()) {
+      triggerDidCloseAndDispose(instance, didClose);
+    } else {
+      restoreActiveElement(returnFocus).then(() => triggerDidCloseAndDispose(instance, didClose));
+      removeKeydownHandler(globalState);
+    }
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    // workaround for #2088
+    // for some reason removing the container in Safari will scroll the document to bottom
+    if (isSafari) {
+      container.setAttribute('style', 'display:none !important');
+      container.removeAttribute('class');
+      container.innerHTML = '';
+    } else {
+      container.remove();
+    }
+    if (isModal()) {
+      undoScrollbar();
+      undoIOSfix();
+      unsetAriaHidden();
+    }
+    removeBodyClasses();
+  }
+  function removeBodyClasses() {
+    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown']]);
+  }
+  function close(resolveValue) {
+    resolveValue = prepareResolveValue(resolveValue);
+    const swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
+    const didClose = triggerClosePopup(this);
+    if (this.isAwaitingPromise()) {
+      // A swal awaiting for a promise (after a click on Confirm or Deny) cannot be dismissed anymore #2335
+      if (!resolveValue.isDismissed) {
+        handleAwaitingPromise(this);
+        swalPromiseResolve(resolveValue);
+      }
+    } else if (didClose) {
+      // Resolve Swal promise
+      swalPromiseResolve(resolveValue);
+    }
+  }
+  function isAwaitingPromise() {
+    return !!privateProps.awaitingPromise.get(this);
+  }
+  const triggerClosePopup = instance => {
+    const popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    const innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams || hasClass(popup, innerParams.hideClass.popup)) {
+      return false;
+    }
+    removeClass(popup, innerParams.showClass.popup);
+    addClass(popup, innerParams.hideClass.popup);
+    const backdrop = getContainer();
+    removeClass(backdrop, innerParams.showClass.backdrop);
+    addClass(backdrop, innerParams.hideClass.backdrop);
+    handlePopupAnimation(instance, popup, innerParams);
+    return true;
+  };
+  function rejectPromise(error) {
+    const rejectPromise = privateMethods.swalPromiseReject.get(this);
+    handleAwaitingPromise(this);
+    if (rejectPromise) {
+      // Reject Swal promise
+      rejectPromise(error);
+    }
+  }
+  const handleAwaitingPromise = instance => {
+    if (instance.isAwaitingPromise()) {
+      privateProps.awaitingPromise.delete(instance);
+      // The instance might have been previously partly destroyed, we must resume the destroy process in this case #2335
+      if (!privateProps.innerParams.get(instance)) {
+        instance._destroy();
+      }
+    }
+  };
+  const prepareResolveValue = resolveValue => {
+    // When user calls Swal.close()
+    if (typeof resolveValue === 'undefined') {
+      return {
+        isConfirmed: false,
+        isDenied: false,
+        isDismissed: true
+      };
+    }
+    return Object.assign({
+      isConfirmed: false,
+      isDenied: false,
+      isDismissed: false
+    }, resolveValue);
+  };
+  const handlePopupAnimation = (instance, popup, innerParams) => {
+    const container = getContainer();
+    // If animation is supported, animate
+    const animationIsSupported = animationEndEvent && hasCssAnimation(popup);
+    if (typeof innerParams.willClose === 'function') {
+      innerParams.willClose(popup);
+    }
+    if (animationIsSupported) {
+      animatePopup(instance, popup, container, innerParams.returnFocus, innerParams.didClose);
+    } else {
+      // Otherwise, remove immediately
+      removePopupAndResetState(instance, container, innerParams.returnFocus, innerParams.didClose);
+    }
+  };
+  const animatePopup = (instance, popup, container, returnFocus, didClose) => {
+    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, returnFocus, didClose);
+    popup.addEventListener(animationEndEvent, function (e) {
+      if (e.target === popup) {
+        globalState.swalCloseEventFinishedCallback();
+        delete globalState.swalCloseEventFinishedCallback;
+      }
+    });
+  };
+  const triggerDidCloseAndDispose = (instance, didClose) => {
+    setTimeout(() => {
+      if (typeof didClose === 'function') {
+        didClose.bind(instance.params)();
+      }
+      instance._destroy();
+    });
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {string[]} buttons
+   * @param {boolean} disabled
+   */
+  function setButtonsDisabled(instance, buttons, disabled) {
+    const domCache = privateProps.domCache.get(instance);
+    buttons.forEach(button => {
+      domCache[button].disabled = disabled;
+    });
+  }
+
+  /**
+   * @param {HTMLInputElement} input
+   * @param {boolean} disabled
+   */
+  function setInputDisabled(input, disabled) {
+    if (!input) {
+      return;
+    }
+    if (input.type === 'radio') {
+      const radiosContainer = input.parentNode.parentNode;
+      const radios = radiosContainer.querySelectorAll('input');
+      for (let i = 0; i < radios.length; i++) {
+        radios[i].disabled = disabled;
+      }
+    } else {
+      input.disabled = disabled;
+    }
+  }
+  function enableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], false);
+  }
+  function disableButtons() {
+    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], true);
+  }
+  function enableInput() {
+    setInputDisabled(this.getInput(), false);
+  }
+  function disableInput() {
+    setInputDisabled(this.getInput(), true);
+  }
+
+  /**
+   * Show block with validation message
+   *
+   * @param {string} error
+   */
+  function showValidationMessage(error) {
+    const domCache = privateProps.domCache.get(this);
+    const params = privateProps.innerParams.get(this);
+    setInnerHtml(domCache.validationMessage, error);
+    domCache.validationMessage.className = swalClasses['validation-message'];
+    if (params.customClass && params.customClass.validationMessage) {
+      addClass(domCache.validationMessage, params.customClass.validationMessage);
+    }
+    show(domCache.validationMessage);
+    const input = this.getInput();
+    if (input) {
+      input.setAttribute('aria-invalid', true);
+      input.setAttribute('aria-describedby', swalClasses['validation-message']);
+      focusInput(input);
+      addClass(input, swalClasses.inputerror);
+    }
+  }
+
+  /**
+   * Hide block with validation message
+   */
+  function resetValidationMessage() {
+    const domCache = privateProps.domCache.get(this);
+    if (domCache.validationMessage) {
+      hide(domCache.validationMessage);
+    }
+    const input = this.getInput();
+    if (input) {
+      input.removeAttribute('aria-invalid');
+      input.removeAttribute('aria-describedby');
+      removeClass(input, swalClasses.inputerror);
+    }
+  }
+
+  function getProgressSteps() {
+    const domCache = privateProps.domCache.get(this);
+    return domCache.progressSteps;
+  }
 
   const defaultParams = {
     title: '',
@@ -30801,6 +21944,7 @@ function requestTimeout(timeout) {
     },
     customClass: {},
     target: 'body',
+    color: undefined,
     backdrop: true,
     heightAuto: true,
     allowOutsideClick: true,
@@ -30866,91 +22010,848 @@ function requestTimeout(timeout) {
     didDestroy: undefined,
     scrollbarPadding: true
   };
-  const updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'didClose', 'didDestroy', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'iconHtml', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'preConfirm', 'preDeny', 'progressSteps', 'returnFocus', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText', 'willClose'];
+  const updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'color', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'didClose', 'didDestroy', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'iconHtml', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'preConfirm', 'preDeny', 'progressSteps', 'returnFocus', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText', 'willClose'];
   const deprecatedParams = {};
   const toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusDeny', 'focusCancel', 'returnFocus', 'heightAuto', 'keydownListenerCapture'];
+
   /**
    * Is valid parameter
-   * @param {String} paramName
+   *
+   * @param {string} paramName
+   * @returns {boolean}
    */
-
   const isValidParameter = paramName => {
     return Object.prototype.hasOwnProperty.call(defaultParams, paramName);
   };
+
   /**
    * Is valid parameter for Swal.update() method
-   * @param {String} paramName
+   *
+   * @param {string} paramName
+   * @returns {boolean}
    */
-
   const isUpdatableParameter = paramName => {
     return updatableParams.indexOf(paramName) !== -1;
   };
+
   /**
    * Is deprecated parameter
-   * @param {String} paramName
+   *
+   * @param {string} paramName
+   * @returns {string | undefined}
    */
-
   const isDeprecatedParameter = paramName => {
     return deprecatedParams[paramName];
   };
 
+  /**
+   * @param {string} param
+   */
   const checkIfParamIsValid = param => {
     if (!isValidParameter(param)) {
-      warn("Unknown parameter \"".concat(param, "\""));
+      warn(`Unknown parameter "${param}"`);
     }
   };
 
+  /**
+   * @param {string} param
+   */
   const checkIfToastParamIsValid = param => {
     if (toastIncompatibleParams.includes(param)) {
-      warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
+      warn(`The parameter "${param}" is incompatible with toasts`);
     }
   };
 
+  /**
+   * @param {string} param
+   */
   const checkIfParamIsDeprecated = param => {
     if (isDeprecatedParameter(param)) {
       warnAboutDeprecation(param, isDeprecatedParameter(param));
     }
   };
+
   /**
    * Show relevant warnings for given params
    *
-   * @param params
+   * @param {SweetAlertOptions} params
    */
-
-
   const showWarningsForParams = params => {
-    if (!params.backdrop && params.allowOutsideClick) {
+    if (params.backdrop === false && params.allowOutsideClick) {
       warn('"allowOutsideClick" parameter requires `backdrop` parameter to be set to `true`');
     }
-
     for (const param in params) {
       checkIfParamIsValid(param);
-
       if (params.toast) {
         checkIfToastParamIsValid(param);
       }
-
       checkIfParamIsDeprecated(param);
     }
   };
 
+  /**
+   * Updates popup parameters.
+   */
+  function update(params) {
+    const popup = getPopup();
+    const innerParams = privateProps.innerParams.get(this);
+    if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
+      return warn(`You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.`);
+    }
+    const validUpdatableParams = filterValidParams(params);
+    const updatedParams = Object.assign({}, innerParams, validUpdatableParams);
+    render(this, updatedParams);
+    privateProps.innerParams.set(this, updatedParams);
+    Object.defineProperties(this, {
+      params: {
+        value: Object.assign({}, this.params, params),
+        writable: false,
+        enumerable: true
+      }
+    });
+  }
+  const filterValidParams = params => {
+    const validUpdatableParams = {};
+    Object.keys(params).forEach(param => {
+      if (isUpdatableParameter(param)) {
+        validUpdatableParams[param] = params[param];
+      } else {
+        warn(`Invalid parameter to update: ${param}`);
+      }
+    });
+    return validUpdatableParams;
+  };
 
+  function _destroy() {
+    const domCache = privateProps.domCache.get(this);
+    const innerParams = privateProps.innerParams.get(this);
+    if (!innerParams) {
+      disposeWeakMaps(this); // The WeakMaps might have been partly destroyed, we must recall it to dispose any remaining WeakMaps #2335
+      return; // This instance has already been destroyed
+    }
+
+    // Check if there is another Swal closing
+    if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
+      globalState.swalCloseEventFinishedCallback();
+      delete globalState.swalCloseEventFinishedCallback;
+    }
+    if (typeof innerParams.didDestroy === 'function') {
+      innerParams.didDestroy();
+    }
+    disposeSwal(this);
+  }
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const disposeSwal = instance => {
+    disposeWeakMaps(instance);
+    // Unset this.params so GC will dispose it (#1569)
+    // @ts-ignore
+    delete instance.params;
+    // Unset globalState props so GC will dispose globalState (#1569)
+    delete globalState.keydownHandler;
+    delete globalState.keydownTarget;
+    // Unset currentInstance
+    delete globalState.currentInstance;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const disposeWeakMaps = instance => {
+    // If the current instance is awaiting a promise result, we keep the privateMethods to call them once the promise result is retrieved #2335
+    // @ts-ignore
+    if (instance.isAwaitingPromise()) {
+      unsetWeakMaps(privateProps, instance);
+      privateProps.awaitingPromise.set(instance, true);
+    } else {
+      unsetWeakMaps(privateMethods, instance);
+      unsetWeakMaps(privateProps, instance);
+    }
+  };
+
+  /**
+   * @param {object} obj
+   * @param {SweetAlert2} instance
+   */
+  const unsetWeakMaps = (obj, instance) => {
+    for (const i in obj) {
+      obj[i].delete(instance);
+    }
+  };
+
+  var instanceMethods = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    hideLoading: hideLoading,
+    disableLoading: hideLoading,
+    getInput: getInput,
+    close: close,
+    isAwaitingPromise: isAwaitingPromise,
+    rejectPromise: rejectPromise,
+    handleAwaitingPromise: handleAwaitingPromise,
+    closePopup: close,
+    closeModal: close,
+    closeToast: close,
+    enableButtons: enableButtons,
+    disableButtons: disableButtons,
+    enableInput: enableInput,
+    disableInput: disableInput,
+    showValidationMessage: showValidationMessage,
+    resetValidationMessage: resetValidationMessage,
+    getProgressSteps: getProgressSteps,
+    update: update,
+    _destroy: _destroy
+  });
+
+  /**
+   * Shows loader (spinner), this is useful with AJAX requests.
+   * By default the loader be shown instead of the "Confirm" button.
+   */
+  const showLoading = buttonToReplace => {
+    let popup = getPopup();
+    if (!popup) {
+      new Swal(); // eslint-disable-line no-new
+    }
+
+    popup = getPopup();
+    const loader = getLoader();
+    if (isToast()) {
+      hide(getIcon());
+    } else {
+      replaceButton(popup, buttonToReplace);
+    }
+    show(loader);
+    popup.setAttribute('data-loading', 'true');
+    popup.setAttribute('aria-busy', 'true');
+    popup.focus();
+  };
+  const replaceButton = (popup, buttonToReplace) => {
+    const actions = getActions();
+    const loader = getLoader();
+    if (!buttonToReplace && isVisible$1(getConfirmButton())) {
+      buttonToReplace = getConfirmButton();
+    }
+    show(actions);
+    if (buttonToReplace) {
+      hide(buttonToReplace);
+      loader.setAttribute('data-button-to-replace', buttonToReplace.className);
+    }
+    loader.parentNode.insertBefore(loader, buttonToReplace);
+    addClass([popup, actions], swalClasses.loading);
+  };
+
+  /**
+   * @typedef { string | number | boolean } InputValue
+   */
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputOptionsAndValue = (instance, params) => {
+    if (params.input === 'select' || params.input === 'radio') {
+      handleInputOptions(instance, params);
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].includes(params.input) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
+      showLoading(getConfirmButton());
+      handleInputValue(instance, params);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} innerParams
+   * @returns {string | number | File | FileList | null}
+   */
+  const getInputValue = (instance, innerParams) => {
+    const input = instance.getInput();
+    if (!input) {
+      return null;
+    }
+    switch (innerParams.input) {
+      case 'checkbox':
+        return getCheckboxValue(input);
+      case 'radio':
+        return getRadioValue(input);
+      case 'file':
+        return getFileValue(input);
+      default:
+        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {number}
+   */
+  const getCheckboxValue = input => input.checked ? 1 : 0;
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {string | null}
+   */
+  const getRadioValue = input => input.checked ? input.value : null;
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {FileList | File | null}
+   */
+  const getFileValue = input => input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputOptions = (instance, params) => {
+    const popup = getPopup();
+    /**
+     * @param {Record<string, any>} inputOptions
+     */
+    const processInputOptions = inputOptions => {
+      populateInputOptions[params.input](popup, formatInputOptions(inputOptions), params);
+    };
+    if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
+      showLoading(getConfirmButton());
+      asPromise(params.inputOptions).then(inputOptions => {
+        instance.hideLoading();
+        processInputOptions(inputOptions);
+      });
+    } else if (typeof params.inputOptions === 'object') {
+      processInputOptions(params.inputOptions);
+    } else {
+      error(`Unexpected type of inputOptions! Expected object, Map or Promise, got ${typeof params.inputOptions}`);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputValue = (instance, params) => {
+    const input = instance.getInput();
+    hide(input);
+    asPromise(params.inputValue).then(inputValue => {
+      input.value = params.input === 'number' ? `${parseFloat(inputValue) || 0}` : `${inputValue}`;
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    }).catch(err => {
+      error(`Error in inputValue promise: ${err}`);
+      input.value = '';
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    });
+  };
+  const populateInputOptions = {
+    /**
+     * @param {HTMLElement} popup
+     * @param {Record<string, any>} inputOptions
+     * @param {SweetAlertOptions} params
+     */
+    select: (popup, inputOptions, params) => {
+      const select = getDirectChildByClass(popup, swalClasses.select);
+      /**
+       * @param {HTMLElement} parent
+       * @param {string} optionLabel
+       * @param {string} optionValue
+       */
+      const renderOption = (parent, optionLabel, optionValue) => {
+        const option = document.createElement('option');
+        option.value = optionValue;
+        setInnerHtml(option, optionLabel);
+        option.selected = isSelected(optionValue, params.inputValue);
+        parent.appendChild(option);
+      };
+      inputOptions.forEach(inputOption => {
+        const optionValue = inputOption[0];
+        const optionLabel = inputOption[1];
+        // <optgroup> spec:
+        // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
+        // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
+        // check whether this is a <optgroup>
+        if (Array.isArray(optionLabel)) {
+          // if it is an array, then it is an <optgroup>
+          const optgroup = document.createElement('optgroup');
+          optgroup.label = optionValue;
+          optgroup.disabled = false; // not configurable for now
+          select.appendChild(optgroup);
+          optionLabel.forEach(o => renderOption(optgroup, o[1], o[0]));
+        } else {
+          // case of <option>
+          renderOption(select, optionLabel, optionValue);
+        }
+      });
+      select.focus();
+    },
+    /**
+     * @param {HTMLElement} popup
+     * @param {Record<string, any>} inputOptions
+     * @param {SweetAlertOptions} params
+     */
+    radio: (popup, inputOptions, params) => {
+      const radio = getDirectChildByClass(popup, swalClasses.radio);
+      inputOptions.forEach(inputOption => {
+        const radioValue = inputOption[0];
+        const radioLabel = inputOption[1];
+        const radioInput = document.createElement('input');
+        const radioLabelElement = document.createElement('label');
+        radioInput.type = 'radio';
+        radioInput.name = swalClasses.radio;
+        radioInput.value = radioValue;
+        if (isSelected(radioValue, params.inputValue)) {
+          radioInput.checked = true;
+        }
+        const label = document.createElement('span');
+        setInnerHtml(label, radioLabel);
+        label.className = swalClasses.label;
+        radioLabelElement.appendChild(radioInput);
+        radioLabelElement.appendChild(label);
+        radio.appendChild(radioLabelElement);
+      });
+      const radios = radio.querySelectorAll('input');
+      if (radios.length) {
+        radios[0].focus();
+      }
+    }
+  };
+
+  /**
+   * Converts `inputOptions` into an array of `[value, label]`s
+   *
+   * @param {Record<string, any>} inputOptions
+   * @returns {Array<Array<string>>}
+   */
+  const formatInputOptions = inputOptions => {
+    const result = [];
+    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
+      inputOptions.forEach((value, key) => {
+        let valueFormatted = value;
+        if (typeof valueFormatted === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    } else {
+      Object.keys(inputOptions).forEach(key => {
+        let valueFormatted = inputOptions[key];
+        if (typeof valueFormatted === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    }
+    return result;
+  };
+
+  /**
+   * @param {string} optionValue
+   * @param {InputValue | Promise<InputValue> | { toPromise: () => InputValue }} inputValue
+   * @returns {boolean}
+   */
+  const isSelected = (optionValue, inputValue) => {
+    return inputValue && inputValue.toString() === optionValue.toString();
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const handleConfirmButtonClick = instance => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.input) {
+      handleConfirmOrDenyWithInput(instance, 'confirm');
+    } else {
+      confirm(instance, true);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   */
+  const handleDenyButtonClick = instance => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.returnInputValueOnDeny) {
+      handleConfirmOrDenyWithInput(instance, 'deny');
+    } else {
+      deny(instance, false);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {Function} dismissWith
+   */
+  const handleCancelButtonClick = (instance, dismissWith) => {
+    instance.disableButtons();
+    dismissWith(DismissReason.cancel);
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {'confirm' | 'deny'} type
+   */
+  const handleConfirmOrDenyWithInput = (instance, type) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams.input) {
+      error(`The "input" parameter is needed to be set when using returnInputValueOn${capitalizeFirstLetter(type)}`);
+      return;
+    }
+    const inputValue = getInputValue(instance, innerParams);
+    if (innerParams.inputValidator) {
+      handleInputValidator(instance, inputValue, type);
+    } else if (!instance.getInput().checkValidity()) {
+      instance.enableButtons();
+      instance.showValidationMessage(innerParams.validationMessage);
+    } else if (type === 'deny') {
+      deny(instance, inputValue);
+    } else {
+      confirm(instance, inputValue);
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {string | number | File | FileList | null} inputValue
+   * @param {'confirm' | 'deny'} type
+   */
+  const handleInputValidator = (instance, inputValue, type) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableInput();
+    const validationPromise = Promise.resolve().then(() => asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage)));
+    validationPromise.then(validationMessage => {
+      instance.enableButtons();
+      instance.enableInput();
+      if (validationMessage) {
+        instance.showValidationMessage(validationMessage);
+      } else if (type === 'deny') {
+        deny(instance, inputValue);
+      } else {
+        confirm(instance, inputValue);
+      }
+    });
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {any} value
+   */
+  const deny = (instance, value) => {
+    const innerParams = privateProps.innerParams.get(instance || undefined);
+    if (innerParams.showLoaderOnDeny) {
+      showLoading(getDenyButton());
+    }
+    if (innerParams.preDeny) {
+      privateProps.awaitingPromise.set(instance || undefined, true); // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preDeny's promise is received
+      const preDenyPromise = Promise.resolve().then(() => asPromise(innerParams.preDeny(value, innerParams.validationMessage)));
+      preDenyPromise.then(preDenyValue => {
+        if (preDenyValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          instance.close({
+            isDenied: true,
+            value: typeof preDenyValue === 'undefined' ? value : preDenyValue
+          });
+        }
+      }).catch(error => rejectWith(instance || undefined, error));
+    } else {
+      instance.close({
+        isDenied: true,
+        value
+      });
+    }
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @param {any} value
+   */
+  const succeedWith = (instance, value) => {
+    instance.close({
+      isConfirmed: true,
+      value
+    });
+  };
+
+  /**
+   *
+   * @param {SweetAlert2} instance
+   * @param {string} error
+   */
+  const rejectWith = (instance, error) => {
+    // @ts-ignore
+    instance.rejectPromise(error);
+  };
+
+  /**
+   *
+   * @param {SweetAlert2} instance
+   * @param {any} value
+   */
+  const confirm = (instance, value) => {
+    const innerParams = privateProps.innerParams.get(instance || undefined);
+    if (innerParams.showLoaderOnConfirm) {
+      showLoading();
+    }
+    if (innerParams.preConfirm) {
+      instance.resetValidationMessage();
+      privateProps.awaitingPromise.set(instance || undefined, true); // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preConfirm's promise is received
+      const preConfirmPromise = Promise.resolve().then(() => asPromise(innerParams.preConfirm(value, innerParams.validationMessage)));
+      preConfirmPromise.then(preConfirmValue => {
+        if (isVisible$1(getValidationMessage()) || preConfirmValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+        }
+      }).catch(error => rejectWith(instance || undefined, error));
+    } else {
+      succeedWith(instance, value);
+    }
+  };
+
+  const handlePopupClick = (instance, domCache, dismissWith) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    if (innerParams.toast) {
+      handleToastClick(instance, domCache, dismissWith);
+    } else {
+      // Ignore click events that had mousedown on the popup but mouseup on the container
+      // This can happen when the user drags a slider
+      handleModalMousedown(domCache);
+
+      // Ignore click events that had mousedown on the container but mouseup on the popup
+      handleContainerMousedown(domCache);
+      handleModalClick(instance, domCache, dismissWith);
+    }
+  };
+  const handleToastClick = (instance, domCache, dismissWith) => {
+    // Closing toast by internal click
+    domCache.popup.onclick = () => {
+      const innerParams = privateProps.innerParams.get(instance);
+      if (innerParams && (isAnyButtonShown(innerParams) || innerParams.timer || innerParams.input)) {
+        return;
+      }
+      dismissWith(DismissReason.close);
+    };
+  };
+
+  /**
+   * @param {*} innerParams
+   * @returns {boolean}
+   */
+  const isAnyButtonShown = innerParams => {
+    return innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton;
+  };
+  let ignoreOutsideClick = false;
+  const handleModalMousedown = domCache => {
+    domCache.popup.onmousedown = () => {
+      domCache.container.onmouseup = function (e) {
+        domCache.container.onmouseup = undefined;
+        // We only check if the mouseup target is the container because usually it doesn't
+        // have any other direct children aside of the popup
+        if (e.target === domCache.container) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+  const handleContainerMousedown = domCache => {
+    domCache.container.onmousedown = () => {
+      domCache.popup.onmouseup = function (e) {
+        domCache.popup.onmouseup = undefined;
+        // We also need to check if the mouseup target is a child of the popup
+        if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
+          ignoreOutsideClick = true;
+        }
+      };
+    };
+  };
+  const handleModalClick = (instance, domCache, dismissWith) => {
+    domCache.container.onclick = e => {
+      const innerParams = privateProps.innerParams.get(instance);
+      if (ignoreOutsideClick) {
+        ignoreOutsideClick = false;
+        return;
+      }
+      if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
+        dismissWith(DismissReason.backdrop);
+      }
+    };
+  };
+
+  const isJqueryElement = elem => typeof elem === 'object' && elem.jquery;
+  const isElement = elem => elem instanceof Element || isJqueryElement(elem);
+  const argsToParams = args => {
+    const params = {};
+    if (typeof args[0] === 'object' && !isElement(args[0])) {
+      Object.assign(params, args[0]);
+    } else {
+      ['title', 'html', 'icon'].forEach((name, index) => {
+        const arg = args[index];
+        if (typeof arg === 'string' || isElement(arg)) {
+          params[name] = arg;
+        } else if (arg !== undefined) {
+          error(`Unexpected type of ${name}! Expected "string" or "Element", got ${typeof arg}`);
+        }
+      });
+    }
+    return params;
+  };
+
+  function fire() {
+    const Swal = this; // eslint-disable-line @typescript-eslint/no-this-alias
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    return new Swal(...args);
+  }
+
+  /**
+   * Returns an extended version of `Swal` containing `params` as defaults.
+   * Useful for reusing Swal configuration.
+   *
+   * For example:
+   *
+   * Before:
+   * const textPromptOptions = { input: 'text', showCancelButton: true }
+   * const {value: firstName} = await Swal.fire({ ...textPromptOptions, title: 'What is your first name?' })
+   * const {value: lastName} = await Swal.fire({ ...textPromptOptions, title: 'What is your last name?' })
+   *
+   * After:
+   * const TextPrompt = Swal.mixin({ input: 'text', showCancelButton: true })
+   * const {value: firstName} = await TextPrompt('What is your first name?')
+   * const {value: lastName} = await TextPrompt('What is your last name?')
+   *
+   * @param mixinParams
+   */
+  function mixin(mixinParams) {
+    class MixinSwal extends this {
+      _main(params, priorityMixinParams) {
+        return super._main(params, Object.assign({}, mixinParams, priorityMixinParams));
+      }
+    }
+    return MixinSwal;
+  }
+
+  /**
+   * If `timer` parameter is set, returns number of milliseconds of timer remained.
+   * Otherwise, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const getTimerLeft = () => {
+    return globalState.timeout && globalState.timeout.getTimerLeft();
+  };
+
+  /**
+   * Stop timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const stopTimer = () => {
+    if (globalState.timeout) {
+      stopTimerProgressBar();
+      return globalState.timeout.stop();
+    }
+  };
+
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const resumeTimer = () => {
+    if (globalState.timeout) {
+      const remaining = globalState.timeout.start();
+      animateTimerProgressBar(remaining);
+      return remaining;
+    }
+  };
+
+  /**
+   * Resume timer. Returns number of milliseconds of timer remained.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @returns {number | undefined}
+   */
+  const toggleTimer = () => {
+    const timer = globalState.timeout;
+    return timer && (timer.running ? stopTimer() : resumeTimer());
+  };
+
+  /**
+   * Increase timer. Returns number of milliseconds of an updated timer.
+   * If `timer` parameter isn't set, returns undefined.
+   *
+   * @param {number} n
+   * @returns {number | undefined}
+   */
+  const increaseTimer = n => {
+    if (globalState.timeout) {
+      const remaining = globalState.timeout.increase(n);
+      animateTimerProgressBar(remaining, true);
+      return remaining;
+    }
+  };
+
+  /**
+   * Check if timer is running. Returns true if timer is running
+   * or false if timer is paused or stopped.
+   * If `timer` parameter isn't set, returns undefined
+   *
+   * @returns {boolean}
+   */
+  const isTimerRunning = () => {
+    return globalState.timeout && globalState.timeout.isRunning();
+  };
+
+  let bodyClickListenerAdded = false;
+  const clickHandlers = {};
+
+  /**
+   * @param {string} attr
+   */
+  function bindClickHandler() {
+    let attr = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'data-swal-template';
+    clickHandlers[attr] = this;
+    if (!bodyClickListenerAdded) {
+      document.body.addEventListener('click', bodyClickListener);
+      bodyClickListenerAdded = true;
+    }
+  }
+  const bodyClickListener = event => {
+    for (let el = event.target; el && el !== document; el = el.parentNode) {
+      for (const attr in clickHandlers) {
+        const template = el.getAttribute(attr);
+        if (template) {
+          clickHandlers[attr].fire({
+            template
+          });
+          return;
+        }
+      }
+    }
+  };
 
   var staticMethods = /*#__PURE__*/Object.freeze({
+    __proto__: null,
     isValidParameter: isValidParameter,
     isUpdatableParameter: isUpdatableParameter,
     isDeprecatedParameter: isDeprecatedParameter,
     argsToParams: argsToParams,
-    isVisible: isVisible$1,
-    clickConfirm: clickConfirm,
-    clickDeny: clickDeny,
-    clickCancel: clickCancel,
     getContainer: getContainer,
     getPopup: getPopup,
     getTitle: getTitle,
     getHtmlContainer: getHtmlContainer,
     getImage: getImage,
     getIcon: getIcon,
+    getIconContent: getIconContent,
     getInputLabel: getInputLabel,
     getCloseButton: getCloseButton,
     getActions: getActions,
@@ -30963,6 +22864,10 @@ function requestTimeout(timeout) {
     getFocusableElements: getFocusableElements,
     getValidationMessage: getValidationMessage,
     isLoading: isLoading,
+    isVisible: isVisible,
+    clickConfirm: clickConfirm,
+    clickDeny: clickDeny,
+    clickCancel: clickCancel,
     fire: fire,
     mixin: mixin,
     showLoading: showLoading,
@@ -30976,471 +22881,390 @@ function requestTimeout(timeout) {
     bindClickHandler: bindClickHandler
   });
 
-  /**
-   * Hides loader and shows back the button which was hidden by .showLoading()
-   */
-
-  function hideLoading() {
-    // do nothing if popup is closed
-    const innerParams = privateProps.innerParams.get(this);
-
-    if (!innerParams) {
-      return;
-    }
-
-    const domCache = privateProps.domCache.get(this);
-    hide(domCache.loader);
-
-    if (isToast()) {
-      if (innerParams.icon) {
-        show(getIcon());
-      }
-    } else {
-      showRelatedButton(domCache);
-    }
-
-    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
-    domCache.popup.removeAttribute('aria-busy');
-    domCache.popup.removeAttribute('data-loading');
-    domCache.confirmButton.disabled = false;
-    domCache.denyButton.disabled = false;
-    domCache.cancelButton.disabled = false;
-  }
-
-  const showRelatedButton = domCache => {
-    const buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute('data-button-to-replace'));
-
-    if (buttonToReplace.length) {
-      show(buttonToReplace[0], 'inline-block');
-    } else if (allButtonsAreHidden()) {
-      hide(domCache.actions);
-    }
-  };
-
-  function getInput$1(instance) {
-    const innerParams = privateProps.innerParams.get(instance || this);
-    const domCache = privateProps.domCache.get(instance || this);
-
-    if (!domCache) {
-      return null;
-    }
-
-    return getInput(domCache.popup, innerParams.input);
-  }
-
-  const fixScrollbar = () => {
-    // for queues, do not do this more than once
-    if (states.previousBodyPadding !== null) {
-      return;
-    } // if the body has overflow
-
-
-    if (document.body.scrollHeight > window.innerHeight) {
-      // add padding so the content doesn't shift after removal of scrollbar
-      states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
-      document.body.style.paddingRight = "".concat(states.previousBodyPadding + measureScrollbar(), "px");
-    }
-  };
-  const undoScrollbar = () => {
-    if (states.previousBodyPadding !== null) {
-      document.body.style.paddingRight = "".concat(states.previousBodyPadding, "px");
-      states.previousBodyPadding = null;
-    }
-  };
-
-  /* istanbul ignore file */
-
-  const iOSfix = () => {
-    const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-
-    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
-      const offset = document.body.scrollTop;
-      document.body.style.top = "".concat(offset * -1, "px");
-      addClass(document.body, swalClasses.iosfix);
-      lockBodyScroll();
-      addBottomPaddingForTallPopups(); // #1948
-    }
-  };
-
-  const addBottomPaddingForTallPopups = () => {
-    const safari = !navigator.userAgent.match(/(CriOS|FxiOS|EdgiOS|YaBrowser|UCBrowser)/i);
-
-    if (safari) {
-      const bottomPanelHeight = 44;
-
-      if (getPopup().scrollHeight > window.innerHeight - bottomPanelHeight) {
-        getContainer().style.paddingBottom = "".concat(bottomPanelHeight, "px");
-      }
-    }
-  };
-
-  const lockBodyScroll = () => {
-    // #1246
-    const container = getContainer();
-    let preventTouchMove;
-
-    container.ontouchstart = e => {
-      preventTouchMove = shouldPreventTouchMove(e);
-    };
-
-    container.ontouchmove = e => {
-      if (preventTouchMove) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-    };
-  };
-
-  const shouldPreventTouchMove = event => {
-    const target = event.target;
-    const container = getContainer();
-
-    if (isStylys(event) || isZoom(event)) {
-      return false;
-    }
-
-    if (target === container) {
-      return true;
-    }
-
-    if (!isScrollable(container) && target.tagName !== 'INPUT' && // #1603
-    target.tagName !== 'TEXTAREA' && // #2266
-    !(isScrollable(getHtmlContainer()) && // #1944
-    getHtmlContainer().contains(target))) {
-      return true;
-    }
-
-    return false;
-  };
-
-  const isStylys = event => {
-    // #1786
-    return event.touches && event.touches.length && event.touches[0].touchType === 'stylus';
-  };
-
-  const isZoom = event => {
-    // #1891
-    return event.touches && event.touches.length > 1;
-  };
-
-  const undoIOSfix = () => {
-    if (hasClass(document.body, swalClasses.iosfix)) {
-      const offset = parseInt(document.body.style.top, 10);
-      removeClass(document.body, swalClasses.iosfix);
-      document.body.style.top = '';
-      document.body.scrollTop = offset * -1;
-    }
-  };
-
-  // Adding aria-hidden="true" to elements outside of the active modal dialog ensures that
-  // elements not within the active modal dialog will not be surfaced if a user opens a screen
-  // reader’s list of elements (headings, form controls, landmarks, etc.) in the document.
-
-  const setAriaHidden = () => {
-    const bodyChildren = toArray(document.body.children);
-    bodyChildren.forEach(el => {
-      if (el === getContainer() || el.contains(getContainer())) {
-        return;
-      }
-
-      if (el.hasAttribute('aria-hidden')) {
-        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
-      }
-
-      el.setAttribute('aria-hidden', 'true');
-    });
-  };
-  const unsetAriaHidden = () => {
-    const bodyChildren = toArray(document.body.children);
-    bodyChildren.forEach(el => {
-      if (el.hasAttribute('data-previous-aria-hidden')) {
-        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
-        el.removeAttribute('data-previous-aria-hidden');
-      } else {
-        el.removeAttribute('aria-hidden');
-      }
-    });
-  };
-
-  /**
-   * This module containts `WeakMap`s for each effectively-"private  property" that a `Swal` has.
-   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
-   * This is the approach that Babel will probably take to implement private methods/fields
-   *   https://github.com/tc39/proposal-private-methods
-   *   https://github.com/babel/babel/pull/7555
-   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
-   *   then we can use that language feature.
-   */
-  var privateMethods = {
-    swalPromiseResolve: new WeakMap()
-  };
-
-  /*
-   * Instance method to close sweetAlert
-   */
-
-  function removePopupAndResetState(instance, container, returnFocus, didClose) {
-    if (isToast()) {
-      triggerDidCloseAndDispose(instance, didClose);
-    } else {
-      restoreActiveElement(returnFocus).then(() => triggerDidCloseAndDispose(instance, didClose));
-      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
-        capture: globalState.keydownListenerCapture
-      });
-      globalState.keydownHandlerAdded = false;
-    }
-
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent); // workaround for #2088
-    // for some reason removing the container in Safari will scroll the document to bottom
-
-    if (isSafari) {
-      container.setAttribute('style', 'display:none !important');
-      container.removeAttribute('class');
-      container.innerHTML = '';
-    } else {
-      container.remove();
-    }
-
-    if (isModal()) {
-      undoScrollbar();
-      undoIOSfix();
-      unsetAriaHidden();
-    }
-
-    removeBodyClasses();
-  }
-
-  function removeBodyClasses() {
-    removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown']]);
-  }
-
-  function close(resolveValue) {
-    const popup = getPopup();
-
-    if (!popup) {
-      return;
-    }
-
-    resolveValue = prepareResolveValue(resolveValue);
-    const innerParams = privateProps.innerParams.get(this);
-
-    if (!innerParams || hasClass(popup, innerParams.hideClass.popup)) {
-      return;
-    }
-
-    const swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
-    removeClass(popup, innerParams.showClass.popup);
-    addClass(popup, innerParams.hideClass.popup);
-    const backdrop = getContainer();
-    removeClass(backdrop, innerParams.showClass.backdrop);
-    addClass(backdrop, innerParams.hideClass.backdrop);
-    handlePopupAnimation(this, popup, innerParams); // Resolve Swal promise
-
-    swalPromiseResolve(resolveValue);
-  }
-
-  const prepareResolveValue = resolveValue => {
-    // When user calls Swal.close()
-    if (typeof resolveValue === 'undefined') {
-      return {
-        isConfirmed: false,
-        isDenied: false,
-        isDismissed: true
-      };
-    }
-
-    return Object.assign({
-      isConfirmed: false,
-      isDenied: false,
-      isDismissed: false
-    }, resolveValue);
-  };
-
-  const handlePopupAnimation = (instance, popup, innerParams) => {
-    const container = getContainer(); // If animation is supported, animate
-
-    const animationIsSupported = animationEndEvent && hasCssAnimation(popup);
-
-    if (typeof innerParams.willClose === 'function') {
-      innerParams.willClose(popup);
-    }
-
-    if (animationIsSupported) {
-      animatePopup(instance, popup, container, innerParams.returnFocus, innerParams.didClose);
-    } else {
-      // Otherwise, remove immediately
-      removePopupAndResetState(instance, container, innerParams.returnFocus, innerParams.didClose);
-    }
-  };
-
-  const animatePopup = (instance, popup, container, returnFocus, didClose) => {
-    globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, returnFocus, didClose);
-    popup.addEventListener(animationEndEvent, function (e) {
-      if (e.target === popup) {
-        globalState.swalCloseEventFinishedCallback();
-        delete globalState.swalCloseEventFinishedCallback;
-      }
-    });
-  };
-
-  const triggerDidCloseAndDispose = (instance, didClose) => {
-    setTimeout(() => {
-      if (typeof didClose === 'function') {
-        didClose.bind(instance.params)();
-      }
-
-      instance._destroy();
-    });
-  };
-
-  function setButtonsDisabled(instance, buttons, disabled) {
-    const domCache = privateProps.domCache.get(instance);
-    buttons.forEach(button => {
-      domCache[button].disabled = disabled;
-    });
-  }
-
-  function setInputDisabled(input, disabled) {
-    if (!input) {
-      return false;
-    }
-
-    if (input.type === 'radio') {
-      const radiosContainer = input.parentNode.parentNode;
-      const radios = radiosContainer.querySelectorAll('input');
-
-      for (let i = 0; i < radios.length; i++) {
-        radios[i].disabled = disabled;
-      }
-    } else {
-      input.disabled = disabled;
-    }
-  }
-
-  function enableButtons() {
-    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], false);
-  }
-  function disableButtons() {
-    setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], true);
-  }
-  function enableInput() {
-    return setInputDisabled(this.getInput(), false);
-  }
-  function disableInput() {
-    return setInputDisabled(this.getInput(), true);
-  }
-
-  function showValidationMessage(error) {
-    const domCache = privateProps.domCache.get(this);
-    const params = privateProps.innerParams.get(this);
-    setInnerHtml(domCache.validationMessage, error);
-    domCache.validationMessage.className = swalClasses['validation-message'];
-
-    if (params.customClass && params.customClass.validationMessage) {
-      addClass(domCache.validationMessage, params.customClass.validationMessage);
-    }
-
-    show(domCache.validationMessage);
-    const input = this.getInput();
-
-    if (input) {
-      input.setAttribute('aria-invalid', true);
-      input.setAttribute('aria-describedby', swalClasses['validation-message']);
-      focusInput(input);
-      addClass(input, swalClasses.inputerror);
-    }
-  } // Hide block with validation message
-
-  function resetValidationMessage$1() {
-    const domCache = privateProps.domCache.get(this);
-
-    if (domCache.validationMessage) {
-      hide(domCache.validationMessage);
-    }
-
-    const input = this.getInput();
-
-    if (input) {
-      input.removeAttribute('aria-invalid');
-      input.removeAttribute('aria-describedby');
-      removeClass(input, swalClasses.inputerror);
-    }
-  }
-
-  function getProgressSteps$1() {
-    const domCache = privateProps.domCache.get(this);
-    return domCache.progressSteps;
-  }
-
   class Timer {
+    /**
+     * @param {Function} callback
+     * @param {number} delay
+     */
     constructor(callback, delay) {
       this.callback = callback;
       this.remaining = delay;
       this.running = false;
       this.start();
     }
-
     start() {
       if (!this.running) {
         this.running = true;
         this.started = new Date();
         this.id = setTimeout(this.callback, this.remaining);
       }
-
       return this.remaining;
     }
-
     stop() {
       if (this.running) {
         this.running = false;
         clearTimeout(this.id);
-        this.remaining -= new Date() - this.started;
+        this.remaining -= new Date().getTime() - this.started.getTime();
       }
-
       return this.remaining;
     }
-
     increase(n) {
       const running = this.running;
-
       if (running) {
         this.stop();
       }
-
       this.remaining += n;
-
       if (running) {
         this.start();
       }
-
       return this.remaining;
     }
-
     getTimerLeft() {
       if (this.running) {
         this.stop();
         this.start();
       }
-
       return this.remaining;
     }
-
     isRunning() {
       return this.running;
     }
-
   }
 
+  const swalStringParams = ['swal-title', 'swal-html', 'swal-footer'];
+
+  /**
+   * @param {SweetAlertOptions} params
+   * @returns {SweetAlertOptions}
+   */
+  const getTemplateParams = params => {
+    /** @type {HTMLTemplateElement} */
+    const template = typeof params.template === 'string' ? document.querySelector(params.template) : params.template;
+    if (!template) {
+      return {};
+    }
+    /** @type {DocumentFragment} */
+    const templateContent = template.content;
+    showWarningsForElements(templateContent);
+    const result = Object.assign(getSwalParams(templateContent), getSwalFunctionParams(templateContent), getSwalButtons(templateContent), getSwalImage(templateContent), getSwalIcon(templateContent), getSwalInput(templateContent), getSwalStringParams(templateContent, swalStringParams));
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalParams = templateContent => {
+    const result = {};
+    /** @type {HTMLElement[]} */
+    const swalParams = Array.from(templateContent.querySelectorAll('swal-param'));
+    swalParams.forEach(param => {
+      showWarningsForAttributes(param, ['name', 'value']);
+      const paramName = param.getAttribute('name');
+      const value = param.getAttribute('value');
+      if (typeof defaultParams[paramName] === 'boolean') {
+        result[paramName] = value !== 'false';
+      } else if (typeof defaultParams[paramName] === 'object') {
+        result[paramName] = JSON.parse(value);
+      } else {
+        result[paramName] = value;
+      }
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalFunctionParams = templateContent => {
+    const result = {};
+    /** @type {HTMLElement[]} */
+    const swalFunctions = Array.from(templateContent.querySelectorAll('swal-function-param'));
+    swalFunctions.forEach(param => {
+      const paramName = param.getAttribute('name');
+      const value = param.getAttribute('value');
+      result[paramName] = new Function(`return ${value}`)();
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalButtons = templateContent => {
+    const result = {};
+    /** @type {HTMLElement[]} */
+    const swalButtons = Array.from(templateContent.querySelectorAll('swal-button'));
+    swalButtons.forEach(button => {
+      showWarningsForAttributes(button, ['type', 'color', 'aria-label']);
+      const type = button.getAttribute('type');
+      result[`${type}ButtonText`] = button.innerHTML;
+      result[`show${capitalizeFirstLetter(type)}Button`] = true;
+      if (button.hasAttribute('color')) {
+        result[`${type}ButtonColor`] = button.getAttribute('color');
+      }
+      if (button.hasAttribute('aria-label')) {
+        result[`${type}ButtonAriaLabel`] = button.getAttribute('aria-label');
+      }
+    });
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalImage = templateContent => {
+    const result = {};
+    /** @type {HTMLElement} */
+    const image = templateContent.querySelector('swal-image');
+    if (image) {
+      showWarningsForAttributes(image, ['src', 'width', 'height', 'alt']);
+      if (image.hasAttribute('src')) {
+        result.imageUrl = image.getAttribute('src');
+      }
+      if (image.hasAttribute('width')) {
+        result.imageWidth = image.getAttribute('width');
+      }
+      if (image.hasAttribute('height')) {
+        result.imageHeight = image.getAttribute('height');
+      }
+      if (image.hasAttribute('alt')) {
+        result.imageAlt = image.getAttribute('alt');
+      }
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalIcon = templateContent => {
+    const result = {};
+    /** @type {HTMLElement} */
+    const icon = templateContent.querySelector('swal-icon');
+    if (icon) {
+      showWarningsForAttributes(icon, ['type', 'color']);
+      if (icon.hasAttribute('type')) {
+        /** @type {SweetAlertIcon} */
+        // @ts-ignore
+        result.icon = icon.getAttribute('type');
+      }
+      if (icon.hasAttribute('color')) {
+        result.iconColor = icon.getAttribute('color');
+      }
+      result.iconHtml = icon.innerHTML;
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalInput = templateContent => {
+    const result = {};
+    /** @type {HTMLElement} */
+    const input = templateContent.querySelector('swal-input');
+    if (input) {
+      showWarningsForAttributes(input, ['type', 'label', 'placeholder', 'value']);
+      /** @type {SweetAlertInput} */
+      // @ts-ignore
+      result.input = input.getAttribute('type') || 'text';
+      if (input.hasAttribute('label')) {
+        result.inputLabel = input.getAttribute('label');
+      }
+      if (input.hasAttribute('placeholder')) {
+        result.inputPlaceholder = input.getAttribute('placeholder');
+      }
+      if (input.hasAttribute('value')) {
+        result.inputValue = input.getAttribute('value');
+      }
+    }
+    /** @type {HTMLElement[]} */
+    const inputOptions = Array.from(templateContent.querySelectorAll('swal-input-option'));
+    if (inputOptions.length) {
+      result.inputOptions = {};
+      inputOptions.forEach(option => {
+        showWarningsForAttributes(option, ['value']);
+        const optionValue = option.getAttribute('value');
+        const optionName = option.innerHTML;
+        result.inputOptions[optionValue] = optionName;
+      });
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   * @param {string[]} paramNames
+   * @returns {SweetAlertOptions}
+   */
+  const getSwalStringParams = (templateContent, paramNames) => {
+    const result = {};
+    for (const i in paramNames) {
+      const paramName = paramNames[i];
+      /** @type {HTMLElement} */
+      const tag = templateContent.querySelector(paramName);
+      if (tag) {
+        showWarningsForAttributes(tag, []);
+        result[paramName.replace(/^swal-/, '')] = tag.innerHTML.trim();
+      }
+    }
+    return result;
+  };
+
+  /**
+   * @param {DocumentFragment} templateContent
+   */
+  const showWarningsForElements = templateContent => {
+    const allowedElements = swalStringParams.concat(['swal-param', 'swal-function-param', 'swal-button', 'swal-image', 'swal-icon', 'swal-input', 'swal-input-option']);
+    Array.from(templateContent.children).forEach(el => {
+      const tagName = el.tagName.toLowerCase();
+      if (!allowedElements.includes(tagName)) {
+        warn(`Unrecognized element <${tagName}>`);
+      }
+    });
+  };
+
+  /**
+   * @param {HTMLElement} el
+   * @param {string[]} allowedAttributes
+   */
+  const showWarningsForAttributes = (el, allowedAttributes) => {
+    Array.from(el.attributes).forEach(attribute => {
+      if (allowedAttributes.indexOf(attribute.name) === -1) {
+        warn([`Unrecognized attribute "${attribute.name}" on <${el.tagName.toLowerCase()}>.`, `${allowedAttributes.length ? `Allowed attributes are: ${allowedAttributes.join(', ')}` : 'To set the value, use HTML within the element.'}`]);
+      }
+    });
+  };
+
+  const SHOW_CLASS_TIMEOUT = 10;
+
+  /**
+   * Open popup, add necessary classes and styles, fix scrollbar
+   *
+   * @param {SweetAlertOptions} params
+   */
+  const openPopup = params => {
+    const container = getContainer();
+    const popup = getPopup();
+    if (typeof params.willOpen === 'function') {
+      params.willOpen(popup);
+    }
+    const bodyStyles = window.getComputedStyle(document.body);
+    const initialBodyOverflow = bodyStyles.overflowY;
+    addClasses(container, popup, params);
+
+    // scrolling is 'hidden' until animation is done, after that 'auto'
+    setTimeout(() => {
+      setScrollingVisibility(container, popup);
+    }, SHOW_CLASS_TIMEOUT);
+    if (isModal()) {
+      fixScrollContainer(container, params.scrollbarPadding, initialBodyOverflow);
+      setAriaHidden();
+    }
+    if (!isToast() && !globalState.previousActiveElement) {
+      globalState.previousActiveElement = document.activeElement;
+    }
+    if (typeof params.didOpen === 'function') {
+      setTimeout(() => params.didOpen(popup));
+    }
+    removeClass(container, swalClasses['no-transition']);
+  };
+
+  /**
+   * @param {AnimationEvent} event
+   */
+  const swalOpenAnimationFinished = event => {
+    const popup = getPopup();
+    if (event.target !== popup) {
+      return;
+    }
+    const container = getContainer();
+    popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
+    container.style.overflowY = 'auto';
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {HTMLElement} popup
+   */
+  const setScrollingVisibility = (container, popup) => {
+    if (animationEndEvent && hasCssAnimation(popup)) {
+      container.style.overflowY = 'hidden';
+      popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
+    } else {
+      container.style.overflowY = 'auto';
+    }
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {boolean} scrollbarPadding
+   * @param {string} initialBodyOverflow
+   */
+  const fixScrollContainer = (container, scrollbarPadding, initialBodyOverflow) => {
+    iOSfix();
+    if (scrollbarPadding && initialBodyOverflow !== 'hidden') {
+      fixScrollbar();
+    }
+
+    // sweetalert2/issues/1247
+    setTimeout(() => {
+      container.scrollTop = 0;
+    });
+  };
+
+  /**
+   * @param {HTMLElement} container
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} params
+   */
+  const addClasses = (container, popup, params) => {
+    addClass(container, params.showClass.backdrop);
+    // this workaround with opacity is needed for https://github.com/sweetalert2/sweetalert2/issues/2059
+    popup.style.setProperty('opacity', '0', 'important');
+    show(popup, 'grid');
+    setTimeout(() => {
+      // Animate popup right after showing it
+      addClass(popup, params.showClass.popup);
+      // and remove the opacity workaround
+      popup.style.removeProperty('opacity');
+    }, SHOW_CLASS_TIMEOUT); // 10ms in order to fix #2062
+
+    addClass([document.documentElement, document.body], swalClasses.shown);
+    if (params.heightAuto && params.backdrop && !params.toast) {
+      addClass([document.documentElement, document.body], swalClasses['height-auto']);
+    }
+  };
+
   var defaultInputValidators = {
+    /**
+     * @param {string} string
+     * @param {string} validationMessage
+     * @returns {Promise<void | string>}
+     */
     email: (string, validationMessage) => {
       return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
     },
+    /**
+     * @param {string} string
+     * @param {string} validationMessage
+     * @returns {Promise<void | string>}
+     */
     url: (string, validationMessage) => {
       // taken from https://stackoverflow.com/a/3809435 with a small change from #1306 and #2013
       return /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-z]{2,63}\b([-a-zA-Z0-9@:%_+.~#?&/=]*)$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid URL');
     }
   };
 
+  /**
+   * @param {SweetAlertOptions} params
+   */
   function setDefaultInputValidators(params) {
     // Use default `inputValidator` for supported input types if not provided
     if (!params.inputValidator) {
@@ -31452,6 +23276,9 @@ function requestTimeout(timeout) {
     }
   }
 
+  /**
+   * @param {SweetAlertOptions} params
+   */
   function validateCustomTargetElement(params) {
     // Determine if the custom target element is valid
     if (!params.target || typeof params.target === 'string' && !document.querySelector(params.target) || typeof params.target !== 'string' && !params.target.appendChild) {
@@ -31459,855 +23286,160 @@ function requestTimeout(timeout) {
       params.target = 'body';
     }
   }
+
   /**
    * Set type, text and actions on popup
    *
-   * @param params
-   * @returns {boolean}
+   * @param {SweetAlertOptions} params
    */
-
-
   function setParameters(params) {
-    setDefaultInputValidators(params); // showLoaderOnConfirm && preConfirm
+    setDefaultInputValidators(params);
 
+    // showLoaderOnConfirm && preConfirm
     if (params.showLoaderOnConfirm && !params.preConfirm) {
       warn('showLoaderOnConfirm is set to true, but preConfirm is not defined.\n' + 'showLoaderOnConfirm should be used together with preConfirm, see usage example:\n' + 'https://sweetalert2.github.io/#ajax-request');
     }
+    validateCustomTargetElement(params);
 
-    validateCustomTargetElement(params); // Replace newlines with <br> in title
-
+    // Replace newlines with <br> in title
     if (typeof params.title === 'string') {
       params.title = params.title.split('\n').join('<br />');
     }
-
     init(params);
   }
 
-  const swalStringParams = ['swal-title', 'swal-html', 'swal-footer'];
-  const getTemplateParams = params => {
-    const template = typeof params.template === 'string' ? document.querySelector(params.template) : params.template;
-
-    if (!template) {
-      return {};
-    }
-
-    const templateContent = template.content;
-    showWarningsForElements(templateContent);
-    const result = Object.assign(getSwalParams(templateContent), getSwalButtons(templateContent), getSwalImage(templateContent), getSwalIcon(templateContent), getSwalInput(templateContent), getSwalStringParams(templateContent, swalStringParams));
-    return result;
-  };
-
-  const getSwalParams = templateContent => {
-    const result = {};
-    toArray(templateContent.querySelectorAll('swal-param')).forEach(param => {
-      showWarningsForAttributes(param, ['name', 'value']);
-      const paramName = param.getAttribute('name');
-      let value = param.getAttribute('value');
-
-      if (typeof defaultParams[paramName] === 'boolean' && value === 'false') {
-        value = false;
-      }
-
-      if (typeof defaultParams[paramName] === 'object') {
-        value = JSON.parse(value);
-      }
-
-      result[paramName] = value;
-    });
-    return result;
-  };
-
-  const getSwalButtons = templateContent => {
-    const result = {};
-    toArray(templateContent.querySelectorAll('swal-button')).forEach(button => {
-      showWarningsForAttributes(button, ['type', 'color', 'aria-label']);
-      const type = button.getAttribute('type');
-      result["".concat(type, "ButtonText")] = button.innerHTML;
-      result["show".concat(capitalizeFirstLetter(type), "Button")] = true;
-
-      if (button.hasAttribute('color')) {
-        result["".concat(type, "ButtonColor")] = button.getAttribute('color');
-      }
-
-      if (button.hasAttribute('aria-label')) {
-        result["".concat(type, "ButtonAriaLabel")] = button.getAttribute('aria-label');
-      }
-    });
-    return result;
-  };
-
-  const getSwalImage = templateContent => {
-    const result = {};
-    const image = templateContent.querySelector('swal-image');
-
-    if (image) {
-      showWarningsForAttributes(image, ['src', 'width', 'height', 'alt']);
-
-      if (image.hasAttribute('src')) {
-        result.imageUrl = image.getAttribute('src');
-      }
-
-      if (image.hasAttribute('width')) {
-        result.imageWidth = image.getAttribute('width');
-      }
-
-      if (image.hasAttribute('height')) {
-        result.imageHeight = image.getAttribute('height');
-      }
-
-      if (image.hasAttribute('alt')) {
-        result.imageAlt = image.getAttribute('alt');
-      }
-    }
-
-    return result;
-  };
-
-  const getSwalIcon = templateContent => {
-    const result = {};
-    const icon = templateContent.querySelector('swal-icon');
-
-    if (icon) {
-      showWarningsForAttributes(icon, ['type', 'color']);
-
-      if (icon.hasAttribute('type')) {
-        result.icon = icon.getAttribute('type');
-      }
-
-      if (icon.hasAttribute('color')) {
-        result.iconColor = icon.getAttribute('color');
-      }
-
-      result.iconHtml = icon.innerHTML;
-    }
-
-    return result;
-  };
-
-  const getSwalInput = templateContent => {
-    const result = {};
-    const input = templateContent.querySelector('swal-input');
-
-    if (input) {
-      showWarningsForAttributes(input, ['type', 'label', 'placeholder', 'value']);
-      result.input = input.getAttribute('type') || 'text';
-
-      if (input.hasAttribute('label')) {
-        result.inputLabel = input.getAttribute('label');
-      }
-
-      if (input.hasAttribute('placeholder')) {
-        result.inputPlaceholder = input.getAttribute('placeholder');
-      }
-
-      if (input.hasAttribute('value')) {
-        result.inputValue = input.getAttribute('value');
-      }
-    }
-
-    const inputOptions = templateContent.querySelectorAll('swal-input-option');
-
-    if (inputOptions.length) {
-      result.inputOptions = {};
-      toArray(inputOptions).forEach(option => {
-        showWarningsForAttributes(option, ['value']);
-        const optionValue = option.getAttribute('value');
-        const optionName = option.innerHTML;
-        result.inputOptions[optionValue] = optionName;
-      });
-    }
-
-    return result;
-  };
-
-  const getSwalStringParams = (templateContent, paramNames) => {
-    const result = {};
-
-    for (const i in paramNames) {
-      const paramName = paramNames[i];
-      const tag = templateContent.querySelector(paramName);
-
-      if (tag) {
-        showWarningsForAttributes(tag, []);
-        result[paramName.replace(/^swal-/, '')] = tag.innerHTML.trim();
-      }
-    }
-
-    return result;
-  };
-
-  const showWarningsForElements = template => {
-    const allowedElements = swalStringParams.concat(['swal-param', 'swal-button', 'swal-image', 'swal-icon', 'swal-input', 'swal-input-option']);
-    toArray(template.children).forEach(el => {
-      const tagName = el.tagName.toLowerCase();
-
-      if (allowedElements.indexOf(tagName) === -1) {
-        warn("Unrecognized element <".concat(tagName, ">"));
-      }
-    });
-  };
-
-  const showWarningsForAttributes = (el, allowedAttributes) => {
-    toArray(el.attributes).forEach(attribute => {
-      if (allowedAttributes.indexOf(attribute.name) === -1) {
-        warn(["Unrecognized attribute \"".concat(attribute.name, "\" on <").concat(el.tagName.toLowerCase(), ">."), "".concat(allowedAttributes.length ? "Allowed attributes are: ".concat(allowedAttributes.join(', ')) : 'To set the value, use HTML within the element.')]);
-      }
-    });
-  };
-
-  const SHOW_CLASS_TIMEOUT = 10;
-  /**
-   * Open popup, add necessary classes and styles, fix scrollbar
-   *
-   * @param params
-   */
-
-  const openPopup = params => {
-    const container = getContainer();
-    const popup = getPopup();
-
-    if (typeof params.willOpen === 'function') {
-      params.willOpen(popup);
-    }
-
-    const bodyStyles = window.getComputedStyle(document.body);
-    const initialBodyOverflow = bodyStyles.overflowY;
-    addClasses$1(container, popup, params); // scrolling is 'hidden' until animation is done, after that 'auto'
-
-    setTimeout(() => {
-      setScrollingVisibility(container, popup);
-    }, SHOW_CLASS_TIMEOUT);
-
-    if (isModal()) {
-      fixScrollContainer(container, params.scrollbarPadding, initialBodyOverflow);
-      setAriaHidden();
-    }
-
-    if (!isToast() && !globalState.previousActiveElement) {
-      globalState.previousActiveElement = document.activeElement;
-    }
-
-    if (typeof params.didOpen === 'function') {
-      setTimeout(() => params.didOpen(popup));
-    }
-
-    removeClass(container, swalClasses['no-transition']);
-  };
-
-  const swalOpenAnimationFinished = event => {
-    const popup = getPopup();
-
-    if (event.target !== popup) {
-      return;
-    }
-
-    const container = getContainer();
-    popup.removeEventListener(animationEndEvent, swalOpenAnimationFinished);
-    container.style.overflowY = 'auto';
-  };
-
-  const setScrollingVisibility = (container, popup) => {
-    if (animationEndEvent && hasCssAnimation(popup)) {
-      container.style.overflowY = 'hidden';
-      popup.addEventListener(animationEndEvent, swalOpenAnimationFinished);
-    } else {
-      container.style.overflowY = 'auto';
-    }
-  };
-
-  const fixScrollContainer = (container, scrollbarPadding, initialBodyOverflow) => {
-    iOSfix();
-
-    if (scrollbarPadding && initialBodyOverflow !== 'hidden') {
-      fixScrollbar();
-    } // sweetalert2/issues/1247
-
-
-    setTimeout(() => {
-      container.scrollTop = 0;
-    });
-  };
-
-  const addClasses$1 = (container, popup, params) => {
-    addClass(container, params.showClass.backdrop); // the workaround with setting/unsetting opacity is needed for #2019 and 2059
-
-    popup.style.setProperty('opacity', '0', 'important');
-    show(popup, 'grid');
-    setTimeout(() => {
-      // Animate popup right after showing it
-      addClass(popup, params.showClass.popup); // and remove the opacity workaround
-
-      popup.style.removeProperty('opacity');
-    }, SHOW_CLASS_TIMEOUT); // 10ms in order to fix #2062
-
-    addClass([document.documentElement, document.body], swalClasses.shown);
-
-    if (params.heightAuto && params.backdrop && !params.toast) {
-      addClass([document.documentElement, document.body], swalClasses['height-auto']);
-    }
-  };
-
-  const handleInputOptionsAndValue = (instance, params) => {
-    if (params.input === 'select' || params.input === 'radio') {
-      handleInputOptions(instance, params);
-    } else if (['text', 'email', 'number', 'tel', 'textarea'].includes(params.input) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
-      showLoading(getConfirmButton());
-      handleInputValue(instance, params);
-    }
-  };
-  const getInputValue = (instance, innerParams) => {
-    const input = instance.getInput();
-
-    if (!input) {
-      return null;
-    }
-
-    switch (innerParams.input) {
-      case 'checkbox':
-        return getCheckboxValue(input);
-
-      case 'radio':
-        return getRadioValue(input);
-
-      case 'file':
-        return getFileValue(input);
-
-      default:
-        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
-    }
-  };
-
-  const getCheckboxValue = input => input.checked ? 1 : 0;
-
-  const getRadioValue = input => input.checked ? input.value : null;
-
-  const getFileValue = input => input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
-
-  const handleInputOptions = (instance, params) => {
-    const popup = getPopup();
-
-    const processInputOptions = inputOptions => populateInputOptions[params.input](popup, formatInputOptions(inputOptions), params);
-
-    if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
-      showLoading(getConfirmButton());
-      asPromise(params.inputOptions).then(inputOptions => {
-        instance.hideLoading();
-        processInputOptions(inputOptions);
-      });
-    } else if (typeof params.inputOptions === 'object') {
-      processInputOptions(params.inputOptions);
-    } else {
-      error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(typeof params.inputOptions));
-    }
-  };
-
-  const handleInputValue = (instance, params) => {
-    const input = instance.getInput();
-    hide(input);
-    asPromise(params.inputValue).then(inputValue => {
-      input.value = params.input === 'number' ? parseFloat(inputValue) || 0 : "".concat(inputValue);
-      show(input);
-      input.focus();
-      instance.hideLoading();
-    }).catch(err => {
-      error("Error in inputValue promise: ".concat(err));
-      input.value = '';
-      show(input);
-      input.focus();
-      instance.hideLoading();
-    });
-  };
-
-  const populateInputOptions = {
-    select: (popup, inputOptions, params) => {
-      const select = getChildByClass(popup, swalClasses.select);
-
-      const renderOption = (parent, optionLabel, optionValue) => {
-        const option = document.createElement('option');
-        option.value = optionValue;
-        setInnerHtml(option, optionLabel);
-        option.selected = isSelected(optionValue, params.inputValue);
-        parent.appendChild(option);
-      };
-
-      inputOptions.forEach(inputOption => {
-        const optionValue = inputOption[0];
-        const optionLabel = inputOption[1]; // <optgroup> spec:
-        // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
-        // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
-        // check whether this is a <optgroup>
-
-        if (Array.isArray(optionLabel)) {
-          // if it is an array, then it is an <optgroup>
-          const optgroup = document.createElement('optgroup');
-          optgroup.label = optionValue;
-          optgroup.disabled = false; // not configurable for now
-
-          select.appendChild(optgroup);
-          optionLabel.forEach(o => renderOption(optgroup, o[1], o[0]));
-        } else {
-          // case of <option>
-          renderOption(select, optionLabel, optionValue);
-        }
-      });
-      select.focus();
-    },
-    radio: (popup, inputOptions, params) => {
-      const radio = getChildByClass(popup, swalClasses.radio);
-      inputOptions.forEach(inputOption => {
-        const radioValue = inputOption[0];
-        const radioLabel = inputOption[1];
-        const radioInput = document.createElement('input');
-        const radioLabelElement = document.createElement('label');
-        radioInput.type = 'radio';
-        radioInput.name = swalClasses.radio;
-        radioInput.value = radioValue;
-
-        if (isSelected(radioValue, params.inputValue)) {
-          radioInput.checked = true;
-        }
-
-        const label = document.createElement('span');
-        setInnerHtml(label, radioLabel);
-        label.className = swalClasses.label;
-        radioLabelElement.appendChild(radioInput);
-        radioLabelElement.appendChild(label);
-        radio.appendChild(radioLabelElement);
-      });
-      const radios = radio.querySelectorAll('input');
-
-      if (radios.length) {
-        radios[0].focus();
-      }
-    }
-  };
-  /**
-   * Converts `inputOptions` into an array of `[value, label]`s
-   * @param inputOptions
-   */
-
-  const formatInputOptions = inputOptions => {
-    const result = [];
-
-    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
-      inputOptions.forEach((value, key) => {
-        let valueFormatted = value;
-
-        if (typeof valueFormatted === 'object') {
-          // case of <optgroup>
-          valueFormatted = formatInputOptions(valueFormatted);
-        }
-
-        result.push([key, valueFormatted]);
-      });
-    } else {
-      Object.keys(inputOptions).forEach(key => {
-        let valueFormatted = inputOptions[key];
-
-        if (typeof valueFormatted === 'object') {
-          // case of <optgroup>
-          valueFormatted = formatInputOptions(valueFormatted);
-        }
-
-        result.push([key, valueFormatted]);
-      });
-    }
-
-    return result;
-  };
-
-  const isSelected = (optionValue, inputValue) => {
-    return inputValue && inputValue.toString() === optionValue.toString();
-  };
-
-  const handleConfirmButtonClick = instance => {
-    const innerParams = privateProps.innerParams.get(instance);
-    instance.disableButtons();
-
-    if (innerParams.input) {
-      handleConfirmOrDenyWithInput(instance, 'confirm');
-    } else {
-      confirm(instance, true);
-    }
-  };
-  const handleDenyButtonClick = instance => {
-    const innerParams = privateProps.innerParams.get(instance);
-    instance.disableButtons();
-
-    if (innerParams.returnInputValueOnDeny) {
-      handleConfirmOrDenyWithInput(instance, 'deny');
-    } else {
-      deny(instance, false);
-    }
-  };
-  const handleCancelButtonClick = (instance, dismissWith) => {
-    instance.disableButtons();
-    dismissWith(DismissReason.cancel);
-  };
-
-  const handleConfirmOrDenyWithInput = (instance, type
-  /* 'confirm' | 'deny' */
-  ) => {
-    const innerParams = privateProps.innerParams.get(instance);
-    const inputValue = getInputValue(instance, innerParams);
-
-    if (innerParams.inputValidator) {
-      handleInputValidator(instance, inputValue, type);
-    } else if (!instance.getInput().checkValidity()) {
-      instance.enableButtons();
-      instance.showValidationMessage(innerParams.validationMessage);
-    } else if (type === 'deny') {
-      deny(instance, inputValue);
-    } else {
-      confirm(instance, inputValue);
-    }
-  };
-
-  const handleInputValidator = (instance, inputValue, type
-  /* 'confirm' | 'deny' */
-  ) => {
-    const innerParams = privateProps.innerParams.get(instance);
-    instance.disableInput();
-    const validationPromise = Promise.resolve().then(() => asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage)));
-    validationPromise.then(validationMessage => {
-      instance.enableButtons();
-      instance.enableInput();
-
-      if (validationMessage) {
-        instance.showValidationMessage(validationMessage);
-      } else if (type === 'deny') {
-        deny(instance, inputValue);
-      } else {
-        confirm(instance, inputValue);
-      }
-    });
-  };
-
-  const deny = (instance, value) => {
-    const innerParams = privateProps.innerParams.get(instance || undefined);
-
-    if (innerParams.showLoaderOnDeny) {
-      showLoading(getDenyButton());
-    }
-
-    if (innerParams.preDeny) {
-      const preDenyPromise = Promise.resolve().then(() => asPromise(innerParams.preDeny(value, innerParams.validationMessage)));
-      preDenyPromise.then(preDenyValue => {
-        if (preDenyValue === false) {
-          instance.hideLoading();
-        } else {
-          instance.closePopup({
-            isDenied: true,
-            value: typeof preDenyValue === 'undefined' ? value : preDenyValue
-          });
-        }
-      });
-    } else {
-      instance.closePopup({
-        isDenied: true,
-        value
-      });
-    }
-  };
-
-  const succeedWith = (instance, value) => {
-    instance.closePopup({
-      isConfirmed: true,
-      value
-    });
-  };
-
-  const confirm = (instance, value) => {
-    const innerParams = privateProps.innerParams.get(instance || undefined);
-
-    if (innerParams.showLoaderOnConfirm) {
-      showLoading(); // TODO: make showLoading an *instance* method
-    }
-
-    if (innerParams.preConfirm) {
-      instance.resetValidationMessage();
-      const preConfirmPromise = Promise.resolve().then(() => asPromise(innerParams.preConfirm(value, innerParams.validationMessage)));
-      preConfirmPromise.then(preConfirmValue => {
-        if (isVisible(getValidationMessage()) || preConfirmValue === false) {
-          instance.hideLoading();
-        } else {
-          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
-        }
-      });
-    } else {
-      succeedWith(instance, value);
-    }
-  };
-
-  const addKeydownHandler = (instance, globalState, innerParams, dismissWith) => {
-    if (globalState.keydownTarget && globalState.keydownHandlerAdded) {
-      globalState.keydownTarget.removeEventListener('keydown', globalState.keydownHandler, {
-        capture: globalState.keydownListenerCapture
-      });
-      globalState.keydownHandlerAdded = false;
-    }
-
-    if (!innerParams.toast) {
-      globalState.keydownHandler = e => keydownHandler(instance, e, dismissWith);
-
-      globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
-      globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
-      globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
-        capture: globalState.keydownListenerCapture
-      });
-      globalState.keydownHandlerAdded = true;
-    }
-  }; // Focus handling
-
-  const setFocus = (innerParams, index, increment) => {
-    const focusableElements = getFocusableElements(); // search for visible elements and select the next possible match
-
-    if (focusableElements.length) {
-      index = index + increment; // rollover to first item
-
-      if (index === focusableElements.length) {
-        index = 0; // go to last item
-      } else if (index === -1) {
-        index = focusableElements.length - 1;
-      }
-
-      return focusableElements[index].focus();
-    } // no visible focusable elements, focus the popup
-
-
-    getPopup().focus();
-  };
-  const arrowKeysNextButton = ['ArrowRight', 'ArrowDown'];
-  const arrowKeysPreviousButton = ['ArrowLeft', 'ArrowUp'];
-
-  const keydownHandler = (instance, e, dismissWith) => {
-    const innerParams = privateProps.innerParams.get(instance);
-
-    if (!innerParams) {
-      return; // This instance has already been destroyed
-    }
-
-    if (innerParams.stopKeydownPropagation) {
-      e.stopPropagation();
-    } // ENTER
-
-
-    if (e.key === 'Enter') {
-      handleEnter(instance, e, innerParams); // TAB
-    } else if (e.key === 'Tab') {
-      handleTab(e, innerParams); // ARROWS - switch focus between buttons
-    } else if ([...arrowKeysNextButton, ...arrowKeysPreviousButton].includes(e.key)) {
-      handleArrows(e.key); // ESC
-    } else if (e.key === 'Escape') {
-      handleEsc(e, innerParams, dismissWith);
-    }
-  };
-
-  const handleEnter = (instance, e, innerParams) => {
-    // #720 #721
-    if (e.isComposing) {
-      return;
-    }
-
-    if (e.target && instance.getInput() && e.target.outerHTML === instance.getInput().outerHTML) {
-      if (['textarea', 'file'].includes(innerParams.input)) {
-        return; // do not submit
-      }
-
-      clickConfirm();
-      e.preventDefault();
-    }
-  };
-
-  const handleTab = (e, innerParams) => {
-    const targetElement = e.target;
-    const focusableElements = getFocusableElements();
-    let btnIndex = -1;
-
-    for (let i = 0; i < focusableElements.length; i++) {
-      if (targetElement === focusableElements[i]) {
-        btnIndex = i;
-        break;
-      }
-    }
-
-    if (!e.shiftKey) {
-      // Cycle to the next button
-      setFocus(innerParams, btnIndex, 1);
-    } else {
-      // Cycle to the prev button
-      setFocus(innerParams, btnIndex, -1);
-    }
-
-    e.stopPropagation();
-    e.preventDefault();
-  };
-
-  const handleArrows = key => {
-    const confirmButton = getConfirmButton();
-    const denyButton = getDenyButton();
-    const cancelButton = getCancelButton();
-
-    if (![confirmButton, denyButton, cancelButton].includes(document.activeElement)) {
-      return;
-    }
-
-    const sibling = arrowKeysNextButton.includes(key) ? 'nextElementSibling' : 'previousElementSibling';
-    const buttonToFocus = document.activeElement[sibling];
-
-    if (buttonToFocus) {
-      buttonToFocus.focus();
-    }
-  };
-
-  const handleEsc = (e, innerParams, dismissWith) => {
-    if (callIfFunction(innerParams.allowEscapeKey)) {
-      e.preventDefault();
-      dismissWith(DismissReason.esc);
-    }
-  };
-
-  const handlePopupClick = (instance, domCache, dismissWith) => {
-    const innerParams = privateProps.innerParams.get(instance);
-
-    if (innerParams.toast) {
-      handleToastClick(instance, domCache, dismissWith);
-    } else {
-      // Ignore click events that had mousedown on the popup but mouseup on the container
-      // This can happen when the user drags a slider
-      handleModalMousedown(domCache); // Ignore click events that had mousedown on the container but mouseup on the popup
-
-      handleContainerMousedown(domCache);
-      handleModalClick(instance, domCache, dismissWith);
-    }
-  };
-
-  const handleToastClick = (instance, domCache, dismissWith) => {
-    // Closing toast by internal click
-    domCache.popup.onclick = () => {
-      const innerParams = privateProps.innerParams.get(instance);
-
-      if (innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton || innerParams.timer || innerParams.input) {
+  let currentInstance;
+  class SweetAlert {
+    constructor() {
+      // Prevent run in Node env
+      if (typeof window === 'undefined') {
         return;
       }
+      currentInstance = this;
 
-      dismissWith(DismissReason.close);
-    };
-  };
-
-  let ignoreOutsideClick = false;
-
-  const handleModalMousedown = domCache => {
-    domCache.popup.onmousedown = () => {
-      domCache.container.onmouseup = function (e) {
-        domCache.container.onmouseup = undefined; // We only check if the mouseup target is the container because usually it doesn't
-        // have any other direct children aside of the popup
-
-        if (e.target === domCache.container) {
-          ignoreOutsideClick = true;
+      // @ts-ignore
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      const outerParams = Object.freeze(this.constructor.argsToParams(args));
+      Object.defineProperties(this, {
+        params: {
+          value: outerParams,
+          writable: false,
+          enumerable: true,
+          configurable: true
         }
-      };
-    };
-  };
+      });
 
-  const handleContainerMousedown = domCache => {
-    domCache.container.onmousedown = () => {
-      domCache.popup.onmouseup = function (e) {
-        domCache.popup.onmouseup = undefined; // We also need to check if the mouseup target is a child of the popup
-
-        if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
-          ignoreOutsideClick = true;
+      // @ts-ignore
+      const promise = currentInstance._main(currentInstance.params);
+      privateProps.promise.set(this, promise);
+    }
+    _main(userParams) {
+      let mixinParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      showWarningsForParams(Object.assign({}, mixinParams, userParams));
+      if (globalState.currentInstance) {
+        // @ts-ignore
+        globalState.currentInstance._destroy();
+        if (isModal()) {
+          unsetAriaHidden();
         }
-      };
-    };
-  };
+      }
+      globalState.currentInstance = currentInstance;
+      const innerParams = prepareParams(userParams, mixinParams);
+      setParameters(innerParams);
+      Object.freeze(innerParams);
 
-  const handleModalClick = (instance, domCache, dismissWith) => {
-    domCache.container.onclick = e => {
-      const innerParams = privateProps.innerParams.get(instance);
-
-      if (ignoreOutsideClick) {
-        ignoreOutsideClick = false;
-        return;
+      // clear the previous timer
+      if (globalState.timeout) {
+        globalState.timeout.stop();
+        delete globalState.timeout;
       }
 
-      if (e.target === domCache.container && callIfFunction(innerParams.allowOutsideClick)) {
-        dismissWith(DismissReason.backdrop);
-      }
-    };
-  };
-
-  function _main(userParams, mixinParams = {}) {
-    showWarningsForParams(Object.assign({}, mixinParams, userParams));
-
-    if (globalState.currentInstance) {
-      globalState.currentInstance._destroy();
-
-      if (isModal()) {
-        unsetAriaHidden();
-      }
+      // clear the restore focus timeout
+      clearTimeout(globalState.restoreFocusTimeout);
+      const domCache = populateDomCache(currentInstance);
+      render(currentInstance, innerParams);
+      privateProps.innerParams.set(currentInstance, innerParams);
+      return swalPromise(currentInstance, domCache, innerParams);
     }
 
-    globalState.currentInstance = this;
-    const innerParams = prepareParams(userParams, mixinParams);
-    setParameters(innerParams);
-    Object.freeze(innerParams); // clear the previous timer
-
-    if (globalState.timeout) {
-      globalState.timeout.stop();
-      delete globalState.timeout;
-    } // clear the restore focus timeout
-
-
-    clearTimeout(globalState.restoreFocusTimeout);
-    const domCache = populateDomCache(this);
-    render(this, innerParams);
-    privateProps.innerParams.set(this, innerParams);
-    return swalPromise(this, domCache, innerParams);
+    // `catch` cannot be the name of a module export, so we define our thenable methods here instead
+    then(onFulfilled) {
+      const promise = privateProps.promise.get(this);
+      return promise.then(onFulfilled);
+    }
+    finally(onFinally) {
+      const promise = privateProps.promise.get(this);
+      return promise.finally(onFinally);
+    }
   }
 
-  const prepareParams = (userParams, mixinParams) => {
-    const templateParams = getTemplateParams(userParams);
-    const params = Object.assign({}, defaultParams, mixinParams, templateParams, userParams); // precedence is described in #2131
-
-    params.showClass = Object.assign({}, defaultParams.showClass, params.showClass);
-    params.hideClass = Object.assign({}, defaultParams.hideClass, params.hideClass);
-    return params;
-  };
-
+  /**
+   * @param {SweetAlert2} instance
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   * @returns {Promise}
+   */
   const swalPromise = (instance, domCache, innerParams) => {
-    return new Promise(resolve => {
+    return new Promise((resolve, reject) => {
       // functions to handle all closings/dismissals
+      /**
+       * @param {DismissReason} dismiss
+       */
       const dismissWith = dismiss => {
-        instance.closePopup({
+        // @ts-ignore
+        instance.close({
           isDismissed: true,
           dismiss
         });
       };
-
       privateMethods.swalPromiseResolve.set(instance, resolve);
-
-      domCache.confirmButton.onclick = () => handleConfirmButtonClick(instance);
-
-      domCache.denyButton.onclick = () => handleDenyButtonClick(instance);
-
-      domCache.cancelButton.onclick = () => handleCancelButtonClick(instance, dismissWith);
-
-      domCache.closeButton.onclick = () => dismissWith(DismissReason.close);
-
+      privateMethods.swalPromiseReject.set(instance, reject);
+      domCache.confirmButton.onclick = () => {
+        handleConfirmButtonClick(instance);
+      };
+      domCache.denyButton.onclick = () => {
+        handleDenyButtonClick(instance);
+      };
+      domCache.cancelButton.onclick = () => {
+        handleCancelButtonClick(instance, dismissWith);
+      };
+      domCache.closeButton.onclick = () => {
+        // @ts-ignore
+        dismissWith(DismissReason.close);
+      };
       handlePopupClick(instance, domCache, dismissWith);
       addKeydownHandler(instance, globalState, innerParams, dismissWith);
       handleInputOptionsAndValue(instance, innerParams);
       openPopup(innerParams);
       setupTimer(globalState, innerParams, dismissWith);
-      initFocus(domCache, innerParams); // Scroll container to top on open (#1247, #1946)
+      initFocus(domCache, innerParams);
 
+      // Scroll container to top on open (#1247, #1946)
       setTimeout(() => {
         domCache.container.scrollTop = 0;
       });
     });
   };
 
+  /**
+   * @param {SweetAlertOptions} userParams
+   * @param {SweetAlertOptions} mixinParams
+   * @returns {SweetAlertOptions}
+   */
+  const prepareParams = (userParams, mixinParams) => {
+    const templateParams = getTemplateParams(userParams);
+    const params = Object.assign({}, defaultParams, mixinParams, templateParams, userParams); // precedence is described in #2131
+    params.showClass = Object.assign({}, defaultParams.showClass, params.showClass);
+    params.hideClass = Object.assign({}, defaultParams.hideClass, params.hideClass);
+    return params;
+  };
+
+  /**
+   * @param {SweetAlert2} instance
+   * @returns {DomCache}
+   */
   const populateDomCache = instance => {
     const domCache = {
       popup: getPopup(),
@@ -32319,26 +23451,30 @@ function requestTimeout(timeout) {
       loader: getLoader(),
       closeButton: getCloseButton(),
       validationMessage: getValidationMessage(),
-      progressSteps: getProgressSteps()
+      progressSteps: getProgressSteps$1()
     };
     privateProps.domCache.set(instance, domCache);
     return domCache;
   };
 
-  const setupTimer = (globalState$$1, innerParams, dismissWith) => {
+  /**
+   * @param {GlobalState} globalState
+   * @param {SweetAlertOptions} innerParams
+   * @param {Function} dismissWith
+   */
+  const setupTimer = (globalState, innerParams, dismissWith) => {
     const timerProgressBar = getTimerProgressBar();
     hide(timerProgressBar);
-
     if (innerParams.timer) {
-      globalState$$1.timeout = new Timer(() => {
+      globalState.timeout = new Timer(() => {
         dismissWith('timer');
-        delete globalState$$1.timeout;
+        delete globalState.timeout;
       }, innerParams.timer);
-
       if (innerParams.timerProgressBar) {
         show(timerProgressBar);
+        applyCustomClass(timerProgressBar, innerParams, 'timerProgressBar');
         setTimeout(() => {
-          if (globalState$$1.timeout && globalState$$1.timeout.running) {
+          if (globalState.timeout && globalState.timeout.running) {
             // timer can be already stopped or unset at this point
             animateTimerProgressBar(innerParams.timer);
           }
@@ -32347,206 +23483,94 @@ function requestTimeout(timeout) {
     }
   };
 
+  /**
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   */
   const initFocus = (domCache, innerParams) => {
     if (innerParams.toast) {
       return;
     }
-
     if (!callIfFunction(innerParams.allowEnterKey)) {
-      return blurActiveElement();
+      blurActiveElement();
+      return;
     }
-
     if (!focusButton(domCache, innerParams)) {
       setFocus(innerParams, -1, 1);
     }
   };
 
+  /**
+   * @param {DomCache} domCache
+   * @param {SweetAlertOptions} innerParams
+   * @returns {boolean}
+   */
   const focusButton = (domCache, innerParams) => {
-    if (innerParams.focusDeny && isVisible(domCache.denyButton)) {
+    if (innerParams.focusDeny && isVisible$1(domCache.denyButton)) {
       domCache.denyButton.focus();
       return true;
     }
-
-    if (innerParams.focusCancel && isVisible(domCache.cancelButton)) {
+    if (innerParams.focusCancel && isVisible$1(domCache.cancelButton)) {
       domCache.cancelButton.focus();
       return true;
     }
-
-    if (innerParams.focusConfirm && isVisible(domCache.confirmButton)) {
+    if (innerParams.focusConfirm && isVisible$1(domCache.confirmButton)) {
       domCache.confirmButton.focus();
       return true;
     }
-
     return false;
   };
-
   const blurActiveElement = () => {
-    if (document.activeElement && typeof document.activeElement.blur === 'function') {
+    if (document.activeElement instanceof HTMLElement && typeof document.activeElement.blur === 'function') {
       document.activeElement.blur();
     }
   };
 
-  /**
-   * Updates popup parameters.
-   */
-
-  function update(params) {
-    const popup = getPopup();
-    const innerParams = privateProps.innerParams.get(this);
-
-    if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
-      return warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
-    }
-
-    const validUpdatableParams = {}; // assign valid params from `params` to `defaults`
-
-    Object.keys(params).forEach(param => {
-      if (Swal.isUpdatableParameter(param)) {
-        validUpdatableParams[param] = params[param];
-      } else {
-        warn("Invalid parameter to update: \"".concat(param, "\". Updatable params are listed here: https://github.com/sweetalert2/sweetalert2/blob/master/src/utils/params.js\n\nIf you think this parameter should be updatable, request it here: https://github.com/sweetalert2/sweetalert2/issues/new?template=02_feature_request.md"));
-      }
-    });
-    const updatedParams = Object.assign({}, innerParams, validUpdatableParams);
-    render(this, updatedParams);
-    privateProps.innerParams.set(this, updatedParams);
-    Object.defineProperties(this, {
-      params: {
-        value: Object.assign({}, this.params, params),
-        writable: false,
-        enumerable: true
-      }
-    });
+  // Dear russian users visiting russian sites. Let's have fun.
+  if (typeof window !== 'undefined' && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|xn--p1ai)$/)) {
+    setTimeout(() => {
+      document.body.style.pointerEvents = 'none';
+      const ukrainianAnthem = document.createElement('audio');
+      ukrainianAnthem.src = 'https://flag-gimn.ru/wp-content/uploads/2021/09/Ukraina.mp3';
+      ukrainianAnthem.loop = true;
+      document.body.appendChild(ukrainianAnthem);
+      setTimeout(() => {
+        ukrainianAnthem.play().catch(() => {
+          // ignore
+        });
+      }, 2500);
+    }, 500);
   }
 
-  function _destroy() {
-    const domCache = privateProps.domCache.get(this);
-    const innerParams = privateProps.innerParams.get(this);
+  // Assign instance methods from src/instanceMethods/*.js to prototype
+  Object.assign(SweetAlert.prototype, instanceMethods);
 
-    if (!innerParams) {
-      return; // This instance has already been destroyed
-    } // Check if there is another Swal closing
+  // Assign static methods from src/staticMethods/*.js to constructor
+  Object.assign(SweetAlert, staticMethods);
 
-
-    if (domCache.popup && globalState.swalCloseEventFinishedCallback) {
-      globalState.swalCloseEventFinishedCallback();
-      delete globalState.swalCloseEventFinishedCallback;
-    } // Check if there is a swal disposal defer timer
-
-
-    if (globalState.deferDisposalTimer) {
-      clearTimeout(globalState.deferDisposalTimer);
-      delete globalState.deferDisposalTimer;
-    }
-
-    if (typeof innerParams.didDestroy === 'function') {
-      innerParams.didDestroy();
-    }
-
-    disposeSwal(this);
-  }
-
-  const disposeSwal = instance => {
-    // Unset this.params so GC will dispose it (#1569)
-    delete instance.params; // Unset globalState props so GC will dispose globalState (#1569)
-
-    delete globalState.keydownHandler;
-    delete globalState.keydownTarget; // Unset WeakMaps so GC will be able to dispose them (#1569)
-
-    unsetWeakMaps(privateProps);
-    unsetWeakMaps(privateMethods); // Unset currentInstance
-
-    delete globalState.currentInstance;
-  };
-
-  const unsetWeakMaps = obj => {
-    for (const i in obj) {
-      obj[i] = new WeakMap();
-    }
-  };
-
-
-
-  var instanceMethods = /*#__PURE__*/Object.freeze({
-    hideLoading: hideLoading,
-    disableLoading: hideLoading,
-    getInput: getInput$1,
-    close: close,
-    closePopup: close,
-    closeModal: close,
-    closeToast: close,
-    enableButtons: enableButtons,
-    disableButtons: disableButtons,
-    enableInput: enableInput,
-    disableInput: disableInput,
-    showValidationMessage: showValidationMessage,
-    resetValidationMessage: resetValidationMessage$1,
-    getProgressSteps: getProgressSteps$1,
-    _main: _main,
-    update: update,
-    _destroy: _destroy
-  });
-
-  let currentInstance;
-
-  class SweetAlert {
-    constructor(...args) {
-      // Prevent run in Node env
-      if (typeof window === 'undefined') {
-        return;
-      }
-
-      currentInstance = this;
-      const outerParams = Object.freeze(this.constructor.argsToParams(args));
-      Object.defineProperties(this, {
-        params: {
-          value: outerParams,
-          writable: false,
-          enumerable: true,
-          configurable: true
-        }
-      });
-
-      const promise = this._main(this.params);
-
-      privateProps.promise.set(this, promise);
-    } // `catch` cannot be the name of a module export, so we define our thenable methods here instead
-
-
-    then(onFulfilled) {
-      const promise = privateProps.promise.get(this);
-      return promise.then(onFulfilled);
-    }
-
-    finally(onFinally) {
-      const promise = privateProps.promise.get(this);
-      return promise.finally(onFinally);
-    }
-
-  } // Assign instance methods from src/instanceMethods/*.js to prototype
-
-
-  Object.assign(SweetAlert.prototype, instanceMethods); // Assign static methods from src/staticMethods/*.js to constructor
-
-  Object.assign(SweetAlert, staticMethods); // Proxy to instance methods to constructor, for now, for backwards compatibility
-
+  // Proxy to instance methods to constructor, for now, for backwards compatibility
   Object.keys(instanceMethods).forEach(key => {
-    SweetAlert[key] = function (...args) {
+    /**
+     * @param {...any} args
+     * @returns {any}
+     */
+    SweetAlert[key] = function () {
       if (currentInstance) {
-        return currentInstance[key](...args);
+        return currentInstance[key](...arguments);
       }
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '11.1.5';
+  SweetAlert.version = '11.6.11';
 
   const Swal = SweetAlert;
+  // @ts-ignore
   Swal.default = Swal;
 
   return Swal;
 
 }));
-if (typeof this !== 'undefined' && this.Sweetalert2){  this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
+if (typeof this !== 'undefined' && this.Sweetalert2){this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
 
 
 /***/ }),
@@ -44810,18 +35834,6 @@ _core_core_js__WEBPACK_IMPORTED_MODULE_0__["default"].use(modules);
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/global */
-/******/ 	(() => {
-/******/ 		__webpack_require__.g = (function() {
-/******/ 			if (typeof globalThis === 'object') return globalThis;
-/******/ 			try {
-/******/ 				return this || new Function('return this')();
-/******/ 			} catch (e) {
-/******/ 				if (typeof window === 'object') return window;
-/******/ 			}
-/******/ 		})();
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
@@ -44836,26 +35848,6 @@ _core_core_js__WEBPACK_IMPORTED_MODULE_0__["default"].use(modules);
 /******/ 			}
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
-/******/ 	})();
-/******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		var scriptUrl;
-/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
-/******/ 		var document = __webpack_require__.g.document;
-/******/ 		if (!scriptUrl && document) {
-/******/ 			if (document.currentScript)
-/******/ 				scriptUrl = document.currentScript.src
-/******/ 			if (!scriptUrl) {
-/******/ 				var scripts = document.getElementsByTagName("script");
-/******/ 				if(scripts.length) scriptUrl = scripts[scripts.length - 1].src
-/******/ 			}
-/******/ 		}
-/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -44884,14 +35876,12 @@ _global["default"]._babelPolyfill = true;
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_app_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("./scss/app.scss");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("./node_modules/bootstrap/dist/js/bootstrap.esm.js");
-/* harmony import */ var _svg_icons_magnify_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./svg-icons/magnify.svg");
-/* harmony import */ var _main_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("./js/main.js");
+/* harmony import */ var _main_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("./js/main.js");
  // or get all of the named exports for further usage
 
 
 window.bootstrap = bootstrap__WEBPACK_IMPORTED_MODULE_1__;
-console.log("aassaaa");
-
+console.log("BS ready");
 
 })();
 

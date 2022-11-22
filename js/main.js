@@ -4,7 +4,7 @@ import { runAnimation } from './CursorAnimation';
 
 // import './utils/ParallaxMouseRotation';
 import './utils/ScrollTo';
-import { stickHeaderInit } from './utils/StickyHeader';
+// import { stickHeaderInit } from './utils/StickyHeader';
 // import { initPerspectiveCards } from './effects/PerspectiveCard';
 
 
@@ -16,17 +16,15 @@ import './swipers'
 import './offcanvas'
 import { startScrollTrigger } from './effects/ScrollTrigger'
 import Ripple from './effects/ButtonMaterialRipple'
-import CartBox from './cart-box'
-import SvgMap from './svg-map.js';
 
 $('html').removeClass('no-js');
 
-Ripple.init();
+// Ripple.init();
 // initPerspectiveCards();
 
-stickHeaderInit({
-    header:'.main-header'
-});
+// stickHeaderInit({
+//     header:'.main-header'
+// });
 
 // $(document).foundation();
 

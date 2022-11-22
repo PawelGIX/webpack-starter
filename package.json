@@ -32,23 +32,20 @@
     "webpack-cli": "^4.8.0"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.14.1",
     "@popperjs/core": "^2.10.1",
     "@yaireo/tagify": "^2.31.3",
     "aos": "^2.3.4",
-    "bootstrap": "^5.1.1",
-    "cash-dom": "^8.1.0",
+    "bootstrap": "^5.2.3",
     "chalk": "^2.4.2",
     "countup.js": "^2.0.4",
     "foundation-sites": "^6.7.2",
-    "gsap": "^3.7.1",
+    "gsap": "^3.10.4",
     "jquery-validation": "^1.19.0",
-    "matchheight": "^0.1.2",
-    "mobx": "^6.3.3",
-    "rellax": "^1.10.0",
-    "sal.js": "^0.5.0",
+    "mobx": "^6.7.0",
+    "sal.js": "^0.8.0",
     "scrollmagic": "^2.0.8",
-    "svg-pan-zoom": "^3.6.1",
-    "sweetalert2": "^11.1.5",
+    "sweetalert2": "^11.4.8",
     "swiper": "^7.0.6"
   }
 }
